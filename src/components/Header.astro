@@ -1,791 +1,484 @@
 ---
 import navData from "@data/navData.json";
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 import DarkModeToggle from "@components/DarkModeToggle.astro";
 ---
 
-<!-- ============================================ --><!--                 Navigation                   --><!-- ============================================ -->
-<header id="cs-navigation">
-  <div class="cs-container">
-    <!--Nav Logo-->
-    <a href="/" class="cs-logo" aria-label="back to home">
+<div id="navigation">
+  <div aria-hidden="true" class="background-color-div">
+    <!--This div is used to overcome a z-index issue where the open
+            #navbar-menu is on top of the #navigation. This bar places itself 
+            the #navbar-menu so that menu appears behind the #navigation
+        -->
+  </div>
+  <div class="container">
+    <a aria-label="click to go to home page" class="logo" href="/">
       <img
-        src="/assets/svgs/logo-black.svg"
-        alt=""
-        width="210"
-        height="29"
         aria-hidden="true"
+        src="/assets/images/logo_white.png"
         decoding="async"
+        alt="logo"
+        width="221"
+        height="66"
       />
     </a>
-    <!--Navigation List-->
-    <nav class="cs-nav" role="navigation">
-      <!--Mobile Nav Toggle-->
-      <button class="cs-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="cs-expanded-ul" aria-label="Toggle mobile menu.">
-        <div class="cs-box" aria-hidden="true">
-          <span class="cs-line cs-line1" aria-hidden="true"></span>
-          <span class="cs-line cs-line2" aria-hidden="true"></span>
-          <span class="cs-line cs-line3" aria-hidden="true"></span>
-        </div>
-      </button>
-      <!-- If you want to use another navigation stitch and enjoy the benefits of dynamic routing, replace the .cs-ul-wrapper in the navigation stitch with this one below -->
-      <div class="cs-ul-wrapper">
-        <ul id="cs-expanded-ul" class="cs-ul">
-          {navData.map((entry) => (
-            <li
-              class:list={[
-                "cs-li",
-                { "cs-dropdown": entry.children?.length > 0 },
-              ]}
-              
-            >
-              {entry.children?.length > 0 ? (
-                // If entry has children in navData.json, create a button and a dropdown icon
-                <button
-                aria-expanded="false"
-                aria-controls={`submenu-${entry.key}`}
-                  class:list={[
-                    "cs-li-link cs-dropdown-button",
-                    { "cs-active": Astro.url.pathname.includes(entry.url)},
-                  ]}
-                >
-                  {entry.key}
-                  <Icon name="mdi--caret" class="cs-drop-icon" />
-                </button>
-              ) : (
-                // If entry does not have children in navData.json, create an anchor
-                <a
-                  href={entry.url}
-                  class:list={[
-                    "cs-li-link",
-                    { "cs-active": Astro.url.pathname === entry.url },
-                  ]}
-                  aria-current={Astro.url.pathname === entry.url ? "page" : undefined}
-                >
-                  {entry.key}
-                </a>
-              )}
-              
-              {entry.children?.length > 0 && (
-                // If entry has children in navData.json, create a drop down menu
-                <ul id={`submenu-${entry.key}`} class="cs-drop-ul">
-                  {entry.children.map((child) => (
-                    <li class="cs-drop-li">
-                      <a 
-                        href={child.url} 
-                        class="cs-li-link cs-drop-link"
-                        aria-current={Astro.url.pathname === child.url ? "page" : undefined}
-                      >
-                        {child.key}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
+
+    <!--Main Nav-->
+    <nav id="navbar-menu">
+      <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a class="" href="/about">About Us</a></li>
+        <li><a class="" href="/menu">Menu</a></li>
+        <li><a class="" href="/reviews">Reviews</a></li>
+        <li><a class="" href="/apply">Careers</a></li>
+        <li><a class="" href="/contact">Contact</a></li>
+      </ul>
     </nav>
-    <a href="/contact" class="cs-button-solid cs-nav-button">Contact Us</a>
-    <!--Dark Mode toggle: remove component if you don't want to enable a dark mode toggle-->
-    <DarkModeToggle />
+
+    <a href="/menu" class="cs-button-solid reservation">See Menu</a>
+
+    <!--Mobile Nav toggle-->
+    <button class="hamburger-menu" aria-label="mobile menu toggle">
+      <span aria-hidden="true"></span>
+    </button>
   </div>
-</header>
+</div>
+<script defer="">
+  document.addEventListener("scroll", (e) => {
+    const scroll = document.documentElement.scrollTop;
+    if (scroll >= 100) {
+      document.querySelector("body").classList.add("scroll");
+    } else {
+      document.querySelector("body").classList.remove("scroll");
+    }
+  });
+</script>
+<script>
+  //
+  //    Toggle Mobile Navigation
+  //
+  const navbarMenu = document.querySelector("#navigation #navbar-menu");
+  const hamburgerMenu = document.querySelector("#navigation .hamburger-menu");
 
+  hamburgerMenu.addEventListener("click", function () {
+    navbarMenu.classList.toggle("open");
+    hamburgerMenu.classList.toggle("clicked");
+  });
+</script>
 <style lang="less">
-
-/*-- -------------------------- -->
-<---     Mobile Navigation      -->
+  /*-- -------------------------- -->
+<---         Navigation         -->
 <--- -------------------------- -*/
-
-/* Mobile - 1023px */
-@media only screen and (max-width: 63.9375rem) {
-  body {
-    &.cs-open {
-      overflow: hidden;
-    }
-  }
-
-  #cs-navigation {
-    /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-    font-family: "Roboto", "Arial", sans-serif;
-    width: 100%;
-    /* prevents padding from affecting height and width */
-    box-sizing: border-box;
-    padding: (12/16rem) (16/16rem);
-    background-color: #fff;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    position: fixed;
-    z-index: 10000;
-
-    &:before {
-      /* black blurred overlay */
-      content: "";
-      width: 0%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.6);
-      opacity: 0;
-      display: block;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      z-index: -11;
-      transition: width 0.5s, opacity 0.3s;
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
+  /* Mobile - Top Drop Down */
+  @media only screen and (max-width: 1023px) {
+    body.scroll #navigation {
+      -webkit-backdrop-filter: blur(0);
+      backdrop-filter: blur(0);
+      background: #fff;
     }
 
-    &.cs-active {
-      &:before {
-        width: 100%;
-        opacity: 1;
-      }
-
-      .cs-ul-wrapper {
-        opacity: 1;
-        visibility: visible;
-        transform: scaleX(1);
-        transition-delay: 0.2s;
-      }
-
-      .cs-li {
-        opacity: 1;
-        transform: translateX(0);
-      }
+    body.scroll #navigation #navbar-menu ul li a {
+      color: #1a1a1a;
     }
-
-    .cs-container {
+    #navigation {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
+      z-index: 100000;
+      height: auto;
+      background: rgba(0, 0, 0, 0.08);
+      -webkit-backdrop-filter: blur(27px);
+      backdrop-filter: blur(27px);
+      transition:
+        filter 0.3s,
+        background-color 0.3s;
+    }
+    #navigation .container {
+      padding: 0.8125rem 0;
+      width: 96%;
       display: flex;
+      align-items: center;
       justify-content: flex-end;
-      align-items: center;
-    }
-
-    .cs-logo {
-      width: 40%;
-      max-width: (146/16rem);
-      height: 100%;
-      margin: 0 auto 0 0;
-      /* prevents padding from affecting height and width */
-      box-sizing: border-box;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-
-      img {
-        width: 100%;
-        height: 100%;
-        /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
-        object-fit: contain;
-        /* places the image to the left edge of the parent */
-        object-position: left;
-      }
-    }
-
-    .cs-toggle {
-      /* 44px - 48px */
-      width: clamp(2.75rem, 6vw, 3rem);
-      height: clamp(2.75rem, 6vw, 3rem);
-      margin: 0 0 0 auto;
-      background-color: transparent;
-      border: none;
-      border-radius: (4/16rem);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .cs-active {
-      .cs-line1 {
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(225deg);
-      }
-
-      .cs-line2 {
-        top: 50%;
-        transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
-        transform-origin: center;
-      }
-
-      .cs-line3 {
-        opacity: 0;
-        bottom: 100%;
-      }
-    }
-
-    .cs-box {
-      /* 24px - 28px */
-      width: clamp(1.5rem, 2vw, 1.75rem);
-      /* 14px - 16px */
-      height: clamp(0.875rem, 1.5vw, 1rem);
       position: relative;
+      z-index: 100;
     }
-
-    .cs-line {
-      width: 100%;
+    #navigation .logo {
+      display: inline-block;
+      height: 1.875rem;
+      width: auto;
+      margin-right: auto;
+    }
+    #navigation .logo img {
+      width: auto;
+      height: 100%;
+    }
+    #navigation .logo .light {
+      display: none;
+    }
+    #navigation .logo .dark {
+      display: block;
+    }
+    #navigation .hamburger-menu {
+      border: none;
+      height: 3rem;
+      width: 3rem;
+      z-index: 100;
+      display: block;
+      background: transparent;
+      position: relative;
+      padding: 0;
+    }
+    #navigation .hamburger-menu span {
       height: 2px;
-      background-color: #1a1a1a;
-      border-radius: 2px;
+      width: 1.875rem;
+      background-color: #fff;
+      display: block;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      transition: background-color 0.3s;
     }
-
-    .cs-line1 {
-      top: 0;
-      transition: transform 0.5s, top 0.3s, left 0.3s;
-      animation-duration: 0.7s;
-      animation-timing-function: ease;
-      animation-direction: normal;
-      animation-fill-mode: forwards;
-      transform-origin: center;
-    }
-
-    .cs-line2 {
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      transition: top 0.3s, left 0.3s, transform 0.5s;
-      animation-duration: 0.7s;
-      animation-timing-function: ease;
-      animation-direction: normal;
-      animation-fill-mode: forwards;
-    }
-
-    .cs-line3 {
-      bottom: 0;
-      transition: bottom 0.3s, opacity 0.3s;
-    }
-
-    .cs-ul-wrapper {
-      height: 100vh;
-      background-color: #fff;
-      box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
-      opacity: 0;
-      visibility: hidden;
+    #navigation .hamburger-menu span:before {
+      content: "";
       position: absolute;
-      top: 100%;
-      right: 0;
-      left: auto;
-      z-index: -1;
-      overflow: hidden;
-      transform: scaleX(0);
-      transition: transform 0.4s, opacity 0.3s;
-      transform-origin: top right;
+      display: block;
+      height: 2px;
+      width: 80%;
+      background: #fff;
+      opacity: 1;
+      top: -6px;
+      left: 0;
+      transition:
+        width 0.3s,
+        left 0.3s,
+        top 0.3s,
+        transform 0.5s;
     }
-
-    .cs-ul {
-      width: auto;
-      min-width: 40%;
-      height: 65vh;
-      margin: 0;
-      /* 28px - 40px */
-      padding: (48/16rem) clamp(1.75rem, 3vw, 2.5rem) (32/16rem) (70/16rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-end;
-      gap: (20/16rem);
-      overflow: scroll;
+    #navigation .hamburger-menu span:after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 2px;
+      width: 80%;
+      background: #fff;
+      opacity: 1;
+      top: 6px;
+      left: 0;
+      transition:
+        width 0.3s,
+        left 0.3s,
+        top 0.3s,
+        transform 0.3s;
     }
-
-    .cs-li {
-      text-align: right;
-      list-style: none;
-      width: 100%;
-      margin-right: 0;
-      opacity: 0;
-      /* transition from these values */
-      transform: translateX(-40/16rem);
-      transition: transform 0.6s, opacity 0.9s;
-
-      &:nth-of-type(1) {
-        transition-delay: 0.05s;
-      }
-      &:nth-of-type(2) {
-        transition-delay: 0.1s;
-      }
-      &:nth-of-type(3) {
-        transition-delay: 0.15s;
-      }
-      &:nth-of-type(4) {
-        transition-delay: 0.2s;
-      }
-      &:nth-of-type(5) {
-        transition-delay: 0.25s;
-      }
-      &:nth-of-type(6) {
-        transition-delay: 0.3s;
-      }
-      &:nth-of-type(7) {
-        transition-delay: 0.35s;
-      }
-      &:nth-of-type(8) {
-        transition-delay: 0.4s;
-      }
-      &:nth-of-type(9) {
-        transition-delay: 0.45s;
-      }
-    }
-
-    .cs-li-link {
-      /* 16px - 24px */
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
-      color: inherit;
-      line-height: 1.2em;
-      text-decoration: none;
-      margin: 0;
-      display: inline-block;
-      position: relative;
-
-      &:before {
-        /* active state underline */
-        content: "";
-        width: 100%;
-        height: 1px;
-        background: currentColor;
-        opacity: 1;
-        display: none;
-        position: absolute;
-        bottom: (-2/16rem);
-        left: 0;
-      }
-
-      &.cs-active {
-        &:before {
-          display: block;
-        }
-      }
-    }
-
-    .cs-button-solid {
-      display: none;
-    }
-  }
-}
-
-/* Dark Mode */
-@media only screen and (max-width: 63.9375rem) {
-  body.dark-mode {
-    #cs-navigation {
-      background-color: var(--dark);
-
-      .cs-logo {
-        /* makes it white */
-        filter: grayscale(1) brightness(1000%);
-      }
-
-      .cs-line {
-        background-color: #fff;
-      }
-
-      .cs-ul-wrapper {
-        background-color: var(--medium);
-      }
-
-      .cs-li-link {
-        color: var(--bodyTextColorWhite);
-      }
-    }
-  }
-}
-
-/*-- -------------------------- -->
-<---     Navigation Dropdown    -->
-<--- -------------------------- -*/
-
-/* Mobile - 1023px */
-@media only screen and (max-width: 63.9375rem) {
-  #cs-navigation {
-    .cs-dropdown {
-      color: var(--bodyTextColorWhite);
-      color: var(--headerColor);
-
-      position: relative;
-
-      &.cs-active {
-        .cs-drop-ul {
-          height: auto;
-          margin: (12/16rem) 0 0 0;
-          padding: (24/16rem);
-          opacity: 1;
-          visibility: visible;
-          transform: scale(1);
-        }
-
-        .cs-drop-link {
-          opacity: 1;
-        }
-
-        .cs-drop-icon {
-          transform: rotate(0);
-        }
-      }
-
-      .cs-li-link {
-        position: relative;
-        transition: opacity 0.3s;
-      }
-    }
-
-    .cs-drop-icon {
-      width: (15/16rem);
-      height: auto;
-      display: inline-block;
-      color: inherit;
-      transform: rotate(180deg);
-      transition: 0.3s;
-    }
-
-    .cs-drop-ul {
-      width: 100%;
-      height: 0;
-      margin: 0;
-      box-sizing: border-box;
-      padding: 0 (24/16rem) 0 (24/16rem);
-      background-color: var(--primary);
-      opacity: 0;
-      display: flex;
-      visibility: hidden;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-end;
-      gap: (12/16rem);
-      overflow: hidden;
-      transform: scale(0);
-      transition: padding 0.3s, margin 0.3s, height 0.3s, opacity 0.3s,
-        transform 0.3s, visibility 0.3s;
-      transform-origin: top right;
-    }
-
-    .cs-drop-li {
-      text-align: inherit;
-      list-style: none;
-    }
-
-    .cs-li-link {
-      &.cs-drop-link {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 2vw, 1.25rem);
-        color: #fff;
-      }
-    }
-
-    .cs-dropdown-button {
+    #navigation .hamburger-menu.clicked span {
       background-color: transparent;
-      border: none;
-      appearance: none;
     }
-  }
-}
-
-/* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-  #cs-navigation {
-    .cs-dropdown {
-      position: relative;
-      &:hover,
-      &.cs-active {
-        cursor: pointer;
-        .cs-drop-ul {
-          opacity: 1;
-          visibility: visible;
-          transform: scaleY(1);
-        }
-
-        .cs-drop-li {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+    #navigation .hamburger-menu.clicked span:before {
+      width: 100%;
+      transform: translate(-50%, -50%) rotate(225deg);
+      left: 50%;
+      top: 50%;
     }
-
-    .cs-dropdown:has(.cs-drop-icon) {
-      display: flex;
-      align-items: center;
-      &:hover {
-        .cs-drop-icon {
-        transform: rotate(0);
-        }
-      }
+    #navigation .hamburger-menu.clicked span:after {
+      width: 100%;
+      transform: translate(-50%, -50%) rotate(-225deg);
+      left: 50%;
+      top: 50%;
     }
-
-
-    .cs-drop-icon {
-      width: (15/16rem);
-      height: auto;
-      display: inline-block;
-      color: inherit;
-      transform: rotate(180deg);
-      transition: 0.3s;
-      
-    }
-
-    .cs-drop-ul {
-      min-width: (200/16rem);
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 10px 16px;
-      opacity: 0;
-      border-bottom: 5px solid var(--primary);
-      visibility: hidden;
-      /* if you have 8 or more links in your dropdown nav, uncomment the columns property to make the list into 2 even columns. Change it to 3 or 4 if you need extra columns. Then remove the transition delays on the cs-drop-li so they don't have weird scattered animations */
-      // columns: 2;
+    #navigation .reservation {
+      font-size: 0.8125rem;
+      padding: 0 0.9375rem;
+      min-width: 6.25rem;
+      background-color: transparent;
+      border: 1px solid var(--primary);
+      color: #fff;
       position: absolute;
-      top: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #navigation #navbar-menu {
+      position: fixed;
+      right: 0;
+      padding: 0;
+      width: 100%;
+      border-radius: 0 0 0.375em 0.375em;
       z-index: -100;
       overflow: hidden;
-      transform: scaleY(0);
-      transition: transform 0.3s, visibility 0.3s, opacity 0.3s;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      background-color: rgba(0, 0, 0, 0.96);
       transform-origin: top;
+      top: 4.625rem;
+      padding-top: 0;
+      transform: scaleY(0);
+      transition:
+        transform 0.3s,
+        padding-top 0.3s,
+        top 0.3s;
     }
-
-    .cs-drop-li {
-      font-size: (16/16rem);
-      text-decoration: none;
+    #navigation #navbar-menu ul {
+      padding: 0;
+      perspective: 700px;
+    }
+    #navigation #navbar-menu ul li {
       list-style: none;
-      width: 100%;
-      height: auto;
-      color: var(--bodyTextColor);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      transform-style: preserve-3d;
       opacity: 0;
+      transform: translateY(-0.4375rem) rotateX(90deg);
+      transition:
+        opacity 0.5s,
+        transform 0.5s;
+    }
+    #navigation #navbar-menu ul li:nth-of-type(1) {
+      transition-delay: 0.01s;
+    }
+    #navigation #navbar-menu ul li:nth-of-type(2) {
+      transition-delay: 0.02s;
+    }
+    #navigation #navbar-menu ul li:nth-of-type(3) {
+      transition-delay: 0.03s;
+    }
+    #navigation #navbar-menu ul li:nth-of-type(4) {
+      transition-delay: 0.04s;
+    }
+    #navigation #navbar-menu ul li:nth-of-type(5) {
+      transition-delay: 0.05s;
+    }
+    #navigation #navbar-menu ul li:nth-of-type(6) {
+      transition-delay: 0.06s;
+    }
+    #navigation #navbar-menu ul li:nth-of-type(7) {
+      transition-delay: 0.07s;
+    }
+    #navigation #navbar-menu ul li a {
+      text-decoration: none;
+      color: #f7f7f7;
+      font-size: 1rem;
+      text-align: center;
+      display: inline-block;
+      position: relative;
+    }
+    #navigation #navbar-menu ul li a.active:before {
+      content: "";
+      position: absolute;
       display: block;
-      transform: translateY(-10/16rem);
-      transition: opacity 0.6s, transform 0.6s;
-
-      &:nth-of-type(1) {
-        transition-delay: 0.05s;
-      }
-      &:nth-of-type(2) {
-        transition-delay: 0.1s;
-      }
-      &:nth-of-type(3) {
-        transition-delay: 0.15s;
-      }
-      &:nth-of-type(4) {
-        transition-delay: 0.2s;
-      }
-      &:nth-of-type(5) {
-        transition-delay: 0.25s;
-      }
-      &:nth-of-type(6) {
-        transition-delay: 0.3s;
-      }
-      &:nth-of-type(7) {
-        transition-delay: 0.35s;
-      }
-      &:nth-of-type(8) {
-        transition-delay: 0.4s;
-      }
-      &:nth-of-type(9) {
-        transition-delay: 0.45s;
-      }
-      &:nth-of-type(10) {
-        transition-delay: 0.5s;
-      }
-      &:nth-of-type(11) {
-        transition-delay: 0.55s;
-      }
-      &:nth-of-type(12) {
-        transition-delay: 0.6s;
-      }
-      &:nth-of-type(13) {
-        transition-delay: 0.65s;
-      }
+      height: 0.25rem;
+      background: var(--primary);
+      opacity: 1;
+      bottom: -0.25rem;
+      border-radius: 0.25rem;
+      left: -0.375rem;
+      right: -0.375rem;
+      z-index: -1;
     }
-
-    .cs-li-link {
-      &.cs-drop-link {
-        font-size: (16/16rem);
-        line-height: 1.5em;
-        text-decoration: none;
-        white-space: nowrap;
-        width: 100%;
-        /* prevents padding from affecting height and width */
-        box-sizing: border-box;
-        padding: (12/16rem);
-        color: var(--bodyTextColor);
-        display: block;
-        transition: color 0.3s, background-color 0.3s;
-
-        &:hover {
-          background-color: #f7f7f7;
-        }
-
-        &:focus-within {
-          outline: 2px solid currentColor;
-          outline-offset: -2px;
-        }
-
-        &:before {
-          display: none;
-        }
-      }
+    #navigation #navbar-menu.open {
+      transform: scaleY(1);
+      padding-top: 1.25rem;
+      z-index: -100;
     }
-
-    .cs-dropdown-button {
+    #navigation #navbar-menu.open ul li {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+  }
+  /* Desktop */
+  @media only screen and (min-width: 64em) {
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 0.375em rgba(0, 0, 0, 0.3);
+      background-color: #fff;
+    }
+    ::-webkit-scrollbar-track-piece {
+      background-color: #f0f0f0;
+    }
+    ::-webkit-scrollbar {
+      width: 0.75em;
+      background-color: #f5f5f5;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 0.625em;
+      background: var(--primary);
+    }
+    body.scroll #navigation {
+      backdrop-filter: blur(0);
+      background: #fff;
+    }
+    body.dark-mode #navigation .background-color-div {
+      height: 100%;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    .reservation {
+      font-size: 1rem;
       background-color: transparent;
-      border: none;
-      appearance: none;
+      color: #fff;
+      border: 1px solid var(--primary);
+      min-width: auto;
+      margin-right: 1.25rem;
+      transition: color 0.3s;
     }
-  }
-}
-
-/* Dark Mode */
-@media only screen and (min-width: 0rem) {
-  body.dark-mode {
-    #cs-navigation {
-      .cs-drop-ul {
-        background-color: var(--dark);
-      }
-
-      .cs-li-link {
-        &.cs-drop-link {
-          &:hover {
-            background-color: var(--medium);
-          }
-        }
-      }
-
-      .cs-drop-icon {
-        /* turns it white */
-        filter: grayscale(1) brightness(1000%);
-      }
+    .reservation:hover {
+      color: #1a1a1a;
     }
-  }
-}
-
-/*-- -------------------------- -->
-<---     Desktop Navigation     -->
-<--- -------------------------- -*/
-
-/* Small Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-  #cs-navigation {
-    /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-    font-family: "Roboto", "Arial", sans-serif;
-    width: 100%;
-    /* prevents padding from affecting height and width */
-    box-sizing: border-box;
-    padding: 0 (16/16rem);
-    background-color: #fff;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    position: fixed;
-    z-index: 10000;
-
-    .cs-container {
+    .reservation:before {
+      background-color: var(--primary);
+    }
+    #navigation {
       width: 100%;
-      max-width: (1280/16rem);
-      margin: auto;
+      height: 6.25rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 200000;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(27px);
+      transition:
+        filter 0.3s,
+        background-color 0.3s;
+    }
+    #navigation .background-color-div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      height: 0;
+      transition: height 0.3s;
+    }
+    #navigation .container {
+      max-width: 75rem;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: (24/16rem);
     }
-
-    .cs-toggle {
-      display: none;
+    #navigation .logo {
+      margin-right: auto;
+      height: 3.75rem;
+      width: auto;
     }
-
-    .cs-logo {
-      width: 18.4%;
-      max-width: (350/16rem);
-      height: (65/16rem);
-      /* margin-right auto pushes everything away from it to the right */
-      margin: 0 auto 0 0;
+    #navigation .logo img {
+      width: auto;
+      height: 100%;
+    }
+    #navigation #navbar-menu {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #navigation #navbar-menu ul {
       padding: 0;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
-      z-index: 100;
-
-      img {
-        width: 100%;
-        height: 100%;
-        /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
-        object-fit: contain;
-      }
     }
-
-    .cs-ul {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      /* 20px - 36px */
-      gap: clamp(1.25rem, 2.6vw, 2.25rem);
-    }
-
-    .cs-li {
+    #navigation #navbar-menu ul li {
       list-style: none;
-      padding: (32/16rem) 0;
-      /* prevent flexbox from squishing it */
-      flex: none;
+      margin-left: 1.875rem;
+      padding-top: 0.1875rem;
     }
-
-    .cs-li-link {
+    #navigation #navbar-menu ul li a {
+      text-decoration: none;
       /* 14px - 16px */
       font-size: clamp(0.875rem, 1vw, 1rem);
-      line-height: 1.5em;
-      text-decoration: none;
-      margin: 0;
-      color: var(--bodyTextColor);
-      display: block;
       position: relative;
-      &:hover {
-        &:before {
-          width: 100%;
-        }
-      }
-
-      &.cs-active {
-        &:before {
-          width: 100%;
-        }
-      }
-
-      &:before {
-        /* active state underline */
-        content: "";
-        width: 0%;
-        height: 2px;
-        background: var(--primary);
-        opacity: 1;
-        display: block;
-        position: absolute;
-        bottom: (0/16rem);
-        left: 0;
-        transition: width 0.3s;
-      }
+      z-index: 1;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    #navigation #navbar-menu ul li a:before {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 0.25rem;
+      border-radius: 0.1875rem;
+      background: var(--secondary);
+      opacity: 1;
+      bottom: -0.4375rem;
+      z-index: -1;
+      left: 0;
+      width: 0%;
+      transition: width 0.3s;
+    }
+    #navigation #navbar-menu ul li a:hover:before {
+      width: 100%;
+    }
+    #navigation #navbar-menu ul li a.active:before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 0.25rem;
+      background: var(--primary);
+      opacity: 1;
+      bottom: -0.4375rem;
+      border-radius: 0.1875rem;
+      left: 0rem;
+      right: -0.375rem;
+      z-index: -1;
+      transition: bottom 0.3s;
+    }
+    #navigation .hamburger-menu {
+      display: none;
     }
   }
-}
-
-/* Dark Mode */
-@media only screen and (min-width: 64rem) {
-  body.dark-mode {
-    #cs-navigation {
+  /* Dark Mode Mobile */
+  @media only screen and (max-width: 1023px) {
+    body.dark-mode #navigation .background-color-div {
       background-color: var(--dark);
-
-      .cs-logo {
-        /* makes it turn white */
-        filter: grayscale(1) brightness(1000%);
-      }
-
-      .cs-li-link {
-        color: var(--bodyTextColorWhite);
-      }
-
-      .cs-li-link {
-        &:before {
-          background-color: var(--primaryLight);
-        }
-      }
+    }
+    body.dark-mode #navigation .hamburger-menu.clicked span {
+      background-color: var(--dark);
+    }
+    body.dark-mode #navigation .hamburger-menu span {
+      background-color: #fff;
+    }
+    body.dark-mode #navigation .hamburger-menu span:before,
+    body.dark-mode #navigation .hamburger-menu span:after {
+      background-color: #fff;
+    }
+    body.dark-mode #navigation .logo .light {
+      display: block;
+    }
+    body.dark-mode #navigation .logo .dark {
+      display: none !important;
+    }
+    body.dark-mode #navigation #navbar-menu {
+      background-color: var(--medium);
+    }
+    body.dark-mode #navigation #navbar-menu ul li a {
+      color: #fff;
+    }
+    body.dark-mode #navigation #navbar-menu ul li a:before {
+      background: var(--accent);
+    }
+    body.dark-mode #navigation #navbar-menu ul li a.active {
+      color: var(--primary);
     }
   }
-}
+  /* Dark Mode Desktop */
+  @media only screen and (min-width: 1024px) {
+    body.dark-mode #navigation .background-color-div {
+      background-color: var(--dark);
+    }
+    body.dark-mode #navigation .logo .light {
+      display: block;
+    }
+    body.dark-mode #navigation .logo .dark {
+      display: none !important;
+    }
+    body.dark-mode #navigation #navbar-menu ul li a {
+      color: #fff;
+    }
+    body.dark-mode #navigation #navbar-menu ul li a:before {
+      background: var(--accent);
+    }
+    body.dark-mode #navigation #navbar-menu ul li a.active {
+      color: var(--primary);
+    }
+  }
 </style>

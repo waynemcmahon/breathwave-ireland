@@ -4,132 +4,72 @@ import CTA from "@components/CTA.astro";
 import FAQ from "@components/FAQ.astro";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
-import {getOptimizedImage} from "@libs/utils"
-import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
-const optimizedImage = await getOptimizedImage(landingImage)
+import { getOptimizedImage } from "@libs/utils";
+import landingImage from "@assets/images/landing.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
 <BaseLayout
   title="Pixel Perfect Websites"
   description="Meta description for the page"
-  preloadedImage = {optimizedImage}
+  preloadedImage={optimizedImage}
 >
   <!-- ============================================ -->
   <!--                    Hero                      -->
   <!-- ============================================ -->
 
-  <section id="hero">
+  <section id="hero-998">
     <div class="cs-container">
-      <div class="cs-flex-group">
-        <span class="cs-topper">Intermediate Kit</span>
-        <h1 class="cs-title">Intermediate Astro v4 <br/> Decap CMS</h1>
-        <p class="cs-text">
-          This intermediate kit includes a pre-configured Astro environment, which
-allows for repeated components, centralized data and greater room to scale as your clients grow. Decap CMS has been integrated to run a blog.
-        </p>
-        <a href="/about" class="cs-button-solid">Explore More</a>
-        <a href="/contact" class="cs-button-transparent">
-          <img
-            class="cs-img"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.digitaloceanspaces.com/Hero/play.svg"
-            alt="play icon"
-            width="17"
-            height="17"
+      <div class="cs-content">
+        <span class="cs-topper">Welcome to</span>
+        <!--Logo-->
+        <picture class="cs-logo">
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/logo_white.png"
           />
-          Get in Touch
-        </a>
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/logo_white.png"
+          />
+          <img
+            decoding="async"
+            src="/assets/images/logo_white.png"
+            alt="Stitch House Restaurant"
+            width="614"
+            height="166"
+          />
+        </picture>
+        <p class="cs-text">
+          Indulge in our exquisite range of home-baked treats and freshly brewed
+          coffee, all served in a cozy, welcoming space nestled at the foot of
+          the stunning Slieve Mish mountain range.
+        </p>
+        <a href="" class="cs-button-solid">See Our Menu</a>
       </div>
     </div>
-
-    <!-- Background Image -->
-    <!-- We can't use Astro <Picture /> as it does not support multiple sources -->
-    <picture class="cs-picture">
-      <source
-        media="(max-width: 600px)"
-        srcset="/assets/images/hero-m.webp"
-      />
-      <source media="(min-width: 601px)" srcset="/assets/images/hero.jpg" />
+    <!--Background Image-->
+    <!--Image is also set as background image in CSS at 1400px for parallax effect-->
+    <picture class="cs-background">
+      <source media="(max-width: 600px)" srcset="/assets/images/hero2.jpg" />
+      <source media="(min-width: 601px)" srcset="/assets/images/hero2.jpg" />
       <img
-        aria-hidden="true"
         decoding="async"
-        src={optimizedImage.src}
-        alt="new home"
-        width="2500"
-        height="1667"
-        loading="eager"
+        src="/assets/images/hero2.jpg"
+        alt="logo"
+        width="1920"
+        height="1000"
       />
     </picture>
-
   </section>
 
   <!-- ============================================ -->
-  <!--                  Services                    -->
+  <!--             Side By Side Reverse             -->
   <!-- ============================================ -->
 
-  <section id="services" class="services">
-    <div class="card">
-      <picture>
-        <img
-          aria-hidden="true"
-          decoding="async"
-          src="/assets/svgs/service1.svg"
-          alt="appliance"
-          width="48"
-          height="48"
-        />
-      </picture>
-      <h2>Service 1</h2>
-      <p>
-        Talk about the service with keywords people will be searching for it by.
-        Keep it 1-2 sentences.
-      </p>
-    </div>
-    <div class="card">
-      <picture>
-        <img
-          aria-hidden="true"
-          decoding="async"
-          src="/assets/svgs/service2.svg"
-          alt="appliance"
-          width="48"
-          height="48"
-        />
-      </picture>
-      <h2>Service 2</h2>
-      <p>
-        Talk about the service with keywords people will be searching for it by.
-        Keep it 1-2 sentences.
-      </p>
-    </div>
-    <div class="card">
-      <picture>
-        <img
-          aria-hidden="true"
-          decoding="async"
-          src="/assets/svgs/service3.svg"
-          alt="appliance"
-          width="48"
-          height="48"
-        />
-      </picture>
-      <h2>Service 3</h2>
-      <p>
-        Talk about the service with keywords people will be searching for it by.
-        Keep it 1-2 sentences.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!--                 Side By Side                 -->
-  <!-- ============================================ -->
-
-  <section id="sbs">
+  <section id="sbsr-1444">
     <div class="cs-container">
-      <!-- Left Image Section -->
-      <div class="cs-left">
+      <div class="cs-image-group">
         <picture class="cs-picture cs-picture1">
           <source
             media="(max-width: 600px)"
@@ -140,69 +80,109 @@ allows for repeated components, centralized data and greater room to scale as yo
             srcset="/assets/images/cabinets2.jpg"
           />
           <img
-            aria-hidden="true"
+            loading="lazy"
             decoding="async"
             src="/assets/images/cabinets2.jpg"
-            alt="cabinets"
-            loading="lazy"
-            width="400"
-            height="563"
+            alt="table of breakfast"
+            width="500"
+            height="729"
+            aria-hidden="true"
           />
         </picture>
         <picture class="cs-picture cs-picture2">
           <source
             media="(max-width: 600px)"
-            srcset="/assets/images/construction-m.jpg"
+            srcset="/assets/images/cabinets2-m.jpg"
           />
           <source
             media="(min-width: 601px)"
-            srcset="/assets/images/construction.jpg"
+            srcset="/assets/images/cabinets2.jpg"
           />
           <img
-            aria-hidden="true"
-            decoding="async"
-            src="/assets/images/construction.jpg"
-            alt="house"
             loading="lazy"
-            width="400"
-            height="563"
+            decoding="async"
+            src="/assets/images/cabinets2.jpg"
+            alt="table of breakfast"
+            width="500"
+            height="729"
+            aria-hidden="true"
           />
         </picture>
       </div>
-      <!-- Right Content Section-->
-      <div class="cs-right">
-        <span class="cs-topper">About Us</span>
-        <h2 class="cs-title">About Company Title</h2>
+      <div class="cs-content">
+        <span class="cs-topper">Giving Back</span>
+        <h2 class="cs-title">How To Donate Us</h2>
         <p class="cs-text">
-          In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-          officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-          et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-          nonatourean olei aptent taciti sociosqu ad litora torquent per.
+          Our impact is about more than moving money to where it's needed most
+          it's also about helping nonprofits access information and ideas that
+          will help them listen, learn, and grow.
         </p>
-        <p class="cs-text">
-          In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-          officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-          et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-          nonatourean olei aptent taciti sociosqu ad litora torquent per.
-        </p>
-        <div class="cs-flex-group">
-          <p class="cs-flex-p">
-            In consequat tincidunt turpis sit amet imperdiet. Praesent Classei
-            consequat tincidunt turpis sit amet imperdiet for mind.
-          </p>
-          <span class="cs-name">Justin Time</span>
-          <span class="cs-job">CEO-Founder</span>
-          <img
-            class="cs-quote-icon"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg"
-            alt="gavel"
-            width="136"
-            height="77"
-          />
-        </div>
-        <a href="/about" class="cs-button-solid">More About Us</a>
+        <ul class="cs-card-group">
+          <li class="cs-li">
+            <picture class="cs-li-picture">
+              <img
+                class="cs-li-icon"
+                aria-hidden="true"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/volunteer1.svg"
+                decoding="async"
+                alt="icon"
+                width="32"
+                height="32"
+                loading="lazy"
+              />
+            </picture>
+            <div class="cs-flex">
+              <h3 class="cs-h3">Become a Volunteer</h3>
+              <p class="cs-li-text">
+                It’s no secret that one person alone cannot overcome the
+                greatest humanitarian crises. It truly takes all of us.
+              </p>
+            </div>
+          </li>
+          <li class="cs-li">
+            <picture class="cs-li-picture">
+              <img
+                class="cs-li-icon"
+                aria-hidden="true"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/volunteer2.svg"
+                decoding="async"
+                alt="icon"
+                width="32"
+                height="32"
+                loading="lazy"
+              />
+            </picture>
+            <div class="cs-flex">
+              <h3 class="cs-h3">Quick Fundraise</h3>
+              <p class="cs-li-text">
+                It’s no secret that one person alone cannot overcome the
+                greatest humanitarian crises. It truly takes all of us.
+              </p>
+            </div>
+          </li>
+          <li class="cs-li">
+            <picture class="cs-li-picture">
+              <img
+                class="cs-li-icon"
+                aria-hidden="true"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/volunteer3.svg"
+                decoding="async"
+                alt="icon"
+                width="32"
+                height="32"
+                loading="lazy"
+              />
+            </picture>
+            <div class="cs-flex">
+              <h3 class="cs-h3">Start Donating</h3>
+              <p class="cs-li-text">
+                It's no secret that one person alone cannot overcome the
+                greatest humanitarian crises. It truly takes all of us.
+              </p>
+            </div>
+          </li>
+        </ul>
+        <a href="" class="cs-button-solid">Donate Now</a>
       </div>
     </div>
   </section>
@@ -278,209 +258,196 @@ allows for repeated components, centralized data and greater room to scale as yo
   </section>
 
   <!-- ============================================ -->
-  <!--                   Gallery                    -->
+  <!--                  Gallery                     -->
   <!-- ============================================ -->
 
-  <section id="gallery">
+  <section id="gallery-1234">
     <div class="cs-container">
-      <span class="cs-topper">Our Portfolio</span>
-      <h2 class="cs-title">
-        Et orci volutpat, back up generator installations
-      </h2>
-      <div class="cs-image-group">
-        <!-- Row 1-->
-        <div class="cs-row cs-row-1">
-          <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+      <div class="cs-content">
+        <span class="cs-topper">Our Gallery</span>
+        <h2 class="cs-title">Explore our gallery</h2>
+        <p class="cs-text">
+          IExplore our gallery to discover the mouthwatering dishes and cozy
+          ambiance of Anne's Coffee Bar, where every photo tells a story of
+          delightful flavors and warm hospitality.
+        </p>
+      </div>
+      <div class="cs-gallery">
+        <div class="cs-flex">
           <picture class="cs-picture cs-picture1">
+            <!--Mobile Image-->
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port1-m.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
+            <!--Tablet and above Image-->
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port1.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
             <img
-              aria-hidden="true"
-              decoding="async"
-              src="/assets/images/portfolio/port1.jpg"
-              alt="new hallway"
               loading="lazy"
-              width="400"
-              height="560"
+              decoding="async"
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="person"
+              width="360"
+              height="420"
             />
           </picture>
           <picture class="cs-picture cs-picture2">
+            <!--Mobile Image-->
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port4-m.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
+            <!--Tablet and above Image-->
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port4.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
             <img
-              aria-hidden="true"
-              decoding="async"
-              src="/assets/images/portfolio/port4.jpg"
-              alt="new home construction"
               loading="lazy"
-              width="400"
-              height="560"
-            />
-          </picture>
-          <picture class="cs-picture cs-picture3">
-            <source
-              media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port7-m.jpg"
-            />
-            <source
-              media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port7.jpg"
-            />
-            <img
-              aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port7.jpg"
-              alt="building a new wall"
-              loading="lazy"
-              width="400"
-              height="560"
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="person"
+              width="360"
+              height="240"
             />
           </picture>
         </div>
-        <!-- Row 2 -->
-        <div class="cs-row cs-row-2">
-          <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+        <picture class="cs-picture cs-row">
+          <!--Mobile Image-->
+          <source
+            media="(max-width: 600px)"
+            srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <!--Tablet and above Image-->
+          <source
+            media="(min-width: 601px)"
+            srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="person"
+            width="360"
+            height="520"
+          />
+        </picture>
+        <div class="cs-flex">
           <picture class="cs-picture cs-picture1">
+            <!--Mobile Image-->
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port2-m.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
+            <!--Tablet and above Image-->
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port2.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
             <img
-              aria-hidden="true"
-              decoding="async"
-              src="/assets/images/portfolio/port2.jpg"
-              alt="new kitchen"
               loading="lazy"
-              width="400"
-              height="560"
+              decoding="async"
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="person"
+              width="360"
+              height="420"
             />
           </picture>
           <picture class="cs-picture cs-picture2">
+            <!--Mobile Image-->
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port5-m.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
+            <!--Tablet and above Image-->
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port5.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
             <img
-              aria-hidden="true"
-              decoding="async"
-              src="/assets/images/portfolio/port5.jpg"
-              alt="apartment addition"
               loading="lazy"
-              width="400"
-              height="560"
-            />
-          </picture>
-          <picture class="cs-picture cs-picture3">
-            <source
-              media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port8-m.jpg"
-            />
-            <source
-              media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port8.jpg"
-            />
-            <img
-              aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port8.jpg"
-              alt="kew kitchen cabinets"
-              loading="lazy"
-              width="400"
-              height="560"
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="person"
+              width="360"
+              height="240"
             />
           </picture>
         </div>
-        <!-- Row 3 -->
-        <div class="cs-row cs-row-3">
-          <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+        <picture class="cs-picture cs-row">
+          <!--Mobile Image-->
+          <source
+            media="(max-width: 600px)"
+            srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <!--Tablet and above Image-->
+          <source
+            media="(min-width: 601px)"
+            srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="person"
+            width="360"
+            height="520"
+          />
+        </picture>
+        <div class="cs-flex">
           <picture class="cs-picture cs-picture1">
+            <!--Mobile Image-->
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port3-m.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
+            <!--Tablet and above Image-->
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port3.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
             <img
-              aria-hidden="true"
-              decoding="async"
-              src="/assets/images/portfolio/port3.jpg"
-              alt="new kitchen"
               loading="lazy"
-              width="400"
-              height="560"
+              decoding="async"
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="person"
+              width="360"
+              height="420"
             />
           </picture>
           <picture class="cs-picture cs-picture2">
+            <!--Mobile Image-->
             <source
               media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port6-m.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
+            <!--Tablet and above Image-->
             <source
               media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port6.jpg"
+              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
             <img
-              aria-hidden="true"
-              decoding="async"
-              src="/assets/images/portfolio/port6.jpg"
-              alt="apartment addition"
               loading="lazy"
-              width="400"
-              height="560"
-            />
-          </picture>
-          <picture class="cs-picture cs-picture3">
-            <source
-              media="(max-width: 600px)"
-              srcset="/assets/images/portfolio/port9-m.jpg"
-            />
-            <source
-              media="(min-width: 601px)"
-              srcset="/assets/images/portfolio/port9.jpg"
-            />
-            <img
-              aria-hidden="true"
               decoding="async"
-              src="/assets/images/portfolio/port9.jpg"
-              alt="kew kitchen cabinets"
-              loading="lazy"
-              width="400"
-              height="560"
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="person"
+              width="360"
+              height="240"
             />
           </picture>
         </div>
       </div>
-      <a href="/projects" class="cs-button-solid">View all projects</a>
     </div>
   </section>
 
-    <!-- ============================================ -->
+  <!-- ============================================ -->
   <!--                    FAQ                       -->
   <!-- ============================================ -->
   <FAQ />
-  
+
   <!-- ============================================ -->
   <!--                   Reviews                    -->
   <!-- ============================================ -->
@@ -929,534 +896,316 @@ allows for repeated components, centralized data and greater room to scale as yo
   }
 
   /* PAGE-SPECIFIC STYLES FOR THE HOME PAGE */
-
   /*-- -------------------------- -->
-<---       Side By Side         -->
+<---   Side By Side Reverse     -->
 <--- -------------------------- -*/
 
   /* Mobile - 360px */
-  @media only screen and (min-width: 0em) {
-    #sbs {
+  @media only screen and (min-width: 0rem) {
+    #sbsr-1444 {
       padding: var(--sectionPadding);
-
-      .cs-container {
-        width: 100%;
-        max-width: (1280/16rem);
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        row-gap: (40/16rem);
-      }
-
-      .cs-left {
-        /* scaling the font size with the view width */
-        font-size: ~"min(2.31vw, .7em)";
-        /* using ems so we can use font size to scale the whole section */
-        width: (631/16em);
-        height: (636/16em);
-        position: relative;
-      }
-
-      .cs-picture {
-        border-radius: (24/16em);
-        display: block;
-        position: absolute;
-        /* clips img tag corners */
-        overflow: hidden;
-        img {
-          width: 100%;
-          height: 100%;
-          /* makes image act like a background image */
-          object-fit: cover;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-
-      .cs-picture1 {
-        width: (522/16em);
-        height: (581/16em);
-        top: 0;
-        left: 0;
-      }
-
-      .cs-picture2 {
-        width: (414/16em);
-        height: (400/16em);
-        background-color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-        /* 6px - 12px */
-        border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
-        right: 0;
-        bottom: 0;
-      }
-
-      .cs-right {
-        max-width: (542/16rem);
-        margin: auto;
-      }
-
-      .cs-topper {
-        text-align: left;
-        margin-bottom: (4/16rem);
-      }
-
-      .cs-title {
-        text-align: left;
-        max-width: (800/16rem);
-      }
-
-      .cs-text {
-        text-align: left;
-        max-width: (750/16rem);
-        margin-bottom: (16/16rem);
-
-        &:last-of-type {
-          margin-bottom: (32/16rem);
-        }
-      }
-
-      .cs-flex-group {
-        /* 16px - 32px */
-        padding: clamp(1rem, 3vw, 2rem);
-        background-color: #f7f7f7;
-        border-radius: (16/16rem);
-        position: relative;
-      }
-
-      .cs-flex-p {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 1.5vw, 1rem);
-        line-height: 1.5em;
-        margin: 0 0 (16/16rem);
-        color: #353535;
-      }
-
-      .cs-name {
-        font-size: (16/16rem);
-        font-weight: bold;
-        line-height: 1.2em;
-        text-transform: uppercase;
-        margin: 0 0 (4/16rem);
-        color: var(--headerColor);
-        display: block;
-      }
-
-      .cs-job {
-        font-size: (14/16rem);
-        line-height: 1.5em;
-        color: #353535;
-        display: block;
-      }
-
-      .cs-quote-icon {
-        /* 60px - 136px */
-        width: clamp(3.75rem, 10vw, 8.5rem);
-        height: auto;
-        position: absolute;
-        /* 16px - 32px */
-        right: clamp(1rem, 4vw, 2rem);
-        bottom: (0/16rem);
-      }
-
-      .cs-button-solid {
-        margin-top: (32/16rem);
-      }
+      overflow: hidden;
+    }
+    #sbsr-1444 .cs-container {
+      width: 100%;
+      /* changes to 1280px at desktop */
+      max-width: 34.375rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+      position: relative;
+    }
+    #sbsr-1444 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: left;
+      width: 100%;
+      max-width: 33.875rem;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: flex-start;
+    }
+    #sbsr-1444 .cs-text {
+      margin-bottom: 1rem;
+    }
+    #sbsr-1444 .cs-text:last-of-type {
+      margin-bottom: 2rem;
+    }
+    #sbsr-1444 .cs-card-group {
+      width: 100%;
+      max-width: 39.375rem;
+      margin: 0 0 2rem 0;
+      padding: 0;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    #sbsr-1444 .cs-li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      /* 16px - 20px */
+      gap: clamp(1rem, 2.5vw, 1.25rem);
+    }
+    #sbsr-1444 .cs-li-picture {
+      width: 5rem;
+      height: 5rem;
+      margin: 0;
+      border-radius: 50%;
+      background-color: #fff;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* prevents flexbox from squishing it */
+      flex: none;
+      position: relative;
+      z-index: 1;
+    }
+    #sbsr-1444 .cs-li-picture:before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: var(--primary);
+      opacity: 0.1;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    #sbsr-1444 .cs-li-icon {
+      width: 2rem;
+      height: auto;
+      display: block;
+    }
+    #sbsr-1444 .cs-h3 {
+      font-size: 1.25rem;
+      line-height: 1.2em;
+      font-weight: 700;
+      text-align: left;
+      margin: 0 0 0.75rem 0;
+      color: var(--headerColor);
+    }
+    #sbsr-1444 .cs-li-text {
+      font-size: 1rem;
+      line-height: 1.5em;
+      text-align: left;
+      margin: 0;
+      color: var(--bodyTextColor);
+    }
+    #sbsr-1444 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 2rem;
+      background-color: var(--primary);
+      border-radius: 0.25rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+    #sbsr-1444 .cs-button-solid:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 0.25rem;
+      transition: width 0.3s;
+    }
+    #sbsr-1444 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+    #sbsr-1444 .cs-picture {
+      width: 100%;
+      max-width: 40.625rem;
+      min-height: 22.625rem;
+      border-radius: 1.5rem;
+      /* clips img tag corners */
+      overflow: hidden;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+    #sbsr-1444 .cs-picture img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+  }
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+    #sbsr-1444 .cs-container {
+      max-width: 80rem;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+      position: relative;
+    }
+    #sbsr-1444 .cs-content {
+      width: 50%;
+      padding: 2.5rem 0;
+    }
+    #sbsr-1444 .cs-picture {
+      height: auto;
+      width: 55%;
+      /* sends it to the right in the 2nd position */
+      order: 2;
     }
   }
 
-  /* Desktop - 1024px */
-  @media only screen and (min-width: 64em) {
-    #sbs {
-      .cs-container {
-        flex-flow: row;
-        justify-content: space-between;
-        gap: (52/16rem);
-      }
-
-      .cs-left {
-        font-size: ~"min(1.2vw, 1em)";
-        flex: none;
-      }
-
-      .cs-right {
-        margin: 0;
-      }
-    }
-  }
-
-  /* Dark Mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      #sbs {
-        .cs-left {
-          &:before,
-          &:after {
-            background: var(--accent);
-          }
-        }
-
-        .cs-picture2 {
-          background-color: var(--dark);
-          /* 6px - 12px */
-          border: clamp(0.375em, 1.5vw, 0.75em) solid var(--dark);
-        }
-
-        .cs-topper {
-          color: var(--primaryLight);
-        }
-
-        .cs-title,
-        .cs-text,
-        .cs-h3,
-        .cs-flex-p,
-        .cs-name {
-          color: var(--bodyTextColorWhite);
-        }
-
-        .cs-flex-group {
-          background-color: var(--accent);
-        }
-
-        .cs-job {
-          color: var(--bodyTextColorWhite);
-          opacity: 0.8;
-        }
-
-        .cs-quote-icon {
-          opacity: 0.2;
-        }
-      }
-    }
-  }
-
-  /*-- -------------------------- -->
-<---       Side By Side         -->
-<--- -------------------------- -*/
-
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0em) {
-    #sbs-r {
-      padding: var(--sectionPadding);
-
-      .cs-container {
-        width: 100%;
-        max-width: (1280/16rem);
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        row-gap: (40/16rem);
-      }
-
-      .cs-left {
-        /* scaling the font size with the view width */
-        font-size: ~"min(2.31vw, .7em)";
-        /* using ems so we can use font size to scale the whole section */
-        width: (631/16em);
-        height: (636/16em);
-        position: relative;
-      }
-
-      .cs-picture {
-        border-radius: (24/16em);
-        display: block;
-        position: absolute;
-        /* clips img tag corners */
-        overflow: hidden;
-        img {
-          width: 100%;
-          height: 100%;
-          /* makes image act like a background image */
-          object-fit: cover;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-
-      .cs-picture1 {
-        width: (522/16em);
-        height: (581/16em);
-        top: 0;
-        right: 0;
-      }
-
-      .cs-picture2 {
-        width: (414/16em);
-        height: (400/16em);
-        background-color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-        /* 6px - 12px */
-        border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
-        bottom: 0;
-        left: 0;
-      }
-
-      .cs-right {
-        max-width: (542/16rem);
-        margin: auto;
-      }
-
-      .cs-topper {
-        text-align: left;
-        margin-bottom: (4/16rem);
-      }
-
-      .cs-title {
-        text-align: left;
-        max-width: (800/16rem);
-      }
-
-      .cs-text {
-        text-align: left;
-        max-width: (750/16rem);
-        margin-bottom: (16/16rem);
-        &:last-of-type {
-          margin-bottom: (32/16rem);
-        }
-      }
-
-      .cs-flex-group {
-        /* 16px - 32px */
-        padding: clamp(1rem, 3vw, 2rem);
-        background-color: #f7f7f7;
-        border-radius: (16/16rem);
-        position: relative;
-      }
-
-      .cs-flex-p {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 1.5vw, 1rem);
-        line-height: 1.5em;
-        margin: 0 0 (16/16rem);
-        color: #353535;
-      }
-
-      .cs-name {
-        font-size: (16/16rem);
-        font-weight: bold;
-        line-height: 1.2em;
-        text-transform: uppercase;
-        margin: 0 0 (4/16rem);
-        color: var(--headerColor);
-        display: block;
-      }
-
-      .cs-job {
-        font-size: (14/16rem);
-        line-height: 1.5em;
-        color: #353535;
-        display: block;
-      }
-
-      .cs-quote-icon {
-        /* 60px - 136px */
-        width: clamp(3.75rem, 10vw, 8.5rem);
-        height: auto;
-        position: absolute;
-        /* 16px - 32px */
-        right: clamp(1rem, 4vw, 2rem);
-        bottom: (0/16rem);
-      }
-    }
-  }
-
-  /* Desktop - 1024px */
-  @media only screen and (min-width: 64em) {
-    #sbs-r {
-      .cs-container {
-        flex-flow: row;
-        justify-content: space-between;
-        gap: (52/16rem);
-      }
-
-      .cs-left {
-        font-size: ~"min(1.2vw, 1em)";
-        /* sends it to the right */
-        order: 2;
-        flex: none;
-      }
-
-      .cs-right {
-        margin: 0;
-      }
-    }
-  }
-
-  /* Dark Mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      #sbs-r {
-        .cs-left {
-          &:before,
-          &:after {
-            background: var(--accent);
-          }
-        }
-
-        .cs-picture2 {
-          background-color: var(--dark);
-          /* 6px - 12px */
-          border: clamp(0.375em, 1.5vw, 0.75em) solid var(--dark);
-        }
-
-        .cs-topper {
-          color: var(--primaryLight);
-        }
-
-        .cs-title,
-        .cs-text,
-        .cs-h3,
-        .cs-flex-p,
-        .cs-name {
-          color: var(--bodyTextColorWhite);
-        }
-
-        .cs-flex-group {
-          background-color: var(--accent);
-        }
-
-        .cs-job {
-          color: var(--bodyTextColorWhite);
-          opacity: 0.8;
-        }
-
-        .cs-quote-icon {
-          opacity: 0.2;
-        }
-      }
-    }
-  }
-
+ 
   /*-- -------------------------- -->
 <---          Gallery           -->
 <--- -------------------------- -*/
 
-  /* Mobile - 360px - Contains hover animation */
-  @media only screen and (min-width: 0em) {
-    #gallery {
-      /* Centers button */
-      text-align: center;
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    #gallery-1234 {
       padding: var(--sectionPadding);
-      position: relative;
-      /* Prevents overflow from the image going off screen */
-      overflow: hidden;
+      //background-color: #1a1a1a;
+
       .cs-container {
         width: 100%;
-        max-width: (1322/16em);
+        /* changes to 100% at tablet */
+        max-width: (704/16rem);
         margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+      }
+
+      .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: center;
       }
 
       .cs-topper {
-        text-align: center;
-        margin-bottom: (16/16rem);
+        color: var(--secondary);
       }
 
       .cs-title {
-        text-align: center;
-        max-width: (621/16rem);
-        margin-bottom: (40/16rem);
+        color: var(--headerColor);
       }
 
-      .cs-image-group {
-        /* used rem so it doesn't scale with the font size of on parent */
-        font-size: ~"min(1.1vw, 1em)";
+      .cs-text {
+        color: var(--bodyTextColor);
+        opacity: 0.8;
+      }
+
+      .cs-gallery {
         width: 100%;
-        max-width: (1322/16em);
-        margin: 0 auto (60/16rem);
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: (30/16em);
+        /* changes to flexbox at tablet */
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        /* 16px 20px */
+        gap: clamp(1rem, 2vw, 1.25rem);
       }
 
-      .cs-row {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        gap: (30/16em);
+      .cs-flex {
+        /* breaks children from the parent. They are no longer considered children of the cs-flex and can now be flexed with the other images as part of the cs-gallery flexbox */
+        display: contents;
       }
 
       .cs-picture {
+        width: 100%;
+        height: 69vw;
+        /* changes at tablet */
+        max-height: (300/16rem);
         display: block;
         position: relative;
+        border-radius: 2rem;
+
         img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
           position: absolute;
           top: 0;
           left: 0;
-        }
-      }
-
-      .cs-row-1 {
-        .cs-picture1 {
-          width: (420/16em);
-          height: (567/16em);
-        }
-
-        .cs-picture2 {
-          width: (420/16em);
-          height: (629/16em);
-        }
-
-        .cs-picture3 {
-          width: (420/16em);
-          height: (512/16em);
-        }
-      }
-
-      .cs-row-2 {
-        .cs-picture1 {
-          width: (420/16em);
-          height: (492/16em);
-        }
-
-        .cs-picture2 {
-          width: (420/16em);
-          height: (517/16em);
-        }
-
-        .cs-picture3 {
-          width: (420/16em);
-          height: (629/16em);
-        }
-      }
-
-      .cs-row-3 {
-        .cs-picture1 {
-          width: (420/16em);
-          height: (625/16em);
-        }
-
-        .cs-picture2 {
-          width: (420/16em);
-          height: (452/16em);
-        }
-
-        .cs-picture3 {
-          width: (420/16em);
-          height: (629/16em);
+          height: 100%;
+          width: 100%;
+          /* Makes img tag act as a background image */
+          object-fit: cover;
         }
       }
     }
   }
 
-  /* Dark mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      #gallery {
-        .cs-title {
-          color: var(--bodyTextColorWhite);
-        }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #gallery-1234 {
+      .cs-container {
+        max-width: 100%;
+      }
+
+      .cs-gallery {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .cs-flex,
+      .cs-row {
+        width: 20%;
+      }
+
+      .cs-flex {
+        /* 375px - 680px */
+        height: clamp(23.4375rem, 50vw, 42.5rem);
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+        /* 16px - 20px */
+        gap: clamp(1rem, 2vw, 1.25rem);
+      }
+
+      .cs-picture {
+        max-height: 100%;
+      }
+
+      .cs-picture1 {
+        height: 62%;
+        /* prevents flexbox from squishing it */
+        flex: none;
+      }
+
+      .cs-picture2 {
+        height: 100%;
+      }
+
+      .cs-row {
+        height: 40vw;
+        max-height: (520/16rem);
       }
     }
   }
