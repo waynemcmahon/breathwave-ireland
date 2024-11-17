@@ -1,7 +1,5 @@
 ---
 import navData from "@data/navData.json";
-import { Icon } from "astro-icon/components";
-import DarkModeToggle from "@components/DarkModeToggle.astro";
 ---
 
 <div id="navigation">
@@ -14,11 +12,21 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
   <div class="container">
     <a aria-label="click to go to home page" class="logo" href="/">
       <img
+        class="logo-light"
         aria-hidden="true"
         src="/assets/images/logo_white.png"
         decoding="async"
         alt="logo"
-        width="221"
+        width="66"
+        height="66"
+      />
+      <img
+        class="logo-dark"
+        aria-hidden="true"
+        src="/assets/images/logo.png"
+        decoding="async"
+        alt="logo"
+        width="66"
         height="66"
       />
     </a>
@@ -26,12 +34,21 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
     <!--Main Nav-->
     <nav id="navbar-menu">
       <ul>
-        <li><a class="active" href="/">Home</a></li>
-        <li><a class="" href="/about">About Us</a></li>
-        <li><a class="" href="/menu">Menu</a></li>
-        <li><a class="" href="/reviews">Reviews</a></li>
-        <li><a class="" href="/apply">Careers</a></li>
-        <li><a class="" href="/contact">Contact</a></li>
+        {
+          navData.map((entry) => (
+            <li>
+              <a
+                href={entry.url}
+                class:list={[{ active: Astro.url.pathname === entry.url }]}
+                aria-current={
+                  Astro.url.pathname === entry.url ? "page" : undefined
+                }
+              >
+                {entry.key}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
 
@@ -60,26 +77,63 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
   const navbarMenu = document.querySelector("#navigation #navbar-menu");
   const hamburgerMenu = document.querySelector("#navigation .hamburger-menu");
 
-  hamburgerMenu.addEventListener("click", function () {
-    navbarMenu.classList.toggle("open");
-    hamburgerMenu.classList.toggle("clicked");
-  });
+  if (hamburgerMenu && navbarMenu) {
+    hamburgerMenu.addEventListener("click", function () {
+      navbarMenu.classList.toggle("open");
+      hamburgerMenu.classList.toggle("clicked");
+    });
+  }
 </script>
 <style lang="less">
   /*-- -------------------------- -->
 <---         Navigation         -->
 <--- -------------------------- -*/
+
   /* Mobile - Top Drop Down */
   @media only screen and (max-width: 1023px) {
+    body #navigation {
+      .logo-dark {
+        display: none;
+      }
+    }
     body.scroll #navigation {
-      -webkit-backdrop-filter: blur(0);
       backdrop-filter: blur(0);
       background: #fff;
+
+      #navbar-menu ul li a {
+        color: #000;
+      }
+
+      .reservation {
+        color: #1a1a1a;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      .logo .logo-dark {
+        display: block;
+      }
+
+      .logo-light {
+        display: none;
+      }
+
+      .hamburger-menu {
+        &.clicked span {
+          background-color: transparent;
+        }
+        span {
+          background-color: var(--secondary);
+          &:before,
+          &:after {
+            background-color: var(--secondary);
+          }
+        }
+      }
     }
 
-    body.scroll #navigation #navbar-menu ul li a {
-      color: #1a1a1a;
-    }
     #navigation {
       position: fixed;
       top: 0;
@@ -105,9 +159,13 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
     }
     #navigation .logo {
       display: inline-block;
-      height: 1.875rem;
+      height: 2.875rem;
       width: auto;
       margin-right: auto;
+
+      .logo-dark {
+        display: none;
+      }
     }
     #navigation .logo img {
       width: auto;
@@ -191,7 +249,7 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
       padding: 0 0.9375rem;
       min-width: 6.25rem;
       background-color: transparent;
-      border: 1px solid var(--primary);
+      border: 1px solid var(--secondary);
       color: #fff;
       position: absolute;
       top: 50%;
@@ -207,7 +265,7 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
       z-index: -100;
       overflow: hidden;
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      background-color: rgba(0, 0, 0, 0.96);
+      background-color: #fff;
       transform-origin: top;
       top: 4.625rem;
       padding-top: 0;
@@ -255,7 +313,7 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
     }
     #navigation #navbar-menu ul li a {
       text-decoration: none;
-      color: #f7f7f7;
+      color: #000;
       font-size: 1rem;
       text-align: center;
       display: inline-block;
@@ -266,7 +324,7 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
       position: absolute;
       display: block;
       height: 0.25rem;
-      background: var(--primary);
+      background: var(--secondary);
       opacity: 1;
       bottom: -0.25rem;
       border-radius: 0.25rem;
@@ -301,28 +359,67 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
       border-radius: 0.625em;
       background: var(--primary);
     }
-    body.scroll #navigation {
-      backdrop-filter: blur(0);
-      background: #fff;
-    }
+
     body.dark-mode #navigation .background-color-div {
       height: 100%;
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
+
+    body #navigation {
+      .logo-dark {
+        display: none;
+      }
+    }
+    body.scroll #navigation {
+      backdrop-filter: blur(0);
+      background: #fff;
+
+      #navbar-menu ul li a {
+        color: #000;
+      }
+
+      .reservation {
+        color: #1a1a1a;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      .logo .logo-dark {
+        display: block;
+      }
+
+      .logo-light {
+        display: none;
+      }
+
+      .hamburger-menu {
+        &.clicked span {
+          background-color: transparent;
+        }
+        span {
+          background-color: var(--secondary);
+          &:before,
+          &:after {
+            background-color: var(--secondary);
+          }
+        }
+      }
+    }
+
     .reservation {
       font-size: 1rem;
       background-color: transparent;
       color: #fff;
-      border: 1px solid var(--primary);
+      border: 1px solid var(--secondary);
       min-width: auto;
       margin-right: 1.25rem;
       transition: color 0.3s;
     }
-    .reservation:hover {
-      color: #1a1a1a;
-    }
+
     .reservation:before {
-      background-color: var(--primary);
+      background-color: var(--secondary);
     }
     #navigation {
       width: 100%;
@@ -379,7 +476,6 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
     #navigation #navbar-menu ul li {
       list-style: none;
       margin-left: 1.875rem;
-      padding-top: 0.1875rem;
     }
     #navigation #navbar-menu ul li a {
       text-decoration: none;
@@ -413,7 +509,7 @@ import DarkModeToggle from "@components/DarkModeToggle.astro";
       display: block;
       width: 100%;
       height: 0.25rem;
-      background: var(--primary);
+      background: var(--secondary);
       opacity: 1;
       bottom: -0.4375rem;
       border-radius: 0.1875rem;

@@ -1,0 +1,63 @@
+{
+    "categories": [
+        {
+            "id": "one",
+            "name": "Drinks",
+            "description": "Enjoy our variety of refreshing and flavorful beverages.",
+            "menuItems": [
+                {"name": "Cappuccino", "price": "", "description": "Rich and creamy espresso-based coffee."},
+                {"name": "Latte", "price": "", "description": "Smooth espresso with steamed milk."},
+                {"name": "Mocha", "price": "", "description": "Chocolate-infused coffee with whipped cream."},
+                {"name": "Mumbai Chai Latte", "price": "", "description": "Aromatic chai spiced tea latte."},
+                {"name": "Belgian Hot Chocolate", "price": "", "description": "Luxurious hot chocolate with whipped cream."},
+                {"name": "Syrups", "price": "", "description": "Add Caramel, Vanilla, Pumpkin Spice, or others to your drink."}
+            ]
+        },
+        {
+            "id": "two",
+            "name": "Homebaking",
+            "description": "Freshly baked delights with gluten-free options available.",
+            "menuItems": [
+                {"name": "Warm Baked Scones", "price": "", "description": "Served daily with fresh cream and homemade jam."},
+                {"name": "Almond Croissants", "price": "", "description": "Flaky, buttery croissants with almond filling."},
+                {"name": "Cinnamon Rolls", "price": "", "description": "Soft rolls with cinnamon and icing."},
+                {"name": "Sausage Rolls", "price": "", "description": "Golden pastry filled with savory sausage."},
+                {"name": "Jambons with Relish", "price": "", "description": "Delicious puff pastry with cheese and ham filling."}
+            ]
+        },
+        {
+            "id": "three",
+            "name": "Toasties & Wraps",
+            "description": "A selection of hearty toasties and wraps with gluten-free options.",
+            "menuItems": [
+                {"name": "Special Toastie", "price": "", "description": "Home-cooked ham, cheddar, tomato, onion, and Ballymaloe Relish."},
+                {"name": "Ham & Cheese", "price": "", "description": "Classic toasted ham and cheese sandwich."},
+                {"name": "Veggie Wrap", "price": "", "description": "Packed with fresh vegetables and flavor."},
+                {"name": "Chicken & Stuffing", "price": "", "description": "Savory chicken with stuffing in a wrap."},
+                {"name": "Tuna & Sweetcorn", "price": "", "description": "Creamy tuna mix with sweetcorn."}
+            ]
+        },
+        {
+            "id": "four",
+            "name": "Hand-Cut Fries",
+            "description": "Crispy skin-on fries with delicious toppings.",
+            "menuItems": [
+                {"name": "Plain Fries", "price": "", "description": "Crispy skin-on fries served plain."},
+                {"name": "Pulled Pork Fries", "price": "", "description": "Topped with sour cream, guacamole, spring onion, and cheddar."},
+                {"name": "Garlic Parmesan Fries", "price": "", "description": "Topped with garlic, Parmesan, and spring onion."}
+            ]
+        },
+        {
+            "id": "five",
+            "name": "Pancake Station",
+            "description": "Create your perfect pancake with our delicious toppings.",
+            "menuItems": [
+                {"name": "Nutella Pancake", "price": "", "description": "Pancake topped with creamy Nutella."},
+                {"name": "Crispy Bacon Pancake", "price": "", "description": "Pancake topped with crispy bacon."},
+                {"name": "Fruit Compote Pancake", "price": "", "description": "Pancake with homemade fruit compote."},
+                {"name": "Maple Syrup Pancake", "price": "", "description": "Pancake drizzled with maple syrup."},
+                {"name": "Lemon & Sugar Pancake", "price": "", "description": "Classic pancake with lemon and sugar."}
+            ]
+        }
+    ]
+}

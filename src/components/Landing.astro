@@ -1,108 +1,162 @@
 ---
-import Picture from "astro/components/Picture.astro"
-const { title, image } = Astro.props
+import Picture from "astro/components/Picture.astro";
+const { title, image } = Astro.props;
 ---
 
-<section id="int-hero">
-<h1 id="home-h">{title}</h1>
-
-<!-- standard <picture> attributes are supported. Set loading to lazy for assets below the fold -->
- <!-- Note: because we use the getImage function to generate an optimized image, we need to use special properties. More info on [the getImage() page](https://docs.astro.build/en/guides/images/#generating-images-with-getimage) -->
- <Picture 
-    src={image.src}
-    width={image.attributes.width}
-    height={image.attributes.height}
-    formats={['avif', 'webp']} 
-    alt="A description of my image."
-    aria-hidden="true" 
-    decoding="async"
-    alt="kitchen cabinets"
-    loading="eager"
-/>
-
-</section>
+<!-- ============================================ --><!--                   Banner                     --><!-- ============================================ -->
+<div id="banner-1004">
+    <div class="cs-container">
+        <picture class="cs-picture">
+            <img
+                class="cs-icon"
+                decoding="async"
+                src="/assets/images/fancyDivider.svg"
+                alt="divider"
+                width="181"
+                height="36"
+                aria-hidden="true"
+            />
+        </picture>
+        <span class="cs-int-title">{title}</span>
+    </div>
+    <!--Background Image-->
+    <picture class="cs-background">
+        <source
+            media="(max-width: 600px)"
+            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FMISC%2Ftable.jpg"
+        />
+        <source
+            media="(min-width: 601px)"
+            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FMISC%2Ftable.jpg"
+        />
+        <img
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FMISC%2Ftable.jpg"
+            alt="logo"
+            width="1920"
+            height="1000"
+        />
+    </picture>
+</div>
 
 <style lang="less">
-    
-/*-- -------------------------- -->
-<---   Interior Page Header     -->
+    /*-- -------------------------- -->
+<---          Banner            -->
 <--- -------------------------- -*/
 
-/* Mobile */
-@media only screen and (min-width: 0em) {
-    #int-hero {
-        min-height: 30vh;
-        padding-top: (50/16rem);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        z-index: 1;
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0em) {
+        #banner-1004 {
+            padding: 0 (16/16rem);
+            /* 160px - 245px */
+            padding-top: clamp(10rem, 25vw, 12.3125rem);
+            padding-bottom: (120/16rem);
+            background-color: #000;
+            position: relative;
+            z-index: 1;
 
-        &:before {
-            content: "";
-            width: 100%;
-            height: 100%;
-            background: #000;
-            opacity: 0.7;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
+            .cs-container {
+                text-align: center;
+                width: 100%;
+                max-width: (1280/16rem);
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
 
-        picture {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -2;
+            .cs-picture {
+                width: 100%;
+                margin: 0 0 (12/16rem);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: (16/16rem);
+                position: relative;
 
-            img {
+                /* &:before {
+                    content: "";
+                    width: 50%;
+                    max-width: (150/16rem);
+                    height: 1px;
+                    background: #b4b2c7;
+                    opacity: 1;
+                    position: relative;
+                    display: block;
+                }
+
+                &:after {
+                    content: "";
+                    width: 50%;
+                    max-width: (150/16rem);
+                    height: 1px;
+                    background: #b4b2c7;
+                    opacity: 1;
+                    position: relative;
+                    display: block;
+                } */
+            }
+
+            .cs-icon {
+                width: 80%;
+                /* 100px - 180px */
+                max-width: clamp(6.25rem, 18vw, 20.25rem);
+                height: auto;
+                /* prevents flexbox from squishing it */
+                flex: none;
+            }
+
+            .cs-int-title {
+                /* 39px - 61px */
+                font-family: "Trajan Pro Bold";
+                font-size: clamp(2.4375rem, 6.5vw, 3.8125rem);
+                font-weight: 900;
+                line-height: 1.2em;
+                text-align: center;
+                max-width: (700/16rem);
+                margin: 0 0 (16/16rem) 0;
+                color: var(--bodyTextColorWhite);
+                position: relative;
+            }
+
+            .cs-text {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-background {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                opacity: 0.7;
                 position: absolute;
                 top: 0;
                 left: 0;
+                display: block;
+                z-index: -1;
+
+                &:before {
+                    /* black overlay box */
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background: #000;
+                    opacity: 0.72;
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                }
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
             }
         }
-
-        h1 {
-            font-size: var(--headerFontSize);
-            text-align: center;
-            width: 96%;
-            max-width: (500/16rem);
-            margin: 0 auto;
-            margin-top: (70/16rem);
-            margin-bottom: (30/16rem);
-            color: #fff;
-            position: relative;
-        }
-
-        p {
-            text-align: center;
-            width: 96%;
-            max-width: (400/16rem);
-            margin: auto;
-            margin-bottom: (30/16rem);
-            color: #fff;
-            display: block;
-        }
     }
-}
-
-/* Small Desktop */
-@media only screen and (min-width: 64em) {
-    #int-hero {
-        height: auto;
-        min-height: (300/16rem);
-        padding-top: (180/16rem);
-        background-attachment: fixed;
-        padding-block-end: (100/16rem);
-    }
-}
 </style>

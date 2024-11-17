@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
-import FAQ from "@components/FAQ.astro";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
 import landingImage from "@assets/images/landing.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+import SideBySide from "@components/SideBySide.astro";
+import SBSPair from "@components/SBSPair.astro";
+import Gallery from "@components/Gallery.astro";
+import Testimonial from "@components/Testimonial.astro";
 const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
@@ -21,7 +24,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
   <section id="hero-998">
     <div class="cs-container">
       <div class="cs-content">
-        <span class="cs-topper">Welcome to</span>
+        <span class="cs-tag">Welcome to</span>
         <!--Logo-->
         <picture class="cs-logo">
           <source
@@ -51,11 +54,11 @@ const optimizedImage = await getOptimizedImage(landingImage);
     <!--Background Image-->
     <!--Image is also set as background image in CSS at 1400px for parallax effect-->
     <picture class="cs-background">
-      <source media="(max-width: 600px)" srcset="/assets/images/hero2.jpg" />
-      <source media="(min-width: 601px)" srcset="/assets/images/hero2.jpg" />
+      <source media="(max-width: 600px)" srcset="/assets/images/landing.jpg" />
+      <source media="(min-width: 601px)" srcset="/assets/images/landing.jpg" />
       <img
         decoding="async"
-        src="/assets/images/hero2.jpg"
+        src="/assets/images/landing.jpg"
         alt="logo"
         width="1920"
         height="1000"
@@ -63,727 +66,216 @@ const optimizedImage = await getOptimizedImage(landingImage);
     </picture>
   </section>
 
-  <!-- ============================================ -->
-  <!--             Side By Side Reverse             -->
-  <!-- ============================================ -->
+  <SideBySide />
 
-  <section id="sbsr-1444">
-    <div class="cs-container">
-      <div class="cs-image-group">
-        <picture class="cs-picture cs-picture1">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/cabinets2-m.jpg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/cabinets2.jpg"
-          />
-          <img
-            loading="lazy"
-            decoding="async"
-            src="/assets/images/cabinets2.jpg"
-            alt="table of breakfast"
-            width="500"
-            height="729"
-            aria-hidden="true"
-          />
-        </picture>
-        <picture class="cs-picture cs-picture2">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/cabinets2-m.jpg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/cabinets2.jpg"
-          />
-          <img
-            loading="lazy"
-            decoding="async"
-            src="/assets/images/cabinets2.jpg"
-            alt="table of breakfast"
-            width="500"
-            height="729"
-            aria-hidden="true"
-          />
-        </picture>
-      </div>
-      <div class="cs-content">
-        <span class="cs-topper">Giving Back</span>
-        <h2 class="cs-title">How To Donate Us</h2>
-        <p class="cs-text">
-          Our impact is about more than moving money to where it's needed most
-          it's also about helping nonprofits access information and ideas that
-          will help them listen, learn, and grow.
-        </p>
-        <ul class="cs-card-group">
-          <li class="cs-li">
-            <picture class="cs-li-picture">
-              <img
-                class="cs-li-icon"
-                aria-hidden="true"
-                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/volunteer1.svg"
-                decoding="async"
-                alt="icon"
-                width="32"
-                height="32"
-                loading="lazy"
-              />
-            </picture>
-            <div class="cs-flex">
-              <h3 class="cs-h3">Become a Volunteer</h3>
-              <p class="cs-li-text">
-                It’s no secret that one person alone cannot overcome the
-                greatest humanitarian crises. It truly takes all of us.
-              </p>
-            </div>
-          </li>
-          <li class="cs-li">
-            <picture class="cs-li-picture">
-              <img
-                class="cs-li-icon"
-                aria-hidden="true"
-                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/volunteer2.svg"
-                decoding="async"
-                alt="icon"
-                width="32"
-                height="32"
-                loading="lazy"
-              />
-            </picture>
-            <div class="cs-flex">
-              <h3 class="cs-h3">Quick Fundraise</h3>
-              <p class="cs-li-text">
-                It’s no secret that one person alone cannot overcome the
-                greatest humanitarian crises. It truly takes all of us.
-              </p>
-            </div>
-          </li>
-          <li class="cs-li">
-            <picture class="cs-li-picture">
-              <img
-                class="cs-li-icon"
-                aria-hidden="true"
-                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/volunteer3.svg"
-                decoding="async"
-                alt="icon"
-                width="32"
-                height="32"
-                loading="lazy"
-              />
-            </picture>
-            <div class="cs-flex">
-              <h3 class="cs-h3">Start Donating</h3>
-              <p class="cs-li-text">
-                It's no secret that one person alone cannot overcome the
-                greatest humanitarian crises. It truly takes all of us.
-              </p>
-            </div>
-          </li>
-        </ul>
-        <a href="" class="cs-button-solid">Donate Now</a>
-      </div>
-    </div>
-  </section>
+  <SBSPair />
 
-  <!-- ============================================ -->
-  <!--            Extra Content To Rank             -->
-  <!-- ============================================ -->
+  <Gallery />
 
-  <section id="sbs-r">
-    <div class="cs-container">
-      <!-- Left Image Section -->
-      <div class="cs-left">
-        <picture class="cs-picture cs-picture1">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/construction-m.jpg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/construction.jpg"
-          />
-          <img
-            aria-hidden="true"
-            decoding="async"
-            src="/assets/images/construction.jpg"
-            alt="house"
-            loading="lazy"
-            width="400"
-            height="560"
-          />
-        </picture>
-        <picture class="cs-picture cs-picture2">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/cabinets2-m.jpg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/cabinets2.jpg"
-          />
-          <img
-            aria-hidden="true"
-            decoding="async"
-            src="/assets/images/cabinets2.jpg"
-            alt="cabinets"
-            loading="lazy"
-            width="400"
-            height="560"
-          />
-        </picture>
-      </div>
-      <!-- Right Content Section-->
-      <div class="cs-right">
-        <span class="cs-topper">SEO Ranking</span>
-        <h2 class="cs-title">Talk about a main service keyword</h2>
-        <p class="cs-text">
-          In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-          officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-          et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-          nonatourean olei aptent taciti sociosqu ad litora torquent per.
-        </p>
-        <p class="cs-text">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non tenetur,
-          iure nihil ipsam qui atque commodi id voluptatem nesciunt, quis animi
-          fuga cum doloribus! Eaque laboriosam, unde consectetur iure asperiores
-          ullam. Consequuntur debitis a voluptatibus vitae optio autem explicabo
-          quia neque est quas, in placeat. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Doloribus modi laudantium voluptatibus
-          rem libero error minus quia eligendi sapiente eos.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!--                  Gallery                     -->
-  <!-- ============================================ -->
-
-  <section id="gallery-1234">
-    <div class="cs-container">
-      <div class="cs-content">
-        <span class="cs-topper">Our Gallery</span>
-        <h2 class="cs-title">Explore our gallery</h2>
-        <p class="cs-text">
-          IExplore our gallery to discover the mouthwatering dishes and cozy
-          ambiance of Anne's Coffee Bar, where every photo tells a story of
-          delightful flavors and warm hospitality.
-        </p>
-      </div>
-      <div class="cs-gallery">
-        <div class="cs-flex">
-          <picture class="cs-picture cs-picture1">
-            <!--Mobile Image-->
-            <source
-              media="(max-width: 600px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <!--Tablet and above Image-->
-            <source
-              media="(min-width: 601px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <img
-              loading="lazy"
-              decoding="async"
-              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="person"
-              width="360"
-              height="420"
-            />
-          </picture>
-          <picture class="cs-picture cs-picture2">
-            <!--Mobile Image-->
-            <source
-              media="(max-width: 600px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <!--Tablet and above Image-->
-            <source
-              media="(min-width: 601px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <img
-              loading="lazy"
-              decoding="async"
-              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="person"
-              width="360"
-              height="240"
-            />
-          </picture>
-        </div>
-        <picture class="cs-picture cs-row">
-          <!--Mobile Image-->
-          <source
-            media="(max-width: 600px)"
-            srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          />
-          <!--Tablet and above Image-->
-          <source
-            media="(min-width: 601px)"
-            srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          />
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="person"
-            width="360"
-            height="520"
-          />
-        </picture>
-        <div class="cs-flex">
-          <picture class="cs-picture cs-picture1">
-            <!--Mobile Image-->
-            <source
-              media="(max-width: 600px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <!--Tablet and above Image-->
-            <source
-              media="(min-width: 601px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <img
-              loading="lazy"
-              decoding="async"
-              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="person"
-              width="360"
-              height="420"
-            />
-          </picture>
-          <picture class="cs-picture cs-picture2">
-            <!--Mobile Image-->
-            <source
-              media="(max-width: 600px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <!--Tablet and above Image-->
-            <source
-              media="(min-width: 601px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <img
-              loading="lazy"
-              decoding="async"
-              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="person"
-              width="360"
-              height="240"
-            />
-          </picture>
-        </div>
-        <picture class="cs-picture cs-row">
-          <!--Mobile Image-->
-          <source
-            media="(max-width: 600px)"
-            srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          />
-          <!--Tablet and above Image-->
-          <source
-            media="(min-width: 601px)"
-            srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          />
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="person"
-            width="360"
-            height="520"
-          />
-        </picture>
-        <div class="cs-flex">
-          <picture class="cs-picture cs-picture1">
-            <!--Mobile Image-->
-            <source
-              media="(max-width: 600px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <!--Tablet and above Image-->
-            <source
-              media="(min-width: 601px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <img
-              loading="lazy"
-              decoding="async"
-              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="person"
-              width="360"
-              height="420"
-            />
-          </picture>
-          <picture class="cs-picture cs-picture2">
-            <!--Mobile Image-->
-            <source
-              media="(max-width: 600px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <!--Tablet and above Image-->
-            <source
-              media="(min-width: 601px)"
-              srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <img
-              loading="lazy"
-              decoding="async"
-              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="person"
-              width="360"
-              height="240"
-            />
-          </picture>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!--                    FAQ                       -->
-  <!-- ============================================ -->
-  <FAQ />
-
-  <!-- ============================================ -->
-  <!--                   Reviews                    -->
-  <!-- ============================================ -->
-
-  <section id="reviews">
-    <div class="cs-container">
-      <span class="cs-topper">Our Reviews</span>
-      <h2 class="cs-title">Words From Our Customers</h2>
-      <p class="cs-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dolor
-        volutpat porttitor sagittis nunc nisl. Sagittis sit pellentesque gravida
-        viverra. Leo ut sed euismod tortor risus et. Ornare non neque, leo,
-        ornare. Lorem ipsum dolor sit amet.
-      </p>
-      <ul class="cs-card-group">
-        <!-- Review 1 -->
-        <li class="cs-item">
-          <img
-            class="cs-item-img"
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile5.png"
-            alt="profile picture"
-            width="80"
-            height="80"
-          />
-          <p class="cs-item-p">
-            Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor
-            habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed
-            ullamcorper lectus et. Auctor velit diam fermentum consequat.
-            Feugiat viverra massa urna, volutpat orci imperdiet eget eget.
-          </p>
-          <span class="cs-reviewer">
-            Jon Doe
-            <span class="cs-desc">Homeowner</span>
-          </span>
-          <img
-            class="cs-item-stars"
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
-            alt="stars"
-            width="96"
-            height="16"
-          />
-        </li>
-        <!-- Review 2 -->
-        <li class="cs-item">
-          <img
-            class="cs-item-img"
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile-4.png"
-            alt="profile picture"
-            width="80"
-            height="80"
-          />
-          <p class="cs-item-p">
-            Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor
-            habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed
-            ullamcorper lectus et. Auctor velit diam fermentum consequat.
-            Feugiat viverra massa urna, volutpat orci imperdiet eget eget.
-          </p>
-          <span class="cs-reviewer">
-            Jane Doe
-            <span class="cs-desc">Homeowner</span>
-          </span>
-          <img
-            class="cs-item-stars"
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
-            alt="stars"
-            width="96"
-            height="16"
-          />
-        </li>
-      </ul>
-      <a aria-label="read more reviews" href="/reviews" class="cs-button-solid"
-        >Our Reviews</a
-      >
-    </div>
-  </section>
+  <Testimonial />
 
   <CTA />
 </BaseLayout>
 
 <style lang="less">
-  /* STYLES FOR ABOVE THE FOLD */
-
   /*-- -------------------------- -->
 <---           Hero             -->
 <--- -------------------------- -*/
 
   /* Mobile - 360px */
-  @media only screen and (min-width: 0em) {
-    #hero {
-      font-family: "Roboto", "Arial", sans-serif;
-      /* Centers button */
+  @media only screen and (min-width: 0rem) {
+    #hero-998 {
+      min-height: 100vh;
+      /* 144px - 280px */
+      padding: clamp(9rem, 25.95vw, 17.5rem) 1rem;
+      /* prevents padding and border from affecting height and width */
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    #hero-998 .cs-tag {
+      font-size: clamp(1rem, 2.3vw, 1.9375rem);
+      line-height: 1.2em;
+      margin: 0 0 clamp(0.75rem, 3vw, 1.5rem);
+      color: var(--bodyTextColorWhite);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      gap: 1rem;
+    }
+
+    #hero-998 .cs-tag:after {
+      content: "";
+      width: 5.625rem;
+      height: 2px;
+      background: var(--secondary);
+      opacity: 1;
+      position: relative;
+      display: block;
+    }
+
+    #hero-998 .cs-tag:before {
+      content: "";
+      width: 5.625rem;
+      height: 2px;
+      background: var(--secondary);
+      opacity: 1;
+      position: relative;
+      display: block;
+    }
+    #hero-998 .cs-container {
+      width: 100%;
+      max-width: 80rem;
+      margin: auto;
+    }
+    #hero-998 .cs-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #hero-998 .cs-topper {
+      /* 16px - 31px */
+      font-size: clamp(1rem, 4.3vw, 1.9375rem);
+      white-space: nowrap;
+      line-height: 1.2em;
+      width: 100%;
+      /* 12px - 24px */
+      margin: 0 0 clamp(0.75rem, 3vw, 1.5rem);
+      color: var(--bodyTextColorWhite);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      gap: 1rem;
+    }
+    #hero-998 .cs-topper:before {
+      /* left line */
+      content: "";
+      width: 100%;
+      max-width: 6.25rem;
+      height: 2px;
+      background: var(--bodyTextColorWhite);
+      opacity: 1;
+      position: relative;
+      display: block;
+    }
+    #hero-998 .cs-topper:after {
+      /* right line */
+      content: "";
+      width: 100%;
+      max-width: 6.25rem;
+      height: 2px;
+      background: var(--bodyTextColorWhite);
+      opacity: 1;
+      position: relative;
+      display: block;
+    }
+    #hero-998 .cs-logo {
+      width: 100%;
+      max-width: 13.375rem;
+      margin: 0 0 1.5rem 0;
+      display: block;
+    }
+    #hero-998 .cs-logo img {
+      width: 100%;
+      height: auto;
+    }
+    #hero-998 .cs-text {
+      /* 16px - 20px */
+      font-size: clamp(1rem, 1vw, 1.25rem);
+      line-height: 1.5em;
       text-align: center;
-      /* changes on tablet */
-      padding: 0 (16/16rem);
-      padding-bottom: (100/16rem);
+      max-width: 32.375rem;
+      /* 24px - 48px */
+      margin: 0 0 clamp(1.5rem, 3vw, 3rem) 0;
+      color: var(--bodyTextColorWhite);
+    }
+    #hero-998 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875em, 5.5vw, 3.5em);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: auto;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 2rem;
+      background-color: var(--secondary);
+      display: inline-block;
       position: relative;
       z-index: 1;
-      /* prevents overflow from the lines extending past the screen width */
-      overflow: hidden;
-
-      .cs-picture {
-        /* Background Image */
-        width: 100%;
-        height: 100%;
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -2;
-
-        &:before {
-          /* Black Color Overlay */
-          content: "";
-          width: 100%;
-          height: 100%;
-          background: #000;
-          opacity: 0.7;
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
-          /* prevents the cursor from interacting with it */
-          pointer-events: none;
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
-          /* Makes image act like a background-image */
-          object-fit: cover;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-
-      .cs-container {
-        width: 100%;
-        max-width: (1280/16em);
-        margin: auto;
-        /* we put the padding top and bottom on the container instead of #Hero so the pseudo element lines go to the top and bottom of the section */
-        /* 144px - 280px - leaving extra space for the navigation */
-        /* changes on tablet */
-        padding: clamp(9em, 25.95vw, 17.5em) 0;
-        position: relative;
-
-        &:before {
-          /* Left Line */
-          content: "";
-          width: 1px;
-          height: 100%;
-          background: -moz-linear-gradient(
-            top,
-            rgba(250, 251, 252, 0.5) 0%,
-            rgba(250, 251, 252, 0) 100%
-          ); /* FF3.6-15 */
-          background: -webkit-linear-gradient(
-            top,
-            rgba(250, 251, 252, 0.5) 0%,
-            rgba(250, 251, 252, 0) 100%
-          ); /* Chrome10-25,Safari5.1-6 */
-          opacity: 1;
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-
-      .cs-flex-group {
-        width: 80vw;
-        /* 464px - 562px */
-        max-width: clamp(29em, 60vw, 35.125em);
-        margin: auto;
-        /* 60px - 220px */
-        margin-bottom: clamp(3.75em, 15.5vw, 13.75em);
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-wrap: wrap;
-      }
-
-      .cs-topper {
-        text-align: center;
-        margin-bottom: (16/16rem);
-        color: var(--primary);
-      }
-
-      .cs-title {
-        text-align: center;
-        width: 100%;
-        color: var(--bodyTextColorWhite);
-      }
-
-      .cs-text {
-        text-align: center;
-        /* 32px - 40px */
-        margin: 0 auto clamp(2rem, 4vw, 2.5rem) 0;
-        /* 40px - 48px */
-        margin-bottom: clamp(2.5rem, 4vw, 3rem);
-        color: var(--bodyTextColorWhite);
-      }
-
-      .cs-button-solid {
-        line-height: clamp(2.875em, 5.5vw, 3.5em);
-        height: initial;
-        margin-bottom: calc(16 / 16 * 1rem);
-      }
-
-      .cs-button-transparent {
-        font-size: (16/16rem);
-        font-weight: 700;
-        /* 46px - 56px */
-        line-height: clamp(2.875em, 5.5vw, 3.5em);
-        text-decoration: none;
-        width: (180/16rem);
-        /* 46px - 56px */
-        height: clamp(2.875em, 5.5vw, 3.5em);
-        margin: 0 (8/16rem);
-        box-sizing: border-box;
-        padding: 0;
-        color: #fff;
-        background-color: transparent;
-        border: 1px solid var(--bodyTextColorWhite);
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        z-index: 1;
-
-        &:before {
-          content: "";
-          background: #000;
-          opacity: 1;
-          display: block;
-          position: absolute;
-          /* so it sits on top of the border */
-          top: -1px;
-          right: -1px;
-          bottom: -1px;
-          left: -1px;
-          z-index: -1;
-          /* this is what creates the grow affect on hover */
-          transform: scaleX(0);
-          transition: transform 0.3s;
-          transform-origin: left;
-        }
-
-        &:hover {
-          &:before {
-            transform: scaleX(1);
-          }
-        }
-
-        .cs-img {
-          margin-right: (12/16rem);
-          display: block;
-        }
-      }
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+      transition: color 0.3s;
+    }
+    #hero-998 .cs-button-solid:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #fff;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: width 0.3s;
+    }
+    #hero-998 .cs-button-solid:hover {
+      color: #1a1a1a;
+    }
+    #hero-998 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+    #hero-998 .cs-background {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    #hero-998 .cs-background:before {
+      /* background color overlay */
+      content: "";
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: #000;
+      opacity: 0.6;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    #hero-998 .cs-background img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      /* Makes img tag act as a background image */
+      object-fit: cover;
     }
   }
-
-  /* Tablet - 768px */
-  @media only screen and (min-width: 48em) {
-    #hero {
-      /* 32px - 40px */
-      padding: 0 clamp(2em, 5vw, 2.5em);
-
-      .cs-container {
-        padding: clamp(7em, 27.95vw, 17.5em) 0 clamp(9em, 30.95vw, 23.5em) 0;
-        &:after {
-          /* Right Line */
-          content: "";
-          width: 1px;
-          height: 100%;
-          background: -moz-linear-gradient(
-            top,
-            rgba(250, 251, 252, 0) 0%,
-            rgba(250, 251, 252, 0.5) 100%
-          ); /* FF3.6-15 */
-          background: -webkit-linear-gradient(
-            top,
-            rgba(250, 251, 252, 0) 0%,
-            rgba(250, 251, 252, 0.5) 100%
-          ); /* Chrome10-25,Safari5.1-6 */
-          opacity: 1;
-          display: block;
-          position: absolute;
-          top: 0;
-          right: 0;
-        }
-      }
-
-      .cs-button-solid {
-        margin-right: (20/16rem);
-        margin-bottom: 0;
-      }
+  /* Desktop Parallax - 1400px */
+  @media only screen and (min-width: 87.5rem) {
+    body #hero-998 .cs-logo {
+      max-width: 20.375rem;
     }
-  }
-
-  /* Desktop Parallax Effect - 1300px */
-  @media only screen and (min-width: 81.25em) {
-    #hero {
-      background: url("/assets/images/hero.jpg");
-      background-position: center;
+    #hero-998 .cs-background {
+      background: url("/assets/images/landing.jpg");
       background-size: cover;
+      background-position: center;
       background-repeat: no-repeat;
-      /* creates parallax effect on background image */
+      /* makes parallax effect */
       background-attachment: fixed;
     }
-  }
-
-  /* Dark Mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      #hero {
-        .cs-background {
-          &:before {
-            opacity: 0.8;
-          }
-        }
-      }
+    #hero-998 .cs-background img {
+      display: none;
     }
   }
 
@@ -896,319 +388,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
   }
 
   /* PAGE-SPECIFIC STYLES FOR THE HOME PAGE */
-  /*-- -------------------------- -->
-<---   Side By Side Reverse     -->
-<--- -------------------------- -*/
-
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0rem) {
-    #sbsr-1444 {
-      padding: var(--sectionPadding);
-      overflow: hidden;
-    }
-    #sbsr-1444 .cs-container {
-      width: 100%;
-      /* changes to 1280px at desktop */
-      max-width: 34.375rem;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      /* 48px - 64px */
-      gap: clamp(3rem, 6vw, 4rem);
-      position: relative;
-    }
-    #sbsr-1444 .cs-content {
-      /* set text align to left if content needs to be left aligned */
-      text-align: left;
-      width: 100%;
-      max-width: 33.875rem;
-      display: flex;
-      flex-direction: column;
-      /* centers content horizontally, set to flex-start to left align */
-      align-items: flex-start;
-    }
-    #sbsr-1444 .cs-text {
-      margin-bottom: 1rem;
-    }
-    #sbsr-1444 .cs-text:last-of-type {
-      margin-bottom: 2rem;
-    }
-    #sbsr-1444 .cs-card-group {
-      width: 100%;
-      max-width: 39.375rem;
-      margin: 0 0 2rem 0;
-      padding: 0;
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    #sbsr-1444 .cs-li {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      /* 16px - 20px */
-      gap: clamp(1rem, 2.5vw, 1.25rem);
-    }
-    #sbsr-1444 .cs-li-picture {
-      width: 5rem;
-      height: 5rem;
-      margin: 0;
-      border-radius: 50%;
-      background-color: #fff;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      /* prevents flexbox from squishing it */
-      flex: none;
-      position: relative;
-      z-index: 1;
-    }
-    #sbsr-1444 .cs-li-picture:before {
-      content: "";
-      width: 100%;
-      height: 100%;
-      background: var(--primary);
-      opacity: 0.1;
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-    #sbsr-1444 .cs-li-icon {
-      width: 2rem;
-      height: auto;
-      display: block;
-    }
-    #sbsr-1444 .cs-h3 {
-      font-size: 1.25rem;
-      line-height: 1.2em;
-      font-weight: 700;
-      text-align: left;
-      margin: 0 0 0.75rem 0;
-      color: var(--headerColor);
-    }
-    #sbsr-1444 .cs-li-text {
-      font-size: 1rem;
-      line-height: 1.5em;
-      text-align: left;
-      margin: 0;
-      color: var(--bodyTextColor);
-    }
-    #sbsr-1444 .cs-button-solid {
-      font-size: 1rem;
-      /* 46px - 56px */
-      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
-      text-decoration: none;
-      font-weight: 700;
-      text-align: center;
-      margin: 0;
-      color: #fff;
-      min-width: 9.375rem;
-      padding: 0 2rem;
-      background-color: var(--primary);
-      border-radius: 0.25rem;
-      display: inline-block;
-      position: relative;
-      z-index: 1;
-      /* prevents padding from adding to the width */
-      box-sizing: border-box;
-    }
-    #sbsr-1444 .cs-button-solid:before {
-      content: "";
-      position: absolute;
-      height: 100%;
-      width: 0%;
-      background: #000;
-      opacity: 1;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      border-radius: 0.25rem;
-      transition: width 0.3s;
-    }
-    #sbsr-1444 .cs-button-solid:hover:before {
-      width: 100%;
-    }
-    #sbsr-1444 .cs-picture {
-      width: 100%;
-      max-width: 40.625rem;
-      min-height: 22.625rem;
-      border-radius: 1.5rem;
-      /* clips img tag corners */
-      overflow: hidden;
-      display: block;
-      position: relative;
-      z-index: 1;
-    }
-    #sbsr-1444 .cs-picture img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      object-fit: cover;
-    }
-  }
-  /* Small Desktop - 1024px */
-  @media only screen and (min-width: 64rem) {
-    #sbsr-1444 .cs-container {
-      max-width: 80rem;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: stretch;
-      position: relative;
-    }
-    #sbsr-1444 .cs-content {
-      width: 50%;
-      padding: 2.5rem 0;
-    }
-    #sbsr-1444 .cs-picture {
-      height: auto;
-      width: 55%;
-      /* sends it to the right in the 2nd position */
-      order: 2;
-    }
-  }
-
- 
-  /*-- -------------------------- -->
-<---          Gallery           -->
-<--- -------------------------- -*/
-
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0rem) {
-    #gallery-1234 {
-      padding: var(--sectionPadding);
-      //background-color: #1a1a1a;
-
-      .cs-container {
-        width: 100%;
-        /* changes to 100% at tablet */
-        max-width: (704/16rem);
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* 48px - 64px */
-        gap: clamp(3rem, 6vw, 4rem);
-      }
-
-      .cs-content {
-        /* set text align to left if content needs to be left aligned */
-        text-align: center;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        /* centers content horizontally, set to flex-start to left align */
-        align-items: center;
-      }
-
-      .cs-topper {
-        color: var(--secondary);
-      }
-
-      .cs-title {
-        color: var(--headerColor);
-      }
-
-      .cs-text {
-        color: var(--bodyTextColor);
-        opacity: 0.8;
-      }
-
-      .cs-gallery {
-        width: 100%;
-        /* changes to flexbox at tablet */
-        display: grid;
-        align-items: center;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        /* 16px 20px */
-        gap: clamp(1rem, 2vw, 1.25rem);
-      }
-
-      .cs-flex {
-        /* breaks children from the parent. They are no longer considered children of the cs-flex and can now be flexed with the other images as part of the cs-gallery flexbox */
-        display: contents;
-      }
-
-      .cs-picture {
-        width: 100%;
-        height: 69vw;
-        /* changes at tablet */
-        max-height: (300/16rem);
-        display: block;
-        position: relative;
-        border-radius: 2rem;
-
-        img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          /* Makes img tag act as a background image */
-          object-fit: cover;
-        }
-      }
-    }
-  }
-
-  /* Tablet - 768px */
-  @media only screen and (min-width: 48rem) {
-    #gallery-1234 {
-      .cs-container {
-        max-width: 100%;
-      }
-
-      .cs-gallery {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .cs-flex,
-      .cs-row {
-        width: 20%;
-      }
-
-      .cs-flex {
-        /* 375px - 680px */
-        height: clamp(23.4375rem, 50vw, 42.5rem);
-        max-height: 100%;
-        display: flex;
-        flex-direction: column;
-        /* 16px - 20px */
-        gap: clamp(1rem, 2vw, 1.25rem);
-      }
-
-      .cs-picture {
-        max-height: 100%;
-      }
-
-      .cs-picture1 {
-        height: 62%;
-        /* prevents flexbox from squishing it */
-        flex: none;
-      }
-
-      .cs-picture2 {
-        height: 100%;
-      }
-
-      .cs-row {
-        height: 40vw;
-        max-height: (520/16rem);
-      }
-    }
-  }
 
   /*-- -------------------------- -->
 <---          Reviews           -->

@@ -1,17 +1,17 @@
 [
   {
-    "key": "Home",
-    "url": "/",
-    "children": []
-  },
-  {
     "key": "About Us",
     "url": "/about/",
     "children": []
   },
   {
+    "key": "Menu",
+    "url": "/menu/",
+    "children": []
+  },
+  {
     "key": "Our Suppliers",
-    "url": "/oursuppliers/"
+    "url": "/suppliers/"
   },
   {
     "key": "Blog",
@@ -20,7 +20,7 @@
   },
   {
     "key": "Contact Us",
-    "url": "/contact-us/",
+    "url": "/contact/",
     "children": []     
   }
 ]

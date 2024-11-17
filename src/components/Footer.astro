@@ -1,337 +1,417 @@
 ---
 import client from "@data/client.json";
 import navData from "@data/navData.json";
-import { getCurrentYear } from "@libs/utils"
+import { Picture } from "astro:assets";
+import { getCurrentYear } from "@libs/utils";
 
-const currentYear = getCurrentYear()
+const currentYear = getCurrentYear();
 ---
 
-<!-- ============================================ --><!--                   Footer                     --><!-- ============================================ -->
-<footer id="footer">
-  <div class="container">
-    <div class="left-section">
-      <a class="logo" href="/"
-        ><img
-          loading="lazy"
-          decoding="async"
-          src="/assets/svgs/logo-white.svg"
-          alt="logo"
-          width="264"
-          height="78"
-        /></a
-      >
-      <p>
-        Extra content if you need it, if not you can delete this whole p tag. I
-        usually do.
-      </p>
-    </div>
-    <div class="right-section">
-      <div class="lists">
-        <ul>
-          <li>
-            <h2>Information</h2>
-          </li>
-          {
-            navData.map((entry) => (
-              <li class="cs-li">
-                <a href={entry.url}>
-                  {entry.key}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-        <ul>
-          <li>
-            <h2>Services</h2>
-          </li>
-          <li>Service1</li>
-          <li>Service2</li>
-          <li>Service4</li>
-          <li>Service5</li>
-        </ul>
-        <ul>
-          <li>
-            <h2>Contact</h2>
-          </li>
-          <li>
-            <a href="/contact">
-              {client.address.lineOne}<br />
-              {client.address.lineTwo}<br />
-              {client.address.city}
-              {client.address.state}
-              {client.address.zip}
-            </a>
-          </li>
-          <li>
-            <a href={`tel:${client.phoneForTel}`}>
-              T:
-              {client.phoneFormatted}
-            </a>
-          </li>
-          <li>
-            <a href={`mailto:${client.email}`}>Click to Email</a>
-          </li>
-        </ul>
+<!-- ============================================ --><!--                   Footer                     --><!-- ============================================ --><!-- ============================================ --><!--                   Footer                     --><!-- ============================================ -->
+<footer id="cs-footer-1339">
+  <div class="cs-container">
+    <!-- Logo Group -->
+    <div class="cs-logo-group">
+      <!-- <h2 class="cs-title">Get Finance Solution That Just Makes Sense</h2> -->
+      <Picture
+        src="/assets/images/logo_white.png"
+        alt="logo"
+        width="120"
+        height="120"
+        aria-hidden="true"
+        decoding="async"
+        class="cs-logo"
+      />
+      <div class="cs-social">
+        <a
+          class="cs-social-link"
+          aria-label="visit facebook profile"
+          href={client.facebook}
+          target="_blank"
+        >
+          <img
+            class="cs-social-img"
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/facebook-1a.svg"
+            alt="facebook"
+            width="11"
+            height="11"
+          />
+        </a>
+        <!-- <a class="cs-social-link" aria-label="visit twitter profile" href="">
+          <img
+            class="cs-social-img"
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/twitter-1a.svg"
+            alt="twitter"
+            width="6"
+            height="11"
+          />
+        </a> -->
+        <a
+          class="cs-social-link"
+          aria-label="visit instagram profile"
+          href={client.instagram}
+          target="_blank"
+        >
+          <img
+            class="cs-social-img"
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/instagram-1a.svg"
+            alt="instagram"
+            width="11"
+            height="11"
+          />
+        </a>
+        <!-- <a class="cs-social-link" aria-label="visit youtube profile" href="">
+          <img
+            class="cs-social-img"
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/youtube-1a.svg"
+            alt="instagram"
+            width="11"
+            height="11"
+          />
+        </a> -->
       </div>
     </div>
+    <!-- Links -->
+    <div class="cs-ul-wrapper">
+      <span class="cs-header">Quick Links</span>
+      <ul class="cs-ul">
+        {
+          navData.map((entry) => (
+            <li class="cs-li">
+              <a class="cs-link" href={entry.url}>
+                {entry.key}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="cs-ul-wrapper">
+      <!-- Contact Info -->
+      <span class="cs-header">Contact</span>
+      <ul class="cs-ul">
+        <li class="cs-li">
+          <a class="cs-link" href={`tel:${client.phoneForTel}`}>
+            <img
+              class="cs-icon"
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-white.svg"
+              alt="phone icon"
+              width="24"
+              height="24"
+            />
+            {client.phoneForTel}
+          </a>
+        </li>
+        <li class="cs-li">
+          <a class="cs-link" href="mailto:office@email.com">
+            <img
+              class="cs-icon"
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/email-white.svg"
+              alt="email icon"
+              width="24"
+              height="24"
+            />
+            {client.email}
+          </a>
+        </li>
+        <li class="cs-li">
+          <!--Make this link go to the google page-->
+          <a class="cs-link" href="" target="_blank">
+            <img
+              class="cs-icon"
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/pin-white.svg"
+              alt="pin icon"
+              width="24"
+              height="24"
+            />
+            {client.address.lineOne}, {client.address.city}
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-
-  <div class="credit">
-    <span>Designed and Hand Coded by</span>
-    <a href="/" target="_blank" rel="noopener">Your Company Name</a>
-    <span class="copyright"> Copyright {currentYear} - Present</span>
+  <div class="cs-bottom">
+    <span class="cs-credit">
+      © Copyright {currentYear}
+      <span> - Designed by </span>
+      <a href="" class="cs-credit-link" target="_blank">Atlantic Edge Design</a>
+    </span>
+    <!-- <div class="cs-bottom-links">
+      <a href="" class="cs-bottom-link">Privacy Policy</a>
+      <a href="" class="cs-bottom-link">Terms Of Use</a>
+    </div> -->
   </div>
 </footer>
 
 <style lang="less">
-  /* Mobile */
-@media only screen and (min-width: 0em) {
-  #footer {
-    font-size: ~"min(4vw, 1.2em)";
-    padding: (84/16rem) 0 (20/16rem);
-    background: #1c1c1c;
+  /*-- -------------------------- -->
+<---          Footer            -->
+<--- -------------------------- -*/
 
-    .left-section {
-      text-align: center;
-      margin: auto;
-      margin-bottom: (50/16rem);
-      .logo {
-        text-align: center;
-        width: auto;
-        height: (32/16em);
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    #cs-footer-1339 {
+      padding: var(--sectionPadding);
+      /* 30px - 50px */
+      padding-bottom: clamp(1.875rem, 5vw, 3.125rem);
+      background-color: #1a1a1a;
+      position: relative;
+
+      .cs-container {
+        width: 100%;
+        max-width: (1280/16rem);
         margin: auto;
-        margin-bottom: (30/16em);
-        display: inline-block;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        column-gap: (48/16rem);
+        row-gap: (40/16rem);
+      }
 
-        img {
-          width: auto;
-          height: 100%;
+      .cs-logo-group {
+        /* takes up all the space, lets the other ul's wrap below it */
+        width: 100%;
+        position: relative;
+        text-align: center;
+
+        picture {
+          display: flex;
+          justify-content: center;
+        }
+
+        .cs-logo {
+          display: block;
+          margin-bottom: 1rem;
+        }
+      }
+      .cs-title {
+        margin: 0 0 (32/16rem) 0;
+        max-width: 23ch;
+        color: var(--bodyTextColorWhite);
+      }
+
+      .cs-social {
+        display: inline-flex;
+        justify-content: flex-start;
+        gap: (8/16rem);
+      }
+
+      .cs-social-link {
+        width: (32/16rem);
+        height: (32/16rem);
+        background-color: #484848;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        transition:
+          transform 0.3s,
+          background-color 0.3s;
+
+        &:hover {
+          background-color: var(--secondaryLight);
+          transform: translateY(-0.1875rem);
+
+          .cs-social-img {
+            filter: grayscale(1) brightness(100%);
+          }
+        }
+      }
+
+      .cs-social-img {
+        height: (12/16rem);
+        filter: grayscale(1) brightness(630%);
+        width: auto;
+        display: block;
+      }
+
+      .cs-header {
+        font-size: (20/16rem);
+        line-height: 1.5em;
+        font-weight: 700;
+        margin: 0 0 (24/16rem) 0;
+        color: #fff;
+        display: block;
+        position: relative;
+      }
+
+      .cs-ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: (12/16rem);
+      }
+
+      .cs-li {
+        list-style: none;
+      }
+
+      .cs-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        text-decoration: none;
+        line-height: 1.5em;
+        text-align: left;
+        color: var(--bodyTextColorWhite);
+        display: inline-flex;
+        align-items: flex-start;
+        gap: (8/16rem);
+        transition: color 0.3s;
+
+        &:hover {
+          color: var(--primaryLight);
+        }
+      }
+
+      .cs-icon {
+        width: (20/16rem);
+        height: auto;
+        margin-right: (2/16rem);
+        display: block;
+      }
+
+      .cs-bottom {
+        text-align: center;
+        width: 100%;
+        max-width: (1280/16rem);
+        /* 48px - 64px */
+        margin: clamp(1.75rem, 7vw, 4rem) auto 0;
+        /* 28px - 40px */
+        padding-top: clamp(1.75rem, 3vw, 2.5rem);
+        border-top: 1px solid #484848;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: (12/16rem);
+      }
+
+      .cs-credit,
+      .cs-bottom-link,
+      .cs-credit-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        width: auto;
+        margin: 0;
+        color: #bababa;
+        display: inline-block;
+        position: relative;
+        transition: color 0.3s;
+      }
+
+      .cs-credit {
+        width: 100%;
+      }
+
+      .cs-credit-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        width: auto;
+        margin: 0;
+        color: var(--secondaryLight);
+        display: inline-block;
+        position: relative;
+
+        &:hover {
+          color: var(--secondary);
+        }
+      }
+
+      .cs-bottom-links {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cs-bottom-link {
+        display: flex;
+        align-items: center;
+
+        &:hover {
+          color: var(--primary);
+        }
+
+        &:last-of-type {
+          &:before {
+            /* seperator */
+            content: "";
+            width: 1px;
+            height: (14/16rem);
+            margin: 0 (12/16rem);
+            background: currentColor;
+            opacity: 1;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #cs-footer-1339 {
+      .cs-container {
+        max-width: (1280/16rem);
+        /* 48px - 120px */
+        column-gap: clamp(3rem, 8vw, 7.5rem);
+        flex-wrap: nowrap;
+      }
+
+      .cs-logo-group {
+        width: 45%;
+        max-width: (622/16rem);
+        text-align: left;
+        /* pushes the lists away from it and to the right */
+        margin-right: auto;
+        .cs-social {
+          margin-left: 1.4rem;
+        }
+        picture {
           display: block;
         }
       }
 
-      p {
-        font-size: (14/16rem);
-        line-height: 27/14;
-        text-align: center;
-        width: 100%;
-        width: 307/14rem;
-        margin: auto;
-        color: #fff;
-        opacity: 0.9;
-      }
-    }
-
-    .right-section {
-      width: 96%;
-      max-width: (407/16rem);
-      margin: auto;
-      .lists {
-        width: 96%;
-        max-width: (307/16rem);
-        margin: auto;
-        display: flex;
+      .cs-bottom {
         justify-content: space-between;
-        flex-wrap: wrap;
-        ul {
-          margin-top: 0;
-          margin-bottom: 0;
-          padding: 0;
-
-          &:nth-of-type(3) {
-            margin-top: (50/16rem);
-            li {
-              margin-bottom: (16/16rem);
-              display: flex;
-              justify-content: flex-start;
-              align-items: center;
-
-              &:last-of-type {
-                margin-bottom: 0;
-              }
-            }
-          }
-
-          li {
-            font-size: (18/16rem);
-            list-style: none;
-            margin-bottom: (12/16rem);
-            color: #fff;
-            opacity: 0.9;
-
-            a {
-              line-height: 21/18em;
-              text-decoration: none;
-              color: #fff;
-              transition: color 0.3s;
-              &:hover {
-                color: var(--primary);
-              }
-            }
-          }
-          h2 {
-            font-size: (18/16rem);
-            font-weight: bold;
-            line-height: 21/18em;
-            text-transform: uppercase;
-            margin-bottom: (37/16rem);
-            color: #fff;
-            position: relative;
-
-            &:before {
-              content: "";
-              width: (97/16rem);
-              height: (2/16rem);
-              background: var(--primary);
-              opacity: 1;
-              display: block;
-              position: absolute;
-              bottom: (-16/16rem);
-              left: 0;
-            }
-          }
-        }
+        flex-wrap: nowrap;
       }
 
-      .buttons {
-        display: flex;
-        justify-content: center;
-      }
-
-      .cs-button-solid {
-        width: (250/16rem);
-        height: (53/16rem);
-        margin: 0;
-        padding-top: (3/16rem);
-      }
-    }
-
-    .credit {
-      font-size: (16/16rem);
-      line-height: (36/16rem);
-      text-align: center;
-      width: 96%;
-      margin: auto;
-      margin-top: (100/16rem);
-      color: #fff;
-
-      a {
-        font-size: (16/16rem);
-        text-decoration: none;
-        color: var(--primary);
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-
-      .copyright {
-        font-size: (16/16rem);
-        display: block;
-      }
-    }
-  }
-}
-
-/* Small Desktop */
-@media only screen and (min-width: 64em) {
-  #footer {
-    font-size: ~"min(1.2vw, 1em)";
-    .container {
-      width: 96%;
-      max-width: (1320/16rem);
-      margin: auto;
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-    }
-
-    .left-section {
-      text-align: left;
-      width: (409/16rem);
-      margin: 0;
-
-      .logo {
+      .cs-credit {
         text-align: left;
-        height: (40/16rem);
-        margin-left: 0;
       }
 
-      p {
-        text-align: left;
-        margin-left: 0;
-      }
-    }
-
-    .right-section {
-      width: (609/16rem);
-      max-width: none;
-      margin: 0;
-      .lists {
-        width: 96%;
-        max-width: (769/16rem);
-        max-width: initial;
-        margin: 0;
-
-        ul {
-          &:nth-of-type(3) {
-            margin-top: 0;
-
-            li:first-of-type {
-              margin-bottom: 0;
-            }
-          }
-
-          li {
-            a {
-              position: relative;
-
-              &:before {
-                content: "";
-                width: 0%;
-                height: (2/16rem);
-                background: var(--primary);
-                opacity: 1;
-                display: block;
-                position: absolute;
-                bottom: (-3/16rem);
-                left: 0;
-                transition: width 0.3s;
-              }
-
-              &:hover {
-                &:before {
-                  width: 100%;
-                }
-              }
-            }
-          }
-        }
-      }
-
-      .buttons {
-        justify-content: flex-start;
-      }
-    }
-
-    .credit {
-      .copyright {
-        display: inline-block;
+      .cs-bottom-links {
+        justify-content: flex-end;
       }
     }
   }
-}
-
-/* Dark Mode */
-@media only screen and (min-width: 0em) {
-  body.dark-mode {
-    #footer {
-      background: #061623;
-    }
-  }
-}
-
 </style>

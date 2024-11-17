@@ -4,286 +4,257 @@ import client from "@data/client.json";
 import Landing from "@components/Landing.astro";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
-import {getOptimizedImage} from "@libs/utils"
-import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
-const optimizedImage = await getOptimizedImage(landingImage)
+import { getOptimizedImage } from "@libs/utils";
+import landingImage from "@assets/images/landing.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
 <BaseLayout
   title="Contact"
   description="Meta description for the page"
-  preloadedImage = {optimizedImage}
+  preloadedImage={optimizedImage}
 >
   <!-- ============================================ -->
   <!--                    LANDING                   -->
   <!-- ============================================ -->
 
-  <Landing 
-    title="Contact"
-    image={optimizedImage}
-  />
+  <Landing title="Contact" image={optimizedImage} />
 
   <!-- ============================================ -->
-  <!--                Contact Form                  -->
+  <!--                   Contact                    -->
   <!-- ============================================ -->
 
-  <section id="cs-contact">
+  <section id="contact-322">
     <div class="cs-container">
-      <form id="cs-form" name="Contact Form" method="post">
-        <div class="cs-content">
-          <span class="cs-topper">Contact</span>
-          <h2 class="cs-title">Get in Touch</h2>
-          <p class="cs-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ridiculus
-            elementum ullamcorper ipsum porttitor aliquam. Id magna urna
-            ultrices odio pulvinar. Sed ut.
-          </p>
-        </div>
-        <label>
-          Name
-          <input
-            required
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Name"
-          />
-        </label>
-        <label>
-          Email
-          <input
-            required
-            type="text"
-            id="email"
-            name="email"
-            placeholder="Email"
-          />
-        </label>
-        <label>
-          Phone
-          <input
-            required
-            type="text"
-            id="phone"
-            name="phone"
-            placeholder="Phone"
-          />
-        </label>
-        <label>
-          How Did You Find Us
-          <input
-            type="text"
-            id="find"
-            name="find-us"
-            placeholder="How did you find us?"
-          />
-        </label>
-        <label class="cs-label-message">
-          Message
-          <textarea
-            required
-            name="Message"
-            id="message"
-            placeholder="Write message..."></textarea>
-        </label>
-        <button class="cs-button-solid" type="submit">Submit Message</button>
-      </form>
-      <div class="cs-right-section">
-        <!--Email-->
-        <span class="cs-header">Email</span>
-        <a class="cs-link" href={`mailto:${client.email}`}>{client.email}</a>
-        <!--Phone-->
-        <span class="cs-header">Phone</span>
-        <a class="cs-link" href={`tel:${client.phoneForTel}`}
-          >{client.phoneFormatted}</a
+      <div class="cs-content">
+        <span class="cs-topper">Contact Us</span>
+        <h2 class="cs-title">Ask Us Anything!</h2>
+        <!--Form-->
+        <form
+          class="cs-form"
+          id="cs-form-322"
+          name="Contact Form"
+          method="post"
         >
-        <!--Address-->
-        <span class="cs-header">Address</span>
-        <a class="cs-link" href={client.address.mapLink}>
-          {client.address.lineOne},
-          <br />
-          {client.address.lineTwo},
-          <br />
-          <span class="cs-block">
-            {client.address.city}
-            {client.address.state}
-            {client.address.zip}
-          </span>
-        </a>
-
-        <!-- Background Image-->
-        <picture class="cs-bg-picture">
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/skyscraper.jpg"
-          />
-          <img
-            aria-hidden="true"
-            decoding="async"
-            src="/assets/images/skyscraper.jpg"
-            alt="building"
-            loading="lazy"
-            width="2500"
-            height="1667"
-          />
+          <label class="cs-label">
+            Name
+            <input
+              class="cs-input"
+              required
+              type="text"
+              id="name-322"
+              name="name"
+              placeholder="Name"
+            />
+          </label>
+          <label class="cs-label cs-email">
+            Email
+            <input
+              class="cs-input"
+              required
+              type="text"
+              id="email-322"
+              name="email"
+              placeholder="Email"
+            />
+          </label>
+          <label class="cs-label cs-phone">
+            Phone
+            <input
+              class="cs-input"
+              required
+              type="text"
+              id="phone-322"
+              name="phone"
+              placeholder="Phone"
+            />
+          </label>
+          <label class="cs-label">
+            Message
+            <textarea
+              class="cs-input cs-textarea"
+              required
+              name="Message"
+              id="message-322"
+              placeholder="Write message..."></textarea>
+          </label>
+          <button class="cs-button-solid cs-submit" type="submit"
+            >Send Message</button
+          >
+        </form>
+      </div>
+      <div class="cs-right">
+        <!--Map Image, pin is made in the CSS-->
+        <picture class="cs-map">
+          <div style="width: 100%">
+            <iframe
+              width="610"
+              height="425"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Ashe%E2%80%99s%20Coffee%20Bar+(Anne's%20Coffee%20Bar)&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+            ></iframe>
+          </div>
         </picture>
+        <ul class="cs-contact-group">
+          <li class="cs-item">
+            <span class="cs-header">
+              <img
+                class="cs-icon"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/phone-gold.svg"
+                alt="icon"
+                width="20"
+                height="20"
+              />
+              Phone
+            </span>
+            <a href="tel:087 277 5635" class="cs-link"> 087 277 5635</a>
+          </li>
+          <li class="cs-item">
+            <span class="cs-header">
+              <img
+                class="cs-icon"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/pin-gold.svg"
+                alt="icon"
+                width="20"
+                height="20"
+              />
+              Address
+            </span>
+            <a
+              href="https://www.google.com/maps/dir//Camp,+Camp+Cross,+Co.+Kerry,+V92+EC97/@52.2206985,-9.9914554,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48454d0f7b3663c3:0x9da28544df400dad!2m2!1d-9.909064!2d52.220757?entry=ttu&g_ep=EgoyMDI0MTExMy4xIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              class="cs-link">Camp Cross, Tralee<br /> V92 EC97, Ireland</a
+            >
+          </li>
+          <li class="cs-item">
+            <span class="cs-header">
+              <img
+                class="cs-icon"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/clock-gold.svg"
+                alt="icon"
+                width="20"
+                height="20"
+              />
+              Our Hours
+            </span>
+            <span class="cs-hours">Everyday</span>
+            <span class="cs-hours">8:30 AM - 3:00 PM</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style lang="less">
-  /* PAGE-SPECIFIC STYLES FOR THE CONTACT PAGE */
-
   /*-- -------------------------- -->
 <---          Contact           -->
 <--- -------------------------- -*/
 
   /* Mobile - 360px */
-  @media only screen and (min-width: 0em) {
-    :root {
-      /* 13px - 16px */
-      --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
-      /* 31px - 49px */
-      --headerFontSize: clamp(1.9375rem, 4.5vw, 3.0625rem);
-      --bodyFontSize: 1rem;
-
-      /* 60px - 100px top and bottom */
-      --sectionPadding: clamp(3.75em, 7.82vw, 6.25em) 1rem;
-    }
-
-    #cs-contact {
-      font-family: "Roboto", "Arial", sans-serif;
+  @media only screen and (min-width: 0rem) {
+    #contact-322 {
       padding: var(--sectionPadding);
+      position: relative;
+      z-index: 1;
 
       .cs-container {
         width: 100%;
         /* changes to 1280px at desktop */
-        max-width: (800/16rem);
+        max-width: (550/16em);
         margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: (52/16rem);
       }
 
       .cs-content {
+        text-align: left;
+      }
+
+      .cs-form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: (12/16rem);
+      }
+
+      .cs-label {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
         width: 100%;
-      }
-
-      .cs-topper {
-        text-align: left;
-        /* 8px - 12px */
-        margin-bottom: clamp(0.5rem, 1.4vw, 0.75rem);
-      }
-
-      .cs-title {
-        text-align: left;
-        max-width: (800/16rem);
-      }
-
-      .cs-text {
-        text-align: left;
-        /* 404px - 522px */
-        max-width: clamp(25.25rem, 30vw, 32.625rem);
-        margin: 0 auto 0 0;
-        /* 40px - 48px */
-        margin-bottom: clamp(2.5rem, 6.3vw, 3rem);
-      }
-
-      #cs-form {
-        margin-bottom: (40/16rem);
-        label {
-          font-size: (16/16rem);
-          font-weight: 700;
-          line-height: 1.5em;
-          /* 12px - 20px */
-          margin-bottom: clamp(0.75rem, 1.3em, 1.25rem);
-          color: var(--headerColor);
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-        }
-
-        .cs-label-message {
-          /* 32px - 48px */
-          margin-bottom: clamp(2rem, 6.3vw, 3rem);
-        }
-
-        input,
-        textarea {
-          font-size: (16/16rem);
-          width: 100%;
-          height: (64/16rem);
-          margin-top: (4/16rem);
-          /* prevents border & padding from affecting height */
-          box-sizing: border-box;
-          padding-left: (20/16rem);
-          border: 1px solid #b4b2c7;
-          border-radius: (8/16rem);
-          transition: border 0.3s;
-
-          &:hover {
-            border: 1px solid var(--primary);
-          }
-        }
-
-        textarea {
-          font-family: inherit;
-          min-height: (120/16rem);
-          padding-top: (20/16rem);
-        }
-
-        .cs-button-solid {
-          width: 100%;
-          border: none;
-        }
-      }
-
-      .cs-right-section {
-        height: (320/16rem);
-        /* 24px - 40px top & bottom */
-        /* 20px - 40px left & right */
-        padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
-        border-radius: (8/16rem);
+        color: var(--headerColor);
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: flex-start;
-        position: relative;
-        /* cuts off corners on img tag */
-        overflow: hidden;
+        gap: (4/16rem);
       }
 
-      .cs-header {
-        /* 16px - 20px */
-        font-size: clamp(1rem, 3vw, 1.25rem);
-        font-weight: 700;
-        line-height: 1.2em;
-        margin-bottom: (8/16rem);
-        color: var(--bodyTextColorWhite);
-        display: block;
+      .cs-input {
+        font-size: (16/16rem);
+        width: 100%;
+        height: (56/16rem);
+        padding: 0;
+        padding-left: (24/16rem);
+        border-radius: (8/16rem);
+        color: var(--headerColor);
+        background-color: #f7f7f7;
+        border: none;
+        /* prevents padding from adding to height and width */
+        box-sizing: border-box;
+        &::placeholder {
+          color: #7d799c;
+          opacity: 0.6;
+        }
       }
 
-      .cs-link {
-        /* 16px - 20px */
-        font-size: clamp(1rem, 3vw, 1.25rem);
-        line-height: 1.2em;
+      .cs-textarea {
+        min-height: (120/16rem);
+        padding-top: (24/16rem);
+        margin-bottom: (12/16rem);
+        font-family: inherit;
+      }
+
+      .cs-button-solid {
+        font-size: (16/16rem);
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
         text-decoration: none;
-        margin-bottom: (20/16rem);
-        color: var(--bodyTextColorWhite);
-        display: block;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+        color: #fff;
+        min-width: (150/16rem);
+        padding: 0 (24/16rem);
+        background-color: var(--primary);
+        border-radius: (4/16rem);
+        display: inline-block;
         position: relative;
+        z-index: 1;
+        /* prevents padding from adding to the width */
+        box-sizing: border-box;
 
         &:before {
-          /* Animated underline */
           content: "";
-          width: 0%;
-          height: 2px;
-          /* current color of the parent */
-          background: currentColor;
-          opacity: 1;
-          display: block;
           position: absolute;
-          bottom: (-2/16rem);
+          height: 100%;
+          width: 0%;
+          background: #000;
+          opacity: 1;
+          top: 0;
           left: 0;
+          z-index: -1;
+          border-radius: (4/16rem);
           transition: width 0.3s;
         }
 
@@ -292,173 +263,175 @@ const optimizedImage = await getOptimizedImage(landingImage)
             width: 100%;
           }
         }
+      }
 
-        &:last-of-type {
-          margin-bottom: 0;
+      .cs-submit {
+        text-transform: uppercase;
+        width: (283/16rem);
+        color: #fff;
+        background-color: var(--secondary);
+        border: none;
+        transition: color 0.3s;
+        &:hover {
+          color: #fff;
+          cursor: pointer;
         }
       }
 
-      .cs-block {
-        /* sends second address line to the bottom on its own line */
-        display: block;
+      .cs-right {
+        width: 100%;
+        /* 16px - 24px */
+        padding: clamp(1rem, 3.5vw, 1.5rem);
+        border-radius: (24/16rem);
+        background-color: var(--primary);
+        display: flex;
+        /* prevents padding from adding to height and width */
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        /* 24px - 32px */
+        gap: clamp(1.5rem, 4vw, 2rem);
       }
 
-      .cs-bg-picture {
+      .cs-map {
         width: 100%;
-        height: 100%;
+        /* 300px - 425px */
+        height: clamp(18.75rem, 63.4vw, 26.5625rem);
+        border-radius: (24/16rem);
+        /* clips the corners of the img tag */
+        overflow: hidden;
+        position: relative;
         display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: transform 0.6s;
 
         &:before {
-          /* background color overlay */
           content: "";
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 0.8) 100%
-          );
-          display: block;
           position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
+          display: block;
+          /* 32px - 48px */
+          width: clamp(2rem, 4vw, 3rem);
+          height: clamp(2rem, 4vw, 3rem);
+          background: url("https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/pin-red.svg");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 1;
+          /* 148px - 220px */
+          top: clamp(9.25rem, 30.7vw, 13.75rem);
+          /* push to the center line of the div */
+          left: 50%;
+          /* push X amount of pixels from it's current position off the center line */
+          margin-left: (10/16rem);
+          z-index: 10;
         }
 
         img {
-          width: 100%;
-          height: 100%;
-          /* Makes img tag act as a background image */
-          object-fit: cover;
           position: absolute;
           top: 0;
           left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .cs-contact-group {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: (16/16rem);
+      }
+
+      .cs-item {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .cs-header {
+        font-size: (20/16rem);
+        line-height: 1.2em;
+        font-weight: 700;
+        margin-bottom: (12/16rem);
+        color: var(--secondaryLight);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: (4/16rem);
+      }
+
+      .cs-link,
+      .cs-hours {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        color: var(--bodyTextColorWhite);
+        transition: color 0.3s;
+      }
+
+      .cs-link {
+        &:hover {
+          color: var(--secondaryLight);
         }
       }
     }
   }
 
-  /* Tablet - 700px */
-  @media only screen and (min-width: 43.75em) {
-    #cs-contact {
-      #cs-form {
-        display: flex;
+  /* Tablet - 650px */
+  @media only screen and (min-width: 40.625rem) {
+    #contact-322 {
+      .cs-contact-group {
+        width: 100%;
+        flex-direction: row;
         justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-
-        label {
-          width: 48%;
-        }
-
-        .cs-label-message {
-          width: 100%;
-        }
       }
     }
   }
 
   /* Small Desktop - 1024px */
-  @media only screen and (min-width: 64em) {
-    #cs-contact {
+  @media only screen and (min-width: 64rem) {
+    #contact-322 {
       .cs-container {
         max-width: (1280/16rem);
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-start;
-        gap: (80/16rem);
+        flex-direction: row;
+        justify-content: space-between;
+        gap: (52/16rem);
       }
 
-      #cs-form {
-        max-width: (630/16rem);
-        label {
-          width: 100%;
-        }
+      .cs-content {
+        max-width: (522/16rem);
       }
 
-      .cs-right-section {
-        width: 40%;
-        max-width: (542/16rem);
-        /* changes to 578px at 1300px wide */
-        height: (686/16rem);
-        /* prevents flexbox from squishing it */
+      .cs-title,
+      .cs-topper {
+        text-align: left;
+        margin-left: 0;
+      }
+
+      .cs-title {
+        max-width: (522/16rem);
+      }
+
+      .cs-email,
+      .cs-phone {
+        width: 48%;
+      }
+
+      .cs-button-solid {
+        margin-left: 0;
+      }
+
+      .cs-right {
+        width: 51.6%;
+        max-width: (658/16rem);
+        /* prevent flexbox from squishing it */
         flex: none;
-
-        &:hover {
-          .cs-bg-picture {
-            transform: scale(1.1);
-          }
-        }
-      }
-
-      .cs-block {
-        /* goes back to inline so it stays "in line" with the rest of the text */
-        display: inline-block;
-      }
-    }
-  }
-
-  /* Small Desktop - 1300px */
-  @media only screen and (min-width: 81.25em) {
-    #cs-contact {
-      #cs-form {
-        column-gap: (0/16rem);
-        label {
-          width: 48%;
-          max-width: (305/16rem);
-        }
-
-        .cs-label-message {
-          max-width: 100%;
-        }
-      }
-
-      .cs-right-section {
-        height: (578/16rem);
-      }
-    }
-  }
-
-  /* Dark Mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      #cs-contact {
-        .cs-text,
-        .cs-title {
-          color: var(--bodyTextColorWhite);
-        }
-
-        .cs-topper {
-          color: var(--primaryLight);
-        }
-
-        #cs-form {
-          label,
-          input,
-          textarea {
-            color: var(--bodyTextColorWhite);
-            background-color: transparent;
-
-            &::placeholder {
-              /* lighten up the color of the text by 40%*/
-              filter: brightness(1.4);
-            }
-          }
-        }
-
-        .cs-bg-picture {
-          background-color: #000;
-
-          img {
-            /* lets parent background-color bleed through and darken it */
-            opacity: 0.5;
-          }
-        }
       }
     }
   }

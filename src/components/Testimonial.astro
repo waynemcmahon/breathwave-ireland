@@ -1,0 +1,260 @@
+<!-- ============================================ --><!--                   Reviews                    --><!-- ============================================ -->
+<section id="reviews-1604">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Testimonials</span>
+            <h2 class="cs-title">Smiles Are Our Success</h2>
+            <!-- <p class="cs-text">
+                At Anne’s Coffee Bar, we measure our success by the smiles on
+                our customers’ faces. Here’s what people are saying:
+            </p> -->
+        </div>
+        <div class="cs-review">
+            <!--Quote-->
+            <svg
+                class="cs-quote"
+                viewBox="0 0 120 84"
+                preserveAspectRatio="none"
+                width="100"
+                height="84"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                ><g clip-path="url(#a)" fill="var(--quoteColor)"
+                    ><path
+                        d="M27.528 99H0L21.966 0H66L27.528 99ZM81.528 99H54L75.966 0H120L81.528 99Z"
+                    ></path></g
+                ><defs
+                    ><clipPath id="a-1604"
+                        ><path fill="var(--quoteColor)" d="M0 0h120v99H0z"
+                        ></path></clipPath
+                    ></defs
+                ></svg
+            >
+            <p class="cs-review-text">
+                Visited this gem of a cafe several times recently. Such great
+                food, coffee and service. Always met with such friendliness and
+                warmth. They go out of their way to make customers feel welcome
+                and valued.
+            </p>
+            <div class="cs-flex-group">
+                <picture class="cs-picture">
+                    <img
+                        class="cs-profile"
+                        src="/assets/images/logo.png"
+                        decoding="async"
+                        alt="profile"
+                        width="50"
+                        height="50"
+                        aria-hidden="true"
+                    />
+                </picture>
+                <span class="cs-name">
+                    Nuala Tyers
+                    <span class="cs-job">Happy Customer</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <picture class="cs-img">
+        <!--Mobile Image-->
+        <source
+            media="(max-width: 600px)"
+            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/models.jpg"
+        />
+        <!--Tablet and above Image-->
+        <source
+            media="(min-width: 601px)"
+            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/models.jpg"
+        />
+        <img
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/models.jpg"
+            alt="people"
+            width="1280"
+            height="640"
+        />
+    </picture>
+</section>
+
+<style>
+    /*-- -------------------------- -->
+<---          Reviews           -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #reviews-1604 {
+            background-color: #f7f7f7;
+            position: relative;
+            z-index: 1;
+        }
+        #reviews-1604 .cs-container {
+            width: 100%;
+            /* changes to 1024px at tablet */
+            max-width: 36.5rem;
+            margin: auto;
+            margin-bottom: -5.75rem;
+            padding: var(--sectionPadding);
+            padding-bottom: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+        #reviews-1604 .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+        }
+        #reviews-1604 .cs-title {
+            max-width: 20ch;
+            margin: 0;
+        }
+        #reviews-1604 .cs-review {
+            list-style: none;
+            text-align: left;
+            width: 100%;
+            max-width: 39.375rem;
+            /* 24px - 40px */
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            background-color: #fff;
+            border-radius: 1rem;
+            /* prevents padding from adding to height and width */
+            box-sizing: border-box;
+            /* clips the pseudo box from overflowing */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            /* prevents flexbox from squishing it */
+            flex: none;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+        #reviews-1604 .cs-quote {
+            --quoteColor: var(--secondary);
+            width: 6.25rem;
+            height: auto;
+            margin: 0;
+            opacity: 0.5;
+            display: block;
+            position: absolute;
+            /* changes to 40px at tablet */
+            right: 0;
+            bottom: 0;
+        }
+        #reviews-1604 .cs-review-text {
+            /* 16px - 25px */
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            line-height: 1.5em;
+            margin: 0 0 2rem 0;
+            color: var(--bodyTextColor);
+        }
+        #reviews-1604 .cs-flex-group {
+            /* in case one card has more text than the other, this pushes up against the review text so the name and title are always at the bottom. Only works if parent is a flexbox */
+            margin-top: auto;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        #reviews-1604 .cs-profile {
+            width: 3.25rem;
+            height: 3.25rem;
+            margin: 0;
+            border-radius: 50%;
+            box-sizing: border-box;
+            /* clips image corners to make circle */
+            overflow: hidden;
+            position: relative;
+            display: block;
+        }
+        #reviews-1604 .cs-profile img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 2rem;
+            /* makes the image behave like a background image */
+            object-fit: cover;
+        }
+        #reviews-1604 .cs-name {
+            font-size: 1.25rem;
+            line-height: 1.2em;
+            font-weight: 700;
+            margin: 0;
+            color: var(--headerColor);
+            display: block;
+        }
+        #reviews-1604 .cs-job {
+            /* 14px - 16px */
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            line-height: 1.5em;
+            font-weight: 400;
+            margin: 0.25rem 0 0 0;
+            color: var(--secondary);
+            display: block;
+        }
+        #reviews-1604 .cs-img {
+            width: 100%;
+            max-width: 80rem;
+            /* reduced to 60vw at tablet */
+            height: 100vw;
+            /* changed to 640px at tablet */
+            max-height: 28.125rem;
+            margin: auto;
+            display: block;
+            position: relative;
+            z-index: -1;
+        }
+        #reviews-1604 .cs-img img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 1rem;
+            /* Makes img tag act as a background image */
+            object-fit: cover;
+        }
+    }
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #reviews-1604 {
+            padding: var(--sectionPadding);
+        }
+        #reviews-1604 .cs-container {
+            max-width: 80rem;
+            padding: 0;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        #reviews-1604 .cs-content {
+            text-align: left;
+            align-items: flex-start;
+        }
+        #reviews-1604 .cs-item {
+            grid-column: span 6;
+        }
+        #reviews-1604 .cs-review {
+            width: 67%;
+        }
+        #reviews-1604 .cs-quote {
+            right: 2.5rem;
+        }
+        #reviews-1604 .cs-img {
+            height: 60vw;
+            max-height: 40rem;
+        }
+    }
+</style>
