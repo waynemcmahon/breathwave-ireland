@@ -3,15 +3,17 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import Landing from "@components/Landing.astro";
 import FAQ from "@components/FAQ.astro";
+import { Picture} from "astro:assets";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
 import landingImage from "@assets/images/landing.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 const optimizedImage = await getOptimizedImage(landingImage);
+import supplierImg from "@assets/images/suppliers/supplier.jpg";
 ---
 
 <BaseLayout
-  title="Our Suppliers-"
+  title="Our Suppliers"
   description="Meta description for the page"
   preloadedImage={optimizedImage}
 >
@@ -19,7 +21,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
   <!--                    LANDING                   -->
   <!-- ============================================ -->
 
-  <Landing title="About Us" image={optimizedImage} />
+  <Landing title="Our Suppliers" image={optimizedImage} />
 
   <!-- ============================================ -->
   <!--                 Side By Side                 -->
@@ -39,103 +41,103 @@ const optimizedImage = await getOptimizedImage(landingImage);
     about making the content accessible and easy to read.
 ================================================= -->
 
-  <section id="content-page-714">
-    <div class="cs-container">
-      <div class="cs-content">
-        <h1 class="cs-title">
-          h1 - A Personalized Approach To Your <span class="cs-color"
-            >Well-Being</span
-          >
-        </h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4-6</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          laboriosam eum quae in temporibus cumque tempora expedita mollitia
-          nostrum adipisci, ipsum commodi, cupiditate, sequi quos enim! Quaerat
-          esse non sunt! Lorem ipsum dolor sit amet <a href="">link example</a>.
-          Est, quis!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          laboriosam eum quae in temporibus cumque tempora expedita mollitia
-          nostrum <strong>adipisci, ipsum commodi</strong>, cupiditate, sequi
-          quos enim!
-        </p>
-        <h3>Heading 3</h3>
-        <ol>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        </ol>
-        <h4>Heading 4-6</h4>
-        <ul>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        </ul>
-      </div>
-      <div class="cs-image-group">
-        <picture class="cs-picture">
-          <!--Mobile Image-->
-          <source
-            media="(max-width: 600px)"
-            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FPeople%2Fperson7.jpg"
-          />
-          <!--Tablet and above Image-->
-          <source
-            media="(min-width: 601px)"
-            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FPeople%2Fperson7.jpg"
-          />
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FPeople%2Fperson7.jpg"
-            alt="person"
-            width="570"
-            height="680"
-            aria-hidden="true"
-          />
-        </picture>
+ <section id="content-page-714">
+  <div class="cs-container">
+    <div class="cs-content">
+      <h1 class="cs-title">
+        Our Trusted <span class="cs-color">Suppliers</span>
+      </h1>
+      <p>
+        At Anne’s Coffee Bar, we believe that great food and drinks start with exceptional ingredients.
+        That’s why we’re proud to partner with local, sustainable, and passionate suppliers who share our commitment to quality, community, and the environment.
+        Every sip of coffee and every bite of our home-baked treats reflects the hard work and dedication of these trusted collaborators.
+      </p>
 
-        <!--Flower Graphic-->
-        <img
-          class="cs-flower"
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Fbig-abstract-flower.svg"
-          alt="flower graphic"
-          width="362"
-          height="350"
-          aria-hidden="true"
-        />
+      <h2>Meet the Partners Behind the Flavors</h2>
 
-        <!--Spidey Sense Graphic-->
-        <img
-          class="cs-sense"
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Fspider-sense.svg"
-          alt="spidey sense graphic"
-          width="80"
-          height="89"
-          aria-hidden="true"
-        />
-      </div>
+      <h3>The Local Farmer</h3>
+      <p>
+        <strong>About:</strong> Our vegetables, fruits, and herbs are sourced from a nearby farm that prioritizes organic and sustainable practices. They also collect our used coffee grounds to enrich their soil, ensuring a full-circle approach to sustainability.
+        <br />
+        <strong>Why We Love Them:</strong> Their produce is always fresh, vibrant, and packed with flavor, which helps us serve you dishes that are both delicious and nourishing.
+      </p>
+
+      <h3>The Artisan Baker</h3>
+      <p>
+        <strong>About:</strong> For specialty items like gluten-free bread and handcrafted pastries, we work closely with a local baker who shares our passion for home-baked goodness.
+        <br />
+        <strong>Why We Love Them:</strong> Their dedication to quality and innovative recipes ensures our customers with dietary needs always have amazing options.
+      </p>
+
+      <h3>The Ethical Coffee Roaster</h3>
+      <p>
+        <strong>About:</strong> Our coffee beans are sourced from an ethical roaster who works directly with farmers across the globe, ensuring fair trade and sustainable practices at every step.
+        <br />
+        <strong>Why We Love Them:</strong> Their expertly roasted beans create the rich and aromatic coffee experience that Anne’s Coffee Bar is known for.
+      </p>
+
+      <h3>The Dairy Co-op</h3>
+      <p>
+        <strong>About:</strong> All our cream, milk, and butter come from a family-run dairy cooperative that prides itself on ethical farming and happy cows.
+        <br />
+        <strong>Why We Love Them:</strong> Their high-quality dairy products give our home-baking that unmistakable, melt-in-your-mouth flavor.
+      </p>
+
+      <h2>A Partnership Rooted in Sustainability</h2>
+      <p>
+        From compostable packaging to reducing waste in our café, we work with suppliers who embrace eco-friendly practices.
+        By prioritizing locally sourced ingredients and reducing food miles, we ensure that our impact on the environment is as small as possible—without ever compromising on taste.
+      </p>
     </div>
-    <!--Waves Graphic-->
-    <picture class="cs-background">
-      <img
-        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Flarge-waves.svg"
-        alt="waves"
+
+    <div class="cs-image-group">
+      <div class="cs-picture">
+        <Picture
+          src={supplierImg}
+          alt="suppliers"
+          formats={["webp", "avif"]}
+        />
+      </div>
+
+      <!--Flower Graphic-->
+   <!--    <img
+        class="cs-flower"
+        loading="lazy"
         decoding="async"
+        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Fbig-abstract-flower.svg"
+        alt="flower graphic"
+        width="362"
+        height="350"
         aria-hidden="true"
-        width="625"
-        height="952"
-      />
-    </picture>
-  </section>
+      /> -->
+
+      <!--Spidey Sense Graphic-->
+    <!--   <img
+        class="cs-sense"
+        loading="lazy"
+        decoding="async"
+        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Fspider-sense.svg"
+        alt="spidey sense graphic"
+        width="80"
+        height="89"
+        aria-hidden="true"
+      /> -->
+    </div>
+  </div>
+
+  <!--Waves Graphic-->
+  <picture class="cs-background">
+    <img
+      src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Flarge-waves.svg"
+      alt="waves"
+      decoding="async"
+      aria-hidden="true"
+      width="625"
+      height="952"
+    />
+  </picture>
+</section>
+
 
   <CTA />
 </BaseLayout>
@@ -286,7 +288,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
       .cs-picture {
         width: (542/16em);
         height: (647/16em);
-        border-radius: (285/16em);
+        border-radius: 2rem;
         border: (12/16em) solid #fff;
         background-color: #f7f7f7;
         /* prevents border from affecting height and width */

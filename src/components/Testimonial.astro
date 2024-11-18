@@ -1,3 +1,8 @@
+---
+import { Picture } from "astro:assets";
+import testimonialImg from "@assets/images/hero/team.jpg";
+---
+
 <!-- ============================================ --><!--                   Reviews                    --><!-- ============================================ -->
 <section id="reviews-1604">
     <div class="cs-container">
@@ -55,26 +60,13 @@
             </div>
         </div>
     </div>
-    <picture class="cs-img">
-        <!--Mobile Image-->
-        <source
-            media="(max-width: 600px)"
-            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/models.jpg"
-        />
-        <!--Tablet and above Image-->
-        <source
-            media="(min-width: 601px)"
-            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/models.jpg"
-        />
-        <img
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/models.jpg"
+    <div class="cs-img">
+        <Picture
+            src={testimonialImg}
             alt="people"
-            width="1280"
-            height="640"
+            formats={["webp", "avif"]}
         />
-    </picture>
+    </div>
 </section>
 
 <style>
@@ -85,7 +77,7 @@
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
         #reviews-1604 {
-            background-color: #f7f7f7;
+            background-color: var(--backgroundColor);
             position: relative;
             z-index: 1;
         }

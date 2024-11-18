@@ -1,3 +1,16 @@
+---
+import { Picture } from "astro:assets";
+import gallery1 from "@assets/images/gallery/gallery_1.jpg";
+import gallery2 from "@assets/images/gallery/gallery_13.jpg";
+import gallery3 from "@assets/images/gallery/gallery_17.jpg";
+import gallery4 from "@assets/images/gallery/gallery_4.jpg";
+import gallery5 from "@assets/images/gallery/gallery_10.jpg";
+import gallery6 from "@assets/images/gallery/gallery_6.jpg";
+import gallery7 from "@assets/images/gallery/gallery_7.jpg";
+import gallery8 from "@assets/images/gallery/gallery_8.jpg";
+import gallery9 from "@assets/images/gallery/gallery_9.jpg";
+---
+
 <!-- ============================================ --><!--                  Gallery                     --><!-- ============================================ -->
 <section id="gallery-1234">
     <div class="cs-container">
@@ -12,170 +25,73 @@
         </div>
         <div class="cs-gallery">
             <div class="cs-flex">
-                <picture class="cs-picture cs-picture1">
-                    <!--Mobile Image-->
-                    <source
-                        media="(max-width: 600px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <!--Tablet and above Image-->
-                    <source
-                        media="(min-width: 601px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <img
-                        loading="lazy"
-                        decoding="async"
-                        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                <div class="cs-picture cs-picture1">
+                    <Picture
+                        src={gallery1}
                         alt="person"
-                        width="360"
-                        height="420"
+                        formats={["webp", "avif"]}
                     />
-                </picture>
-                <picture class="cs-picture cs-picture2">
-                    <!--Mobile Image-->
-                    <source
-                        media="(max-width: 600px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <!--Tablet and above Image-->
-                    <source
-                        media="(min-width: 601px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <img
-                        loading="lazy"
-                        decoding="async"
-                        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                </div>
+                <div class="cs-picture cs-picture2">
+                    <Picture
+                        src={gallery2}
                         alt="person"
-                        width="360"
-                        height="240"
+                        formats={["webp", "avif"]}
                     />
-                </picture>
+                </div>
             </div>
-            <picture class="cs-picture cs-row">
-                <!--Mobile Image-->
-                <source
-                    media="(max-width: 600px)"
-                    srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-                <!--Tablet and above Image-->
-                <source
-                    media="(min-width: 601px)"
-                    srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-                <img
-                    loading="lazy"
-                    decoding="async"
-                    src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            <div class="cs-picture cs-row">
+                <Picture
+                    src={gallery3}
                     alt="person"
-                    width="360"
-                    height="520"
+                    formats={["webp", "avif"]}
                 />
-            </picture>
-            <div class="cs-flex">
-                <picture class="cs-picture cs-picture1">
-                    <!--Mobile Image-->
-                    <source
-                        media="(max-width: 600px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <!--Tablet and above Image-->
-                    <source
-                        media="(min-width: 601px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <img
-                        loading="lazy"
-                        decoding="async"
-                        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="person"
-                        width="360"
-                        height="420"
-                    />
-                </picture>
-                <picture class="cs-picture cs-picture2">
-                    <!--Mobile Image-->
-                    <source
-                        media="(max-width: 600px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <!--Tablet and above Image-->
-                    <source
-                        media="(min-width: 601px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <img
-                        loading="lazy"
-                        decoding="async"
-                        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="person"
-                        width="360"
-                        height="240"
-                    />
-                </picture>
             </div>
-            <picture class="cs-picture cs-row">
-                <!--Mobile Image-->
-                <source
-                    media="(max-width: 600px)"
-                    srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-                <!--Tablet and above Image-->
-                <source
-                    media="(min-width: 601px)"
-                    srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-                <img
-                    loading="lazy"
-                    decoding="async"
-                    src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="person"
-                    width="360"
-                    height="520"
-                />
-            </picture>
             <div class="cs-flex">
-                <picture class="cs-picture cs-picture1">
-                    <!--Mobile Image-->
-                    <source
-                        media="(max-width: 600px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <!--Tablet and above Image-->
-                    <source
-                        media="(min-width: 601px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <img
-                        loading="lazy"
-                        decoding="async"
-                        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                <div class="cs-picture cs-picture1">
+                    <Picture
+                        src={gallery4}
                         alt="person"
-                        width="360"
-                        height="420"
+                        formats={["webp", "avif"]}
                     />
-                </picture>
-                <picture class="cs-picture cs-picture2">
-                    <!--Mobile Image-->
-                    <source
-                        media="(max-width: 600px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <!--Tablet and above Image-->
-                    <source
-                        media="(min-width: 601px)"
-                        srcset="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    />
-                    <img
-                        loading="lazy"
-                        decoding="async"
-                        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                </div>
+                <div class="cs-picture cs-picture2">
+                    <Picture
+                        src={gallery5}
                         alt="person"
-                        width="360"
-                        height="240"
+                        formats={["webp", "avif"]}
                     />
-                </picture>
+                </div>
+            </div>
+            <div class="cs-picture cs-row">
+                <Picture
+                    src={gallery6}
+                    alt="person"
+                    formats={["webp", "avif"]}
+                />
+            </div>
+            <div class="cs-flex">
+                <div class="cs-picture cs-picture1">
+                    <Picture
+                        src={gallery7}
+                        alt="person"
+                        formats={["webp", "avif"]}
+                    />
+                </div>
+                <div class="cs-picture cs-picture2">
+                    <Picture
+                        src={gallery8}
+                        alt="person"
+                        formats={["webp", "avif"]}
+                        />
+                </div>
+                <!-- <div class="cs-picture cs-picture2">
+                    <Picture
+                        src={gallery9}
+                        alt="person"
+                        formats={["webp", "avif"]}
+                    />
+                </div> -->
             </div>
         </div>
     </div>
