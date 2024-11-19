@@ -6,11 +6,9 @@ import FAQ from "@components/FAQ.astro";
 import { Picture } from "astro:assets";
 import leftImage from "@assets/images/about/left.jpg";
 import rightImage from "@assets/images/about/right.jpg";
-import quote from "@assets/images/about/quote-white.svg";
 
-// Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
-import landingImage from "@assets/images/landing.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+import landingImage from "@assets/images/landing.jpg";
 const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
@@ -25,10 +23,10 @@ const optimizedImage = await getOptimizedImage(landingImage);
       <!-- Left Image Section -->
       <div class="cs-image-group">
         <div class="cs-picture cs-picture1">
-          <Picture src={leftImage} alt="Coffee Heart" formats={["webp", "avif"]} loading="eager"/>
+          <Picture src={leftImage} alt="Coffee Heart" formats={["webp", "avif"]} loading="eager" />
         </div>
         <div class="cs-picture cs-picture2">
-          <Picture src={rightImage} alt="Cafe Friends" formats={["webp", "avif"]} />
+          <Picture src={rightImage} alt="Cafe Friends" formats={["webp", "avif"]}/>
         </div>
       </div>
       <!-- Right Content Section-->
@@ -50,8 +48,8 @@ const optimizedImage = await getOptimizedImage(landingImage);
           </span>
           <span class="cs-name">Anne O'Sullivan</span>
           <span class="cs-job">Owner</span>
-          <Picture
-            src={quote}
+          <img
+            src="/assets/svgs/quote-white.svg"
             class="cs-quote-icon"
             loading="lazy"
             alt="gavel"

@@ -15,15 +15,18 @@ const { title, image } = Astro.props;
     </div>
     <!--Background Image-->
     <div class="cs-background">
-        <Picture src={image} alt="background" formats={["webp", "avif"]} loading="eager" />
+         <Picture 
+            src={image}
+            formats={['avif', 'webp']} 
+            alt="landing image background"
+            aria-hidden="true" 
+            decoding="async"
+            loading="eager"
+        />
     </div>
 </div>
 
 <style lang="less">
-    /*-- -------------------------- -->
-<---          Banner            -->
-<--- -------------------------- -*/
-
     /* Mobile - 360px */
     @media only screen and (min-width: 0em) {
         #banner-1004 {

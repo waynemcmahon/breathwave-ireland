@@ -13,19 +13,10 @@ const optimizedImage = await getOptimizedImage(landingImage)
   description="Meta description for the page"
   preloadedImage = {optimizedImage}
 >
-  <!-- ============================================ -->
-  <!--                    LANDING                   -->
-  <!-- ============================================ -->
-
   <Landing 
     title="Reviews"
-    image={optimizedImage}
+    image={landingImage}
   />
-
-  <!-- ============================================ -->
-  <!--                  Reviews                     -->
-  <!-- ============================================ -->
-
   <section id="reviews">
     <div class="container">
       <div class="review">

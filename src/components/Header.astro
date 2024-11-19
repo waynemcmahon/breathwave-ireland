@@ -89,8 +89,8 @@ import InstagramIcon from "@assets/icons/instagram.svg";
             class="cs-social-img"
             alt="facebook"
             formats={["webp", "avif"]}
-            width="11"
-            height="11"
+            width="16"
+            height="16"
             loading="eager"
           />
         </a>
@@ -100,8 +100,8 @@ import InstagramIcon from "@assets/icons/instagram.svg";
             class="cs-social-img"
             alt="instagram"
             formats={["webp", "avif"]}
-            width="11"
-            height="11"
+            width="16"
+            height="16"
             loading="eager"
           />
         </a>
@@ -475,6 +475,12 @@ import InstagramIcon from "@assets/icons/instagram.svg";
 
     body #navigation .cs-social {
       display: flex;
+      .cs-social-link {
+        picture {
+          line-height: normal;
+          height: 16px;
+        }
+      }
     }
 
     .reservation {

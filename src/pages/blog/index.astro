@@ -31,7 +31,7 @@ const optimizedImage = await getOptimizedImage(landingImage)
 
   <Landing 
     title="Blog"
-    image={optimizedImage}
+    image={landingImage}
   />
 
   <!-- ============================================ -->
@@ -49,7 +49,7 @@ const optimizedImage = await getOptimizedImage(landingImage)
         posts.length >= 1 &&
           posts.map((post) => (
             <article class="recent-articles">
-              <picture class="blog-mainImage">
+              {/* <picture class="blog-mainImage">
                 <Image
                   src={post.data.image}
                   alt={post.data.imageAlt}
@@ -57,7 +57,7 @@ const optimizedImage = await getOptimizedImage(landingImage)
                   height="400"
                   decoding="async"
                 />
-              </picture>
+              </picture> */}
 
               <div class="article-group">
                 <div class="blog-authorGroup">
