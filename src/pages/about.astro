@@ -3,6 +3,9 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import Landing from "@components/Landing.astro";
 import FAQ from "@components/FAQ.astro";
+import { Picture } from "astro:assets";
+import friendImg from "@assets/images/about/cafe-friends.jpg";
+import coffeeImg from "@assets/images/about/coffee-heart.jpg";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
@@ -29,65 +32,28 @@ const optimizedImage = await getOptimizedImage(landingImage);
     <div class="cs-container">
       <!-- Left Image Section -->
       <div class="cs-image-group">
-        <picture class="cs-picture cs-picture1">
-          <source
-            media="(max-width: 600px)"
-            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Food-Menu/breakfast1.jpg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Food-Menu/breakfast1.jpg"
-          />
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Food-Menu/breakfast1.jpg"
-            alt="breakfast"
-            width="522"
-            height="581"
-            aria-hidden="true"
-          />
-        </picture>
-        <picture class="cs-picture cs-picture2">
-          <source
-            media="(max-width: 600px)"
-            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Food-Menu/breakfast2.jpg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Food-Menu/breakfast2.jpg"
-          />
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Food-Menu/breakfast2.jpg"
-            alt="breakfast"
-            width="414"
-            height="400"
-            aria-hidden="true"
-          />
-        </picture>
+        <div class="cs-picture cs-picture1">
+          <Picture src={coffeeImg} alt="Coffee Heart" formats={["webp", "avif"]} />
+        </div>
+        <div class="cs-picture cs-picture2">
+          <Picture src={friendImg} alt="Cafe Friends" formats={["webp", "avif"]} />
+        </div>
       </div>
       <!-- Right Content Section-->
       <div class="cs-content">
         <span class="cs-topper">About Us</span>
         <h2 class="cs-title">Anne's Coffee Bar</h2>
         <p class="cs-text">
-          In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-          officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-          et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-          nonatourean olei aptent taciti sociosqu ad litora torquent per.
+          At Anne's Coffee Bar, we believe in creating a cozy and welcoming space where everyone feels at home. Nestled in the heart of Camp Village, at the foot of the stunning Slieve Mish mountains, our café is a retreat for locals and travelers alike. Whether you're stopping by for your morning coffee, enjoying a stack of fluffy pancakes, or simply seeking a warm corner to unwind, we're here to make your day a little brighter.
         </p>
         <p class="cs-text">
-          In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-          officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-          et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-          nonatourean olei aptent taciti sociosqu ad litora torquent per.
+          From the moment we open our doors, the fire is on, providing a warm and inviting ambiance no matter the weather. It's not just about coffee or home-baked treats - it's about creating memories and fostering connections.
         </p>
+        <p class="cs-text">
+Our story began in 2021, during the height of the pandemic, when we transformed a forgotten space into a thriving café filled with laughter, warmth, and the scent of freshly brewed coffee. With a commitment to sustainability and locally sourced ingredients, we take pride in offering a menu that reflects both quality and care.        </p>
         <div class="cs-quote">
           <span class="cs-quote-text">
-            In consequat tincidunt turpis sit amet imperdiet. Praesent Classei
-            consequat tincidunt turpis sit amet imperdiet for mind.
+            We've created more than a café - it's a space where great coffee, good food, and genuine connections come together.
           </span>
           <span class="cs-name">Anne O'Sullivan</span>
           <span class="cs-job">Owner</span>

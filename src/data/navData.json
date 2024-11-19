@@ -14,11 +14,6 @@
     "url": "/suppliers/"
   },
   {
-    "key": "Blog",
-    "url": "/blog/",
-    "children": []
-  },
-  {
     "key": "Contact Us",
     "url": "/contact/",
     "children": []     

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
+import clientData from "@data/client.json";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
@@ -24,7 +25,11 @@ const optimizedImage = await getOptimizedImage(landingImage);
   <section id="hero-998">
     <div class="cs-container">
       <div class="cs-content">
-        <span class="cs-tag">Welcome to</span>
+        <div class="cs-tag-group">
+          <div class="cs-tag-left"></div>
+          <span class="cs-tag">Welcome to</span>
+          <div class="cs-tag-right"></div>
+        </div>
         <!--Logo-->
         <picture class="cs-logo">
           <source
@@ -47,6 +52,12 @@ const optimizedImage = await getOptimizedImage(landingImage);
           Indulge in our exquisite range of home-baked treats and freshly brewed
           coffee, all served in a cozy, welcoming space nestled at the foot of
           the stunning Slieve Mish mountain range.
+        </p>
+        <p class="cs-text">
+          <strong>Open:</strong>
+          {clientData.openingHours.days}
+          <br />
+          {clientData.openingHours.hours}
         </p>
         <a href="/menu" class="cs-button-solid">See Our Menu</a>
       </div>
@@ -96,33 +107,48 @@ const optimizedImage = await getOptimizedImage(landingImage);
     #hero-998 .cs-tag {
       font-size: clamp(1rem, 2.3vw, 1.9375rem);
       line-height: 1.2em;
-      margin: 0 0 clamp(0.75rem, 3vw, 1.5rem);
+
       color: var(--bodyTextColorWhite);
-      display: inline-flex;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    #hero-998 .cs-tag-group {
+      max-width: 100%;
       justify-content: center;
       align-items: center;
       position: relative;
       gap: 1rem;
+      margin: 0 0 clamp(0.75rem, 3vw, 1.5rem);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    #hero-998 .cs-tag:after {
-      content: "";
-      width: 5.625rem;
-      height: 2px;
-      background: var(--secondary);
-      opacity: 1;
-      position: relative;
-      display: block;
+    #hero-998 .cs-tag-left,
+    #hero-998 .cs-tag-right {
+      overflow: hidden;
+      width: auto;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    #hero-998 .cs-tag:before {
-      content: "";
-      width: 5.625rem;
-      height: 2px;
-      background: var(--secondary);
+    #hero-998 .cs-tag-left {
+      content: url("/assets/svgs/fancy-line-l.svg");
+      height: 100%;
       opacity: 1;
       position: relative;
-      display: block;
+    }
+
+    #hero-998 .cs-tag-right {
+      content: url("/assets/svgs/fancy-line-r.svg");
+      width: auto;
+      opacity: 1;
+      height: 100%;
+      position: relative;
     }
     #hero-998 .cs-container {
       width: 100%;

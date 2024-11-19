@@ -63,23 +63,17 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
                                         rowItems.length === 3 ? "cs-3" : "";
 
                                     return (
-                                        <div
-                                            class={`cs-menu-row ${rowClass}`}
-                                            key={rowIndex}
-                                        >
+                                        <div class={`cs-menu-row ${rowClass}`}>
                                             {rowItems.map((item, itemIndex) => (
-                                                <li
-                                                    class="cs-menu-item"
-                                                    key={itemIndex}
-                                                >
+                                                <li class="cs-menu-item">
                                                     <h3 class="cs-h3">
                                                         <span class="cs-name">
                                                             {item.name}
                                                         </span>
-                                                        <span class="cs-price">
+                                                        {/* <span class="cs-price">
                                                             {item.price ||
                                                                 "N/A"}
-                                                        </span>
+                                                        </span> */}
                                                     </h3>
                                                     <p class="cs-menu-p">
                                                         {item.description}
@@ -147,7 +141,6 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
                 }
 
                 &:after {
-                    /* right line */
                     content: "";
                     width: 50%;
                     max-width: (150/16rem);
@@ -457,8 +450,7 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
                 gap: (16/16rem);
                 position: relative;
 
-                &:after {
-                    /* divider line */
+                /* &:after {
                     content: "";
                     width: 50%;
                     height: 1px;
@@ -467,7 +459,7 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
                     position: relative;
                     display: block;
                     order: 1;
-                }
+                } */
             }
 
             .cs-name {
@@ -556,7 +548,7 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
 
             .cs-menu-item {
                 max-width: (600/16rem);
-                margin: 0 auto;
+                //margin: 0 auto;
             }
 
             .cs-name {
@@ -566,46 +558,3 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
         }
     }
 </style>
-
-<script>
-    class CS_MenuFilter {
-        filtersSelector = ".cs-button";
-        menuSelector = ".cs-menu-group";
-        activeClass = "cs-active";
-        hiddenClass = "cs-hidden";
-
-        constructor() {
-            this.$menus = document.querySelectorAll(this.menuSelector);
-            const $filters = document.querySelectorAll(this.filtersSelector);
-
-            this.onClick($filters[0]);
-
-            for (const $filter of $filters) {
-                $filter.addEventListener("click", () => this.onClick($filter));
-            }
-        }
-
-        onClick($filter) {
-            this.filter($filter.dataset.filter);
-
-            const { activeClass } = this;
-
-            this.$activeFilter?.classList.remove(activeClass);
-            $filter.classList.add(activeClass);
-
-            this.$activeFilter = $filter;
-        }
-
-        filter(filter) {
-            const showAll = filter == "all";
-            const { hiddenClass } = this;
-
-            for (const $menu of this.$menus) {
-                const show = showAll || $menu.dataset.category == filter;
-                $menu.classList.toggle(hiddenClass, !show);
-            }
-        }
-    }
-
-    new CS_MenuFilter();
-</script>

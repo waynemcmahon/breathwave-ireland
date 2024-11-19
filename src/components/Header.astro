@@ -1,14 +1,15 @@
 ---
 import navData from "@data/navData.json";
+import clientData from "@data/client.json";
+import { Picture } from "astro:assets";
+import logoDark from "@assets/images/logo.png";
+import logoLight from "@assets/images/logo_white.png";
+import FacebookIcon from "@assets/icons/facebook.svg";
+import InstagramIcon from "@assets/icons/instagram.svg";
 ---
 
 <div id="navigation">
-  <div aria-hidden="true" class="background-color-div">
-    <!--This div is used to overcome a z-index issue where the open
-            #navbar-menu is on top of the #navigation. This bar places itself 
-            the #navbar-menu so that menu appears behind the #navigation
-        -->
-  </div>
+  <div aria-hidden="true" class="background-color-div"></div>
   <div class="container">
     <a aria-label="click to go to home page" class="logo" href="/">
       <img
@@ -29,11 +30,25 @@ import navData from "@data/navData.json";
         width="66"
         height="66"
       />
+      <!-- <Picture
+        src={logoLight}
+        alt="logo"
+        formats={["webp", "avif"]}
+        class="logo-light"
+        aria-hidden="true"
+      />
+      <Picture
+        src={logoDark}
+        alt="logo"
+        formats={["webp", "avif"]}
+        class="logo-dark"
+        aria-hidden="true"
+      /> -->
     </a>
 
     <!--Main Nav-->
     <nav id="navbar-menu">
-      <ul>
+      <ul id="cs-expanded" class="cs-ul">
         {
           navData.map((entry) => (
             <li>
@@ -52,10 +67,55 @@ import navData from "@data/navData.json";
       </ul>
     </nav>
 
-    <a href="/menu" class="cs-button-solid reservation">See Menu</a>
+    <div class="cs-contact-group">
+      <!-- <a href={`tel:${clientData.phoneForTel}`} class="cs-phone">
+        <img
+          class="cs-phone-icon"
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-1a.svg"
+          alt="logo"
+          width="24"
+          height="24"
+          aria-hidden="true"
+          decoding="async"
+        />
+        {clientData.phoneForTel}
+      </a> -->
+
+      <div class="cs-social">
+        <a href="" class="cs-social-link">
+          <Picture
+            src={FacebookIcon}
+            class="cs-social-img"
+            alt="facebook"
+            formats={["webp", "avif"]}
+            width="11"
+            height="11"
+          />
+        </a>
+        <a href="" class="cs-social-link">
+          <Picture
+            src={InstagramIcon}
+            class="cs-social-img"
+            alt="instagram"
+            formats={["webp", "avif"]}
+            width="11"
+            height="11"
+            decoding="async"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- <a href="/menu" class="cs-button-solid reservation">See Menu</a> -->
 
     <!--Mobile Nav toggle-->
-    <button class="hamburger-menu" aria-label="mobile menu toggle">
+    <button
+      class="hamburger-menu"
+      id="mobile-menu-toggle"
+      aria-label="mobile menu toggle"
+      aria-expanded="false"
+      aria-controls="cs-expanded"
+    >
       <span aria-hidden="true"></span>
     </button>
   </div>
@@ -70,20 +130,7 @@ import navData from "@data/navData.json";
     }
   });
 </script>
-<script>
-  //
-  //    Toggle Mobile Navigation
-  //
-  const navbarMenu = document.querySelector("#navigation #navbar-menu");
-  const hamburgerMenu = document.querySelector("#navigation .hamburger-menu");
 
-  if (hamburgerMenu && navbarMenu) {
-    hamburgerMenu.addEventListener("click", function () {
-      navbarMenu.classList.toggle("open");
-      hamburgerMenu.classList.toggle("clicked");
-    });
-  }
-</script>
 <style lang="less">
   /*-- -------------------------- -->
 <---         Navigation         -->
@@ -394,6 +441,22 @@ import navData from "@data/navData.json";
         display: none;
       }
 
+      .cs-social {
+        .cs-social-link {
+          background-color: var(--primary);
+          img {
+            opacity: 1;
+            filter: grayscale(1) brightness(10000%);
+          }
+
+          &:hover {
+            background-color: var(--primaryLight);
+            img {
+              filter: grayscale(0) brightness(10000%);
+            }
+          }
+        }
+      }
       .hamburger-menu {
         &.clicked span {
           background-color: transparent;
@@ -406,6 +469,10 @@ import navData from "@data/navData.json";
           }
         }
       }
+    }
+
+    body #navigation .cs-social {
+      display: flex;
     }
 
     .reservation {
@@ -575,6 +642,123 @@ import navData from "@data/navData.json";
     }
     body.dark-mode #navigation #navbar-menu ul li a.active {
       color: var(--primary);
+    }
+  }
+
+  /*-- -------------------------- -->
+<---     Mobile Navigation      -->
+<--- -------------------------- -*/
+  /* Mobile - 1023px */
+  @media only screen and (max-width: 63.9375rem) {
+    #navigation .cs-contact-group {
+      display: none;
+      position: relative;
+      z-index: 10;
+    }
+    #navigation .cs-phone {
+      font-size: 1rem;
+      line-height: 1.5em;
+      text-decoration: none;
+      margin: 0;
+      color: #fff;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+      transition:
+        opacity 0.3s,
+        color 0.3s;
+    }
+    #navigation .cs-phone-icon {
+      width: 1.5rem;
+      height: auto;
+      display: block;
+    }
+    #navigation .cs-social {
+      display: none;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #navigation .cs-contact-group {
+      display: block;
+    }
+  }
+  /*-- -------------------------- -->
+<---     Desktop Navigation     -->
+<--- -------------------------- -*/
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+    #navigation .cs-contact-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    #navigation .cs-phone {
+      font-size: 1rem;
+      line-height: 1.5em;
+      text-decoration: none;
+      margin: 0;
+      color: #fff;
+      filter: grayscale(1) brightness(10000%);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+      transition:
+        opacity 0.3s,
+        color 0.3s;
+    }
+    #navigation .cs-phone-icon {
+      width: 1.5rem;
+      height: auto;
+      display: block;
+    }
+    #navigation .cs-social {
+      height: 2rem;
+      opacity: 1;
+      display: none;
+      visibility: visible;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      transition:
+        opacity 0.3s,
+        visibility 0.3s,
+        height 0.3s;
+    }
+    #navigation .cs-social-link {
+      text-decoration: none;
+      width: 2rem;
+      height: 2rem;
+      background-color: #f7f7f7;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+    #navigation .cs-social-link:hover {
+      background-color: var(--primaryLight);
+    }
+    #navigation .cs-social-link:hover .cs-social-icon {
+      opacity: 1;
+      filter: grayscale(1) brightness(10000%);
+    }
+    #navigation .cs-social-icon {
+      width: 0.75rem;
+      height: auto;
+      opacity: 0.6;
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    /* Large Desktop - 1300px */
+    @media only screen and (min-width: 81.25rem) {
+      #navigation .cs-social {
+        display: flex;
+      }
     }
   }
 </style>

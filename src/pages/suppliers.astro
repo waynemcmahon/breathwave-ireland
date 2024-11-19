@@ -3,13 +3,17 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import Landing from "@components/Landing.astro";
 import FAQ from "@components/FAQ.astro";
-import { Picture} from "astro:assets";
+import { Picture } from "astro:assets";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
 import landingImage from "@assets/images/landing.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 const optimizedImage = await getOptimizedImage(landingImage);
 import supplierImg from "@assets/images/suppliers/supplier.jpg";
+import heatherImg from "@assets/images/suppliers/heather.jpg";
+import eggsImg from "@assets/images/suppliers/eggs.jpg";
+import milkImg from "@assets/images/suppliers/milk.png";
+import carrotImg from "@assets/images/suppliers/carrots.jpg";
 ---
 
 <BaseLayout
@@ -41,363 +45,401 @@ import supplierImg from "@assets/images/suppliers/supplier.jpg";
     about making the content accessible and easy to read.
 ================================================= -->
 
- <section id="content-page-714">
-  <div class="cs-container">
-    <div class="cs-content">
-      <h1 class="cs-title">
-        Our Trusted <span class="cs-color">Suppliers</span>
-      </h1>
-      <p>
-        At Anne’s Coffee Bar, we believe that great food and drinks start with exceptional ingredients.
-        That’s why we’re proud to partner with local, sustainable, and passionate suppliers who share our commitment to quality, community, and the environment.
-        Every sip of coffee and every bite of our home-baked treats reflects the hard work and dedication of these trusted collaborators.
-      </p>
+  <section id="content-page-714">
+    <div class="cs-container">
+      <div class="cs-content">
+        <h1 class="cs-title">
+          Our Trusted <span class="cs-color">Suppliers</span>
+        </h1>
+        <p>
+          At Anne's Coffee Bar, we believe that great food and drinks start with
+          exceptional ingredients. That's why we're proud to partner with local,
+          sustainable, and passionate suppliers who share our commitment to
+          quality, community, and the environment. Every sip of coffee and every
+          bite of our home-baked treats reflects the hard work and dedication of
+          these trusted collaborators.
+        </p>
 
-      <h2>Meet the Partners Behind the Flavors</h2>
+        <h2>Meet the Partners Behind the Flavors</h2>
 
-      <h3>The Local Farmer</h3>
-      <p>
-        <strong>About:</strong> Our vegetables, fruits, and herbs are sourced from a nearby farm that prioritizes organic and sustainable practices. They also collect our used coffee grounds to enrich their soil, ensuring a full-circle approach to sustainability.
-        <br />
-        <strong>Why We Love Them:</strong> Their produce is always fresh, vibrant, and packed with flavor, which helps us serve you dishes that are both delicious and nourishing.
-      </p>
+        <div class="cs-supplier">
+          <!-- <div class="cs-picture-wrapper">
+            <Picture
+              src={heatherImg}
+              alt="Heather's Bakery"
+              formats={["webp", "avif"]}
+            />
+          </div> -->
+          <div>
+            <h3>Meet Heather - The Heart and Soul of Our Bakery</h3>
+            <p>
+              Since the day we opened our doors almost four years ago, Heather has been at the
+              heart of our baking. With years of experience and a true passion for her craft,
+              Heather's commitment to quality and her passion for baking shine through in
+              everything she makes. Whether it's her delicious scones, decadent pastries, or
+              legendary cinnamon rolls, warm, and perfectly spiced, they've earned a dedicated
+              following of regulars and newcomers alike.
+            </p>
+            <p>
+              Heather pours care and precision into every detail, ensuring that each bite
+              is a reflection of her unwavering dedication to her craft.
+            </p>
+            <p>
+              We are incredibly lucky to have Heather as part of our team, and we know that
+              every visit you make is an opportunity to taste the passion and skill she
+              brings to our kitchen every single day.
+            </p>
+          </div>
+        </div>
 
-      <h3>The Artisan Baker</h3>
-      <p>
-        <strong>About:</strong> For specialty items like gluten-free bread and handcrafted pastries, we work closely with a local baker who shares our passion for home-baked goodness.
-        <br />
-        <strong>Why We Love Them:</strong> Their dedication to quality and innovative recipes ensures our customers with dietary needs always have amazing options.
-      </p>
+        <div class="cs-supplier">
+         <!--  <div class="cs-picture-wrapper">
+            <Picture
+              src={eggsImg}
+              alt="Fergie's Eggs"
+              formats={["webp", "avif"]}
+            />
+          </div> -->
+          <div>
+            <h3>Meet Fergie - Our Egg Supplier Extraordinaire</h3>
+            <p>
+              When we first opened our doors almost four years ago, Fergie was just a 9-year-old
+              with a passion for farming—and only 6 hens to his name. Fast forward to today, and
+              Fergie is the proud owner of a thriving flock of 120 hens, all producing the freshest,
+              most delicious eggs you'll find anywhere.
+            </p>
+            <p>
+              From the very beginning, Fergie has been supplying us with fresh, high-quality eggs
+              for our bakery, helping us create the perfect pastries, cakes, and everything in
+              between. His dedication to caring for his hens and ensuring top-notch quality is what
+              makes his eggs stand out—rich in flavour and always fresh.
+            </p>
+            <p>
+              Fergie's journey from a young egg enthusiast to a trusted supplier reflects his hard
+              work, love for the craft, and deep connection to the land. We're proud to work with
+              someone who's not only passionate about sustainable farming but who has also
+              been a part of our story from the start.
+            </p>
+            <p>
+              When you taste our baked goods, you're tasting the care and commitment that
+              Fergie puts into every egg he delivers to us. We're incredibly grateful for his support
+              and for the farm-fresh eggs that help make our bakery a local favourite.
+            </p>
+          </div>
+        </div>
 
-      <h3>The Ethical Coffee Roaster</h3>
-      <p>
-        <strong>About:</strong> Our coffee beans are sourced from an ethical roaster who works directly with farmers across the globe, ensuring fair trade and sustainable practices at every step.
-        <br />
-        <strong>Why We Love Them:</strong> Their expertly roasted beans create the rich and aromatic coffee experience that Anne’s Coffee Bar is known for.
-      </p>
+        <div class="cs-supplier">
+         <!--  <div class="cs-picture-wrapper">
+            <Picture
+              src={milkImg}
+              alt="Dingle Milk"
+              formats={["webp", "avif"]}
+            />
+          </div> -->
+          <div>
+            <h3>Meet Mai from Dingle Milk</h3>
+            <h5>The Taste of Real, Fresh Milk</h5>
+            <p>
+              Dingle Milk is a family-run farm business, and Mai supplies us with fresh, high-quality
+milk straight from their herd of Friesian cows. They produce only the finest milk,
+yoghurt and cheese using milk from their own cows, ensuring that everything they
+provide is as fresh and natural as it gets. This is real milk—rich, creamy, and full of
+flavour
+            </p>
+          </div>
+        </div>
 
-      <h3>The Dairy Co-op</h3>
-      <p>
-        <strong>About:</strong> All our cream, milk, and butter come from a family-run dairy cooperative that prides itself on ethical farming and happy cows.
-        <br />
-        <strong>Why We Love Them:</strong> Their high-quality dairy products give our home-baking that unmistakable, melt-in-your-mouth flavor.
-      </p>
+        <div class="cs-image-group">
+          <div class="cs-picture">
+            <Picture
+              src={heatherImg}
+              alt="Carrots"
+              formats={["webp", "avif"]}
+            />
+          </div>
 
-      <h2>A Partnership Rooted in Sustainability</h2>
-      <p>
-        From compostable packaging to reducing waste in our café, we work with suppliers who embrace eco-friendly practices.
-        By prioritizing locally sourced ingredients and reducing food miles, we ensure that our impact on the environment is as small as possible—without ever compromising on taste.
-      </p>
-    </div>
-
-    <div class="cs-image-group">
-      <div class="cs-picture">
-        <Picture
-          src={supplierImg}
-          alt="suppliers"
-          formats={["webp", "avif"]}
-        />
+          </div>
+        </div>
       </div>
 
-      <!--Flower Graphic-->
-   <!--    <img
-        class="cs-flower"
-        loading="lazy"
-        decoding="async"
-        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Fbig-abstract-flower.svg"
-        alt="flower graphic"
-        width="362"
-        height="350"
-        aria-hidden="true"
-      /> -->
-
-      <!--Spidey Sense Graphic-->
-    <!--   <img
-        class="cs-sense"
-        loading="lazy"
-        decoding="async"
-        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Fspider-sense.svg"
-        alt="spidey sense graphic"
-        width="80"
-        height="89"
-        aria-hidden="true"
-      /> -->
+      <!--Waves Graphic-->
+      <div class="cs-background"/>
     </div>
-  </div>
 
-  <!--Waves Graphic-->
-  <picture class="cs-background">
-    <img
-      src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Flarge-waves.svg"
-      alt="waves"
-      decoding="async"
-      aria-hidden="true"
-      width="625"
-      height="952"
-    />
-  </picture>
-</section>
+    <CTA />
+  </section>
 
-
-  <CTA />
-</BaseLayout>
-
-<style lang="less">
-  /*-- -------------------------- -->
+  <style lang="less">
+    /*-- -------------------------- -->
 <---        Content Page        -->
 <--- -------------------------- -*/
 
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0rem) {
-    #content-page-714 {
-      padding: var(--sectionPadding);
-      background-color: #fff;
-      /* clips the wave background from causing overflow issues when it goes off screen */
-      overflow: hidden;
-      position: relative;
-      z-index: 1;
-
-      .cs-container {
-        width: 100%;
-        max-width: (1280/16rem);
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* 48px - 64px */
-        gap: clamp(3rem, 6vw, 4rem);
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+      #content-page-714 {
+        padding: var(--sectionPadding);
+        background-color: #fff;
+        /* clips the wave background from causing overflow issues when it goes off screen */
+        overflow: hidden;
         position: relative;
-      }
+        z-index: 1;
 
-      .cs-content {
-        /* set text align to left if content needs to be left aligned */
-        text-align: left;
-        width: 100%;
-        max-width: (738/16rem);
-        display: flex;
-        flex-direction: column;
-        /* centers content horizontally, set to flex-start to left align */
-        align-items: flex-start;
-
-        img {
+        .cs-container {
           width: 100%;
-          height: auto;
-          margin: (16/16rem) 0;
-          display: block;
+          max-width: (1280/16rem);
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          /* 48px - 64px */
+          gap: clamp(3rem, 6vw, 4rem);
+          position: relative;
         }
-      }
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-weight: 700;
-        text-align: inherit;
-        margin: 0 0 (16/16rem) 0;
-        color: var(--headerColor);
-      }
 
-      h2 {
-        font-size: (32/16rem);
-        margin-top: (32/16rem);
-      }
+        .cs-content {
+          /* set text align to left if content needs to be left aligned */
+          text-align: left;
+          width: 100%;
+          max-width: (738/16rem);
+          display: flex;
+          flex-direction: column;
+          /* centers content horizontally, set to flex-start to left align */
+          align-items: flex-start;
 
-      h3 {
-        font-size: (24/16rem);
-        color: var(--primary);
-      }
+          img {
+            width: 100%;
+            height: auto;
+            //margin: (16/16rem) 0;
+            display: block;
+          }
+        }
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-weight: 700;
+          text-align: inherit;
+          margin: 0 0 (16/16rem) 0;
+          color: var(--headerColor);
+        }
 
-      h4,
-      h5,
-      h6 {
-        font-size: (20/16rem);
-      }
+        h2 {
+          font-size: (32/16rem);
+          margin-top: (32/16rem);
+        }
 
-      .cs-button-solid {
-        margin-bottom: (32/16rem);
-      }
+        h3 {
+          font-size: (24/16rem);
+          color: var(--primary);
+        }
 
-      .cs-color {
-        color: var(--primary);
-      }
+        h4,
+        h5,
+        h6 {
+          font-size: (20/16rem);
+        }
 
-      p {
-        font-size: var(--bodyFontSize);
-        line-height: 1.5em;
-        text-align: inherit;
-        width: 100%;
-        margin: 0 0 (16/16rem) 0;
-        color: var(--bodyTextColor);
-        &:last-of-type {
+        .cs-button-solid {
           margin-bottom: (32/16rem);
         }
 
-        a {
-          font-size: inherit;
-          line-height: inherit;
-          text-decoration: underline;
+        .cs-color {
           color: var(--primary);
         }
-      }
 
-      ol,
-      ul {
-        padding-left: (24/16rem);
-        margin: 0 0 (32/16rem) 0;
-        color: var(--bodyTextColor);
-        display: flex;
-        flex-direction: column;
-        gap: (16/16rem);
-      }
+        p {
+          font-size: var(--bodyFontSize);
+          line-height: 1.5em;
+          text-align: inherit;
+          width: 100%;
+          margin: 0 0 (16/16rem) 0;
+          color: var(--bodyTextColor);
+          &:last-of-type {
+            margin-bottom: (32/16rem);
+          }
 
-      ul {
-        li {
-          list-style: none;
-          color: inherit;
+          a {
+            font-size: inherit;
+            line-height: inherit;
+            text-decoration: underline;
+            color: var(--primary);
+          }
+        }
+
+        ol,
+        ul {
+          padding-left: (24/16rem);
+          margin: 0 0 (32/16rem) 0;
+          color: var(--bodyTextColor);
+          display: flex;
+          flex-direction: column;
+          gap: (16/16rem);
+        }
+
+        ul {
+          li {
+            list-style: none;
+            color: inherit;
+            position: relative;
+
+            &:before {
+              /* custom list bullet */
+              content: "";
+              width: 3px;
+              height: 3px;
+              background: currentColor;
+              opacity: 1;
+              border-radius: 50%;
+              position: absolute;
+              display: block;
+              top: (10/16rem);
+              left: (-12/16rem);
+            }
+          }
+        }
+
+        .cs-image-group {
+          /* scales the whole section down and ties the font size to the vw and stops at 70% of the vale of 1em, changes at desktop */
+          font-size: ~"min(1vw, 1em)";
+          /* everything inside this box is in ems so we can scale it all down proportionally with a font size */
+          width: (542/16em);
+          height: (773/16em);
+          display: none;
+          /* prevents flexbox from squishing it */
+          flex: none;
           position: relative;
+          z-index: 1;
+        }
 
-          &:before {
-            /* custom list bullet */
-            content: "";
-            width: 3px;
-            height: 3px;
-            background: currentColor;
-            opacity: 1;
-            border-radius: 50%;
+        .cs-picture-wrapper {
+          width: (542/16em);
+          height: (647/16em);
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2rem;
+            border: (12/16em) solid var(--secondaryLight);
+            background-color: #770707;
+          }
+        }
+
+        .cs-picture {
+          width: (542/16em);
+          height: (647/16em);
+          border-radius: 2rem;
+          border: (12/16em) solid #fff;
+          background-color: #f7f7f7;
+          /* prevents border from affecting height and width */
+          box-sizing: border-box;
+          /* clips img tag corners */
+          overflow: hidden;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          img {
+            width: 100%;
+            height: 100%;
+            /* makes it act like a background image */
+            object-fit: cover;
             position: absolute;
-            display: block;
-            top: (10/16rem);
-            left: (-12/16rem);
+            top: 0;
+            left: 0;
+          }
+        }
+
+        .cs-flower {
+          width: (362/16em);
+          height: auto;
+          display: block;
+          position: absolute;
+          bottom: (-38/16em);
+          right: (-48/16em);
+          z-index: -1;
+          transform: rotate(142deg);
+        }
+
+        .cs-sense {
+          width: (80/16em);
+          height: auto;
+          position: absolute;
+          top: (-4/16em);
+          left: (10/16em);
+          transform: rotate(90deg);
+        }
+
+        .cs-background {
+          display: none;
+        }
+      }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+      #content-page-714 {
+        .cs-container {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+
+        .cs-image-group {
+          display: block;
+          /* sends it to the left in the 1st position */
+          order: -1;
+        }
+
+        .cs-content {
+          margin-left: auto;
+        }
+
+        .cs-background {
+          width: 20%;
+          height: 100%;
+          background-color: var(--backgroundColor);
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: -1;
+
+          img {
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
           }
         }
       }
-
-      .cs-image-group {
-        /* scales the whole section down and ties the font size to the vw and stops at 70% of the vale of 1em, changes at desktop */
-        font-size: ~"min(1vw, 1em)";
-        /* everything inside this box is in ems so we can scale it all down proportionally with a font size */
-        width: (542/16em);
-        height: (773/16em);
-        display: none;
-        /* prevents flexbox from squishing it */
-        flex: none;
-        position: relative;
-        z-index: 1;
-      }
-
-      .cs-picture {
-        width: (542/16em);
-        height: (647/16em);
-        border-radius: 2rem;
-        border: (12/16em) solid #fff;
-        background-color: #f7f7f7;
-        /* prevents border from affecting height and width */
-        box-sizing: border-box;
-        /* clips img tag corners */
-        overflow: hidden;
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        img {
-          width: 100%;
-          height: 100%;
-          /* makes it act like a background image */
-          object-fit: cover;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-
-      .cs-flower {
-        width: (362/16em);
-        height: auto;
-        display: block;
-        position: absolute;
-        bottom: (-38/16em);
-        right: (-48/16em);
-        z-index: -1;
-        transform: rotate(142deg);
-      }
-
-      .cs-sense {
-        width: (80/16em);
-        height: auto;
-        position: absolute;
-        top: (-4/16em);
-        left: (10/16em);
-        transform: rotate(90deg);
-      }
-
-      .cs-background {
-        display: none;
-      }
     }
-  }
 
-  /* Tablet - 768px */
-  @media only screen and (min-width: 48rem) {
-    #content-page-714 {
-      .cs-container {
-        flex-direction: row;
-        align-items: flex-start;
-      }
-
-      .cs-image-group {
-        display: block;
-        /* sends it to the left in the 1st position */
-        order: -1;
-      }
-
-      .cs-content {
-        margin-left: auto;
-      }
-
-      .cs-background {
-        width: 20%;
-        height: 100%;
-        background-color: #f7f7f7;
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: -1;
-
-        img {
-          width: 100%;
-          height: 100%;
-          opacity: 0.2;
-          object-fit: cover;
+    /* Large Desktop 1300px */
+    @media only screen and (min-width: 81.25rem) {
+      #content-page-714 {
+        .cs-image-group {
+          /* position absolute so we can have it overflow the container as seen in the design. */
+          font-size: inherit;
           position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
+          top: (0/16rem);
+          left: (-100/16rem);
+        }
+
+        .cs-background {
+          width: 50%;
+          /* with the left edge always positioned at the center line, we push right of the center line by 335px.  This ensures that this element will stay exactly in this position no matter hoe wide the screen gets */
+          margin-right: (335/16rem);
+          left: auto;
+          /* sets the right edge of the element to be at the center line */
+          right: 50%;
         }
       }
     }
-  }
-
-  /* Large Desktop 1300px */
-  @media only screen and (min-width: 81.25rem) {
-    #content-page-714 {
-      .cs-image-group {
-        /* position absolute so we can have it overflow the container as seen in the design. */
-        font-size: inherit;
-        position: absolute;
-        top: (0/16rem);
-        left: (-100/16rem);
-      }
-
-      .cs-background {
-        width: 50%;
-        /* with the left edge always positioned at the center line, we push right of the center line by 335px.  This ensures that this element will stay exactly in this position no matter hoe wide the screen gets */
-        margin-right: (335/16rem);
-        left: auto;
-        /* sets the right edge of the element to be at the center line */
-        right: 50%;
-      }
-    }
-  }
-</style>
+  </style>
+</BaseLayout>

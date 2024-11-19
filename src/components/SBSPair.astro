@@ -1,41 +1,23 @@
+---
+import { Picture } from "astro:assets";
+import sidePicture1 from "@assets/images/coffee.jpg";
+import sidePicture2 from "@assets/images/sbspair/sbs2.jpg";
+import seal from "@assets/images/logo.png";
+import team from "@assets/images/hero/team.jpg";
+---
+
 <!-- ============================================ --><!--                Side By Side                  --><!-- ============================================ -->
 <section id="RPsbs-1008">
     <div class="cs-container">
         <div class="cs-image-group">
-            <picture class="cs-picture">
-                <!--Desktop-->
-                <source
-                    media="(min-width: 1024px)"
-                    srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/beef2.jpg"
-                />
-                <!--Tablet-->
-                <source
-                    media="(min-width: 601px)"
-                    srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/beef2-tablet.jpg"
-                />
-                <!--Mobile-->
-                <source
-                    media="(max-width: 600px)"
-                    srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/beef2-m.jpg"
-                />
-                <img
-                    loading="lazy"
-                    decoding="async"
-                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/beef2.jpg"
-                    alt="beef"
-                    width="522"
-                    height="461"
-                    aria-hidden="true"
-                />
-            </picture>
-            <img
-                class="cs-seal"
-                loading="lazy"
-                decoding="async"
-                src="/assets/images/logo.png"
+            <div class="cs-picture">
+                <Picture src={team} alt="whoweare" formats={["webp", "avif"]} />
+            </div>
+            <Picture
+                src={seal}
                 alt="seal"
-                width="190"
-                height="182"
+                formats={["webp", "avif"]}
+                class="cs-seal"
             />
         </div>
         <div class="cs-content">
@@ -67,41 +49,19 @@
 <section id="RPsbsr-1008">
     <div class="cs-container">
         <div class="cs-image-group">
-            <picture class="cs-picture">
-                <!--Desktop-->
-                <source
-                    media="(min-width: 1024px)"
-                    srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/beef2.jpg"
-                />
-                <!--Tablet-->
-                <source
-                    media="(min-width: 601px)"
-                    srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/beef2-tablet.jpg"
-                />
-                <!--Mobile-->
-                <source
-                    media="(max-width: 600px)"
-                    srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/beef2-m.jpg"
-                />
-                <img
-                    loading="lazy"
-                    decoding="async"
-                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/beef2.jpg"
+            <div class="cs-picture">
+                <Picture
+                    src={sidePicture2}
                     alt="beef"
-                    width="522"
-                    height="461"
-                    aria-hidden="true"
+                    formats={["webp", "avif"]}
                 />
-            </picture>
-            <!-- <img
+            </div>
+            <Picture
+                src={seal}
+                alt="suppliers"
+                formats={["webp", "avif"]}
                 class="cs-seal"
-                loading="lazy"
-                decoding="async"
-                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/seal2.svg"
-                alt="seal"
-                width="190"
-                height="182"
-            /> -->
+            />
         </div>
         <div class="cs-content">
             <span class="cs-topper">Our Suppliers</span>

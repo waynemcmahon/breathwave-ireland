@@ -3,11 +3,16 @@ import client from "@data/client.json";
 import navData from "@data/navData.json";
 import { Picture } from "astro:assets";
 import { getCurrentYear } from "@libs/utils";
+import logo from "@assets/images/logo_white.png";
+import facebook from "@assets/icons/facebook.svg";
+import instagram from "@assets/icons/instagram.svg";
+import email from "@assets/icons/email.svg";
+import phone from "@assets/icons/phone.svg";
+import pin from "@assets/icons/pin.svg";
 
 const currentYear = getCurrentYear();
 ---
 
-<!-- ============================================ --><!--                   Footer                     --><!-- ============================================ --><!-- ============================================ --><!--                   Footer                     --><!-- ============================================ -->
 <footer id="cs-footer-1339">
   <div class="cs-container">
     <!-- Logo Group -->
@@ -29,58 +34,30 @@ const currentYear = getCurrentYear();
           href={client.facebook}
           target="_blank"
         >
-          <img
+          <Picture
+            src={facebook}
             class="cs-social-img"
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/facebook-1a.svg"
             alt="facebook"
+            formats={["webp", "avif"]}
             width="11"
             height="11"
           />
         </a>
-        <!-- <a class="cs-social-link" aria-label="visit twitter profile" href="">
-          <img
-            class="cs-social-img"
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/twitter-1a.svg"
-            alt="twitter"
-            width="6"
-            height="11"
-          />
-        </a> -->
         <a
           class="cs-social-link"
           aria-label="visit instagram profile"
           href={client.instagram}
           target="_blank"
         >
-          <img
+          <Picture
+            src={instagram}
             class="cs-social-img"
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/instagram-1a.svg"
             alt="instagram"
+            formats={["webp", "avif"]}
             width="11"
             height="11"
           />
         </a>
-        <!-- <a class="cs-social-link" aria-label="visit youtube profile" href="">
-          <img
-            class="cs-social-img"
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/youtube-1a.svg"
-            alt="instagram"
-            width="11"
-            height="11"
-          />
-        </a> -->
       </div>
     </div>
     <!-- Links -->
@@ -104,13 +81,12 @@ const currentYear = getCurrentYear();
       <ul class="cs-ul">
         <li class="cs-li">
           <a class="cs-link" href={`tel:${client.phoneForTel}`}>
-            <img
+            <Picture
+              src={phone}
+              alt="phone"
+              formats={["webp", "avif"]}
               class="cs-icon"
               aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-white.svg"
-              alt="phone icon"
               width="24"
               height="24"
             />
@@ -119,13 +95,12 @@ const currentYear = getCurrentYear();
         </li>
         <li class="cs-li">
           <a class="cs-link" href="mailto:office@email.com">
-            <img
+            <Picture
+              src={email}
+              alt="email"
+              formats={["webp", "avif"]}
               class="cs-icon"
               aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/email-white.svg"
-              alt="email icon"
               width="24"
               height="24"
             />
@@ -134,14 +109,13 @@ const currentYear = getCurrentYear();
         </li>
         <li class="cs-li">
           <!--Make this link go to the google page-->
-          <a class="cs-link" href="" target="_blank">
-            <img
+          <a class="cs-link" href={client.address.mapLink} target="_blank">
+            <Picture
+              src={pin}
+              alt="pin"
+              formats={["webp", "avif"]}
               class="cs-icon"
               aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/pin-white.svg"
-              alt="pin icon"
               width="24"
               height="24"
             />
@@ -155,7 +129,9 @@ const currentYear = getCurrentYear();
     <span class="cs-credit">
       © Copyright {currentYear}
       <span> - Designed by </span>
-      <a href="" class="cs-credit-link" target="_blank">Atlantic Edge Design</a>
+      <a href="atlanticedgedesign.ie" class="cs-credit-link" target="_blank"
+        >Atlantic Edge Design</a
+      >
     </span>
     <!-- <div class="cs-bottom-links">
       <a href="" class="cs-bottom-link">Privacy Policy</a>
@@ -282,6 +258,10 @@ const currentYear = getCurrentYear();
         align-items: flex-start;
         gap: (8/16rem);
         transition: color 0.3s;
+
+        picture {
+          align-self: center;
+        }
 
         &:hover {
           color: var(--primaryLight);

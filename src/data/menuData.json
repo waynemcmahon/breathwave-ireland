@@ -5,59 +5,87 @@
             "name": "Drinks",
             "description": "Enjoy our variety of refreshing and flavorful beverages.",
             "menuItems": [
+                {"name": "Americano", "price": "", "description": "Classic espresso with hot water."},
                 {"name": "Cappuccino", "price": "", "description": "Rich and creamy espresso-based coffee."},
                 {"name": "Latte", "price": "", "description": "Smooth espresso with steamed milk."},
-                {"name": "Mocha", "price": "", "description": "Chocolate-infused coffee with whipped cream."},
-                {"name": "Mumbai Chai Latte", "price": "", "description": "Aromatic chai spiced tea latte."},
-                {"name": "Belgian Hot Chocolate", "price": "", "description": "Luxurious hot chocolate with whipped cream."},
-                {"name": "Syrups", "price": "", "description": "Add Caramel, Vanilla, Pumpkin Spice, or others to your drink."}
+                {"name": "Flat White", "price": "", "description": "Velvety espresso with microfoam milk."},
+                {"name": "Cortado", "price": "", "description": "Equal parts espresso and steamed milk."},
+                {"name": "Macchiato", "price": "", "description": "Espresso with a dash of foamed milk."},
+                {"name": "Espresso", "price": "", "description": "Strong and bold coffee shot."},
+                {"name": "Chai Latte", "price": "", "description": "Aromatic chai spiced tea latte."},
+                {"name": "English Breakfast Leaf Tea", "price": "", "description": "Classic black tea."},
+                {"name": "Selection of Herbal Teas", "price": "", "description": "Variety of herbal infusions."},
+                {"name": "Belgian Callebaut Hot Chocolate", "price": "", "description": "Luxurious hot chocolate."},
+                {"name": "Iced Caramel Latte", "price": "", "description": "Chilled latte with caramel syrup."},
+                {"name": "Assortment of Syrups", "price": "", "description": "Add flavors like caramel, vanilla, etc."},
+                {"name": "Cold Drinks in Fridge", "price": "", "description": "Selection of chilled beverages."}
             ]
         },
         {
             "id": "two",
-            "name": "Homebaking",
-            "description": "Freshly baked delights with gluten-free options available.",
+            "name": "Sandwiches & Toastys",
+            "description": "A selection of hearty sandwiches and toasties with gluten-free options.",
             "menuItems": [
-                {"name": "Warm Baked Scones", "price": "", "description": "Served daily with fresh cream and homemade jam."},
-                {"name": "Almond Croissants", "price": "", "description": "Flaky, buttery croissants with almond filling."},
-                {"name": "Cinnamon Rolls", "price": "", "description": "Soft rolls with cinnamon and icing."},
-                {"name": "Sausage Rolls", "price": "", "description": "Golden pastry filled with savory sausage."},
-                {"name": "Jambons with Relish", "price": "", "description": "Delicious puff pastry with cheese and ham filling."}
+                {"name": "Special", "price": "", "description": "Home-cooked ham, cheddar cheese, red onion & tomato with Ballymaloe Relish."},
+                {"name": "Ham & Cheese", "price": "", "description": "Classic toasted ham and cheese sandwich."},
+                {"name": "Chicken & Stuffing", "price": "", "description": "Savory chicken with stuffing."},
+                {"name": "Veggie", "price": "", "description": "Cheddar cheese, red onion & tomato with Ballymaloe Relish."},
+                {"name": "Gluten Free Bread Option", "price": "", "description": "Available for all sandwiches."}
             ]
         },
         {
             "id": "three",
-            "name": "Toasties & Wraps",
-            "description": "A selection of hearty toasties and wraps with gluten-free options.",
+            "name": "Homebaking",
+            "description": "Freshly baked delights with gluten-free options available.",
             "menuItems": [
-                {"name": "Special Toastie", "price": "", "description": "Home-cooked ham, cheddar, tomato, onion, and Ballymaloe Relish."},
-                {"name": "Ham & Cheese", "price": "", "description": "Classic toasted ham and cheese sandwich."},
-                {"name": "Veggie Wrap", "price": "", "description": "Packed with fresh vegetables and flavor."},
-                {"name": "Chicken & Stuffing", "price": "", "description": "Savory chicken with stuffing in a wrap."},
-                {"name": "Tuna & Sweetcorn", "price": "", "description": "Creamy tuna mix with sweetcorn."}
+                {"name": "Warm Scones with Fresh Cream", "price": "", "description": "Served daily with fresh cream."},
+                {"name": "Lemon Meringues", "price": "", "description": "Light and tangy lemon meringues."},
+                {"name": "Raspberry Bakewell", "price": "", "description": "Classic raspberry and almond tart."},
+                {"name": "Apple Crumbles", "price": "", "description": "Warm apple crumble with a crispy topping."},
+                {"name": "Crunchie Rocky Road", "price": "", "description": "Chocolatey treat with crunchie pieces."},
+                {"name": "Warm Apple Pie & Fresh Cream", "price": "", "description": "Classic apple pie served warm."},
+                {"name": "Almond Croissants", "price": "", "description": "Flaky, buttery croissants with almond filling."},
+                {"name": "Cinnamon Rolls", "price": "", "description": "Soft rolls with cinnamon and icing."},
+                {"name": "Gluten Free Coconut Jam Dodgers", "price": "", "description": "Gluten-free coconut and jam cookies."},
+                {"name": "Gluten Free Citrus Slices", "price": "", "description": "Zesty gluten-free citrus slices."},
+                {"name": "Gluten Free Bounty Balls", "price": "", "description": "Coconut and chocolate gluten-free balls."},
+                {"name": "Vegan Snickers", "price": "", "description": "Vegan version of the classic treat."}
             ]
         },
         {
             "id": "four",
-            "name": "Hand-Cut Fries",
-            "description": "Crispy skin-on fries with delicious toppings.",
+            "name": "Savoury",
+            "description": "A selection of savory items to satisfy your cravings.",
             "menuItems": [
-                {"name": "Plain Fries", "price": "", "description": "Crispy skin-on fries served plain."},
-                {"name": "Pulled Pork Fries", "price": "", "description": "Topped with sour cream, guacamole, spring onion, and cheddar."},
-                {"name": "Garlic Parmesan Fries", "price": "", "description": "Topped with garlic, Parmesan, and spring onion."}
+                {"name": "Sausage Rolls", "price": "", "description": "Golden pastry filled with savory sausage."},
+                {"name": "Jambons with Relish", "price": "", "description": "Delicious puff pastry with cheese and ham filling."},
+                {"name": "Fries", "price": "", "description": "Plain or loaded with pulled pork or garlic & parmesan."},
+                {"name": "Ham & Cheese Croissants", "price": "", "description": "Flaky croissants with ham and cheese."},
+                {"name": "Vegetable Soup and Warm Brown Bread", "price": "", "description": "Hearty vegetable soup with bread."},
+                {"name": "Special of the Day Soup", "price": "", "description": "Check the board for today's special."},
+                {"name": "Quiche or Pie of the Day", "price": "", "description": "See board for today's selection."},
+                {"name": "Add Fries or Tasty House Coleslaw", "price": "", "description": "Available with any of the above."}
             ]
         },
         {
             "id": "five",
             "name": "Pancake Station",
-            "description": "Create your perfect pancake with our delicious toppings.",
+            "description": "Watch your pancake/crepe cook and add from our toppings.",
             "menuItems": [
-                {"name": "Nutella Pancake", "price": "", "description": "Pancake topped with creamy Nutella."},
-                {"name": "Crispy Bacon Pancake", "price": "", "description": "Pancake topped with crispy bacon."},
-                {"name": "Fruit Compote Pancake", "price": "", "description": "Pancake with homemade fruit compote."},
-                {"name": "Maple Syrup Pancake", "price": "", "description": "Pancake drizzled with maple syrup."},
-                {"name": "Lemon & Sugar Pancake", "price": "", "description": "Classic pancake with lemon and sugar."}
+                {"name": "Nutella", "price": "", "description": "Pancake topped with creamy Nutella."},
+                {"name": "Bacon", "price": "", "description": "Pancake topped with crispy bacon."},
+                {"name": "Maple Syrup", "price": "", "description": "Pancake drizzled with maple syrup."},
+                {"name": "Lemon & Sugar", "price": "", "description": "Classic pancake with lemon and sugar."}
+            ]
+        },
+        {
+            "id": "six",
+            "name": "Overnight Oats",
+            "description": "Delicious flavors with berries, our house granola, Dingle Farm yoghurt, topped with berry compote and local Camp honey.",
+            "menuItems": [
+                {"name": "Plain Dingle Yoghurt", "price": "", "description": "Available with delicious toppings same as above."}
             ]
         }
+
     ]
 }

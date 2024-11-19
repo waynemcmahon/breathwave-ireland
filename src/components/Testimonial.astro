@@ -1,6 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 import testimonialImg from "@assets/images/hero/team.jpg";
+import logo from "@assets/images/logo.png";
 ---
 
 <!-- ============================================ --><!--                   Reviews                    --><!-- ============================================ -->
@@ -42,17 +43,17 @@ import testimonialImg from "@assets/images/hero/team.jpg";
                 and valued.
             </p>
             <div class="cs-flex-group">
-                <picture class="cs-picture">
-                    <img
-                        class="cs-profile"
-                        src="/assets/images/logo.png"
-                        decoding="async"
-                        alt="profile"
-                        width="50"
-                        height="50"
-                        aria-hidden="true"
-                    />
-                </picture>
+                <div class="cs-picture">
+                    <div class="cs-picture">
+                        <Picture
+                            src={logo}
+                            alt="profile"
+                            formats={["webp", "avif"]}
+                            class="cs-profile"
+                            aria-hidden="true"
+                        />
+                    </div>
+                </div>
                 <span class="cs-name">
                     Nuala Tyers
                     <span class="cs-job">Happy Customer</span>
@@ -61,11 +62,7 @@ import testimonialImg from "@assets/images/hero/team.jpg";
         </div>
     </div>
     <div class="cs-img">
-        <Picture
-            src={testimonialImg}
-            alt="people"
-            formats={["webp", "avif"]}
-        />
+        <Picture src={testimonialImg} alt="people" formats={["webp", "avif"]} />
     </div>
 </section>
 

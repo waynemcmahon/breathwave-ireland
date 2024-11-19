@@ -2,6 +2,10 @@
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import client from "@data/client.json";
 import Landing from "@components/Landing.astro";
+import { Picture } from "astro:assets";
+import phone from "@assets/icons/phone-gold.svg";
+import pin from "@assets/icons/pin-gold.svg";
+import clock from "@assets/icons/clock-gold.svg";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
@@ -31,11 +35,15 @@ const optimizedImage = await getOptimizedImage(landingImage);
         <h2 class="cs-title">Ask Us Anything!</h2>
         <!--Form-->
         <form
-          class="cs-form"
-          id="cs-form-322"
-          name="Contact Form"
-          method="post"
-        >
+  class="cs-form"
+  id="cs-form-322"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="botcheck"
+>
+           <input type="hidden" name="form-name" value="contact-322">
+  <input type="checkbox" name="botcheck" style="display: none;">
+
           <label class="cs-label">
             Name
             <input
@@ -52,7 +60,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
             <input
               class="cs-input"
               required
-              type="text"
+              type="email"
               id="email-322"
               name="email"
               placeholder="Email"
@@ -74,13 +82,14 @@ const optimizedImage = await getOptimizedImage(landingImage);
             <textarea
               class="cs-input cs-textarea"
               required
-              name="Message"
+              name="message"
               id="message-322"
               placeholder="Write message..."></textarea>
           </label>
           <button class="cs-button-solid cs-submit" type="submit"
             >Send Message</button
           >
+          <div id="result"></div>
         </form>
       </div>
       <div class="cs-right">
@@ -89,6 +98,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
           <div style="width: 100%">
             <iframe
               width="610"
+              title="Map of Anne's Coffee Bar"
               height="425"
               style="border:0;"
               allowfullscreen=""
@@ -101,56 +111,86 @@ const optimizedImage = await getOptimizedImage(landingImage);
         <ul class="cs-contact-group">
           <li class="cs-item">
             <span class="cs-header">
-              <img
+              <Picture
+                src={phone}
+                alt="phone"
+                formats={["webp", "avif"]}
                 class="cs-icon"
-                decoding="async"
-                src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/phone-gold.svg"
-                alt="icon"
+                aria-hidden="true"
                 width="20"
                 height="20"
               />
               Phone
             </span>
-            <a href="tel:087 277 5635" class="cs-link"> 087 277 5635</a>
+            <a href={client.phoneForTel} class="cs-link">
+              {client.phoneForTel}
+            </a>
           </li>
           <li class="cs-item">
             <span class="cs-header">
-              <img
+              <Picture
+                src={pin}
+                alt="pin"
+                formats={["webp", "avif"]}
                 class="cs-icon"
-                decoding="async"
-                src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/pin-gold.svg"
-                alt="icon"
+                aria-hidden="true"
                 width="20"
                 height="20"
               />
               Address
             </span>
-            <a
-              href="https://www.google.com/maps/dir//Camp,+Camp+Cross,+Co.+Kerry,+V92+EC97/@52.2206985,-9.9914554,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48454d0f7b3663c3:0x9da28544df400dad!2m2!1d-9.909064!2d52.220757?entry=ttu&g_ep=EgoyMDI0MTExMy4xIKXMDSoASAFQAw%3D%3D"
-              target="_blank"
-              class="cs-link">Camp Cross, Tralee<br /> V92 EC97, Ireland</a
-            >
+            <a href={client.address.mapLink} target="_blank" class="cs-link">
+              {client.address.lineOne}, {client.address.city}<br />
+              {client.address.zip}, Ireland
+            </a>
           </li>
           <li class="cs-item">
             <span class="cs-header">
-              <img
+              <Picture
+                src={clock}
+                alt="clock"
+                formats={["webp", "avif"]}
                 class="cs-icon"
-                decoding="async"
-                src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/clock-gold.svg"
-                alt="icon"
+                aria-hidden="true"
                 width="20"
                 height="20"
               />
               Our Hours
             </span>
-            <span class="cs-hours">Everyday</span>
-            <span class="cs-hours">8:30 AM - 3:00 PM</span>
+            <span class="cs-hours">{client.openingHours.days}</span>
+            <span class="cs-hours">{client.openingHours.hours}</span>
           </li>
         </ul>
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+const form = document.getElementById('cs-form-322');
+const result = document.getElementById('result');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(() => {
+    result.innerHTML = "Form submitted successfully!";
+    alert("Form submitted successfully!");
+    form.reset();
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+    result.innerHTML = "Something went wrong!";
+    alert("Something went wrong!");
+  });
+});
+</script>
 
 <style lang="less">
   /*-- -------------------------- -->
@@ -363,6 +403,10 @@ const optimizedImage = await getOptimizedImage(landingImage);
         justify-content: flex-start;
         align-items: center;
         gap: (4/16rem);
+
+        picture {
+          display: flex;
+        }
       }
 
       .cs-link,

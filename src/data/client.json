@@ -1,15 +1,19 @@
 {
 	"name": "Anne's Coffee Bar",
-	"email": "info@annescoffeebar.ie",
+	"email": "annescoffeebar@gmail.com",
 	"phoneForTel": "087 277 5635",
 	"phoneFormatted": "(+353) 87 277 5635",
 	"address": {
 		"lineOne": "Camp Cross",
 		"city": "Tralee",
 		"zip": "V92 EC97",
-		"mapLink": "https://goo.gl/maps/UAQn4vuGDiwv7DV39"
+		"mapLink": "https://maps.app.goo.gl/kLATMuPmi8PXR7S67"
 	},
 	"domain": "annescoffeebar.ie",
 	"facebook": "https://www.facebook.com/annescoffeebar/",
-	"instagram": "https://www.instagram.com/annescoffeebar/"
+	"instagram": "https://www.instagram.com/annescoffeebar/",
+	"openingHours": {
+		"days": "7 days a week",
+		"hours": "8.30am - 3.00pm"
+	}
 }

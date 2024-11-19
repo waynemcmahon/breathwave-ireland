@@ -3,12 +3,34 @@
 import CSPicture from "@components/TemplateComponents/CSPicture.astro";
 import mobileImage from "@assets/images/hero/team.jpg";
 import desktopImage from "@assets/images/hero/team.jpg";
+import coffee from "@assets/images/coffee.jpg";
+import coffeeCloseup from "@assets/images/coffee-close.png";
+import beach from "@assets/images/beach.jpg";
 import fallbackImage from "@assets/images/hero/team.jpg";
 import { Picture } from "astro:assets";
 ---
 
-<section id="sbs-1015">
+<!-- ============================================ --><!--              Side By Side Reverse            --><!-- ============================================ -->
+<section id="sbsr-1457">
     <div class="cs-container">
+        <!-- Left Image Section -->
+        <div class="cs-image-group">
+            <div class="cs-picture cs-picture1">
+                <Picture
+                    src={coffee}
+                    alt="turbine"
+                    formats={["webp", "avif"]}
+                />
+            </div>
+            <div class="cs-picture cs-picture2">
+                <Picture
+                    src={coffeeCloseup}
+                    alt="windmill"
+                    formats={["webp", "avif"]}
+                />
+            </div>
+        </div>
+        <!-- Right Content Section-->
         <div class="cs-content">
             <span class="cs-topper">Enjoy a cuppa</span>
             <h2 class="cs-title">Where the mountains meet the ocean</h2>
@@ -23,197 +45,258 @@ import { Picture } from "astro:assets";
             </p>
             <a href="/menu" class="cs-button-solid">See Our Menu</a>
         </div>
-        <div class="cs-picture">
-            <Picture
-                src={desktopImage}
-                format="webp"
-                width={955}
-                height={552}
-                alt={""}
-            />
-
-            <style>
-                /*-- -------------------------- -->
-<---       Side By Side         -->
-<--- -------------------------- -*/
-
-                /* Mobile - 360px */
-                @media only screen and (min-width: 0rem) {
-                    #sbs-1015 {
-                        /* prevents the overflowing cs-picture at large desktop from causing overflow issues */
-                        overflow: hidden;
-                    }
-                    #sbs-1015 .cs-container {
-                        width: 100%;
-                        max-width: 80rem;
-                        /* 16px - 20px */
-                        margin: 0 auto clamp(1rem, 1.5vw, 1.25rem);
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        /* 48px - 64px */
-                        gap: clamp(3rem, 7vw, 4rem);
-                        position: relative;
-                    }
-                    #sbs-1015 .cs-content {
-                        /* set text align to left if content needs to be left aligned */
-                        text-align: center;
-                        width: 100%;
-                        max-width: 33.125rem;
-                        /* moved section padding to the content area */
-                        padding: var(--sectionPadding);
-                        padding-bottom: 0;
-                        box-sizing: border-box;
-                        display: flex;
-                        flex-direction: column;
-                        /* centers content horizontally, set to flex-start to left align */
-                        align-items: center;
-                    }
-
-                    #sbs-1015 .cs-text {
-                        margin: 0 0 2rem;
-                    }
-                    #sbs-1015 .cs-button-solid {
-                        font-size: 1rem;
-                        /* 46px - 56px */
-                        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
-                        text-decoration: none;
-                        font-weight: 700;
-                        text-align: center;
-                        margin: 0;
-                        color: #fff;
-                        min-width: 9.375rem;
-                        padding: 0 2rem;
-                        background-color: var(--primary);
-                        display: inline-block;
-                        position: relative;
-                        z-index: 1;
-                        /* prevents padding from adding to the width */
-                        box-sizing: border-box;
-                    }
-                    #sbs-1015 .cs-button-solid:before {
-                        content: "";
-                        position: absolute;
-                        height: 100%;
-                        width: 0%;
-                        background: #000;
-                        opacity: 1;
-                        top: 0;
-                        left: 0;
-                        z-index: -1;
-                        transition: width 0.3s;
-                    }
-                    #sbs-1015 .cs-button-solid:hover:before {
-                        width: 100%;
-                    }
-                    #sbs-1015 .cs-picture {
-                        width: 100%;
-                        height: 30rem;
-                        display: block;
-                        position: relative;
-                    }
-                    #sbs-1015 .cs-picture img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                    }
-                    #sbs-1015 .cs-image-group {
-                        width: 100%;
-                        display: grid;
-                        grid-template-columns: repeat(12, 1fr);
-                        /* 16px - 20px */
-                        gap: clamp(1rem, 1.5vw, 1.25rem);
-                    }
-                    #sbs-1015 .cs-image {
-                        width: 100%;
-                        /* 170px - 284px */
-                        height: clamp(10.625rem, 32vw, 17.75rem);
-                        display: block;
-                        grid-column: span 6;
-                        position: relative;
-                    }
-                    #sbs-1015 .cs-image:nth-of-type(3),
-                    #sbs-1015 .cs-image:nth-of-type(4),
-                    #sbs-1015 .cs-image:nth-of-type(5) {
-                        display: none;
-                    }
-                    #sbs-1015 .cs-image img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                    }
-                }
-                /* Tablet - 768px */
-                @media only screen and (min-width: 48rem) {
-                    #sbs-1015 .cs-container {
-                        /* moved section padding to the container */
-                        padding: var(--sectionPadding);
-                        //padding-bottom: 0;
-                        /* remove padding-right so the image touches the right screen edge */
-                        padding-right: 0;
-                        /* prevents padding and border from affecting height and width */
-                        box-sizing: border-box;
-                        flex-direction: row;
-                        justify-content: space-between;
-                    }
-                    #sbs-1015 .cs-content {
-                        text-align: left;
-                        padding: 0;
-                        align-items: flex-start;
-                    }
-                    #sbs-1015 .cs-image {
-                        grid-column: span 4;
-                    }
-                    #sbs-1015 .cs-image:nth-of-type(3) {
-                        display: block;
-                    }
-                    body #sbs-1015 .cs-picture img {
-                        left: 0;
-                        border-top-left-radius: 1rem;
-                        border-bottom-left-radius: 1rem;
-                    }
-                }
-                /* Large Desktop - 1200px */
-                @media only screen and (min-width: 75rem) {
-                    #sbs-1015 {
-                        /* moved section padding to the section but removed all padding except the padding top.  We're moving the padding top from the container to the section container so we can place the cs-picture easier inside the cs-container. If the Stitch below this Stitch is on a white background, add padding-bottom:0; to this one so there's not a huge gap between the sections. */
-                        padding: var(--sectionPadding);
-                        padding-left: 0;
-                        padding-right: 0;
-                    }
-                    #sbs-1015 .cs-container {
-                        padding-top: 0;
-                    }
-                    #sbs-1015 .cs-content {
-                        padding: 3.25rem 0;
-                    }
-                    #sbs-1015 .cs-picture {
-                        width: 50vw;
-                        height: 100%;
-                        margin: 0 0 0 0.625rem;
-                        /* absolutely positioned so it can rest on the right edge of the screen, and its height will respond the the changing height of the cs-content when you add or subtract content */
-                        position: absolute;
-                        left: 50%;
-                        top: 0;
-                    }
-                    #sbs-1015 .cs-image-group {
-                        grid-template-columns: repeat(5, 1fr);
-                    }
-                    #sbs-1015 .cs-image {
-                        grid-column: span 1;
-                    }
-                    #sbs-1015 .cs-image:nth-of-type(4),
-                    #sbs-1015 .cs-image:nth-of-type(5) {
-                        display: block;
-                    }
-                }
-            </style>
-        </div>
+    </div>
+    <div class="cs-background">
+        <Picture src={beach} alt="beach" formats={["webp", "avif"]} />
     </div>
 </section>
+<style lang="less">
+    /*-- -------------------------- -->
+<---   Side By Side Reverse     -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #sbsr-1457 {
+            padding: var(--sectionPadding);
+            position: relative;
+            z-index: 1;
+
+            .cs-container {
+                width: 100%;
+                max-width: (1280/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* 48px - 64px */
+                gap: clamp(3rem, 6vw, 4rem);
+            }
+
+            .cs-content {
+                /* set text align to left if content needs to be left aligned */
+                text-align: left;
+                width: 100%;
+                max-width: (522/16rem);
+                display: flex;
+                flex-direction: column;
+                /* centers content horizontally, set to flex-start to left align */
+                align-items: flex-start;
+            }
+
+            .cs-text {
+                margin-bottom: (16/16rem);
+                &:last-of-type {
+                    margin-bottom: (32/16rem);
+                }
+            }
+
+            .cs-ul {
+                width: 100%;
+                margin: 0 0 (32/16rem) 0;
+                padding-left: (20/16rem);
+                /* prevents padding from affecting width and height */
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: (8/16rem);
+            }
+
+            .cs-li {
+                font-size: var(--bodyFontSize);
+                line-height: 1.5em;
+                list-style: none;
+                text-align: left;
+                width: 100%;
+                max-width: (400/16rem);
+                margin: 0;
+                color: var(--bodyTextColor);
+                position: relative;
+
+                &:before {
+                    /* bullet */
+                    content: "";
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 50%;
+                    background: currentColor;
+                    opacity: 1;
+                    position: absolute;
+                    display: block;
+                    top: (10/16rem);
+                    left: (-15/16rem);
+                }
+            }
+
+            .cs-button-solid {
+                font-size: (16/16rem);
+                /* 46px - 56px */
+                line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+                text-decoration: none;
+                font-weight: 700;
+                text-align: center;
+                margin: 0;
+                color: #fff;
+                min-width: (150/16rem);
+                padding: 0 (24/16rem);
+                background-color: var(--primary);
+                border-radius: (4/16rem);
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                /* prevents padding from adding to the width */
+                box-sizing: border-box;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    width: 0%;
+                    background: #000;
+                    opacity: 1;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    border-radius: (4/16rem);
+                    transition: width 0.3s;
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .cs-image-group {
+                /* scaling the font size with the view width, removed at desktop */
+                font-size: ~"min(2.23vw, .83em)";
+                /* using ems so we can use font size to scale the whole section */
+                width: (650/16em);
+                height: (729/16em);
+                position: relative;
+            }
+
+            .cs-picture {
+                border-radius: (24/16em);
+                /* clips img tag corners */
+                overflow: hidden;
+                position: absolute;
+                display: block;
+                background-color: #fff;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
+                border: clamp(0.375em, 1.5vw, 0.75em) solid #ffffff;
+                border-radius: 1.5em;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    /* makes image act like a background image */
+                    object-fit: cover;
+                }
+            }
+
+            .cs-picture1 {
+                width: (522/16em);
+                height: (729/16em);
+                right: 0;
+                top: 0;
+            }
+
+            .cs-picture2 {
+                width: (378/16em);
+                height: (460/16em);
+                left: 0;
+                bottom: (100/16em);
+            }
+
+            .cs-background {
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+
+                &:before {
+                    /* background color overlay */
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    background: #fff;
+                    /* prevents the mouse from interacting with it */
+                    pointer-events: none;
+                    opacity: 0.84;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -2;
+                    /* Makes img tag act as a background image */
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    /* Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #sbsr-1457 {
+            .cs-container {
+                flex-flow: row;
+                justify-content: space-between;
+                align-items: stretch;
+                gap: (52/16rem);
+            }
+
+            .cs-content {
+                width: 40%;
+                padding: (48/16rem) 0;
+                /* prevents flexbox from squishing it */
+                flex: none;
+                align-self: center;
+            }
+
+            .cs-image-group {
+                font-size: 1rem;
+                width: 50vw;
+                max-width: (650/16rem);
+                height: auto;
+                /* 580px - 729px */
+                min-height: clamp(36.25rem, 50vw, 45.5625rem);
+                flex: none;
+                display: flex;
+                justify-content: flex-end;
+                /* sends it to the right in the 2nd position */
+                order: 2;
+            }
+
+            .cs-picture1 {
+                width: 83%;
+                height: auto;
+                position: relative;
+                left: auto;
+                top: auto;
+            }
+
+            .cs-picture2 {
+                width: 60%;
+                height: 57%;
+            }
+        }
+    }
+</style>

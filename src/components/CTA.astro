@@ -1,3 +1,8 @@
+---
+import { Picture } from "astro:assets";
+import ctaImg from "@assets/images/CTA/cta.jpg";
+---
+
 <!-- ============================================ --><!--                    CTA                       --><!-- ============================================ -->
 <section id="cta-262">
   <div class="cs-container">
@@ -10,25 +15,14 @@
       <p class="cs-p">7 days a week: 8.30am-3.00pm</p>
       <p class="cs-p">No reservations needed.</p>
     </div>
-    <picture class="cs-background">
-      <source
-        media="(max-width: 600px)"
-        srcset="https://csimg.nyc3.digitaloceanspaces.com/CTA/cloth-m.jpg"
-      />
-      <source
-        media="(min-width: 601px)"
-        srcset="https://csimg.nyc3.digitaloceanspaces.com/CTA/cloth.jpg"
-      />
-      <img
-        aria-hidden="true"
-        loading="lazy"
-        decoding="async"
-        src="https://csimg.nyc3.digitaloceanspaces.com/CTA/cloth.jpg"
+    <div class="cs-background">
+      <Picture
+        src={ctaImg}
         alt="appliance"
-        width="275"
-        height="132"
+        formats={["webp", "avif"]}
+        aria-hidden="true"
       />
-    </picture>
+    </div>
   </div>
 </section>
 <style>
