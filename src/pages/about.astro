@@ -23,10 +23,14 @@ const optimizedImage = await getOptimizedImage(landingImage);
       <!-- Left Image Section -->
       <div class="cs-image-group">
         <div class="cs-picture cs-picture1">
-          <Picture src={leftImage} alt="Coffee Heart" formats={["webp", "avif"]} loading="eager" />
+          <Picture src={leftImage} alt="Cafe Staff" formats={["webp", "avif"]} loading="eager" width={498}
+            height={557}
+            sizes="(max-width: 600px) 90vw, (max-width: 840px) 1024px, (max-width: 1200px) 50vw, 498px" />
         </div>
         <div class="cs-picture cs-picture2">
-          <Picture src={rightImage} alt="Cafe Friends" formats={["webp", "avif"]}/>
+          <Picture src={rightImage} alt="Cafe Friends" formats={["webp", "avif"]} width={514}
+            height={436}
+            sizes="(max-width: 600px) 60vw, (max-width: 1200px) 274px, 390px" />
         </div>
       </div>
       <!-- Right Content Section-->

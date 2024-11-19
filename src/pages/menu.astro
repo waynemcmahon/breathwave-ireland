@@ -312,7 +312,7 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
                     width: 0;
                     /* 16px - 24px */
                     height: clamp(1rem, 3vw, 1.5rem);
-                    background: url("https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Ffancy-icon.svg");
+                    //background: url("https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Ffancy-icon.svg");
                     background-size: contain;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -432,6 +432,8 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
                 display: flex;
                 flex-direction: column;
                 gap: (16/16rem);
+                border-bottom: 1px solid #d6d6d6;
+                padding-bottom: clamp(2rem, 6vw, 3.75rem);
             }
 
             .cs-h3 {

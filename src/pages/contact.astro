@@ -29,8 +29,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
           class="cs-form"
           id="cs-form-322"
           method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="botcheck"
+          netlify
         >
           <input type="hidden" name="form-name" value="contact-322">
           <input type="checkbox" name="botcheck" style="display: none;">
@@ -171,7 +170,6 @@ form.addEventListener('submit', function(e) {
   })
   .then(() => {
     result.innerHTML = "Form submitted successfully!";
-    alert("Form submitted successfully!");
     form.reset();
   })
   .catch((error) => {
