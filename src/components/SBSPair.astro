@@ -10,13 +10,17 @@ import seal from "@assets/images/logo.png";
     <div class="cs-container">
         <div class="cs-image-group">
             <div class="cs-picture">
-                <Picture src={sidePicture1} alt="whoweare" formats={["webp", "avif"]} />
+                <Picture src={sidePicture1} alt="whoweare" formats={["webp", "avif"]} width={514}
+                    height={436}
+                    sizes="(max-width: 840px) 90vw, (max-width: 1200px) 50vw, 514px" />
             </div>
             <Picture
                 src={seal}
                 alt="seal"
                 formats={["webp", "avif"]}
                 class="cs-seal"
+                width={190}
+                height={190}
             />
         </div>
         <div class="cs-content">
@@ -50,16 +54,13 @@ import seal from "@assets/images/logo.png";
             <div class="cs-picture">
                 <Picture
                     src={sidePicture2}
-                    alt="beef"
+                    alt="cafe entrance"
                     formats={["webp", "avif"]}
+                    width={514}
+                    height={436}
+                    sizes="(max-width: 840px) 90vw, (max-width: 1200px) 50vw, 514px"
                 />
             </div>
-            <!-- <Picture
-                src={seal}
-                alt="suppliers"
-                formats={["webp", "avif"]}
-                class="cs-seal"
-            /> -->
         </div>
         <div class="cs-content">
             <span class="cs-topper">Why Choose Us</span>

@@ -18,15 +18,21 @@ import { Picture } from "astro:assets";
             <div class="cs-picture cs-picture1">
                 <Picture
                     src={sbsright}
-                    alt="turbine"
+                    alt="cake and fire"
                     formats={["webp", "avif"]}
+                    width={546}
+                    height={647}
+                    sizes="(max-width: 600px) 80vw, (max-width: 1200px) 50vw, 546px"
                 />
             </div>
             <div class="cs-picture cs-picture2">
                 <Picture
                     src={sbsleft}
-                    alt="windmill"
+                    alt="coffee heart"
                     formats={["webp", "avif"]}
+                    width={366}
+                    height={392}
+                    sizes="(max-width: 600px) 50vw, (max-width: 1200px) 50vw, 366px"
                 />
             </div>
         </div>
@@ -47,7 +53,7 @@ import { Picture } from "astro:assets";
         </div>
     </div>
     <div class="cs-background">
-        <Picture src={backgroundImage} alt="beach" formats={["webp", "avif"]} />
+        <Picture src={backgroundImage} alt="beach" formats={["webp", "avif"]} sizes="100vw" />
     </div>
 </section>
 <style lang="less">

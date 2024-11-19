@@ -62,7 +62,9 @@ import logo from "@assets/images/logo.png";
         </div>
     </div>
     <div class="cs-img">
-        <Picture src={testimonialImg} alt="people" formats={["webp", "avif"]} />
+        <Picture src={testimonialImg} alt="people" formats={["webp", "avif"]} width={1280}
+            height={720}
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1280px" />
     </div>
 </section>
 

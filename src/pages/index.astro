@@ -30,7 +30,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
         </div>
         <!--Logo-->
         <div class="cs-logo">
-          <Picture src={logo} alt="Stitch House Restaurant" formats={["webp", "avif"]} loading="eager" />
+          <Picture src={logo} alt="Hero Logo" formats={["webp", "avif"]} loading="eager" />
         </div>
         <p class="cs-text">
           Indulge in our exquisite range of home-baked treats and freshly brewed
@@ -188,7 +188,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
         font-weight: 700;
         text-align: center;
         margin: auto;
-        color: #fff;
+        color: #000;
         min-width: 9.375rem;
         padding: 0 2rem;
         background-color: var(--secondary);
@@ -377,28 +377,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
         h2 {
           font-weight: bold;
           color: #fff;
-        }
-      }
-    }
-  }
-
-  /* Dark Mode */
-  @media only screen and (min-width: 0em) {
-    body.dark-mode {
-      #reviews {
-        .cs-title,
-        .cs-text,
-        .cs-item-p,
-        .cs-reviewer {
-          color: var(--bodyTextColorWhite);
-        }
-
-        .cs-item {
-          background: var(--medium);
-        }
-
-        .cs-desc {
-          color: var(--primaryLight);
         }
       }
     }
