@@ -25,25 +25,14 @@ const optimizedImage = await getOptimizedImage(landingImage)
   description="Meta description for the page"
   preloadedImage = {optimizedImage}
 >
-  <!-- ============================================ -->
-  <!--                    LANDING                   -->
-  <!-- ============================================ -->
 
   <Landing 
     title="Blog"
     image={landingImage}
   />
-
-  <!-- ============================================ -->
-  <!--              Main Blog Content               -->
-  <!-- ============================================ -->
-
   <div class="blog-container main-content-wrapper">
     <!--Main content -->
     <div class="main-content">
-      <!-- ============================================ -->
-      <!--                 Blog Articles                -->
-      <!-- ============================================ -->
       {posts.length === 0 && <h1>No Recent Posts</h1>}
       {
         posts.length >= 1 &&
