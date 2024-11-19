@@ -1,9 +1,8 @@
 ---
 import { Picture } from "astro:assets";
-import sidePicture1 from "@assets/images/coffee.jpg";
+import sidePicture1 from "@assets/images/sbspair/sbs1.jpg";
 import sidePicture2 from "@assets/images/sbspair/sbs2.jpg";
 import seal from "@assets/images/logo.png";
-import team from "@assets/images/hero/team.jpg";
 ---
 
 <!-- ============================================ --><!--                Side By Side                  --><!-- ============================================ -->
@@ -11,7 +10,7 @@ import team from "@assets/images/hero/team.jpg";
     <div class="cs-container">
         <div class="cs-image-group">
             <div class="cs-picture">
-                <Picture src={team} alt="whoweare" formats={["webp", "avif"]} />
+                <Picture src={sidePicture1} alt="whoweare" formats={["webp", "avif"]} />
             </div>
             <Picture
                 src={seal}
@@ -24,8 +23,7 @@ import team from "@assets/images/hero/team.jpg";
             <span class="cs-topper">Our Story</span>
             <h2 class="cs-title">Who We Are</h2>
             <p class="cs-text">
-                Our story began in April 2021, during the midst of the Covid-19
-                pandemic. In an old, forgotten room at the back of a historic
+                Our story began in April 2021. In an old, forgotten room at the back of a historic
                 village pub in Camp, we brought new life to a once-overlooked
                 space. Using recycled pallets and wood, we created Anne's Coffee
                 Bar - a café that celebrates sustainability, creativity, and
@@ -37,7 +35,7 @@ import team from "@assets/images/hero/team.jpg";
                 on the Dingle Way, or indulging in a picnic on Sandy Beach, you'll
                 find a warm welcome waiting for you here.
             </p>
-            <a href="/menu" class="cs-button-solid">See Our Menu</a>
+            <a href="/about" class="cs-button-solid">Read more</a>
         </div>
     </div>
 </section>
@@ -56,25 +54,28 @@ import team from "@assets/images/hero/team.jpg";
                     formats={["webp", "avif"]}
                 />
             </div>
-            <Picture
+            <!-- <Picture
                 src={seal}
                 alt="suppliers"
                 formats={["webp", "avif"]}
                 class="cs-seal"
-            />
+            /> -->
         </div>
         <div class="cs-content">
-            <span class="cs-topper">Our Suppliers</span>
-            <h2 class="cs-title">Who They Are</h2>
+            <span class="cs-topper">Why Choose Us</span>
+            <h2 class="cs-title">Best in the West</h2>
             <p class="cs-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco.
-                <!--Creates the space between p tags on mobile-->
+                At Anne's Coffee Bar, we go beyond great coffee. Every cup is
+                brewed with care using ethically sourced beans, and our menu
+                celebrates the best of the Dingle Peninsula with fresh, local
+                ingredients.
                 <span class="cs-spacer"></span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco.
+                Whether you're relaxing by the fire, catching up with friends,
+                or enjoying the view, our cozy atmosphere and friendly team make
+                every visit special.
+                <span class="cs-spacer"></span>
+                We're proud to be part of the community, celebrating the people,
+                flavors, and spirit of this incredible place we call home.
             </p>
             <a href="/suppliers" class="cs-button-solid">Learn more</a>
         </div>

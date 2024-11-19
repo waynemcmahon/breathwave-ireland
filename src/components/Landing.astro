@@ -1,5 +1,7 @@
 ---
-import Picture from "astro/components/Picture.astro";
+import { Picture } from "astro:assets";
+import divider from "@assets/images/fancyDivider.svg";
+import landingImage from "@assets/images/landing.jpg";
 const { title, image } = Astro.props;
 ---
 
@@ -7,36 +9,14 @@ const { title, image } = Astro.props;
 <div id="banner-1004">
     <div class="cs-container">
         <picture class="cs-picture">
-            <img
-                class="cs-icon"
-                decoding="async"
-                src="/assets/images/fancyDivider.svg"
-                alt="divider"
-                width="181"
-                height="36"
-                aria-hidden="true"
-            />
+            <Picture src={divider} alt="divider" formats={["webp", "avif"]} loading="eager" aria-hidden="true" />
         </picture>
         <span class="cs-int-title">{title}</span>
     </div>
     <!--Background Image-->
-    <picture class="cs-background">
-        <source
-            media="(max-width: 600px)"
-            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FMISC%2Ftable.jpg"
-        />
-        <source
-            media="(min-width: 601px)"
-            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FMISC%2Ftable.jpg"
-        />
-        <img
-            decoding="async"
-            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FMISC%2Ftable.jpg"
-            alt="logo"
-            width="1920"
-            height="1000"
-        />
-    </picture>
+    <div class="cs-background">
+        <Picture src={image} alt="background" formats={["webp", "avif"]} loading="eager" />
+    </div>
 </div>
 
 <style lang="less">

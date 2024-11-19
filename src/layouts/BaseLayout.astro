@@ -19,7 +19,8 @@ const { description, title, preloadedImage } = Astro.props;
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="description" content={description}>
+            
+            
             <meta name="keywords" content="">
             <link rel="canonical" href={`https://${client.domain}${Astro.url.pathname}`}>
 
@@ -31,15 +32,15 @@ const { description, title, preloadedImage } = Astro.props;
             <meta property="og:description" content={description} />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={`https://${client.domain}${Astro.url.pathname}`} />
-            <meta property="og:image" content="/assets/images/logo-small.png" />
-            <meta property="og:image:secure_url" content="/assets/images/logo-small.png" />
+            <meta property="og:image" content="/assets/images/entrance.jpg" />
+            <meta property="og:image:secure_url" content="/assets/images/entrance.jpg" />
     
             <!--Favicons-->
             <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
             <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v1">
             <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
             <link rel="manifest" href="/assets/favicons/site.webmanifest">
-            <meta name="msapplication-TileColor" content="#da532c">
+            <meta name="msapplication-TileColor" content="#58342c">
             <meta name="theme-color" content="#ffffff">
          
             <!--For home page, use service keywords for the title, including location for SEO.
@@ -54,8 +55,8 @@ const { description, title, preloadedImage } = Astro.props;
                 |
                 ${ client.name }
                 |
-                ${ client.address.city },
-                ${ client.address.state }`) :
+                ${ client.address.lineOne },
+                ${ client.address.city }`) :
                 (`${ title }
                     |
                     ${ client.name }`)

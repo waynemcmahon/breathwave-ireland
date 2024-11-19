@@ -5,7 +5,9 @@ import clientData from "@data/client.json";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
-import landingImage from "@assets/images/landing.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+import landingImage from "@assets/images/landing.jpg";
+import { Picture } from "astro:assets";
+import logo from "@assets/images/logo_white.png";
 import SideBySide from "@components/SideBySide.astro";
 import SBSPair from "@components/SBSPair.astro";
 import Gallery from "@components/Gallery.astro";
@@ -14,8 +16,8 @@ const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
 <BaseLayout
-  title="Pixel Perfect Websites"
-  description="Meta description for the page"
+  title="The coffee bar where the mountains meet the ocean"
+  description="Visit Anne's Coffee Bar in Camp, Ireland - a cozy café offering freshly brewed coffee, home-baked treats, and locally sourced, sustainable ingredients. Warm up by the fire and enjoy the charm of the Wild Atlantic Way."
   preloadedImage={optimizedImage}
 >
   <!-- ============================================ -->
@@ -31,23 +33,9 @@ const optimizedImage = await getOptimizedImage(landingImage);
           <div class="cs-tag-right"></div>
         </div>
         <!--Logo-->
-        <picture class="cs-logo">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/logo_white.png"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/logo_white.png"
-          />
-          <img
-            decoding="async"
-            src="/assets/images/logo_white.png"
-            alt="Stitch House Restaurant"
-            width="614"
-            height="166"
-          />
-        </picture>
+        <div class="cs-logo">
+          <Picture src={logo} alt="Stitch House Restaurant" formats={["webp", "avif"]} loading="eager" />
+        </div>
         <p class="cs-text">
           Indulge in our exquisite range of home-baked treats and freshly brewed
           coffee, all served in a cozy, welcoming space nestled at the foot of
@@ -98,7 +86,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
     #hero-998 {
       min-height: 100vh;
       /* 144px - 280px */
-      padding: clamp(9rem, 25.95vw, 17.5rem) 1rem;
+      padding: clamp(9rem, 25.95vw, 12.5rem) 1rem;
       /* prevents padding and border from affecting height and width */
       box-sizing: border-box;
       position: relative;
@@ -272,7 +260,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
       height: 100%;
       width: 100%;
       background: #000;
-      opacity: 0.6;
+      opacity: 0.75;
       top: 0;
       left: 0;
       z-index: 1;
@@ -370,6 +358,9 @@ const optimizedImage = await getOptimizedImage(landingImage);
 
   /* Inbetween */
   @media only screen and (min-width: 768px) {
+    #hero-998 {
+        min-height: auto;
+    }
     .services {
       font-size: ~"min(1.8vw, 1em)";
       width: 98%;
@@ -377,7 +368,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
       justify-content: space-between;
       align-items: flex-start;
 
-      .card {
+      .card { 
         max-width: (325/16em);
         margin: 0;
       }
@@ -409,131 +400,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
           font-weight: bold;
           color: #fff;
         }
-      }
-    }
-  }
-
-  /* PAGE-SPECIFIC STYLES FOR THE HOME PAGE */
-
-  /*-- -------------------------- -->
-<---          Reviews           -->
-<--- -------------------------- -*/
-
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0em) {
-    #reviews {
-      /* Centers the button */
-      text-align: center;
-      padding: var(--sectionPadding);
-
-      .cs-container {
-        width: 100%;
-        max-width: (1104/16rem);
-        margin: auto;
-      }
-
-      .cs-topper {
-        text-align: center;
-        margin-bottom: (16/16rem);
-      }
-
-      .cs-title {
-        text-align: center;
-        max-width: (700/16rem);
-      }
-
-      .cs-text {
-        text-align: center;
-        max-width: (650/16rem);
-        /* 88px - 104px */
-        margin-bottom: clamp(5.5em, 10.2vw, 6.5em);
-      }
-
-      .cs-card-group {
-        /* 48px - 64px */
-        margin: 0 auto clamp(3rem, 5vw, 4rem);
-        padding: 0;
-      }
-
-      .cs-item {
-        text-align: left;
-        list-style: none;
-        width: 100%;
-        max-width: (542/16rem);
-        margin: 0 auto (64/16rem);
-        /* Prevents padding from affecting height & width */
-        box-sizing: border-box;
-        /* Padding L & R - 16px - 32px */
-        padding: (60/16rem) clamp(1rem, 3.2vw, 2rem) 0;
-        /* 32px - 40px */
-        padding-bottom: clamp(2rem, 5.4vw, 2.5rem);
-        background: #fff;
-        box-shadow: 0px 20px 39px 0px rgba(0, 0, 0, 0.05);
-        border-radius: (4/16rem);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        position: relative;
-
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-      }
-
-      .cs-item-img {
-        width: (80/16rem);
-        height: (80/16rem);
-        position: absolute;
-        top: (-40/16rem);
-      }
-
-      .cs-item-p {
-        font-size: (16/16rem);
-        line-height: 1.5em;
-        margin: 0 0 (20/16rem);
-        padding-bottom: (20/16rem);
-        color: var(--bodyTextColor);
-        border-bottom: 1px solid #e8e9ec;
-      }
-
-      .cs-reviewer {
-        font-size: (16/16rem);
-        font-weight: 700;
-        line-height: 1.5em;
-        width: 40%;
-        margin: 0 auto 0 0;
-        color: var(--headerColor);
-        display: block;
-      }
-
-      .cs-desc {
-        font-size: (14/16rem);
-        font-weight: 400;
-        color: var(#353535);
-        display: block;
-      }
-
-      .cs-item-stars {
-        width: (96/16rem);
-        height: (16/16rem);
-      }
-    }
-  }
-
-  /* Tablet - 768px */
-  @media only screen and (min-width: 48em) {
-    #reviews {
-      .cs-card-group {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: (16/16rem);
-      }
-
-      .cs-item {
-        /* reset margin so it won't interfere with flexbox */
-        margin: 0;
       }
     }
   }

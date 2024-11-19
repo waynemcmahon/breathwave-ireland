@@ -12,7 +12,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
   <div aria-hidden="true" class="background-color-div"></div>
   <div class="container">
     <a aria-label="click to go to home page" class="logo" href="/">
-      <img
+      <!-- <img
         class="logo-light"
         aria-hidden="true"
         src="/assets/images/logo_white.png"
@@ -29,13 +29,14 @@ import InstagramIcon from "@assets/icons/instagram.svg";
         alt="logo"
         width="66"
         height="66"
-      />
-      <!-- <Picture
+      /> -->
+      <Picture
         src={logoLight}
         alt="logo"
         formats={["webp", "avif"]}
         class="logo-light"
         aria-hidden="true"
+        loading="eager"
       />
       <Picture
         src={logoDark}
@@ -43,7 +44,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
         formats={["webp", "avif"]}
         class="logo-dark"
         aria-hidden="true"
-      /> -->
+      />
     </a>
 
     <!--Main Nav-->
@@ -82,7 +83,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
       </a> -->
 
       <div class="cs-social">
-        <a href="" class="cs-social-link">
+        <a href={clientData.facebook} class="cs-social-link">
           <Picture
             src={FacebookIcon}
             class="cs-social-img"
@@ -90,9 +91,10 @@ import InstagramIcon from "@assets/icons/instagram.svg";
             formats={["webp", "avif"]}
             width="11"
             height="11"
+            loading="eager"
           />
         </a>
-        <a href="" class="cs-social-link">
+        <a href={clientData.instagram} class="cs-social-link">
           <Picture
             src={InstagramIcon}
             class="cs-social-img"
@@ -100,7 +102,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
             formats={["webp", "avif"]}
             width="11"
             height="11"
-            decoding="async"
+            loading="eager"
           />
         </a>
       </div>

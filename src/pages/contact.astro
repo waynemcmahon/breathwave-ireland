@@ -15,19 +15,11 @@ const optimizedImage = await getOptimizedImage(landingImage);
 
 <BaseLayout
   title="Contact"
-  description="Meta description for the page"
+  description="Get in touch with Anne's Coffee Bar in Camp, Ireland. Whether you have questions about our menu, want to book a private event, or need information about our suppliers, we're here to help."
   preloadedImage={optimizedImage}
 >
-  <!-- ============================================ -->
-  <!--                    LANDING                   -->
-  <!-- ============================================ -->
 
-  <Landing title="Contact" image={optimizedImage} />
-
-  <!-- ============================================ -->
-  <!--                   Contact                    -->
-  <!-- ============================================ -->
-
+  <Landing title="Contact" image={landingImage} />
   <section id="contact-322">
     <div class="cs-container">
       <div class="cs-content">
@@ -35,14 +27,14 @@ const optimizedImage = await getOptimizedImage(landingImage);
         <h2 class="cs-title">Ask Us Anything!</h2>
         <!--Form-->
         <form
-  class="cs-form"
-  id="cs-form-322"
-  method="POST"
-  data-netlify="true"
-  data-netlify-honeypot="botcheck"
->
-           <input type="hidden" name="form-name" value="contact-322">
-  <input type="checkbox" name="botcheck" style="display: none;">
+          class="cs-form"
+          id="cs-form-322"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="botcheck"
+        >
+          <input type="hidden" name="form-name" value="contact-322">
+          <input type="checkbox" name="botcheck" style="display: none;">
 
           <label class="cs-label">
             Name
@@ -102,7 +94,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
               height="425"
               style="border:0;"
               allowfullscreen=""
-              loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Ashe%E2%80%99s%20Coffee%20Bar+(Anne's%20Coffee%20Bar)&t=&z=14&ie=UTF8&iwloc=B&output=embed"
             ></iframe>
@@ -193,10 +184,6 @@ form.addEventListener('submit', function(e) {
 </script>
 
 <style lang="less">
-  /*-- -------------------------- -->
-<---          Contact           -->
-<--- -------------------------- -*/
-
   /* Mobile - 360px */
   @media only screen and (min-width: 0rem) {
     #contact-322 {
@@ -343,27 +330,6 @@ form.addEventListener('submit', function(e) {
         overflow: hidden;
         position: relative;
         display: block;
-
-        &:before {
-          content: "";
-          position: absolute;
-          display: block;
-          /* 32px - 48px */
-          width: clamp(2rem, 4vw, 3rem);
-          height: clamp(2rem, 4vw, 3rem);
-          background: url("https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/pin-red.svg");
-          background-size: contain;
-          background-position: center;
-          background-repeat: no-repeat;
-          opacity: 1;
-          /* 148px - 220px */
-          top: clamp(9.25rem, 30.7vw, 13.75rem);
-          /* push to the center line of the div */
-          left: 50%;
-          /* push X amount of pixels from it's current position off the center line */
-          margin-left: (10/16rem);
-          z-index: 10;
-        }
 
         img {
           position: absolute;

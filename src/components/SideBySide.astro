@@ -3,9 +3,9 @@
 import CSPicture from "@components/TemplateComponents/CSPicture.astro";
 import mobileImage from "@assets/images/hero/team.jpg";
 import desktopImage from "@assets/images/hero/team.jpg";
-import coffee from "@assets/images/coffee.jpg";
-import coffeeCloseup from "@assets/images/coffee-close.png";
-import beach from "@assets/images/beach.jpg";
+import sbsleft from "@assets/images/sbs/sbsl.jpg";
+import sbsright from "@assets/images/sbs/sbsr.jpg";
+import backgroundImage from "@assets/images/sbs/background.jpg";
 import fallbackImage from "@assets/images/hero/team.jpg";
 import { Picture } from "astro:assets";
 ---
@@ -17,14 +17,14 @@ import { Picture } from "astro:assets";
         <div class="cs-image-group">
             <div class="cs-picture cs-picture1">
                 <Picture
-                    src={coffee}
+                    src={sbsright}
                     alt="turbine"
                     formats={["webp", "avif"]}
                 />
             </div>
             <div class="cs-picture cs-picture2">
                 <Picture
-                    src={coffeeCloseup}
+                    src={sbsleft}
                     alt="windmill"
                     formats={["webp", "avif"]}
                 />
@@ -35,19 +35,19 @@ import { Picture } from "astro:assets";
             <span class="cs-topper">Enjoy a cuppa</span>
             <h2 class="cs-title">Where the mountains meet the ocean</h2>
             <p class="cs-text">
-                Discover a menu crafted with love and a commitment to
-                sustainability. From perfectly brewed cappuccinos to our famous
-                home-baked treats, everything we serve reflects our dedication
-                to quality and eco-friendly practices. With options for every
-                palate, including gluten-free specialties and locally sourced
-                ingredients, you're guaranteed a meal as unique as the Wild
-                Atlantic setting.
+                Discover a menu crafted with love, a commitment to sustainability,
+                and the warmth of a fire that's always on. From perfectly brewed
+                cappuccinos to our famous home-baked treats, everything we serve
+                reflects our dedication to quality and eco-friendly practices.
+                With options for every palate, including gluten-free specialties
+                and locally sourced ingredients, you're guaranteed a meal as
+                unique and comforting as the Wild Atlantic setting.
             </p>
             <a href="/menu" class="cs-button-solid">See Our Menu</a>
         </div>
     </div>
     <div class="cs-background">
-        <Picture src={beach} alt="beach" formats={["webp", "avif"]} />
+        <Picture src={backgroundImage} alt="beach" formats={["webp", "avif"]} />
     </div>
 </section>
 <style lang="less">
@@ -233,7 +233,7 @@ import { Picture } from "astro:assets";
                     background: #fff;
                     /* prevents the mouse from interacting with it */
                     pointer-events: none;
-                    opacity: 0.84;
+                    opacity: 0.9;
                     top: 0;
                     left: 0;
                     z-index: -1;

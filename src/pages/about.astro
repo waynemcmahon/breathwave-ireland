@@ -4,8 +4,9 @@ import CTA from "@components/CTA.astro";
 import Landing from "@components/Landing.astro";
 import FAQ from "@components/FAQ.astro";
 import { Picture } from "astro:assets";
-import friendImg from "@assets/images/about/cafe-friends.jpg";
-import coffeeImg from "@assets/images/about/coffee-heart.jpg";
+import leftImage from "@assets/images/about/left.jpg";
+import rightImage from "@assets/images/about/right.jpg";
+import quote from "@assets/images/about/quote-white.svg";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
@@ -14,29 +15,20 @@ const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
 <BaseLayout
-  title="About"
-  description="Meta description for the page"
+  title="About Us"
+  description="Learn about the story behind Anne's Coffee Bar, a café in Camp, Ireland, built on sustainability, creativity, and community. Discover how we transformed a historic space into a warm retreat with locally sourced treats and freshly brewed coffee."
   preloadedImage={optimizedImage}
 >
-  <!-- ============================================ -->
-  <!--                    LANDING                   -->
-  <!-- ============================================ -->
-
-  <Landing title="About Us" image={optimizedImage} />
-
-  <!-- ============================================ -->
-  <!--                 Side By Side                 -->
-  <!-- ============================================ -->
-
+  <Landing title="About Us" image={landingImage} />
   <section id="sbs-1014">
     <div class="cs-container">
       <!-- Left Image Section -->
       <div class="cs-image-group">
         <div class="cs-picture cs-picture1">
-          <Picture src={coffeeImg} alt="Coffee Heart" formats={["webp", "avif"]} />
+          <Picture src={leftImage} alt="Coffee Heart" formats={["webp", "avif"]} loading="eager"/>
         </div>
         <div class="cs-picture cs-picture2">
-          <Picture src={friendImg} alt="Cafe Friends" formats={["webp", "avif"]} />
+          <Picture src={rightImage} alt="Cafe Friends" formats={["webp", "avif"]} />
         </div>
       </div>
       <!-- Right Content Section-->
@@ -50,18 +42,18 @@ const optimizedImage = await getOptimizedImage(landingImage);
           From the moment we open our doors, the fire is on, providing a warm and inviting ambiance no matter the weather. It's not just about coffee or home-baked treats - it's about creating memories and fostering connections.
         </p>
         <p class="cs-text">
-Our story began in 2021, during the height of the pandemic, when we transformed a forgotten space into a thriving café filled with laughter, warmth, and the scent of freshly brewed coffee. With a commitment to sustainability and locally sourced ingredients, we take pride in offering a menu that reflects both quality and care.        </p>
+          Our story began in 2021, during the height of the pandemic, when we transformed a forgotten space into a thriving café filled with laughter, warmth, and the scent of freshly brewed coffee. With a commitment to sustainability and locally sourced ingredients, we take pride in offering a menu that reflects both quality and care.
+        </p>
         <div class="cs-quote">
           <span class="cs-quote-text">
             We've created more than a café - it's a space where great coffee, good food, and genuine connections come together.
           </span>
           <span class="cs-name">Anne O'Sullivan</span>
           <span class="cs-job">Owner</span>
-          <img
+          <Picture
+            src={quote}
             class="cs-quote-icon"
             loading="lazy"
-            decoding="async"
-            src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg"
             alt="gavel"
             width="136"
             height="77"
@@ -319,6 +311,10 @@ Our story began in 2021, during the height of the pandemic, when we transformed 
         height: (581/16em);
         left: 0;
         top: 0;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
+        /* 6px - 12px */
+        border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
       }
 
       .cs-picture2 {
