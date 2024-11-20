@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
+import CTA from "@components/CTAnew.astro";
 import { getImage } from "astro:assets";
 import Landing from "@components/Landing.astro";
 import menuData from "@data/menuData.json";
@@ -93,6 +94,7 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
             })
         }
     </div>
+    <CTA />
 </BaseLayout>
 
 <style lang="less">
@@ -239,6 +241,7 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
         #cs-menu-group-1031 {
             text-align: center;
             height: auto;
+            margin-bottom: 4rem;
 
             .cs-container {
                 width: 100%;
