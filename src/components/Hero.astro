@@ -26,7 +26,7 @@ const heroImage1 = await getImage({
         coffee, all served in a cozy, welcoming space nestled at the foot of the
         stunning Slieve Mish mountain range.
       </p>
-      <p class="cs-text">
+      <p class="cs-text opening-hours">
         <span class="days"
           ><strong style="display: block;">Opening Hours:</strong>
           {clientData.openingHours.days}</span
@@ -180,6 +180,10 @@ const heroImage1 = await getImage({
 
         &.subtext {
           display: none;
+        }
+
+        &.opening-hours {
+          font-size: (16/16rem);
         }
 
         .days,
