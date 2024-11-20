@@ -14,6 +14,10 @@
     "url": "/suppliers/"
   },
   {
+    "key": "Blog",
+    "url": "/blog/"
+  },
+  {
     "key": "Contact Us",
     "url": "/contact/",
     "children": []     

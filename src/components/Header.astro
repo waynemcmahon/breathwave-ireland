@@ -127,14 +127,26 @@ import InstagramIcon from "@assets/icons/instagram.svg";
   </div>
 </div>
 <script defer="">
+  // Check if we're on the suppliers page
+  /*  const isSuppliers = window.location.pathname === "/suppliers/";
+  console.log(window.location.pathname);
+  // If on suppliers page, add scroll class immediately
+  if (isSuppliers) {
+    document.querySelector("body").classList.add("scroll");
+  }
+
+  // Add scroll listener for all other pages
   document.addEventListener("scroll", (e) => {
+    // Skip scroll handling on suppliers page
+    if (isSuppliers) return;
+
     const scroll = document.documentElement.scrollTop;
     if (scroll >= 100) {
       document.querySelector("body").classList.add("scroll");
     } else {
       document.querySelector("body").classList.remove("scroll");
     }
-  });
+  }); */
 </script>
 
 <style lang="less">

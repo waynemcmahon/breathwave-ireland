@@ -1,5 +1,5 @@
 ---
-import heroImage from "@assets/images/landing.jpg";
+import heroImage from "@assets/images/landingCake.jpg";
 import { Picture } from "astro:assets";
 import logo from "@assets/images/logo_square_white.png";
 ---
@@ -206,7 +206,7 @@ import logo from "@assets/images/logo_square_white.png";
     @media only screen and (min-width: 100rem) {
         #hero-1950 {
             .cs-background {
-                background: url("https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/restaurant-space.jpeg");
+                background: url("https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/restaurant-space.jpeg"); /* <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src */
                 background-position: center;
                 background-size: cover;
                 background-repeat: no-repeat;

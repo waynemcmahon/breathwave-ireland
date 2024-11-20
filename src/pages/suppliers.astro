@@ -7,7 +7,7 @@ import { Picture } from "astro:assets";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
-import landingImage from "@assets/images/suppliers/veg.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+import landingImage from "@assets/images/suppliers/vegetables1.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 const optimizedImage = await getOptimizedImage(landingImage);
 import supplierImg from "@assets/images/suppliers/supplier.jpg";
 import heatherImg from "@assets/images/suppliers/heather.jpg";
@@ -26,7 +26,7 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
   <!--                    LANDING                   -->
   <!-- ============================================ -->
 
-  <Landing title="Our Suppliers" image={landingImage} />
+  <!-- <Landing title="Our Suppliers" image={landingImage} /> -->
 
   <!-- ============================================ -->
   <!--                 Side By Side                 -->
@@ -64,13 +64,13 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
         <h2>Meet the Partners Behind the Flavors</h2>
 
         <div class="cs-supplier">
-          <!-- <div class="cs-picture-wrapper">
+          <div class="cs-picture-wrapper">
             <Picture
               src={heatherImg}
               alt="Heather's Bakery"
               formats={["webp", "avif"]}
             />
-          </div> -->
+          </div>
           <div>
             <h3>Meet Heather - The Heart and Soul of Our Bakery</h3>
             <p>
@@ -200,7 +200,7 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
         <div class="cs-image-group">
           <div class="cs-picture">
             <Picture
-              src={heatherImg}
+              src={landingImage}
               alt="Carrots"
               formats={["webp", "avif"]}
               loading="eager"
@@ -368,8 +368,8 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
       }
 
       .cs-picture-wrapper {
-        width: 30rem;
-        height: 35rem;
+        width: 100%;
+        height: 30rem;
         padding-bottom: 2rem;
         margin: 0 auto;
 
@@ -455,6 +455,13 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
 
       .cs-content {
         margin-left: auto;
+      }
+
+      .cs-picture-wrapper {
+        width: 30rem;
+        height: 35rem;
+        padding-bottom: 2rem;
+        margin: 0 auto;
       }
 
       .cs-background {

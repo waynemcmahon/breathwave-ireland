@@ -8,9 +8,9 @@ import FeaturedPost from "@components/FeaturedPost.astro";
 import "@styles/blog.less";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
-import {getOptimizedImage} from "@libs/utils"
-import landingImage from "@assets/images/landing.jpg" // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
-const optimizedImage = await getOptimizedImage(landingImage)
+import { getOptimizedImage } from "@libs/utils";
+import landingImage from "@assets/images/landing.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+const optimizedImage = await getOptimizedImage(landingImage);
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -28,13 +28,9 @@ const { Content } = await post.render();
 <BaseLayout
   title={title}
   description={description}
-  preloadedImage = {optimizedImage}
+  preloadedImage={optimizedImage}
 >
-
-  <Landing 
-    title="Blog"
-    image={landingImage}
-  />
+  <Landing title="Blog" image={landingImage} />
   <div class="blog-container main-content-wrapper">
     <div class="main-content">
       <article class="blog-article">
@@ -74,4 +70,10 @@ const { Content } = await post.render();
     </div>
     <FeaturedPost />
   </div>
+  <style lang="less">
+    #blog-content img {
+      max-width: 26rem;
+      margin: 0 auto;
+    }
+  </style>
 </BaseLayout>
