@@ -2,12 +2,12 @@
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import { getOptimizedImage } from "@libs/utils";
 import landingImage from "@assets/images/landing.jpg";
-import Hero from "@components/Hero.astro";
+import Hero from "@components/HeroLeft2.astro";
 import SideBySide from "@components/SideBySide.astro";
 import SBSPair from "@components/SBSPair.astro";
 import Gallery from "@components/Gallery.astro";
 import Testimonial from "@components/Testimonial.astro";
-import CTA from "@components/CTAnew.astro";
+import CTA from "@components/CTA.astro";
 
 const optimizedImage = await getOptimizedImage(landingImage);
 ---

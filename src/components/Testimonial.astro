@@ -62,9 +62,14 @@ import logo from "@assets/images/logo.png";
         </div>
     </div>
     <div class="cs-img">
-        <Picture src={testimonialImg} alt="people" formats={["webp", "avif"]} width={1280}
+        <Picture
+            src={testimonialImg}
+            alt="people"
+            formats={["webp", "avif"]}
+            width={1280}
             height={720}
-            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1280px" />
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1280px"
+        />
     </div>
 </section>
 
@@ -79,13 +84,14 @@ import logo from "@assets/images/logo.png";
             background-color: var(--backgroundColor);
             position: relative;
             z-index: 1;
+            padding: var(--sectionPadding);
         }
         #reviews-1604 .cs-container {
             width: 100%;
             /* changes to 1024px at tablet */
             max-width: 36.5rem;
             margin: auto;
-            margin-bottom: -5.75rem;
+            margin-bottom: 2rem;
             padding: var(--sectionPadding);
             padding-bottom: 0;
             box-sizing: border-box;

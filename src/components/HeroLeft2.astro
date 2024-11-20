@@ -1,0 +1,371 @@
+---
+import logo from "@assets/images/logo_square_white.png";
+import heroImage from "@assets/images/landingCake.jpg";
+import clientData from "@data/client.json";
+import { Picture, getImage } from "astro:assets";
+const heroImage1 = await getImage({
+  src: heroImage,
+  width: 1920,
+  height: 1200,
+});
+---
+
+<!-- ============================================ --><!--                    Hero                      --><!-- ============================================ -->
+<section id="hero-997">
+  <div class="cs-container">
+    <div class="cs-content">
+      <div class="cs-topper">
+        Anne's Coffee Bar
+        <span class="cs-tag-right"></span>
+      </div>
+      <h1 class="cs-title">
+        <!-- <span class="cs-color">#1</span>  -->The Best in the West
+      </h1>
+      <p class="cs-text subtext">
+        Indulge in our exquisite range of home-baked treats and freshly brewed
+        coffee, all served in a cozy, welcoming space nestled at the foot of the
+        stunning Slieve Mish mountain range.
+      </p>
+      <p class="cs-text">
+        <span class="days"
+          ><strong style="display: block;">Opening Hours:</strong>
+          {clientData.openingHours.days}</span
+        >
+        <span class="hours">{clientData.openingHours.hours}</span>
+      </p>
+      <div class="cs-button-box">
+        <a href="/menu" class="cs-button-solid">See Our Menu</a>
+        <!-- <a href="/about" class="cs-button-transparent">Learn More</a> -->
+      </div>
+    </div>
+  </div>
+  <!-- Background Image -->
+  <!-- <div class="cs-background">
+    <Picture
+      src={heroImage}
+      alt="Anne's Coffee Bar"
+      formats={["webp", "avif"]}
+      loading="eager"
+    />
+  </div> -->
+  <picture class="cs-background">
+    <source media="(max-width: 600px)" srcset={heroImage.src} />
+    <source media="(min-width: 601px)" srcset={heroImage.src} />
+    <img
+      loading="lazy"
+      decoding="async"
+      src={heroImage.src}
+      alt="restaurant"
+      width="1920"
+      height="1200"
+      aria-hidden="true"
+    />
+  </picture>
+</section>
+
+<style lang="less">
+  /*-- -------------------------- -->
+<---           Hero             -->
+<--- -------------------------- -*/
+
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    #hero-997 {
+      /* 200px - 300px - leaving extra space for the navigation */
+      padding: clamp(12.5rem, 25.95vw, 18.75rem) (16/16rem) 0;
+      background-position: left;
+      /* 100px - 250px */
+      padding-bottom: clamp(6.25rem, 25.95vw, 15.625rem);
+      position: relative;
+      z-index: 1;
+      /* prevents overflow from the lines extending past the screen width */
+      overflow: hidden;
+
+      .cs-container {
+        width: 100%;
+        max-width: (1280/16rem);
+        margin: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* 100px - 200px */
+        gap: clamp(6.25rem, 25vw, 12.5rem);
+      }
+
+      .cs-content {
+        width: 100%;
+        max-width: (955/16rem);
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+        box-sizing: border-box;
+      }
+
+      .cs-topper {
+        /* 13px - 16px */
+        font-size: clamp(0.8125rem, 1.6vw, 1rem);
+        line-height: 1.2em;
+        white-space: nowrap;
+        text-transform: uppercase;
+        text-align: left;
+        letter-spacing: 0.1rem;
+        font-weight: 700;
+        width: 100%;
+        color: var(--bodyTextColorWhite);
+        margin-bottom: (28/16rem);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: (20/16rem);
+        position: relative;
+
+        /* &:after {
+          content: "";
+          width: 50%;
+          max-width: (120/16rem);
+          height: 1px;
+          background: currentColor;
+          opacity: 1;
+          position: relative;
+          display: block;
+        } */
+      }
+
+      .cs-tag-left,
+      .cs-tag-right {
+        overflow: hidden;
+        width: 100px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cs-tag-left {
+        content: url("/assets/svgs/fancy-line-l.svg");
+        height: 100%;
+        opacity: 1;
+        position: relative;
+      }
+
+      .cs-tag-right {
+        content: url("/assets/svgs/fancy-line-r.svg");
+        opacity: 1;
+        height: 100%;
+        filter: brightness(0) invert(1);
+      }
+
+      .cs-title {
+        /* 39px - 80px */
+        font-size: clamp(2.4375rem, 6.4vw, 5rem);
+        font-weight: 900;
+        line-height: 1.2em;
+        text-align: left;
+        width: 100%;
+        max-width: 14ch;
+        margin: 0 0 (32/16rem) 0;
+        color: var(--bodyTextColorWhite);
+        position: relative;
+      }
+
+      .cs-color {
+        color: var(--primary);
+      }
+
+      .cs-text {
+        /* 16px - 20px */
+        font-size: clamp(1rem, 1.95vw, 1.25rem);
+        text-wrap: balance;
+        line-height: 1.5em;
+        text-align: left;
+        width: 100%;
+        max-width: (600/16rem);
+        margin: 0 0 (32/16rem) 0;
+        color: var(--bodyTextColorWhite);
+
+        &.subtext {
+          display: none;
+        }
+
+        .days,
+        .hours {
+          display: block;
+        }
+      }
+
+      .cs-button-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: (20/16rem);
+      }
+
+      .cs-button-solid {
+        text-align: center;
+        font-size: (16/16rem);
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+        width: (180/16rem);
+        text-decoration: none;
+        font-weight: 700;
+        margin: 0;
+        color: #fff;
+        padding: 0;
+        background-color: var(--primary);
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        transition: color 0.3s;
+
+        &:before {
+          content: "";
+          position: absolute;
+          display: block;
+          height: 100%;
+          width: 0%;
+          background: #fff;
+          opacity: 1;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transition: width 0.3s;
+        }
+
+        &:hover {
+          color: #1a1a1a;
+          &:before {
+            width: 100%;
+          }
+        }
+      }
+
+      .cs-button-transparent {
+        font-size: (16/16rem);
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+        width: (180/16rem);
+        /* 46px - 56px */
+        height: clamp(2.875rem, 5.5vw, 3.5rem);
+        text-decoration: none;
+        font-weight: 700;
+        margin: 0;
+        color: #fff;
+        padding: 0;
+        background-color: transparent;
+        border: 1px solid var(--bodyTextColorWhite);
+        box-sizing: border-box;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        transition: color / 3s;
+
+        &:before {
+          content: "";
+          position: absolute;
+          display: block;
+          background: #fff;
+          opacity: 1;
+          /* so it sits on top of the border */
+          top: -1px;
+          left: -1px;
+          right: -1px;
+          bottom: -1px;
+          z-index: -1;
+          transform-origin: left;
+          /* this is what creates the grow affect on hover */
+          transform: scaleX(0);
+          transition: transform 0.3s;
+        }
+
+        &:hover {
+          color: #1a1a1a;
+          &:before {
+            transform: scaleX(1);
+          }
+        }
+      }
+
+      .cs-background {
+        /* Background Image */
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+
+        &:before {
+          /* Black Color Overlay */
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            41deg,
+            rgba(0, 0, 0, 0.8) 10%,
+            rgba(0, 0, 0, 0.1) 70%
+          );
+          opacity: 1;
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          /* prevents the cursor from interacting with it */
+          pointer-events: none;
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          /* Makes image act like a background-image */
+          object-fit: cover;
+          object-position: -14rem 0;
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 601px) {
+    body #hero-997 .cs-topper {
+      color: var(--secondary);
+    }
+
+    body #hero-997 .cs-tag-right {
+      filter: none;
+    }
+
+    body #hero-997 .cs-text.subtext {
+      display: block;
+    }
+  }
+
+  /* Large Desktop Parallax Effect - 1300px */
+  @media only screen and (min-width: 81.25rem) {
+    #hero-997 {
+      // Start of Selection
+      background: url("/assets/images/landingCake.jpg");
+      //background-size: cover;
+      background-position: left;
+      background-repeat: no-repeat;
+      /* creates parallax effect on background image */
+      background-attachment: fixed;
+      /* remove img tag so we can make parallax work */
+
+      .cs-background {
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+</style>

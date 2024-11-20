@@ -59,6 +59,13 @@ const currentYear = getCurrentYear();
           />
         </a>
       </div>
+      <p class="cs-text">
+        <span class="days"
+          ><strong style="display: block;">Opening Hours:</strong>
+          {client.openingHours.days}</span
+        >
+        <span class="hours">{client.openingHours.hours}</span>
+      </p>
     </div>
     <!-- Links -->
     <div class="cs-ul-wrapper">
@@ -194,6 +201,15 @@ const currentYear = getCurrentYear();
         gap: (8/16rem);
       }
 
+      .cs-text {
+        color: var(--bodyTextColorWhite);
+        margin-top: (32/16rem);
+
+        .days {
+          display: block;
+        }
+      }
+
       .cs-social-link {
         width: (32/16rem);
         height: (32/16rem);
@@ -264,7 +280,7 @@ const currentYear = getCurrentYear();
         }
 
         &:hover {
-          color: var(--secondaryLight);
+          color: var(--backgroundColor);
         }
       }
 
@@ -299,7 +315,7 @@ const currentYear = getCurrentYear();
         text-decoration: none;
         width: auto;
         margin: 0;
-        color: #bababa;
+        color: var(--bodyTextColorWhite);
         display: inline-block;
         position: relative;
         transition: color 0.3s;
@@ -310,16 +326,6 @@ const currentYear = getCurrentYear();
       }
 
       .cs-credit-link {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 1.5vw, 1rem);
-        line-height: 1.5em;
-        text-decoration: none;
-        width: auto;
-        margin: 0;
-        color: var(--secondary);
-        display: inline-block;
-        position: relative;
-
         &:hover {
           color: var(--secondaryLight);
         }

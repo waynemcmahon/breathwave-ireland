@@ -12,26 +12,8 @@ import InstagramIcon from "@assets/icons/instagram.svg";
   <div aria-hidden="true" class="background-color-div"></div>
   <div class="container">
     <a aria-label="click to go to home page" class="logo" href="/">
-      <!-- <img
-        class="logo-light"
-        aria-hidden="true"
-        src="/assets/images/logo_white.png"
-        decoding="async"
-        alt="logo"
-        width="66"
-        height="66"
-      />
-      <img
-        class="logo-dark"
-        aria-hidden="true"
-        src="/assets/images/logo.png"
-        decoding="async"
-        alt="logo"
-        width="66"
-        height="66"
-      /> -->
       <Picture
-        src={logoLight}
+        src={logoDark}
         alt="logo"
         formats={["webp", "avif"]}
         class="logo-light"
@@ -73,19 +55,6 @@ import InstagramIcon from "@assets/icons/instagram.svg";
     </nav>
 
     <div class="cs-contact-group">
-      <!-- <a href={`tel:${clientData.phoneForTel}`} class="cs-phone">
-        <img
-          class="cs-phone-icon"
-          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-1a.svg"
-          alt="logo"
-          width="24"
-          height="24"
-          aria-hidden="true"
-          decoding="async"
-        />
-        {clientData.phoneForTel}
-      </a> -->
-
       <div class="cs-social">
         <a href={clientData.facebook} class="cs-social-link" target="_blank">
           <Picture
@@ -112,8 +81,6 @@ import InstagramIcon from "@assets/icons/instagram.svg";
       </div>
     </div>
 
-    <!-- <a href="/menu" class="cs-button-solid reservation">See Menu</a> -->
-
     <!--Mobile Nav toggle-->
     <button
       class="hamburger-menu"
@@ -126,28 +93,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
     </button>
   </div>
 </div>
-<script defer="">
-  // Check if we're on the suppliers page
-  /*  const isSuppliers = window.location.pathname === "/suppliers/";
-  console.log(window.location.pathname);
-  // If on suppliers page, add scroll class immediately
-  if (isSuppliers) {
-    document.querySelector("body").classList.add("scroll");
-  }
-
-  // Add scroll listener for all other pages
-  document.addEventListener("scroll", (e) => {
-    // Skip scroll handling on suppliers page
-    if (isSuppliers) return;
-
-    const scroll = document.documentElement.scrollTop;
-    if (scroll >= 100) {
-      document.querySelector("body").classList.add("scroll");
-    } else {
-      document.querySelector("body").classList.remove("scroll");
-    }
-  }); */
-</script>
+<!-- # -->
 
 <style lang="less">
   /*-- -------------------------- -->
@@ -156,11 +102,11 @@ import InstagramIcon from "@assets/icons/instagram.svg";
 
   /* Mobile - Top Drop Down */
   @media only screen and (max-width: 1023px) {
-    body #navigation {
+    /* body #navigation {
       .logo-dark {
         display: none;
       }
-    }
+    } */
     body.scroll #navigation {
       backdrop-filter: blur(0);
       background: #fff;
@@ -509,7 +455,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
     }
     #navigation {
       width: 100%;
-      height: 5.25rem;
+      height: 6.25rem;
       position: fixed;
       top: 0;
       left: 0;

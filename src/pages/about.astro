@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
-import CTA from "@components/CTAnew.astro";
+import CTA from "@components/CTA.astro";
 import Landing from "@components/Landing.astro";
 import FAQ from "@components/FAQ.astro";
 import { Picture } from "astro:assets";
@@ -30,7 +30,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
             loading="eager"
             width={498}
             height={557}
-            sizes="(max-width: 600px) 90vw, (max-width: 840px) 1024px, (max-width: 1200px) 50vw, 498px"
+            sizes="(max-width: 600px) 90vw, (max-width: 840px) 80vw, (max-width: 1200px) 50vw, 498px"
           />
         </div>
         <div class="cs-picture cs-picture2">
@@ -40,7 +40,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
             formats={["webp", "avif"]}
             width={514}
             height={436}
-            sizes="(max-width: 600px) 60vw, (max-width: 1200px) 274px, 390px"
+            sizes="(max-width: 600px) 60vw, (max-width: 840px) 50vw, (max-width: 1200px) 30vw, 390px"
           />
         </div>
       </div>

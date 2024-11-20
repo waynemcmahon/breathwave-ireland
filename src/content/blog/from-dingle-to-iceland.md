@@ -6,11 +6,11 @@ date: 2024-11-20T15:28:08.486Z
 tags:
   - post
   - featured
-image: /src/assets/images/blog/blog.jpg
+image: /src/assets/images/blog/blog1.jpg
 image2: /src/assets/images/blog/blog2.jpg
 image3: /src/assets/images/blog/blog3.jpg
 image4: /src/assets/images/blog/blog4.jpg
-imageAlt: Kitchen
+imageAlt: Iceland
 ---
 
 In April of this year, our CE4RT (Circular Economy for Regenerative Tourism) group embarked on a remarkable journey, traveling from the stunning Dingle Peninsula in County Kerry, Ireland, all the way to Iceland. This international group, composed of passionate sustainability advocates from The Netherlands, Finland, Iceland, Norway, and Poland, gathered to explore the vital concepts of Regenerative Tourism and Sustainability.

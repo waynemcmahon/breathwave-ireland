@@ -1,6 +1,7 @@
 ---
 import logo from "@assets/images/logo_square_white.png";
 import heroImage from "@assets/images/landingCake.jpg";
+import mobileHeroImage from "@assets/images/landingCake-m.png";
 import clientData from "@data/client.json";
 import { Picture } from "astro:assets";
 ---
@@ -37,13 +38,20 @@ import { Picture } from "astro:assets";
       <a href="/menu" class="cs-button-solid">See Our Menu</a>
     </div>
   </div>
-  <div class="cs-background">
+  <!-- <div class="cs-background">
     <Picture
       src={heroImage}
       alt="Anne's Coffee Bar"
       formats={["webp", "avif"]}
       loading="eager"
     />
+  </div> -->
+  <div class="cs-background">
+    <picture>
+      <source srcset={mobileHeroImage.src} media="(max-width: 767px)" />
+      <source srcset={heroImage.src} media="(min-width: 768px)" />
+      <img src={heroImage.src} alt="Anne's Coffee Bar" loading="eager" />
+    </picture>
   </div>
 </section>
 
@@ -151,7 +159,7 @@ import { Picture } from "astro:assets";
       .cs-logo {
         width: 100%;
         max-width: 13.375rem;
-        margin: 0 0 1.5rem 0;
+        margin: 0 0 3rem 0;
         display: block;
 
         img {
