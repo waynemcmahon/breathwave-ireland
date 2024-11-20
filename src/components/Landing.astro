@@ -8,20 +8,20 @@ const { title, image } = Astro.props;
 <!-- ============================================ --><!--                   Banner                     --><!-- ============================================ -->
 <div id="banner-1004">
     <div class="cs-container">
-        <picture class="cs-picture">
-            <Picture src={divider} alt="divider" formats={["webp", "avif"]} loading="eager" aria-hidden="true" />
-        </picture>
-        <span class="cs-int-title">{title}</span>
+        <!-- <span class="cs-int-title">{title}</span> -->
     </div>
     <!--Background Image-->
     <div class="cs-background">
-         <Picture 
+        <Picture
             src={image}
-            formats={['avif', 'webp']} 
+            formats={["avif", "webp"]}
             alt="landing image background"
-            aria-hidden="true" 
+            aria-hidden="true"
             decoding="async"
             loading="eager"
+            width="100%"
+            height="100%"
+            sizes="100vw"
         />
     </div>
 </div>
@@ -33,7 +33,7 @@ const { title, image } = Astro.props;
             padding: 0 (16/16rem);
             /* 160px - 245px */
             padding-top: clamp(10rem, 25vw, 12.3125rem);
-            padding-bottom: (120/16rem);
+            padding-bottom: 15.5rem;
             background-color: #000;
             position: relative;
             z-index: 1;
@@ -93,7 +93,7 @@ const { title, image } = Astro.props;
             .cs-int-title {
                 /* 39px - 61px */
                 font-family: "Trajan Pro Bold";
-                font-size: clamp(2.4375rem, 6.5vw, 3.8125rem);
+                font-size: clamp(2.4375rem, 6.5vw, 1.8125rem);
                 font-weight: 900;
                 line-height: 1.2em;
                 text-align: center;
@@ -122,8 +122,8 @@ const { title, image } = Astro.props;
                     content: "";
                     width: 100%;
                     height: 100%;
-                    background: #000;
-                    opacity: 0.72;
+                    //background: #000;
+                    opacity: 0.4;
                     position: absolute;
                     display: block;
                     top: 0;

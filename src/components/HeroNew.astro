@@ -1,0 +1,295 @@
+---
+import heroImage from "@assets/images/landing.jpg";
+import { Picture } from "astro:assets";
+import galleryImage from "@assets/images/gallery/gallery1.jpg";
+import galleryImage2 from "@assets/images/gallery/gallery2.jpg";
+---
+
+<!-- ============================================ --><!--                     Hero                     --><!-- ============================================ -->
+<section id="hero-1951">
+    <div class="cs-container">
+        <div class="cs-content">
+            <h2 class="cs-title">Welcome to Anne's <br />Coffee Bar</h2>
+            <p class="cs-text">
+                Indulge in our exquisite range of home-baked treats and freshly
+                dishes to the table. Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit.
+            </p>
+            <a class="cs-button-solid" href="">Our Menu</a>
+        </div>
+        <div class="cs-image-group">
+            <div class="cs-picture cs-left">
+                <Picture
+                    src={galleryImage}
+                    alt="gallery image"
+                    formats={["webp", "avif"]}
+                    loading="eager"
+                />
+            </div>
+            <img
+                class="cs-icon"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/highlight.svg"
+                alt="icon"
+                width="169"
+                height="100"
+                loading="lazy"
+                decoding="async"
+            />
+            <div class="cs-picture cs-right">
+                <Picture
+                    src={galleryImage2}
+                    alt="gallery image"
+                    formats={["webp", "avif"]}
+                    loading="eager"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+<style lang="less">
+    /*-- -------------------------- -->
+<---            Hero            -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #hero-1951 {
+            padding: var(--sectionPadding);
+            background-color: #f9f9f9;
+            position: relative;
+            z-index: 1;
+
+            .cs-container {
+                width: 100%;
+                /* changes to 1280px on desktop */
+                max-width: (704/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                /* 48px - 64px */
+                gap: clamp(3rem, 6vw, 4rem);
+            }
+
+            .cs-content {
+                /* set text align to left if content needs to be left aligned */
+                text-align: center;
+                width: 100%;
+                max-width: (522/16rem);
+                display: flex;
+                flex-direction: column;
+                /* centers content horizontally, set to flex-start to left align */
+                align-items: center;
+            }
+
+            .cs-title {
+                /* 31px - 61px */
+                color: var(--headerColor);
+                font-size: clamp(2.4375rem, 5vw, 3.8125rem);
+            }
+
+            .cs-text {
+                margin-bottom: (20/16rem);
+            }
+
+            .cs-button-solid {
+                font-size: (16/16rem);
+                font-weight: 700;
+                /* 46px - 56px */
+                line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+                text-align: center;
+                text-decoration: none;
+                min-width: (150/16rem);
+                margin: 0;
+                /* prevents padding from adding to the width */
+                box-sizing: border-box;
+                padding: 0 clamp(2rem, 4vw, 3rem);
+                background-color: var(--primary);
+                overflow: hidden;
+                color: #fff;
+                border: none;
+                border-radius: (8/16rem);
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+
+                &:before {
+                    content: "";
+                    width: 0%;
+                    height: 100%;
+                    background: #000;
+                    opacity: 1;
+                    border-radius: (4/16rem);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    transition: width 0.3s;
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .cs-reviews {
+                text-align: center;
+                margin-top: clamp(2.5rem, 5vw, 5rem);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: (16/16rem);
+            }
+
+            .cs-reviews-flex {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            .cs-reviews-img {
+                width: (48/16rem);
+                height: auto;
+                margin: 0 (-16/16rem) 0 0;
+                border: 1px solid #fff;
+                border-radius: 50%;
+            }
+
+            .cs-reviews-number {
+                font-size: (16/16rem);
+                font-weight: 700;
+                width: (48/16rem);
+                height: (48/16rem);
+                background-color: var(--primary);
+                color: var(--bodyTextColorWhite);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .cs-flex {
+                display: flex;
+                flex-direction: column;
+                gap: (4/16rem);
+            }
+
+            .cs-rating {
+                font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
+                font-weight: 700;
+                line-height: 1.2em;
+                margin: 0;
+                color: var(--headerColor);
+            }
+
+            .cs-rating-icon {
+                width: (16/16rem);
+                height: auto;
+                margin: 0 (4/16rem);
+            }
+
+            .cs-reviews-text {
+                font-size: clamp(0.875rem, 1.75vw, 1rem);
+                line-height: 1.5em;
+                margin: 0;
+                color: var(--bodyTextColor);
+            }
+
+            .cs-image-group {
+                font-size: ~"min(2.3vw, 1rem)";
+                width: (630/16em);
+                height: (690/16em);
+                position: relative;
+                z-index: 1;
+            }
+
+            .cs-picture {
+                width: (305/16em);
+                height: (600/16em);
+                margin: 0;
+                overflow: hidden;
+                border-radius: (600/16em);
+                display: block;
+                position: absolute;
+                top: (12/16em);
+                left: 0;
+                z-index: 1;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            .cs-icon {
+                width: (203/16em);
+                height: auto;
+                position: absolute;
+                top: 0;
+                left: (210/16em);
+            }
+
+            .cs-right {
+                bottom: 0;
+                top: auto;
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #hero-1951 {
+            .cs-reviews {
+                text-align: left;
+                flex-direction: row;
+            }
+        }
+    }
+
+    /* Small Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #hero-1951 {
+            .cs-container {
+                max-width: (1280/16rem);
+                flex-direction: row;
+                align-items: stretch;
+            }
+
+            .cs-content {
+                text-align: left;
+                /* 48px - 80px */
+                padding: clamp(3rem, 6vw, 5rem) 0;
+                align-items: flex-start;
+                align-self: center;
+            }
+
+            .cs-image-group {
+                font-size: ~"min(1.12vw, 1rem)";
+                height: auto;
+                min-height: (690/16em);
+                flex: none;
+            }
+
+            .cs-left {
+                height: auto;
+                top: (12/16em);
+                bottom: (78/16em);
+            }
+
+            .cs-right {
+                height: auto;
+                top: (90/16em);
+                bottom: (0/16em);
+            }
+        }
+    }
+</style>

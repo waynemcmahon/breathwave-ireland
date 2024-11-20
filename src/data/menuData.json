@@ -23,7 +23,7 @@
         },
         {
             "id": "two",
-            "name": "Sandwiches & Toastys",
+            "name": "Sandwiches & Toasties",
             "description": "A selection of hearty sandwiches and toasties with gluten-free options.",
             "menuItems": [
                 {"name": "Special", "price": "", "description": "Home-cooked ham, cheddar cheese, red onion & tomato with Ballymaloe Relish."},

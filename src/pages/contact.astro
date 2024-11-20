@@ -6,9 +6,10 @@ import { Picture } from "astro:assets";
 import phone from "@assets/icons/phone-gold.svg";
 import pin from "@assets/icons/pin-gold.svg";
 import clock from "@assets/icons/clock-gold.svg";
+import map from "@assets/images/contact/map.png";
 
 import { getOptimizedImage } from "@libs/utils";
-import landingImage from "@assets/images/landing.jpg"
+import landingImage from "@assets/images/outside.jpg";
 const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
@@ -17,7 +18,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
   description="Get in touch with Anne's Coffee Bar in Camp, Ireland. Whether you have questions about our menu, want to book a private event, or need information about our suppliers, we're here to help."
   preloadedImage={optimizedImage}
 >
-
   <Landing title="Contact" image={landingImage} />
   <section id="contact-322">
     <div class="cs-container">
@@ -25,14 +25,9 @@ const optimizedImage = await getOptimizedImage(landingImage);
         <span class="cs-topper">Contact Us</span>
         <h2 class="cs-title">Ask Us Anything!</h2>
         <!--Form-->
-        <form
-          class="cs-form"
-          id="cs-form-322"
-          method="POST"
-          netlify
-        >
-          <input type="hidden" name="form-name" value="contact-322">
-          <input type="checkbox" name="botcheck" style="display: none;">
+        <form class="cs-form" id="cs-form-322" method="POST" netlify>
+          <input type="hidden" name="form-name" value="contact-322" />
+          <input type="checkbox" name="botcheck" style="display: none;" />
 
           <label class="cs-label">
             Name
@@ -86,6 +81,13 @@ const optimizedImage = await getOptimizedImage(landingImage);
         <!--Map Image, pin is made in the CSS-->
         <picture class="cs-map">
           <div style="width: 100%">
+            <!-- <Picture
+              src={map}
+              alt="map"
+              formats={["webp", "avif"]}
+              width="100%"
+              height="100%"
+            /> -->
             <iframe
               width="610"
               title="Map of Anne's Coffee Bar"
@@ -156,28 +158,28 @@ const optimizedImage = await getOptimizedImage(landingImage);
 </BaseLayout>
 
 <script>
-const form = document.getElementById('cs-form-322');
-const result = document.getElementById('result');
+  const form = document.getElementById("cs-form-322");
+  const result = document.getElementById("result");
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const formData = new FormData(form);
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
 
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(formData).toString()
-  })
-  .then(() => {
-    result.innerHTML = "Form submitted successfully!";
-    form.reset();
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-    result.innerHTML = "Something went wrong!";
-    alert("Something went wrong!");
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        result.innerHTML = "Form submitted successfully!";
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        result.innerHTML = "Something went wrong!";
+        alert("Something went wrong!");
+      });
   });
-});
 </script>
 
 <style lang="less">

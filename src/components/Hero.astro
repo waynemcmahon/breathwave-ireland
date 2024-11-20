@@ -1,0 +1,263 @@
+---
+import logo from "@assets/images/logo_square_white.png";
+import heroImage from "@assets/images/landing.jpg";
+import clientData from "@data/client.json";
+import { Picture } from "astro:assets";
+---
+
+<section id="hero-998">
+  <div class="cs-container">
+    <div class="cs-content">
+      <div class="cs-tag-group">
+        <div class="cs-tag-left"></div>
+        <span class="cs-tag">Welcome to</span>
+
+        <div class="cs-tag-right"></div>
+      </div>
+      <!--Logo-->
+      <div class="cs-logo">
+        <Picture
+          src={logo}
+          alt="Hero Logo"
+          formats={["webp", "avif"]}
+          loading="eager"
+        />
+      </div>
+      <p class="cs-text">
+        Indulge in our exquisite range of home-baked treats and freshly brewed
+        coffee, all served in a cozy, welcoming space nestled at the foot of the
+        stunning Slieve Mish mountain range.
+      </p>
+      <p class="cs-text">
+        <strong>Open:</strong>
+        {clientData.openingHours.days}
+        <br />
+        {clientData.openingHours.hours}
+      </p>
+      <a href="/menu" class="cs-button-solid">See Our Menu</a>
+    </div>
+  </div>
+  <div class="cs-background">
+    <Picture
+      src={heroImage}
+      alt="Anne's Coffee Bar"
+      formats={["webp", "avif"]}
+      loading="eager"
+    />
+  </div>
+</section>
+
+<style lang="less">
+  @media only screen and (min-width: 0rem) {
+    #hero-998 {
+      padding: clamp(9rem, 25.95vw, 12.5rem) 1rem;
+      box-sizing: border-box;
+      position: relative;
+
+      .cs-tag {
+        font-family: "Maven Pro", sans-serif;
+        font-size: clamp(1rem, 2.3vw, 1.9375rem);
+        line-height: 1.2em;
+        color: var(--bodyTextColorWhite);
+        display: block;
+        flex-shrink: 0;
+      }
+
+      .cs-tag-group {
+        max-width: 100%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 1rem;
+        margin: 0 0 clamp(0.75rem, 3vw, 1.5rem);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cs-tag-left,
+      .cs-tag-right {
+        overflow: hidden;
+        width: 100px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cs-tag-left {
+        content: url("/assets/svgs/fancy-line-l.svg");
+        height: 100%;
+        opacity: 1;
+        position: relative;
+      }
+
+      .cs-tag-right {
+        content: url("/assets/svgs/fancy-line-r.svg");
+        opacity: 1;
+        height: 100%;
+      }
+
+      .cs-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+      }
+
+      .cs-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cs-topper {
+        font-size: clamp(1rem, 4.3vw, 1.9375rem);
+        white-space: nowrap;
+        line-height: 1.2em;
+        width: 100%;
+        margin: 0 0 clamp(0.75rem, 3vw, 1.5rem);
+        color: var(--bodyTextColorWhite);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 1rem;
+
+        &:before {
+          content: "";
+          width: 100%;
+          max-width: 6.25rem;
+          height: 2px;
+          background: var(--bodyTextColorWhite);
+          opacity: 1;
+          position: relative;
+          display: block;
+        }
+
+        &:after {
+          content: "";
+          width: 100%;
+          max-width: 6.25rem;
+          height: 2px;
+          background: var(--bodyTextColorWhite);
+          opacity: 1;
+          position: relative;
+          display: block;
+        }
+      }
+
+      .cs-logo {
+        width: 100%;
+        max-width: 13.375rem;
+        margin: 0 0 1.5rem 0;
+        display: block;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .cs-text {
+        //font-family: 'Trajan Pro', serif;
+        font-size: clamp(1rem, 1vw, 1.25rem);
+        line-height: 1.5em;
+        text-align: center;
+        max-width: 29.375rem;
+        margin: 0 0 clamp(1.5rem, 3vw, 3rem) 0;
+        color: var(--bodyTextColorWhite);
+      }
+
+      .cs-button-solid {
+        font-size: 1rem;
+        line-height: clamp(2.875em, 5.5vw, 3.5em);
+        text-decoration: none;
+        font-weight: 700;
+        text-align: center;
+        margin: auto;
+        color: #000;
+        min-width: 9.375rem;
+        padding: 0 2rem;
+        background-color: var(--secondary);
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+        transition: color 0.3s;
+
+        &:before {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 0%;
+          background: #fff;
+          opacity: 1;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transition: width 0.3s;
+        }
+
+        &:hover {
+          color: #1a1a1a;
+
+          &:before {
+            width: 100%;
+          }
+        }
+      }
+
+      .cs-background {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        &:before {
+          content: "";
+          position: absolute;
+          display: block;
+          height: 100%;
+          width: 100%;
+          background: #000;
+          opacity: 0.6;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    @media only screen and (min-width: 87.5rem) {
+      body #hero-998 .cs-logo {
+        max-width: 20.375rem;
+      }
+
+      #hero-998 .cs-background {
+        background: url("/assets/images/landing.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+</style>

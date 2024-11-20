@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
-import CTA from "@components/CTA.astro";
+import CTA from "@components/CTAnew.astro";
 import Landing from "@components/Landing.astro";
 import FAQ from "@components/FAQ.astro";
 import { Picture } from "astro:assets";
@@ -23,14 +23,25 @@ const optimizedImage = await getOptimizedImage(landingImage);
       <!-- Left Image Section -->
       <div class="cs-image-group">
         <div class="cs-picture cs-picture1">
-          <Picture src={leftImage} alt="Cafe Staff" formats={["webp", "avif"]} loading="eager" width={498}
+          <Picture
+            src={leftImage}
+            alt="Cafe Staff"
+            formats={["webp", "avif"]}
+            loading="eager"
+            width={498}
             height={557}
-            sizes="(max-width: 600px) 90vw, (max-width: 840px) 1024px, (max-width: 1200px) 50vw, 498px" />
+            sizes="(max-width: 600px) 90vw, (max-width: 840px) 1024px, (max-width: 1200px) 50vw, 498px"
+          />
         </div>
         <div class="cs-picture cs-picture2">
-          <Picture src={rightImage} alt="Cafe Friends" formats={["webp", "avif"]} width={514}
+          <Picture
+            src={rightImage}
+            alt="Cafe Friends"
+            formats={["webp", "avif"]}
+            width={514}
             height={436}
-            sizes="(max-width: 600px) 60vw, (max-width: 1200px) 274px, 390px" />
+            sizes="(max-width: 600px) 60vw, (max-width: 1200px) 274px, 390px"
+          />
         </div>
       </div>
       <!-- Right Content Section-->
@@ -38,17 +49,31 @@ const optimizedImage = await getOptimizedImage(landingImage);
         <span class="cs-topper">About Us</span>
         <h2 class="cs-title">Anne's Coffee Bar</h2>
         <p class="cs-text">
-          At Anne's Coffee Bar, we believe in creating a cozy and welcoming space where everyone feels at home. Nestled in the heart of Camp Village, at the foot of the stunning Slieve Mish mountains, our café is a retreat for locals and travelers alike. Whether you're stopping by for your morning coffee, enjoying a stack of fluffy pancakes, or simply seeking a warm corner to unwind, we're here to make your day a little brighter.
+          At Anne's Coffee Bar, we believe in creating a cozy and welcoming
+          space where everyone feels at home. Nestled in the heart of Camp
+          Village, at the foot of the stunning Slieve Mish mountains, our café
+          is a retreat for locals and travelers alike. Whether you're stopping
+          by for your morning coffee, enjoying a stack of fluffy pancakes, or
+          simply seeking a warm corner to unwind, we're here to make your day a
+          little brighter.
         </p>
         <p class="cs-text">
-          From the moment we open our doors, the fire is on, providing a warm and inviting ambiance no matter the weather. It's not just about coffee or home-baked treats - it's about creating memories and fostering connections.
+          From the moment we open our doors, the fire is on, providing a warm
+          and inviting ambiance no matter the weather. It's not just about
+          coffee or home-baked treats - it's about creating memories and
+          fostering connections.
         </p>
         <p class="cs-text">
-          Our story began in 2021, during the height of the pandemic, when we transformed a forgotten space into a thriving café filled with laughter, warmth, and the scent of freshly brewed coffee. With a commitment to sustainability and locally sourced ingredients, we take pride in offering a menu that reflects both quality and care.
+          Our story began in 2021, during the height of the pandemic, when we
+          transformed a forgotten space into a thriving café filled with
+          laughter, warmth, and the scent of freshly brewed coffee. With a
+          commitment to sustainability and locally sourced ingredients, we take
+          pride in offering a menu that reflects both quality and care.
         </p>
-        <div class="cs-quote">
+        <!-- <div class="cs-quote">
           <span class="cs-quote-text">
-            We've created more than a café - it's a space where great coffee, good food, and genuine connections come together.
+            We've created more than a café - it's a space where great coffee,
+            good food, and genuine connections come together.
           </span>
           <span class="cs-name">Anne O'Sullivan</span>
           <span class="cs-job">Owner</span>
@@ -60,7 +85,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
             width="136"
             height="77"
           />
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -317,6 +342,9 @@ const optimizedImage = await getOptimizedImage(landingImage);
         box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
         /* 6px - 12px */
         border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
+        img {
+          object-position: bottom;
+        }
       }
 
       .cs-picture2 {
@@ -328,6 +356,10 @@ const optimizedImage = await getOptimizedImage(landingImage);
         border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
         right: 0;
         bottom: 0;
+
+        img {
+          object-position: bottom;
+        }
       }
     }
   }

@@ -3,7 +3,7 @@ import client from "@data/client.json";
 import navData from "@data/navData.json";
 import { Picture } from "astro:assets";
 import { getCurrentYear } from "@libs/utils";
-import logo from "@assets/images/logo_white.png";
+import logo from "@assets/images/logo_square_white.png";
 import facebook from "@assets/icons/facebook.svg";
 import instagram from "@assets/icons/instagram.svg";
 import email from "@assets/icons/email.svg";
@@ -19,13 +19,13 @@ const currentYear = getCurrentYear();
     <div class="cs-logo-group">
       <!-- <h2 class="cs-title">Get Finance Solution That Just Makes Sense</h2> -->
       <Picture
-        src="/assets/images/logo_white.png"
+        src={logo}
         alt="logo"
-        width="120"
-        height="120"
         aria-hidden="true"
         decoding="async"
         class="cs-logo"
+        width="172"
+        height="123"
       />
       <div class="cs-social">
         <a
@@ -128,10 +128,10 @@ const currentYear = getCurrentYear();
   <div class="cs-bottom">
     <span class="cs-credit">
       © Copyright {currentYear}
-      <span> - Designed by </span>
+      <!-- <span> - Designed by </span>
       <a href="atlanticedgedesign.ie" class="cs-credit-link" target="_blank"
         >Atlantic Edge Design</a
-      >
+      > -->
     </span>
     <!-- <div class="cs-bottom-links">
       <a href="" class="cs-bottom-link">Privacy Policy</a>
@@ -151,7 +151,7 @@ const currentYear = getCurrentYear();
       padding: var(--sectionPadding);
       /* 30px - 50px */
       padding-bottom: clamp(1.875rem, 5vw, 3.125rem);
-      background-color: #1a1a1a;
+      background-color: var(--primary);
       position: relative;
 
       .cs-container {
@@ -197,7 +197,7 @@ const currentYear = getCurrentYear();
       .cs-social-link {
         width: (32/16rem);
         height: (32/16rem);
-        background-color: #484848;
+        background-color: #fff;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -220,7 +220,7 @@ const currentYear = getCurrentYear();
 
       .cs-social-img {
         height: (12/16rem);
-        filter: grayscale(1) brightness(630%);
+        filter: grayscale(1) brightness(100%);
         width: auto;
         display: block;
       }
@@ -264,7 +264,7 @@ const currentYear = getCurrentYear();
         }
 
         &:hover {
-          color: var(--primaryLight);
+          color: var(--secondaryLight);
         }
       }
 
@@ -283,7 +283,7 @@ const currentYear = getCurrentYear();
         margin: clamp(1.75rem, 7vw, 4rem) auto 0;
         /* 28px - 40px */
         padding-top: clamp(1.75rem, 3vw, 2.5rem);
-        border-top: 1px solid #484848;
+        border-top: 1px solid #f9f9f9;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -372,9 +372,6 @@ const currentYear = getCurrentYear();
         text-align: left;
         /* pushes the lists away from it and to the right */
         margin-right: auto;
-        .cs-social {
-          margin-left: 1.4rem;
-        }
         picture {
           display: block;
         }

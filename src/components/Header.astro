@@ -2,8 +2,8 @@
 import navData from "@data/navData.json";
 import clientData from "@data/client.json";
 import { Picture } from "astro:assets";
-import logoDark from "@assets/images/logo.png";
-import logoLight from "@assets/images/logo_white.png";
+import logoDark from "@assets/images/logo_square.png";
+import logoLight from "@assets/images/logo_square_white.png";
 import FacebookIcon from "@assets/icons/facebook.svg";
 import InstagramIcon from "@assets/icons/instagram.svg";
 ---
@@ -37,6 +37,8 @@ import InstagramIcon from "@assets/icons/instagram.svg";
         class="logo-light"
         aria-hidden="true"
         loading="eager"
+        width="120"
+        height="120"
       />
       <Picture
         src={logoDark}
@@ -44,6 +46,8 @@ import InstagramIcon from "@assets/icons/instagram.svg";
         formats={["webp", "avif"]}
         class="logo-dark"
         aria-hidden="true"
+        width="120"
+        height="120"
       />
     </a>
 
@@ -83,7 +87,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
       </a> -->
 
       <div class="cs-social">
-        <a href={clientData.facebook} class="cs-social-link">
+        <a href={clientData.facebook} class="cs-social-link" target="_blank">
           <Picture
             src={FacebookIcon}
             class="cs-social-img"
@@ -94,7 +98,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
             loading="eager"
           />
         </a>
-        <a href={clientData.instagram} class="cs-social-link">
+        <a href={clientData.instagram} class="cs-social-link" target="_blank">
           <Picture
             src={InstagramIcon}
             class="cs-social-img"
@@ -493,7 +497,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
     }
     #navigation {
       width: 100%;
-      height: 6.25rem;
+      height: 5.25rem;
       position: fixed;
       top: 0;
       left: 0;
@@ -626,7 +630,6 @@ import InstagramIcon from "@assets/icons/instagram.svg";
       color: var(--primary);
     }
   }
-
 
   /*-- -------------------------- -->
 <---     Mobile Navigation      -->

@@ -1,0 +1,222 @@
+---
+import heroImage from "@assets/images/landing.jpg";
+import { Picture } from "astro:assets";
+import logo from "@assets/images/logo_square_white.png";
+---
+
+<!-- ============================================ --><!--                    Hero                      --><!-- ============================================ -->
+<section id="hero-1950">
+    <div class="cs-container">
+        <div class="cs-content">
+            <div class="cs-logo">
+                <!-- <h1 class="cs-title">Welcome to</h1> -->
+                <Picture
+                    src={logo}
+                    alt="logo"
+                    formats={["webp", "avif"]}
+                    loading="eager"
+                    width={280}
+                />
+            </div>
+            <div class="cs-flex-group">
+                <p class="cs-text">
+                    Indulge in our exquisite range of home-baked treats and
+                    freshly brewed coffee, all served in a cozy, welcoming space
+                    nestled at the foot of the stunning Slieve Mish mountain
+                    range.
+                </p>
+                <a href="" class="cs-button-solid">See Our Menu</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Image, there's a background image in the CSS for the parallax effect you'll need to change as well if you swap out our images -->
+    <div class="cs-background">
+        <Picture
+            src={heroImage}
+            alt="hero image"
+            formats={["webp", "avif"]}
+            loading="eager"
+        />
+    </div>
+</section>
+
+<style lang="less">
+    /*-- -------------------------- -->
+<---           Hero             -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #hero-1950 {
+            min-height: 100dvh;
+            /* 200px - 300px top */
+            /* 60px - 100px bottom */
+            padding: clamp(12.5rem, 12vw, 18.75rem) (16/16rem)
+                clamp(3.75rem, 8vw, 6.25rem) (16/16rem);
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            z-index: 1;
+
+            .cs-container {
+                width: 100%;
+                max-width: (1369/16rem);
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+                /* 60px - 180px */
+                gap: clamp(3.75rem, 13vw, 11.25rem);
+            }
+
+            .cs-content {
+                /* set text align to left if content needs to be left aligned */
+                text-align: left;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                /* centers content horizontally, set to flex-start to left align */
+                align-items: flex-start;
+            }
+
+            .cs-title {
+                /* 39px - 61px */
+                font-size: clamp(2.4375rem, 5vw, 3.8125rem);
+                margin-bottom: (28/16rem);
+                color: #fff;
+            }
+
+            .cs-text {
+                /* 16px - 20px */
+                font-size: clamp(1rem, 2vw, 1.25rem);
+                margin-bottom: (20/16rem);
+                color: #fff;
+                opacity: 0.8;
+            }
+
+            .cs-flex-group {
+                max-width: (480/16rem);
+            }
+
+            .cs-button-solid {
+                font-size: (16/16rem);
+                font-weight: 700;
+                /* 46px - 56px */
+                line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+                text-decoration: none;
+                margin: 0;
+                /* 32px - 48px */
+                padding: 0 clamp(2rem, 4vw, 3rem);
+                background-color: var(--primary);
+                color: #fff;
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+
+                &:before {
+                    content: "";
+                    width: 0%;
+                    height: 100%;
+                    background: #000;
+                    opacity: 1;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    transition: width 0.3s;
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .cs-background {
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -2;
+
+                &:before {
+                    /* Overlay */
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(
+                        180deg,
+                        rgba(26, 26, 26, 0.86) 10.79%,
+                        rgba(26, 26, 26, 0) 48.32%,
+                        rgba(26, 26, 26, 0.86) 82.84%
+                    );
+                    /* prevents the cursor from interacting with it */
+                    pointer-events: none;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #hero-1950 {
+            .cs-content {
+                text-align: left;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: flex-start;
+                gap: (32/16rem);
+            }
+
+            .cs-title {
+                width: 55%;
+                max-width: (630/16rem);
+                margin-bottom: 0;
+                /* prevents flexbox from squishing it */
+                flex: none;
+            }
+
+            .cs-flex-group {
+                max-width: (480/16rem);
+            }
+        }
+    }
+
+    /* Large Desktop Parallax Effect - 100px */
+    @media only screen and (min-width: 100rem) {
+        #hero-1950 {
+            .cs-background {
+                background: url("https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/restaurant-space.jpeg");
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                /* creates the parallax effect */
+                background-attachment: fixed;
+
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+</style>
