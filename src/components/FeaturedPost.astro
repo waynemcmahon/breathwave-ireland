@@ -2,15 +2,13 @@
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { formatDate } from "@libs/utils.js";
-import "@styles/blog.less";
 
 const posts = await getCollection("blog");
 const featuredPosts = posts.filter((post) =>
-  post.data.tags.includes("featured")
+  post.data.tags.includes("featured"),
 );
 ---
 
-<!-- ============================================ --><!--                Featured Posts                --><!-- ============================================ -->
 <div class="blog-sidebar">
   <!--Featured-->
   <div class="blog-featured-group">
