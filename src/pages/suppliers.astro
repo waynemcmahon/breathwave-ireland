@@ -11,8 +11,9 @@ import landingImage from "@assets/images/suppliers/veg.jpg"; // <-- THE PATH TO 
 const optimizedImage = await getOptimizedImage(landingImage);
 import supplierImg from "@assets/images/suppliers/supplier.jpg";
 import heatherImg from "@assets/images/suppliers/heather.jpg";
-import eggsImg from "@assets/images/suppliers/eggs.jpg";
-import milkImg from "@assets/images/suppliers/milk.png";
+import eggsImg from "@assets/images/suppliers/fergieseggs.jpg";
+import milkImg from "@assets/images/suppliers/dingleMilk.png";
+import siobhanImg from "@assets/images/suppliers/gardener.jpg";
 import carrotImg from "@assets/images/suppliers/carrots.jpg";
 ---
 
@@ -95,15 +96,15 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
         </div>
 
         <div class="cs-supplier">
-          <!--  <div class="cs-picture-wrapper">
-            <Picture
-              src={eggsImg}
-              alt="Fergie's Eggs"
-              formats={["webp", "avif"]}
-            />
-          </div> -->
           <div>
             <h3>Meet Fergie - Our Egg Supplier Extraordinaire</h3>
+            <div class="cs-picture-wrapper">
+              <Picture
+                src={eggsImg}
+                alt="Fergie's Eggs"
+                formats={["webp", "avif"]}
+              />
+            </div>
             <p>
               When we first opened our doors almost four years ago, Fergie was
               just a 9-year-old with a passion for farming—and only 6 hens to
@@ -133,18 +134,58 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
             </p>
           </div>
         </div>
+        <div class="cs-supplier">
+          <div>
+            <h3>Meet Siobhan: Our Green-Fingered Gardener</h3>
+            <div class="cs-picture-wrapper">
+              <Picture
+                src={siobhanImg}
+                alt="Siobhan the Gardener"
+                formats={["webp", "avif"]}
+              />
+            </div>
+            <p>
+              At Anne's, we believe that the atmosphere of our cafe extends
+              beyond the walls, and Siobhan, our amazing gardener, is the heart
+              and soul of our vibrant garden. With her expert touch and green
+              fingers, she ensures that our geraniums—and all the plants that
+              grace our outdoor spaces—are in full bloom all year round.
+            </p>
+            <p>
+              Siobhan's dedication to nurturing every flower and plant is a
+              testament to her passion for creating beauty in nature. Her
+              meticulous care and deep knowledge of gardening have transformed
+              our cafe's garden into a serene and colorful haven, where guests
+              can enjoy the beauty of flourishing greenery while sipping their
+              favorite coffee or tea in our outdoor patio or to look out at from
+              out cafe window.
+            </p>
+            <p>
+              Whether it's tending to our ever-blooming geraniums or carefully
+              curating new plants for the season, Siobhan's love for nature
+              shines through in every leaf, petal, and flower. She brings a
+              touch of magic to our cafe, creating an inviting and refreshing
+              environment that our customers cherish.
+            </p>
+            <p>
+              Next time you visit, take a moment to admire the stunning plants
+              that Siobhan so lovingly tends to—your experience will be all the
+              more special for it!
+            </p>
+          </div>
+        </div>
 
         <div class="cs-supplier">
-          <!--  <div class="cs-picture-wrapper">
-            <Picture
-              src={milkImg}
-              alt="Dingle Milk"
-              formats={["webp", "avif"]}
-            />
-          </div> -->
           <div>
-            <h3>Meet Mai from Dingle Milk</h3>
-            <h5>The Taste of Real, Fresh Milk</h5>
+            <h3>Meet Mai from Dingle Milk - The Taste of Real, Fresh Milk</h3>
+            <div class="cs-picture-wrapper">
+              <Picture
+                src={milkImg}
+                alt="Dingle Milk"
+                class="cs-milk"
+                formats={["webp", "avif"]}
+              />
+            </div>
             <p>
               Dingle Milk is a family-run farm business, and Mai supplies us
               with fresh, high-quality milk straight from their herd of Friesian
@@ -187,6 +228,7 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
   @media only screen and (min-width: 0rem) {
     #content-page-714 {
       padding: var(--sectionPadding);
+      margin-top: 2rem;
       background-color: #fff;
       /* clips the wave background from causing overflow issues when it goes off screen */
       overflow: hidden;
@@ -321,9 +363,15 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
         z-index: 1;
       }
 
+      .cs-supplier {
+        margin-bottom: 2rem;
+      }
+
       .cs-picture-wrapper {
-        width: (542/16em);
-        height: (647/16em);
+        width: 30rem;
+        height: 35rem;
+        padding-bottom: 2rem;
+        margin: 0 auto;
 
         img {
           width: 100%;
@@ -331,7 +379,11 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
           object-fit: cover;
           border-radius: 2rem;
           border: (12/16em) solid var(--secondaryLight);
-          background-color: #770707;
+          background-color: var(--secondaryLight);
+        }
+
+        .cs-milk {
+          object-position: right;
         }
       }
 
