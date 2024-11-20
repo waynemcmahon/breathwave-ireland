@@ -1,13 +1,7 @@
 ---
-import logo from "@assets/images/logo_square_white.png";
 import heroImage from "@assets/images/landingCake.jpg";
 import clientData from "@data/client.json";
-import { Picture, getImage } from "astro:assets";
-const heroImage1 = await getImage({
-  src: heroImage,
-  width: 1920,
-  height: 1200,
-});
+import { Picture } from "astro:assets";
 ---
 
 <!-- ============================================ --><!--                    Hero                      --><!-- ============================================ -->
@@ -39,19 +33,14 @@ const heroImage1 = await getImage({
       </div>
     </div>
   </div>
-  <picture class="cs-background">
-    <source media="(max-width: 600px)" srcset={heroImage.src} />
-    <source media="(min-width: 601px)" srcset={heroImage.src} />
-    <img
-      loading="lazy"
-      decoding="async"
-      src={heroImage.src}
-      alt="restaurant"
-      width="1920"
-      height="1200"
-      aria-hidden="true"
+  <div class="cs-background">
+    <Picture
+      src={heroImage}
+      alt="Anne's Coffee Bar"
+      formats={["webp", "avif"]}
+      loading="eager"
     />
-  </picture>
+  </div>
 </section>
 
 <style lang="less">
@@ -353,6 +342,7 @@ const heroImage1 = await getImage({
       //background-size: cover;
       background-position: left;
       background-repeat: no-repeat;
+      background-size: cover;
       /* creates parallax effect on background image */
       background-attachment: fixed;
       /* remove img tag so we can make parallax work */
