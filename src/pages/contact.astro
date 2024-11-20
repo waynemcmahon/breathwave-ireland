@@ -6,7 +6,6 @@ import { Picture } from "astro:assets";
 import phone from "@assets/icons/phone-gold.svg";
 import pin from "@assets/icons/pin-gold.svg";
 import clock from "@assets/icons/clock-gold.svg";
-import map from "@assets/images/contact/map.png";
 
 import { getOptimizedImage } from "@libs/utils";
 import landingImage from "@assets/images/contact/outsidePub.jpg";
@@ -25,6 +24,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
         <span class="cs-topper">Contact Us</span>
         <h2 class="cs-title">Ask Us Anything!</h2>
         <!--Form-->
+
         <form class="cs-form" id="cs-form-322" method="POST" netlify>
           <input type="hidden" name="form-name" value="contact-322" />
           <input type="checkbox" name="botcheck" style="display: none;" />

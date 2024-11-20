@@ -4,32 +4,43 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 
 <url>
-  <loc>https://www.annescoffeebar.com/</loc>
-  <lastmod>2024-11-19T18:18:15+00:00</lastmod>
+  <loc>https://annescoffeebar.ie/</loc>
+  <lastmod>2024-11-20T23:06:47+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.annescoffeebar.com/about/</loc>
-  <lastmod>2024-11-19T18:18:15+00:00</lastmod>
+  <loc>https://annescoffeebar.ie/about/</loc>
+  <lastmod>2024-11-20T23:06:47+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.annescoffeebar.com/menu/</loc>
-  <lastmod>2024-11-19T18:18:15+00:00</lastmod>
+  <loc>https://annescoffeebar.ie/menu/</loc>
+  <lastmod>2024-11-20T23:06:47+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.annescoffeebar.com/suppliers/</loc>
-  <lastmod>2024-11-19T18:18:15+00:00</lastmod>
+  <loc>https://annescoffeebar.ie/suppliers/</loc>
+  <lastmod>2024-11-20T23:06:47+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.annescoffeebar.com/contact/</loc>
-  <lastmod>2024-11-19T18:18:15+00:00</lastmod>
+  <loc>https://annescoffeebar.ie/blog/</loc>
+  <lastmod>2024-11-20T23:06:47+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://annescoffeebar.ie/contact/</loc>
+  <lastmod>2024-11-20T23:06:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://annescoffeebar.ie/blog/from-dingle-to-iceland/</loc>
+  <lastmod>2024-11-20T23:06:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
