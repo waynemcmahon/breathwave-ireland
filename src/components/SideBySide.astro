@@ -311,4 +311,26 @@ import { Picture } from "astro:assets";
             }
         }
     }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #sbsr-1457 {
+                .cs-title,
+                .cs-text,
+                .cs-li {
+                    color: var(--bodyTextColorWhite);
+                    &:before {
+                        background-color: var(--bodyTextColorWhite);
+                    }
+                }
+
+                .cs-background {
+                    &:before {
+                        background-color: var(--dark);
+                    }
+                }
+            }
+        }
+    }
 </style>

@@ -105,11 +105,7 @@ import gallery8 from "@assets/images/gallery/gallery8.jpg";
     </div>
 </section>
 
-<style>
-    /*-- -------------------------- -->
-<---          Gallery           -->
-<--- -------------------------- -*/
-
+<style lang="less">
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
         #gallery-1234 {
@@ -232,6 +228,20 @@ import gallery8 from "@assets/images/gallery/gallery8.jpg";
             .cs-row {
                 height: 40vw;
                 max-height: (520/16rem);
+            }
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #gallery-1234 {
+                .cs-title {
+                    color: var(--bodyTextColorWhite);
+                }
+                .cs-text {
+                    color: var(--bodyTextColorWhite);
+                }
             }
         }
     }

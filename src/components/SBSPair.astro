@@ -284,6 +284,13 @@ import seal from "@assets/images/logo.png";
         }
     }
 
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode #RTsbsr-1009 {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+
     /*-- -------------------------- -->
 <---   Side By Side Reverse     -->
 <--- -------------------------- -*/
@@ -307,6 +314,46 @@ import seal from "@assets/images/logo.png";
             /* subtract 12px (.75rem) to account for the border */
             left: calc((clamp(6.5rem, 13vw, 11.875rem) * -0.5) + -0.75rem);
             right: auto;
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode #RTsbs-1009 .cs-title,
+        body.dark-mode #RTsbsr-1009 .cs-title,
+        body.dark-mode #RTsbst-1009 .cs-title,
+        body.dark-mode #RTsbs-1009 .cs-text,
+        body.dark-mode #RTsbsr-1009 .cs-text,
+        body.dark-mode #RTsbst-1009 .cs-text {
+            color: var(--bodyTextColorWhite);
+        }
+        body.dark-mode #RTsbs-1009 .cs-text,
+        body.dark-mode #RTsbsr-1009 .cs-text,
+        body.dark-mode #RTsbst-1009 .cs-text {
+            opacity: 0.8;
+        }
+        body.dark-mode #RTsbs-1009 .cs-picture,
+        body.dark-mode #RTsbsr-1009 .cs-picture,
+        body.dark-mode #RTsbst-1009 .cs-picture {
+            border-color: var(--dark);
+            background-color: var(--dark);
+        }
+        body.dark-mode #RTsbs-1009 .cs-seal,
+        body.dark-mode #RTsbsr-1009 .cs-seal,
+        body.dark-mode #RTsbst-1009 .cs-seal {
+            border-color: var(--dark);
+            background-color: var(--dark);
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode #RPsbs-1008 {
+            background-color: var(--dark);
+        }
+
+        body.dark-mode #RPsbsr-1008 {
+            background-color: var(--dark);
         }
     }
 </style>

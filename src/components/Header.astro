@@ -12,8 +12,8 @@ import InstagramIcon from "@assets/icons/instagram.svg";
   <div aria-hidden="true" class="background-color-div"></div>
   <div class="container">
     <a aria-label="click to go to home page" class="logo" href="/">
-      <!--       <Picture
-        src={logoDark}
+      <Picture
+        src={logoLight}
         alt="logo"
         formats={["avif", "webp"]}
         class="logo-light"
@@ -21,7 +21,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
         loading="eager"
         width="120"
         height="120"
-      /> -->
+      />
       <Picture
         src={logoDark}
         alt="logo"
@@ -703,6 +703,33 @@ import InstagramIcon from "@assets/icons/instagram.svg";
     @media only screen and (min-width: 81.25rem) {
       #navigation .cs-social {
         display: flex;
+      }
+    }
+  }
+
+  /* Dark Mode */
+  @media only screen and (min-width: 0rem) {
+    body.dark-mode {
+      #navigation {
+        background-color: var(--dark);
+        #navbar-menu ul li a {
+          color: var(--bodyTextColorWhite);
+        }
+      }
+
+      .logo-dark {
+        display: none !important;
+      }
+      .logo-light {
+        display: block !important;
+      }
+
+      .cs-social .cs-social-link {
+        background-color: var(--secondary) !important;
+
+        &:hover {
+          background-color: var(--secondaryLight) !important;
+        }
       }
     }
   }

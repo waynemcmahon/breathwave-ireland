@@ -544,4 +544,17 @@ const optimizedImage = await getOptimizedImage(landingImage);
       }
     }
   }
+
+  /* Dark Mode */
+  @media only screen and (min-width: 0rem) {
+    body.dark-mode {
+      #sbs-1014 {
+        background-color: var(--dark);
+
+        .cs-text {
+          color: var(--bodyTextColorWhite);
+        }
+      }
+    }
+  }
 </style>

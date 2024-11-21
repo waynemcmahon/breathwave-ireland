@@ -561,4 +561,17 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
             }
         }
     }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #cs-menu-group-1031 {
+                .cs-text,
+                .cs-name,
+                .cs-menu-p {
+                    color: var(--bodyTextColorWhite);
+                }
+            }
+        }
+    }
 </style>

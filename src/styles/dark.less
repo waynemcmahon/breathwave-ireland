@@ -6,39 +6,43 @@
 
 /* Mobile */
 @media only screen and (min-width: 0em) {
-    // Dark Mode Color Scheme
-    :root {
-        --dark: hsl(163, 96%, 5%);
-        --medium: hsl(163, 95%, 8%);
-        --accent: #334756;
+  // Dark Mode Color Scheme
+  :root {
+    --dark: hsl(11, 33%, 26%);
+    --medium: hsl(11, 12%, 54%);
+    --accent: hsl(37, 65%, 55%);
+  }
+
+  body.dark-mode {
+    background-color: var(--dark);
+
+    p,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #fff;
     }
 
-    body.dark-mode {
-        background-color: var(--dark);
-
-        p,
-        li,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: #fff;
-        }
-
-        // hide all light classes
-        .light {
-            display: none;
-        }
-
-        // show all dark classes
-        .dark {
-            display: block !important;
-        }
+    // hide all light classes
+    .light {
+      display: none;
     }
 
+    // show all dark classes
     .dark {
-        display: none;
+      display: block !important;
     }
+
+    .cs-button-solid {
+      background-color: var(--secondary) !important;
+    }
+  }
+
+  .dark {
+    display: none;
+  }
 }

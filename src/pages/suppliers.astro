@@ -519,4 +519,55 @@ import carrotImg from "@assets/images/suppliers/carrots.jpg";
       }
     }
   }
+
+  /* Dark Mode */
+  @media only screen and (min-width: 0rem) {
+    body.dark-mode {
+      #content-page-714 {
+        background-color: var(--dark);
+
+        .cs-title,
+        .cs-text,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        li,
+        p {
+          color: var(--bodyTextColorWhite);
+        }
+        .cs-color,
+        a {
+          color: var(--primaryLight);
+        }
+
+        p,
+        li {
+          color: #ebebeb;
+        }
+
+        .cs-picture {
+          border-color: var(--dark);
+          background-color: var(--dark);
+        }
+
+        .cs-flower {
+          filter: brightness(50%);
+        }
+
+        .cs-sense {
+          filter: brightness(150%);
+        }
+
+        .cs-background {
+          background-color: var(--medium);
+          filter: brightness(70%);
+          img {
+            opacity: 0.1;
+          }
+        }
+      }
+    }
+  }
 </style>

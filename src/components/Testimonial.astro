@@ -73,11 +73,7 @@ import logo from "@assets/images/logo.png";
     </div>
 </section>
 
-<style>
-    /*-- -------------------------- -->
-<---          Reviews           -->
-<--- -------------------------- -*/
-
+<style lang="less">
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
         #reviews-1604 {
@@ -252,6 +248,36 @@ import logo from "@assets/images/logo.png";
         #reviews-1604 .cs-img {
             height: 60vw;
             max-height: 45rem;
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #reviews-1604 {
+                background-color: var(--dark);
+                .cs-title {
+                    color: var(--bodyTextColorWhite);
+                }
+
+                .cs-review {
+                    background-color: var(--primaryLight);
+                }
+
+                .cs-review-text,
+                .cs-name {
+                    color: var(--bodyTextColorWhite);
+                }
+
+                .cs-job {
+                    color: var(--bodyTextColorWhite);
+                    opacity: 0.7;
+                }
+
+                .cs-quote {
+                    --quoteColor: var(--accent);
+                }
+            }
         }
     }
 </style>
