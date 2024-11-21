@@ -30,6 +30,9 @@ const optimizedImage = await getOptimizedImage(landingImage);
           data-netlify="true"
           name="contact"
         >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="checkbox" name="botcheck" style="display: none;" />
+
           <label class="cs-label">
             Name
             <input
