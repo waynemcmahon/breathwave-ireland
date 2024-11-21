@@ -1,21 +1,20 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import { getOptimizedImage } from "@libs/utils";
-import landingImage from "@assets/images/landingCake.jpg";
+/* import landingImage from "@assets/images/hero/landing.jpg"; */
 import Hero from "@components/Hero.astro";
 import SideBySide from "@components/SideBySide.astro";
 import SBSPair from "@components/SBSPair.astro";
 import Gallery from "@components/Gallery.astro";
 import Testimonial from "@components/Testimonial.astro";
 import CTA from "@components/CTA.astro";
-
-const optimizedImage = await getOptimizedImage(landingImage);
+/* 
+const optimizedImage = await getOptimizedImage(landingImage); */
 ---
 
 <BaseLayout
   title="The coffee bar where the mountains meet the ocean"
   description="Visit Anne's Coffee Bar in Camp, Ireland - a cozy café offering freshly brewed coffee, home-baked treats, and locally sourced, sustainable ingredients. Warm up by the fire and enjoy the charm of the Wild Atlantic Way."
-  preloadedImage={optimizedImage}
 >
   <Hero />
   <SideBySide />

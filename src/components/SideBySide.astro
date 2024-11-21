@@ -19,7 +19,7 @@ import { Picture } from "astro:assets";
                 <Picture
                     src={sbsright}
                     alt="cake and fire"
-                    formats={["webp", "avif"]}
+                    formats={["avif", "webp"]}
                     width={546}
                     height={647}
                     sizes="(max-width: 600px) 80vw, (max-width: 1200px) 50vw, 546px"
@@ -29,7 +29,7 @@ import { Picture } from "astro:assets";
                 <Picture
                     src={sbsleft}
                     alt="coffee heart"
-                    formats={["webp", "avif"]}
+                    formats={["avif", "webp"]}
                     width={366}
                     height={392}
                     sizes="(max-width: 600px) 50vw, (max-width: 1200px) 50vw, 366px"
@@ -41,19 +41,25 @@ import { Picture } from "astro:assets";
             <span class="cs-topper">Enjoy a cuppa</span>
             <h2 class="cs-title">Where the mountains meet the ocean</h2>
             <p class="cs-text">
-                Discover a menu crafted with love, a commitment to sustainability,
-                and the warmth of a fire that's always on. From perfectly brewed
-                cappuccinos to our famous home-baked treats, everything we serve
-                reflects our dedication to quality and eco-friendly practices.
-                With options for every palate, including gluten-free specialties
-                and locally sourced ingredients, you're guaranteed a meal as
-                unique and comforting as the Wild Atlantic setting.
+                Discover a menu crafted with love, a commitment to
+                sustainability, and the warmth of a fire that's always on. From
+                perfectly brewed cappuccinos to our famous home-baked treats,
+                everything we serve reflects our dedication to quality and
+                eco-friendly practices. With options for every palate, including
+                gluten-free specialties and locally sourced ingredients, you're
+                guaranteed a meal as unique and comforting as the Wild Atlantic
+                setting.
             </p>
             <a href="/menu" class="cs-button-solid">See Our Menu</a>
         </div>
     </div>
     <div class="cs-background">
-        <Picture src={backgroundImage} alt="beach" formats={["webp", "avif"]} sizes="100vw" />
+        <Picture
+            src={backgroundImage}
+            alt="beach"
+            formats={["avif", "webp"]}
+            sizes="100vw"
+        />
     </div>
 </section>
 <style lang="less">

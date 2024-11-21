@@ -1,7 +1,29 @@
 ---
-import heroImage from "@assets/images/landingCake.jpg";
+import heroImage from "@assets/images/hero/landing.jpg";
 import clientData from "@data/client.json";
-import { Picture } from "astro:assets";
+import { Picture, Image } from "astro:assets";
+
+import { getImage } from "astro:assets";
+import CSPicture from "@components/TemplateComponents/CSPicture.astro";
+
+const mobileImg = "/assets/images/landing-m.jpg";
+const desktopImg = "/assets/images/landing.jpg";
+
+const mobileImage = await getImage({
+  src: mobileImg,
+  formats: ["avif", "webp", "jpeg"],
+  width: 600,
+  height: 337,
+  loading: "eager",
+});
+
+const desktopImage = await getImage({
+  src: desktopImg,
+  formats: ["avif", "webp", "jpeg"],
+  width: 1920,
+  height: 1080,
+  loading: "eager",
+});
 ---
 
 <!-- ============================================ --><!--                    Hero                      --><!-- ============================================ -->
@@ -34,12 +56,41 @@ import { Picture } from "astro:assets";
     </div>
   </div>
   <div class="cs-background">
-    <Picture
+    <!-- <Picture
       src={heroImage}
       alt="Anne's Coffee Bar"
-      formats={["webp", "avif"]}
+      formats={["avif", "webp"]}
       loading="eager"
-    />
+    /> -->
+    <!-- <picture>
+      <source srcset={mobileImg} media="(max-width: 600px)" />
+      <img
+        src={desktopImg}
+        alt="Descriptive alt text"
+        loading="eager"
+        width={1920}
+        height={1080}
+      />
+    </picture> -->
+    <picture>
+      <source srcset={mobileImage.src} media="(max-width: 600px)" />
+      <source srcset={desktopImage.src} media="(min-width: 601px)" />
+      <Image
+        src={desktopImage.src}
+        alt="Descriptive alt text"
+        width={1920}
+        height={1080}
+        loading="eager"
+      />
+    </picture>
+    <!--  <CSPicture
+      desktopMediaWidth="1920"
+      mobileMediaWidth="600"
+      desktopImgUrl={desktopImg}
+      mobileImgUrl={mobileImg}
+      fallbackImgUrl={desktopImg}
+      alt="Descriptive alt text"
+    /> -->
   </div>
 </section>
 
@@ -314,7 +365,7 @@ import { Picture } from "astro:assets";
           width: 100%;
           /* Makes image act like a background-image */
           object-fit: cover;
-          object-position: -14rem 0;
+          object-position: 0 0;
         }
       }
     }
@@ -338,7 +389,7 @@ import { Picture } from "astro:assets";
   @media only screen and (min-width: 81.25rem) {
     #hero-997 {
       // Start of Selection
-      background: url("/assets/images/landingCake.jpg");
+      background: url("/assets/images/landing.jpg");
       //background-size: cover;
       background-position: left;
       background-repeat: no-repeat;
@@ -346,6 +397,7 @@ import { Picture } from "astro:assets";
       /* creates parallax effect on background image */
       background-attachment: fixed;
       /* remove img tag so we can make parallax work */
+      z-index: 1000;
 
       .cs-background {
         img {
