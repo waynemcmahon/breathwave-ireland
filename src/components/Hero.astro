@@ -81,14 +81,14 @@ console.log(desktopImage);
       />
       <source
         srcset={desktopImage.src}
-        media="(min-width: 601px)"
+        media="(min-width: 601px) and (max-width: 1300px)"
         type="image/avif"
       />
       <Image
-        src={desktopImage.src}
+        src={mobileImage.src}
         alt="Descriptive alt text"
-        width={1920}
-        height={1080}
+        width={1080}
+        height={1920}
         loading="eager"
       />
     </picture>
@@ -391,6 +391,12 @@ console.log(desktopImage);
 
     body #hero-997 .cs-text.subtext {
       display: block;
+    }
+
+    body #hero-997 .cs-background {
+      img {
+        object-position: -10rem;
+      }
     }
   }
 
