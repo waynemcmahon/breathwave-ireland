@@ -1,29 +1,30 @@
 ---
-import heroImage from "@assets/images/hero/landing.jpg";
 import clientData from "@data/client.json";
 import { Picture, Image } from "astro:assets";
 
 import { getImage } from "astro:assets";
-import CSPicture from "@components/TemplateComponents/CSPicture.astro";
 
-const mobileImg = "/assets/images/landing-m.jpg";
-const desktopImg = "/assets/images/landing.jpg";
+import mobileUrl from "../assets/images/hero/landing-m.jpg";
+import desktopUrl from "../assets/images/hero/landing.jpg";
 
 const mobileImage = await getImage({
-  src: mobileImg,
-  formats: ["avif", "webp", "jpeg"],
+  src: mobileUrl,
+  format: "avif",
   width: 600,
   height: 337,
   loading: "eager",
 });
 
 const desktopImage = await getImage({
-  src: desktopImg,
-  formats: ["avif", "webp", "jpeg"],
+  src: desktopUrl,
+  format: "avif",
   width: 1920,
   height: 1080,
   loading: "eager",
 });
+
+console.log(mobileImage);
+console.log(desktopImage);
 ---
 
 <!-- ============================================ --><!--                    Hero                      --><!-- ============================================ -->
@@ -73,14 +74,21 @@ const desktopImage = await getImage({
       />
     </picture> -->
     <picture>
-      <source srcset={mobileImage.src} media="(max-width: 600px)" />
-      <source srcset={desktopImage.src} media="(min-width: 601px)" />
+      <source
+        srcset={mobileImage.src}
+        media="(max-width: 600px)"
+        type="image/avif"
+      />
+      <source
+        srcset={desktopImage.src}
+        media="(min-width: 601px)"
+        type="image/avif"
+      />
       <Image
         src={desktopImage.src}
         alt="Descriptive alt text"
         width={1920}
         height={1080}
-        loading="eager"
       />
     </picture>
     <!--  <CSPicture
