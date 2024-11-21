@@ -23,9 +23,13 @@ const optimizedImage = await getOptimizedImage(landingImage);
       <div class="cs-content">
         <span class="cs-topper">Contact Us</span>
         <h2 class="cs-title">Ask Us Anything!</h2>
-        <!--Form-->
-
-        <form class="cs-form" id="cs-form-322" method="POST" netlify>
+        <form
+          class="cs-form"
+          id="cs-form-322"
+          method="POST"
+          data-netlify="true"
+          name="contact"
+        >
           <input type="hidden" name="form-name" value="contact-322" />
           <input type="checkbox" name="botcheck" style="display: none;" />
 
@@ -161,25 +165,27 @@ const optimizedImage = await getOptimizedImage(landingImage);
   const form = document.getElementById("cs-form-322");
   const result = document.getElementById("result");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const formData = new FormData(form);
+  if (form && result) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(form as HTMLFormElement);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => {
-        result.innerHTML = "Form submitted successfully!";
-        form.reset();
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
       })
-      .catch((error) => {
-        console.error("Error:", error);
-        result.innerHTML = "Something went wrong!";
-        alert("Something went wrong!");
-      });
-  });
+        .then(() => {
+          result.innerHTML = "Form submitted successfully!";
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          result.innerHTML = "Something went wrong!";
+          alert("Something went wrong!");
+        });
+    });
+  }
 </script>
 
 <style lang="less">

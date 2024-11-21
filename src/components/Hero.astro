@@ -22,12 +22,8 @@ const desktopImage = await getImage({
   height: 1080,
   loading: "eager",
 });
-
-console.log(mobileImage);
-console.log(desktopImage);
 ---
 
-<!-- ============================================ --><!--                    Hero                      --><!-- ============================================ -->
 <section id="hero-997">
   <div class="cs-container">
     <div class="cs-content">
@@ -52,27 +48,10 @@ console.log(desktopImage);
       </p>
       <div class="cs-button-box">
         <a href="/menu" class="cs-button-solid">See Our Menu</a>
-        <!-- <a href="/about" class="cs-button-transparent">Learn More</a> -->
       </div>
     </div>
   </div>
   <div class="cs-background">
-    <!-- <Picture
-      src={heroImage}
-      alt="Anne's Coffee Bar"
-      formats={["avif", "webp"]}
-      loading="eager"
-    /> -->
-    <!-- <picture>
-      <source srcset={mobileImg} media="(max-width: 600px)" />
-      <img
-        src={desktopImg}
-        alt="Descriptive alt text"
-        loading="eager"
-        width={1920}
-        height={1080}
-      />
-    </picture> -->
     <picture>
       <source
         srcset={mobileImage.src}
@@ -92,22 +71,10 @@ console.log(desktopImage);
         loading="eager"
       />
     </picture>
-    <!--  <CSPicture
-      desktopMediaWidth="1920"
-      mobileMediaWidth="600"
-      desktopImgUrl={desktopImg}
-      mobileImgUrl={mobileImg}
-      fallbackImgUrl={desktopImg}
-      alt="Descriptive alt text"
-    /> -->
   </div>
 </section>
 
 <style lang="less">
-  /*-- -------------------------- -->
-<---           Hero             -->
-<--- -------------------------- -*/
-
   /* Mobile - 360px */
   @media only screen and (min-width: 0rem) {
     #hero-997 {
@@ -162,17 +129,6 @@ console.log(desktopImage);
         justify-content: flex-start;
         gap: (20/16rem);
         position: relative;
-
-        /* &:after {
-          content: "";
-          width: 50%;
-          max-width: (120/16rem);
-          height: 1px;
-          background: currentColor;
-          opacity: 1;
-          position: relative;
-          display: block;
-        } */
       }
 
       .cs-tag-left,
