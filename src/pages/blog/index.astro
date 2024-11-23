@@ -21,8 +21,8 @@ const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
 <BaseLayout
-  title="Blog"
-  description="Meta description for the page"
+  title={`${posts[0].data.title} | ${posts[0].data.description}`}
+  description={posts[0].data.description}
   preloadedImage={optimizedImage}
 >
   <Landing title="Blog" image={landingImage} />
