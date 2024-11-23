@@ -11,7 +11,7 @@ imageAlt: Regenerative Tourism Conference
 
 ## Anne O'Sullivan's Radio Kerry Interview on the Regenerative Tourism Conference
 
-Recently, Anne O'Sullivan, the owner of our site, had the opportunity to discuss the International Regenerative Tourism Conference on Radio Kerry. The conference, which took place on the stunning Dingle Peninsula, was a gathering of passionate sustainability advocates, local community leaders, and tourism professionals from across Europe. The event aimed to foster innovative ideas and strategies that promote sustainable and regenerative tourism practices.
+Recently, Anne O'Sullivan, the owner of Anne's Coffe Bar, had the opportunity to discuss the International Regenerative Tourism Conference on Radio Kerry. The conference, which took place on the stunning Dingle Peninsula, was a gathering of passionate sustainability advocates, local community leaders, and tourism professionals from across Europe. The event aimed to foster innovative ideas and strategies that promote sustainable and regenerative tourism practices.
 
 The conference featured a series of insightful talks, interactive workshops, and hands-on activities. Key topics included restoring local ecosystems, empowering communities, and implementing sustainable practices to reduce tourism's environmental footprint. Esteemed speakers such as Dr. Emily Thompson, Liam O'Malley, and Sofia Martinez shared their expertise and experiences, inspiring attendees to actively engage in regenerative tourism initiatives.
 
