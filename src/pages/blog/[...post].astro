@@ -22,13 +22,14 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { title, date, description, image, imageAlt, author } = post.data;
+const socialShareImageUrl = await getOptimizedImage(image);
 const { Content } = await post.render();
 ---
 
 <BaseLayout
   title={title}
   description={description}
-  socialShareImageUrl={image}
+  socialShareImageUrl={socialShareImageUrl}
   preloadedImage={optimizedImage}
 >
   <Landing title="Blog" image={landingImage} />
