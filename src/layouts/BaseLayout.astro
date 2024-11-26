@@ -7,6 +7,8 @@ import "@styles/root.less";
 import "@styles/dark.less";
 
 const { description, title, preloadedImage, socialShareImageUrl } = Astro.props;
+
+console.log(socialShareImageUrl);
 ---
 
 <html lang="en">
@@ -38,11 +40,11 @@ const { description, title, preloadedImage, socialShareImageUrl } = Astro.props;
     />
     <meta
       property="og:image"
-      content={socialShareImageUrl || "/assets/images/socialShareImg.jpg"}
+      content={socialShareImageUrl.src || "/assets/images/socialShareImg.jpg"}
     />
     <meta
       property="og:image:secure_url"
-      content={socialShareImageUrl || "/assets/images/socialShareImg.jpg"}
+      content={socialShareImageUrl.src || "/assets/images/socialShareImg.jpg"}
     />
 
     <!--Favicons-->
