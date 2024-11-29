@@ -1,0 +1,257 @@
+---
+import { Picture, Image } from "astro:assets";
+import logoIcon from "@assets/images/logo_icon.png";
+import ctaImg from "@assets/images/CTA/cta2.jpg";
+import Button from "@components/ui/button.astro";
+---
+
+<section id="cta-1692">
+  <div class="cs-container">
+    <div class="cs-content">
+      <div class="flex items-center gap-4 mb-4">
+        <Image src={logoIcon} alt="logo" width={32} height={32} />
+        <span class="cs-topper">Start Your Journey</span>
+      </div>
+
+      <h2 class="cs-title">Take the First Step On Your Journey</h2>
+      <div class="h-2 w-28 bg-white mb-8"></div>
+      <p class="cs-text">
+        Join Breathwave today and experience the benefits of guided breathwork
+        for yourself. Sign up for a free trial and feel the difference in just
+        one session.
+      </p>
+      <Button href="/menu" text="Start Free Trial" />
+    </div>
+  </div>
+  <!-- Background Image-->
+  <div class="cs-picture">
+    <Picture src={ctaImg} alt="CTA" width={1920} height={1280} />
+  </div>
+</section>
+<style lang="less">
+  /*-- -------------------------- -->
+<---            CTA             -->
+<--- -------------------------- -*/
+
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    #cta-1692 {
+      padding: var(--sectionPadding);
+      background-color: var(--backgroundColor);
+      position: relative;
+      z-index: 1;
+      overflow-x: hidden;
+
+      .cs-container {
+        width: 100%;
+        max-width: (1280/16rem);
+        padding: (32/16rem) 0;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+      }
+
+      .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: center;
+        width: 100%;
+        max-width: (780/16rem);
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: center;
+        z-index: 1;
+      }
+
+      .cs-title {
+        max-width: 25ch;
+        color: #fff;
+      }
+
+      .cs-topper {
+        color: #fff;
+      }
+
+      .cs-text {
+        /* 28px - 40px */
+        color: #fff;
+        margin: 0 0 clamp(1.75rem, 3vw, 2.5rem) 0;
+        max-width: 60ch;
+      }
+
+      .cs-form {
+        width: 100%;
+        max-width: (632/16rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* 8px - 20px */
+        gap: clamp(0.5rem, 2vw, 1.25rem);
+      }
+
+      .cs-input {
+        font-size: (16/16rem);
+        width: 100%;
+        height: clamp(2.875rem, 5.5vw, 4rem);
+        margin: 0;
+        /* prevents padding from adding to width and height */
+        box-sizing: border-box;
+        padding: 0;
+        padding-left: (32/16rem);
+        border: none;
+        display: block;
+        border-radius: 2rem;
+
+        &::placeholder {
+          color: var(--bodyTextColor);
+        }
+      }
+
+      .cs-button-solid {
+        font-size: (16/16rem);
+        font-weight: 400;
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+        text-align: center;
+        text-decoration: none;
+        min-width: (150/16rem);
+        margin: 0;
+        /* prevents padding from adding to the width */
+        box-sizing: border-box;
+        /* 32px - 48px */
+        padding: 0 clamp(2rem, 4vw, 3rem);
+        color: #fff;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+
+        &:before {
+          content: "";
+          width: 0%;
+          height: 100%;
+          background: #000;
+          opacity: 1;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transition: width 0.3s;
+        }
+
+        &:hover {
+          &:before {
+            width: 100%;
+          }
+        }
+      }
+
+      .cs-submit {
+        width: 100%;
+        border: none;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .cs-graphic {
+        position: absolute;
+      }
+
+      .cs-graphic-1 {
+        /* 441px - 582px */
+        width: clamp(27.5625rem, 42vw, 36.375rem);
+        height: auto;
+        top: 0;
+        right: (-220/16rem);
+      }
+
+      .cs-graphic-2 {
+        /* 371px - 582px */
+        width: clamp(23.1875rem, 42vw, 36.375rem);
+        height: auto;
+        bottom: 0;
+        left: (-118/16rem);
+      }
+
+      .cs-picture {
+        height: 100%;
+        width: 100%;
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #cta-1692 {
+      .cs-form {
+        flex-direction: row;
+      }
+
+      .cs-input {
+        width: (360/16rem);
+      }
+
+      .cs-submit {
+        width: fit-content;
+      }
+
+      .cs-graphic-1 {
+        right: (-129/16rem);
+      }
+
+      .cs-graphic-2 {
+        left: (-126/16rem);
+      }
+    }
+  }
+
+  /* Dark Mode */
+  @media only screen and (min-width: 0rem) {
+    body.dark-mode {
+      #cta-1692 {
+        background-color: rgba(0, 0, 0, 0.2);
+
+        .cs-title {
+          color: var(--bodyTextColorWhite);
+        }
+
+        .cs-text {
+          color: var(--bodyTextColorWhite);
+          opacity: 0.8;
+        }
+
+        .cs-input {
+          background-color: var(--medium);
+
+          &::placeholder {
+            color: var(--bodyTextColorWhite);
+          }
+        }
+
+        .cs-graphic {
+          opacity: 0.1;
+        }
+      }
+    }
+  }
+</style>

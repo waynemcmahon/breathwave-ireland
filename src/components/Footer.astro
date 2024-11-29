@@ -3,12 +3,12 @@ import client from "@data/client.json";
 import navData from "@data/navData.json";
 import { Picture } from "astro:assets";
 import { getCurrentYear } from "@libs/utils";
-import logo from "@assets/images/logo_square_white.png";
-import facebook from "@assets/icons/facebook.svg";
-import instagram from "@assets/icons/instagram.svg";
-import email from "@assets/icons/email.svg";
-import phone from "@assets/icons/phone.svg";
-import pin from "@assets/icons/pin.svg";
+import logo from "@assets/images/logo.png";
+import FacebookIcon from "@assets/icons/facebook.astro";
+import InstagramIcon from "@assets/icons/instagram.astro";
+import MailIcon from "@assets/icons/mail.astro";
+import PhoneIcon from "@assets/icons/phone.astro";
+import PinIcon from "@assets/icons/pin.astro";
 
 const currentYear = getCurrentYear();
 ---
@@ -34,14 +34,7 @@ const currentYear = getCurrentYear();
           href={client.facebook}
           target="_blank"
         >
-          <Picture
-            src={facebook}
-            class="cs-social-img"
-            alt="facebook"
-            formats={["avif", "webp"]}
-            width="11"
-            height="11"
-          />
+          <FacebookIcon />
         </a>
         <a
           class="cs-social-link"
@@ -49,14 +42,7 @@ const currentYear = getCurrentYear();
           href={client.instagram}
           target="_blank"
         >
-          <Picture
-            src={instagram}
-            class="cs-social-img"
-            alt="instagram"
-            formats={["avif", "webp"]}
-            width="11"
-            height="11"
-          />
+          <InstagramIcon />
         </a>
       </div>
       <p class="cs-text">
@@ -88,44 +74,20 @@ const currentYear = getCurrentYear();
       <ul class="cs-ul">
         <li class="cs-li">
           <a class="cs-link" href={`tel:${client.phoneForTel}`}>
-            <Picture
-              src={phone}
-              alt="phone"
-              formats={["avif", "webp"]}
-              class="cs-icon"
-              aria-hidden="true"
-              width="24"
-              height="24"
-            />
+            <PhoneIcon />
             {client.phoneForTel}
           </a>
         </li>
         <li class="cs-li">
           <a class="cs-link" href="mailto:office@email.com">
-            <Picture
-              src={email}
-              alt="email"
-              formats={["avif", "webp"]}
-              class="cs-icon"
-              aria-hidden="true"
-              width="24"
-              height="24"
-            />
+            <MailIcon />
             {client.email}
           </a>
         </li>
         <li class="cs-li">
           <!--Make this link go to the google page-->
           <a class="cs-link" href={client.address.mapLink} target="_blank">
-            <Picture
-              src={pin}
-              alt="pin"
-              formats={["avif", "webp"]}
-              class="cs-icon"
-              aria-hidden="true"
-              width="24"
-              height="24"
-            />
+            <PinIcon />
             {client.address.lineOne}, {client.address.city}
           </a>
         </li>

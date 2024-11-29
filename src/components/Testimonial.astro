@@ -1,272 +1,244 @@
 ---
-import { Picture } from "astro:assets";
-import testimonialImg from "@assets/images/hero/team.jpg";
-import logo from "@assets/images/logo.png";
+import logoIcon from "@assets/images/logo_icon.png";
+import { Image } from "astro:assets";
+
+const testimonials = [
+    {
+        image: "https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/ecomm-headshot1.jpeg",
+        name: "Jacintha Collins",
+        role: "Co. Mayo",
+        review: "Breathwork with Ronan O'Brien has opened up a whole dimension of healing I never imagined possible. It's brought balance and grounding in my life, both at home and at work. I cannot recommend it enough—it's been transformative.",
+    },
+    {
+        image: "https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/review2.png",
+        name: "Kevin Corcoran",
+        role: "Co. Cork",
+        review: "I've been practicing Breathwave with Ronan for a while now, and the benefits are incredible. I feel more focused, my tension has melted away, and even a long-standing pain in my forearm has disappeared. This practice truly makes me feel amazing.",
+    },
+    {
+        image: "https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/ecomm-headshot2.jpeg",
+        name: "Fiona Harney,",
+        role: "Co. Clare",
+        review: "I have recently joined Ronan's breathwork class, and it's been an amazing gateway to view life in a positive, purposeful way. By the end of each session, I feel completely relaxed and at ease.",
+    },
+];
 ---
 
-<!-- ============================================ --><!--                   Reviews                    --><!-- ============================================ -->
-<section id="reviews-1604">
+<section id="reviews-1672">
     <div class="cs-container">
         <div class="cs-content">
-            <span class="cs-topper">Testimonials</span>
-            <h2 class="cs-title">Smiles Are Our Success</h2>
-            <!-- <p class="cs-text">
-                At Anne’s Coffee Bar, we measure our success by the smiles on
-                our customers’ faces. Here’s what people are saying:
-            </p> -->
-        </div>
-        <div class="cs-review">
-            <!--Quote-->
-            <svg
-                class="cs-quote"
-                viewBox="0 0 120 84"
-                preserveAspectRatio="none"
-                width="100"
-                height="84"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                ><g clip-path="url(#a)" fill="var(--quoteColor)"
-                    ><path
-                        d="M27.528 99H0L21.966 0H66L27.528 99ZM81.528 99H54L75.966 0H120L81.528 99Z"
-                    ></path></g
-                ><defs
-                    ><clipPath id="a-1604"
-                        ><path fill="var(--quoteColor)" d="M0 0h120v99H0z"
-                        ></path></clipPath
-                    ></defs
-                ></svg
-            >
-            <p class="cs-review-text">
-                Visited this gem of a cafe several times recently. Such great
-                food, coffee and service. Always met with such friendliness and
-                warmth. They go out of their way to make customers feel welcome
-                and valued.
-            </p>
-            <div class="cs-flex-group">
-                <div class="cs-picture">
-                    <div class="cs-picture">
-                        <Picture
-                            src={logo}
-                            alt="profile"
-                            formats={["avif", "webp"]}
-                            class="cs-profile"
-                            aria-hidden="true"
-                        />
-                    </div>
-                </div>
-                <span class="cs-name">
-                    Nuala Tyers
-                    <span class="cs-job">Happy Customer</span>
-                </span>
+            <div class="flex items-center gap-4 mb-4">
+                <Image src={logoIcon} alt="logo" width={32} height={32} />
+                <span class="cs-topper">Testimonials</span>
             </div>
+            <h2 class="cs-title">What our members say</h2>
         </div>
-    </div>
-    <div class="cs-img">
-        <Picture
-            src={testimonialImg}
-            alt="people"
-            formats={["avif", "webp"]}
-            width={1280}
-            height={720}
-            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1280px"
-        />
+        <ul class="cs-card-group">
+            {
+                testimonials.map((testimonial) => (
+                    <li class="cs-item">
+                        <div class="px-8 py-4 lg:px-12 lg:pt-12 lg:pb-4">
+                            <div class="cs-flex-group mb-4">
+                                <img
+                                    aria-hidden="true"
+                                    src="/assets/svgs/quote.svg"
+                                    decoding="async"
+                                    alt="quote icon"
+                                    width="50"
+                                    height="50"
+                                />
+                            </div>
+                            <div class="wrapper">
+                                <p class="cs-review">{testimonial.review}</p>
+                            </div>
+                        </div>
+
+                        <div class="cs-flex-group bg-primary w-full rounded-b-2xl px-8 py-4 lg:px-12 lg:py-8">
+                            <picture class="cs-picture">
+                                <img
+                                    class="cs-profile border-2 border-white"
+                                    src={testimonial.image}
+                                    decoding="async"
+                                    alt="profile"
+                                    width="60"
+                                    height="60"
+                                    aria-hidden="true"
+                                    loading="lazy"
+                                />
+                            </picture>
+                            <span class="cs-name">
+                                {testimonial.name}
+                                <span class="cs-job">{testimonial.role}</span>
+                            </span>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
     </div>
 </section>
-
 <style lang="less">
+    /*-- -------------------------- -->
+<---          Reviews           -->
+<--- -------------------------- -*/
+
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
-        #reviews-1604 {
-            background-color: var(--backgroundColor);
-            position: relative;
-            z-index: 1;
+        #reviews-1672 {
             padding: var(--sectionPadding);
-        }
-        #reviews-1604 .cs-container {
-            width: 100%;
-            /* changes to 1024px at tablet */
-            max-width: 36.5rem;
-            margin: auto;
-            margin-bottom: 2rem;
-            padding: var(--sectionPadding);
-            padding-bottom: 0;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
-        }
-        #reviews-1604 .cs-content {
-            /* set text align to left if content needs to be left aligned */
-            text-align: center;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
-            align-items: center;
-        }
-        #reviews-1604 .cs-title {
-            max-width: 20ch;
-            margin: 0;
-        }
-        #reviews-1604 .cs-review {
-            list-style: none;
-            text-align: left;
-            width: 100%;
-            max-width: 39.375rem;
-            /* 24px - 40px */
-            padding: clamp(1.5rem, 4vw, 2.5rem);
-            background-color: #fff;
-            border-radius: 1rem;
-            /* prevents padding from adding to height and width */
-            box-sizing: border-box;
-            /* clips the pseudo box from overflowing */
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            /* prevents flexbox from squishing it */
-            flex: none;
-            flex-direction: column;
-            position: relative;
-            z-index: 1;
-        }
-        #reviews-1604 .cs-quote {
-            --quoteColor: var(--secondary);
-            width: 6.25rem;
-            height: auto;
-            margin: 0;
-            opacity: 0.5;
-            display: block;
-            position: absolute;
-            /* changes to 40px at tablet */
-            right: 0;
-            bottom: 0;
-        }
-        #reviews-1604 .cs-review-text {
-            /* 16px - 25px */
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            line-height: 1.5em;
-            margin: 0 0 2rem 0;
-            color: var(--bodyTextColor);
-        }
-        #reviews-1604 .cs-flex-group {
-            /* in case one card has more text than the other, this pushes up against the review text so the name and title are always at the bottom. Only works if parent is a flexbox */
-            margin-top: auto;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        #reviews-1604 .cs-profile {
-            width: 3.25rem;
-            height: 3.25rem;
-            margin: 0;
-            border-radius: 50%;
-            box-sizing: border-box;
-            /* clips image corners to make circle */
-            overflow: hidden;
-            position: relative;
-            display: block;
-        }
-        #reviews-1604 .cs-profile img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            border-radius: 2rem;
-            /* makes the image behave like a background image */
-            object-fit: cover;
-        }
-        #reviews-1604 .cs-name {
-            font-size: 1.25rem;
-            line-height: 1.2em;
-            font-weight: 700;
-            margin: 0;
-            color: var(--headerColor);
-            display: block;
-        }
-        #reviews-1604 .cs-job {
-            /* 14px - 16px */
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
-            line-height: 1.5em;
-            font-weight: 400;
-            margin: 0.25rem 0 0 0;
-            color: var(--secondary);
-            display: block;
-        }
-        #reviews-1604 .cs-img {
-            width: 100%;
-            max-width: 80rem;
-            /* reduced to 60vw at tablet */
-            height: 100vw;
-            /* changed to 640px at tablet */
-            max-height: 28.125rem;
-            margin: auto;
-            display: block;
-            position: relative;
-            z-index: -1;
-        }
-        #reviews-1604 .cs-img img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            border-radius: 1rem;
-            /* Makes img tag act as a background image */
-            object-fit: cover;
+            background-color: var(--backgroundColorSecondary);
+
+            .cs-container {
+                width: 100%;
+                max-width: (1280/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* 40px - 64px */
+                gap: clamp(2.5rem, 4.5vw, 4rem);
+            }
+
+            .cs-content {
+                text-align: left;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cs-title {
+                margin: (0/16rem);
+            }
+
+            .cs-card-group {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                /* 16px - 20px */
+                gap: clamp(2rem, 2.5vw, 1.25rem);
+            }
+
+            .cs-item {
+                list-style: none;
+                width: 100%;
+                /* 20px - 40px top & bottom */
+                /* 20px - 40px left & right */
+                background-color: #fff;
+                /* prevents padding from adding to height and width */
+                box-sizing: border-box;
+                display: flex;
+                grid-column: span 12;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                position: relative;
+                border-radius: 1rem;
+                /* 24px - 48px */
+                gap: clamp(1.5rem, 2vw, 3rem);
+            }
+
+            .cs-flex-group {
+                /* this margin top auto will push everything up and force the cs-flex-group to the bottom of the container. This is to account for review cards with different heights because of more or less text and makes the cards more responsive to changing text */
+                margin-top: auto;
+                display: flex;
+                align-items: flex-start;
+                gap: (12/16rem);
+            }
+
+            .cs-profile {
+                width: (60/16rem);
+                height: auto;
+                border-radius: 50%;
+                position: relative;
+                display: block;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    /* makes the image behave like a background image */
+                    object-fit: cover;
+                }
+            }
+
+            .cs-name {
+                /* 20px - 25px */
+                font-size: (20/16rem);
+                line-height: 1.2em;
+                margin: 0;
+                /* in case one card has more text than the other, this pushes up against the review text so the name and title are always at the bottom. Only works if parent is a flexbox */
+                margin-top: auto;
+                color: #fff;
+                display: block;
+            }
+
+            .cs-job {
+                /* 14px - 16px */
+                font-size: (16/16rem);
+                line-height: 1.5em;
+                font-weight: 400;
+                margin: 0;
+                color: #fff;
+                display: block;
+            }
+
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: (16/16rem);
+            }
+
+            .cs-item-stars {
+                width: (108/16rem);
+                height: auto;
+            }
+
+            .cs-review {
+                /* 14px - 16px */
+                font-size: clamp(0.875rem, 1.6vw, 1.25rem);
+                line-height: 1.5em;
+                margin: 0;
+                color: var(--bodyTextColor);
+                z-index: 1;
+            }
+
+            .cs-quote {
+                width: (86/16rem);
+                height: auto;
+                position: absolute;
+                right: (0/16rem);
+                bottom: (0/16rem);
+                z-index: 0;
+            }
         }
     }
+
     /* Tablet - 768px */
     @media only screen and (min-width: 48rem) {
-        #reviews-1604 {
-            padding: var(--sectionPadding);
-        }
-        #reviews-1604 .cs-container {
-            max-width: 80rem;
-            padding: 0;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: space-between;
-        }
-        #reviews-1604 .cs-content {
-            text-align: left;
-            align-items: flex-start;
-        }
-        #reviews-1604 .cs-item {
-            grid-column: span 6;
-        }
-        #reviews-1604 .cs-review {
-            width: 67%;
-        }
-        #reviews-1604 .cs-quote {
-            right: 2.5rem;
-        }
-        #reviews-1604 .cs-img {
-            height: 60vw;
-            max-height: 45rem;
+        #reviews-1672 {
+            .cs-item {
+                grid-column: span 4;
+            }
         }
     }
 
     /* Dark Mode */
     @media only screen and (min-width: 0rem) {
         body.dark-mode {
-            #reviews-1604 {
-                background-color: var(--dark);
-                .cs-title {
-                    color: var(--bodyTextColorWhite);
-                }
-
-                .cs-review {
-                    background-color: var(--primaryLight);
-                }
-
-                .cs-review-text,
+            #reviews-1672 {
+                .cs-title,
+                .cs-review,
                 .cs-name {
                     color: var(--bodyTextColorWhite);
+                }
+
+                .cs-item {
+                    background-color: rgba(0, 0, 0, 0.2);
                 }
 
                 .cs-job {
@@ -275,7 +247,7 @@ import logo from "@assets/images/logo.png";
                 }
 
                 .cs-quote {
-                    --quoteColor: var(--accent);
+                    opacity: 0.2;
                 }
             }
         }

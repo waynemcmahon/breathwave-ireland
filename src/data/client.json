@@ -1,19 +1,24 @@
 {
-	"name": "Anne's Coffee Bar",
-	"email": "annescoffeebar@gmail.com",
+	"name": "Breathwave Ireland",
+	"email": "ronan@breathwaveireland.com",
 	"phoneForTel": "087 277 5635",
 	"phoneFormatted": "(+353) 87 277 5635",
 	"address": {
-		"lineOne": "Camp Cross",
-		"city": "Tralee",
-		"zip": "V92 EC97",
-		"mapLink": "https://maps.app.goo.gl/kLATMuPmi8PXR7S67"
+		"lineOne": "Brickhill East",
+		"city": "Clare",
+		"zip": "V95 T6T2",
+		"mapLink": "https://maps.app.goo.gl/bz1PUH5MhCSvvxc3A"
 	},
-	"domain": "annescoffeebar.ie",
-	"facebook": "https://www.facebook.com/annescoffeebar/",
-	"instagram": "https://www.instagram.com/annescoffeebar/",
+	"domain": "breathwaveireland.com",
+	"facebook": "",
+	"instagram": "https://www.instagram.com/breathwaveireland/",
 	"openingHours": {
 		"days": "7 days a week",
 		"hours": "8.30am - 3.00pm"
-	}
+	},
+	"meta": {
+		"title": "Breathwave Ireland",
+		"description": "Discover the Power of Your Breath"
+	},
+	"membersUrl": "https://members.breathwaveireland.com"
 }

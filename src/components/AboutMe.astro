@@ -1,0 +1,233 @@
+---
+import { Picture, Image } from "astro:assets";
+import Button from "@components/ui/button.astro";
+
+import image1 from "@assets/images/aboutme/aboutme1-1x.png";
+import image1_2x from "@assets/images/aboutme/aboutme1-2x.png";
+import image2 from "@assets/images/aboutme/aboutme2-1x.png";
+import image2_2x from "@assets/images/aboutme/aboutme2-2x.png";
+import logoIcon from "@assets/images/logo_icon.png";
+---
+
+<!-- ============================================ --><!--                Side By Side                  --><!-- ============================================ -->
+<section id="sbs-1591">
+    <div class="cs-container">
+        <div class="cs-image-group">
+            <!--Top left image-->
+            <div class="cs-picture cs-picture1 rounded-lg">
+                <Picture
+                    src={image1_2x}
+                    alt="image1"
+                    width={413}
+                    height={500}
+                    class="rounded-2xl"
+                />
+            </div>
+            <!--Top Right image-->
+            <div class="cs-picture cs-picture2 rounded-3xl">
+                <Picture
+                    src={image2_2x}
+                    alt="image2"
+                    width={413}
+                    height={280}
+                    class="rounded-2xl"
+                />
+            </div>
+        </div>
+        <div class="cs-content">
+            <div class="flex items-center gap-4 mb-4">
+                <Image src={logoIcon} alt="logo" width={32} height={32} />
+                <span class="cs-topper mb-0 text-header-secondary"
+                    >Welcome Message</span
+                >
+            </div>
+            <h2 class="cs-title">Meet Ronan O'Brien</h2>
+            <p class="cs-text">
+                I'm Ronan O'Brien, founder of Breathwave Ireland, a platform
+                designed to help you reconnect with yourself through the power
+                of breath. As a father, husband, and someone passionate about
+                self-growth, I believe that real change comes from looking
+                inward and challenging the stories we tell ourselves. <p
+                    class="cs-text"
+                >
+                    Breathwork has been my path to healing and self-discovery.
+                    It's a simple yet powerful practice that allows us to manage
+                    stress, quiet the mind, and tap into our true potential. My
+                    goal is to help you experience these same benefits in your
+                    life—whether you're seeking to heal, grow, or simply find
+                    more balance.
+                </p>
+                <p class="cs-text">
+                    I'm committed to sharing the simplicity and depth of
+                    breathwork with you, confident that even small, consistent
+                    you, confident that even small, consistent practice can lead
+                    to profound transformation.
+                </p>
+            </p>
+            <Button href="/menu" text="Book 1:1 Session" />
+        </div>
+    </div>
+</section>
+<style lang="less">
+    /*-- -------------------------- -->
+<---       Side By Side         -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #sbs-1591 {
+            padding: var(--sectionPadding);
+            background-color: var(--backgroundColor);
+
+            .cs-container {
+                width: 100%;
+                /* changes to 1280px at desktop */
+                max-width: (550/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* 48px - 64px */
+                gap: clamp(3rem, 6vw, 4rem);
+            }
+
+            .cs-content {
+                /* set text align to left if content needs to be left aligned */
+                text-align: left;
+                width: 100%;
+                max-width: (586/16rem);
+                display: flex;
+                flex-direction: column;
+                /* centers content horizontally, set to flex-start to left align */
+                align-items: flex-start;
+            }
+
+            .cs-text {
+                margin-bottom: (16/16rem);
+                &:last-of-type {
+                    margin-bottom: (32/16rem);
+                }
+            }
+
+            .cs-button-solid {
+                font-size: (16/16rem);
+                /* 46px - 56px */
+                line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+                text-decoration: none;
+                font-weight: 700;
+                text-align: center;
+                margin: 0;
+                color: #fff;
+                min-width: (150/16rem);
+                padding: 0 (48/16rem);
+                background-color: var(--primary);
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                /* prevents padding from adding to the width */
+                box-sizing: border-box;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    width: 0%;
+                    background: #000;
+                    opacity: 1;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    transition: width 0.3s;
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .cs-image-group {
+                /* scales the whole group based on the view width size and stop when that vales equals .745em, resets at desktop */
+                font-size: ~"min(1.959vw, .745em)";
+                width: (630/16em);
+                /* we set a minimum height so it never gets smaller than this value */
+                min-height: (628/16em);
+                display: block;
+                position: relative;
+                z-index: 1;
+            }
+
+            .cs-picture {
+                position: absolute;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            .cs-picture1 {
+                /* the percentage heights allow them to be responsive to the height of the parent cs-image-group. On desktop, when the felxbox is set to aling-items: stretch, the cs-image group will stretch to fill the height of the parent container. So when you add more content to the cs-content group and make it taller, the cs-image group will get taller with it and every image will stretch with the parent, making this entire group responsive to the changing amounts of content next to it */
+                width: (413/16em);
+                height: 79.617834%;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+
+            .cs-picture2 {
+                width: (413/16em);
+                height: 44.585987%;
+                bottom: 0;
+                right: 0;
+                z-index: 10;
+                border: 10px solid var(--backgroundColor);
+            }
+        }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #sbs-1591 {
+            .cs-container {
+                max-width: (1280/16rem);
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: stretch;
+            }
+
+            .cs-content {
+                /* this padding sets a minimum gap between the top and bottom of the content div and the top and bottom of the cs-image-group */
+                padding: (60/16rem) 0;
+                /* while the cs-image-group will stretch to fill the height of the parent, this property will ensure that the cs-content group aligns itse;f in the center of the parent div instead of stretching */
+                align-self: center;
+            }
+
+            .cs-image-group {
+                font-size: ~"min(1.2vw, 1em)";
+                flex: none;
+            }
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #sbs-1591 {
+                .cs-title,
+                .cs-text {
+                    color: var(--bodyTextColorWhite);
+                }
+
+                .cs-text {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+</style>

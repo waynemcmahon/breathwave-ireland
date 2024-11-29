@@ -2,10 +2,11 @@
 import navData from "@data/navData.json";
 import clientData from "@data/client.json";
 import { Picture } from "astro:assets";
-import logoDark from "@assets/images/logo_square.png";
-import logoLight from "@assets/images/logo_square_white.png";
-import FacebookIcon from "@assets/icons/facebook.svg";
-import InstagramIcon from "@assets/icons/instagram.svg";
+import logoDark from "@assets/images/logo_dark.png";
+import logoLight from "@assets/images/logo_light.png";
+import FacebookIcon from "@assets/icons/facebook.astro";
+import InstagramIcon from "@assets/icons/instagram.astro";
+import MailIcon from "@assets/icons/mail.astro";
 ---
 
 <div id="navigation">
@@ -19,8 +20,8 @@ import InstagramIcon from "@assets/icons/instagram.svg";
         class="logo-light"
         aria-hidden="true"
         loading="eager"
-        width="120"
-        height="120"
+        width="270"
+        height="60"
       />
       <Picture
         src={logoDark}
@@ -29,17 +30,17 @@ import InstagramIcon from "@assets/icons/instagram.svg";
         class="logo-dark"
         loading="eager"
         aria-hidden="true"
-        width="120"
-        height="120"
+        width="270"
+        height="60"
       />
     </a>
 
     <!--Main Nav-->
-    <nav id="navbar-menu">
-      <ul id="cs-expanded" class="cs-ul">
+    <nav id="navbar-menu" class="hidden md:flex space-x-4 items-end">
+      <ul id="cs-expanded" class="flex items-end space-x-4 pr-4 mr-4 cs-ul">
         {
           navData.map((entry) => (
-            <li>
+            <li class="menu-item">
               <a
                 href={entry.url}
                 class:list={[{ active: Astro.url.pathname === entry.url }]}
@@ -52,35 +53,56 @@ import InstagramIcon from "@assets/icons/instagram.svg";
             </li>
           ))
         }
+        <div class="h-[20px] !ml-8 w-[1px] bg-white"></div>
+        <li
+          class="flex items-center text-foreground hover:text-primary pl-4 ml-4"
+        >
+          <a
+            href="/contact"
+            class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
+          >
+            <MailIcon />
+          </a>
+        </li>
+        {
+          clientData.instagram && (
+            <li class="flex items-center text-foreground hover:text-primary ml-4">
+              <a
+                href={clientData.instagram}
+                class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
+              >
+                <InstagramIcon />
+              </a>
+            </li>
+          )
+        }
+        {
+          clientData.facebook && (
+            <li class="flex items-center text-foreground hover:text-primary ml-4">
+              <a
+                href={clientData.facebook}
+                class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
+              >
+                <FacebookIcon />
+              </a>
+            </li>
+          )
+        }
+
+        <!-- <button
+          onClick={toggleTheme}
+          className="ml-4 p-2 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors duration-200"
+        >
+          {
+            theme === "dark" ? (
+              <Sun className="h-5 w-5 text-foreground animate-spin-once" />
+            ) : (
+              <Moon className="h-5 w-5 text-foreground animate-spin-once" />
+            )
+          }
+        </button> -->
       </ul>
     </nav>
-
-    <div class="cs-contact-group">
-      <div class="cs-social">
-        <a href={clientData.facebook} class="cs-social-link" target="_blank">
-          <Picture
-            src={FacebookIcon}
-            class="cs-social-img"
-            alt="facebook"
-            formats={["avif", "webp"]}
-            width="16"
-            height="16"
-            loading="eager"
-          />
-        </a>
-        <a href={clientData.instagram} class="cs-social-link" target="_blank">
-          <Picture
-            src={InstagramIcon}
-            class="cs-social-img"
-            alt="instagram"
-            formats={["avif", "webp"]}
-            width="16"
-            height="16"
-            loading="eager"
-          />
-        </a>
-      </div>
-    </div>
 
     <!--Mobile Nav toggle-->
     <button
@@ -464,11 +486,6 @@ import InstagramIcon from "@assets/icons/instagram.svg";
       padding: 0;
       display: flex;
       align-items: center;
-      background: rgba(0, 0, 0, 0.08);
-      backdrop-filter: blur(27px);
-      transition:
-        filter 0.3s,
-        background-color 0.3s;
     }
     #navigation .background-color-div {
       position: absolute;
@@ -494,19 +511,19 @@ import InstagramIcon from "@assets/icons/instagram.svg";
       width: auto;
       height: 100%;
     }
-    #navigation #navbar-menu {
+    /* #navigation #navbar-menu {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-    }
+    } */
     #navigation #navbar-menu ul {
       padding: 0;
       display: flex;
       justify-content: flex-end;
       align-items: center;
     }
-    #navigation #navbar-menu ul li {
+    #navigation #navbar-menu ul .menu-item {
       list-style: none;
       margin-left: 1.875rem;
     }
@@ -519,7 +536,7 @@ import InstagramIcon from "@assets/icons/instagram.svg";
       color: #fff;
       transition: color 0.3s;
     }
-    #navigation #navbar-menu ul li a:before {
+    #navigation #navbar-menu ul .menu-item a:before {
       content: "";
       position: absolute;
       display: block;
@@ -533,10 +550,10 @@ import InstagramIcon from "@assets/icons/instagram.svg";
       width: 0%;
       transition: width 0.3s;
     }
-    #navigation #navbar-menu ul li a:hover:before {
+    #navigation #navbar-menu ul .menu-item a:hover:before {
       width: 100%;
     }
-    #navigation #navbar-menu ul li a.active:before {
+    #navigation #navbar-menu ul .menu-item a.active:before {
       content: "";
       position: absolute;
       display: block;
@@ -734,3 +751,24 @@ import InstagramIcon from "@assets/icons/instagram.svg";
     }
   }
 </style>
+
+<script defer="">
+  // Check if we're on the suppliers page
+  const isSuppliers = window.location.pathname === "/suppliers/";
+  console.log(window.location.pathname);
+  // If on suppliers page, add scroll class immediately
+  if (isSuppliers) {
+    document.querySelector("body").classList.add("scroll");
+  }
+  // Add scroll listener for all other pages
+  document.addEventListener("scroll", (e) => {
+    // Skip scroll handling on suppliers page
+    if (isSuppliers) return;
+    const scroll = document.documentElement.scrollTop;
+    if (scroll >= 100) {
+      document.querySelector("body").classList.add("scroll");
+    } else {
+      document.querySelector("body").classList.remove("scroll");
+    }
+  });
+</script>

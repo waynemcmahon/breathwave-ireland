@@ -1,25 +1,30 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
-import { getOptimizedImage } from "@libs/utils";
-/* import landingImage from "@assets/images/hero/landing.jpg"; */
+import client from "@data/client.json";
 import Hero from "@components/Hero.astro";
 import SideBySide from "@components/SideBySide.astro";
 import SBSPair from "@components/SBSPair.astro";
 import Gallery from "@components/Gallery.astro";
+import Steps from "@components/Steps.astro";
 import Testimonial from "@components/Testimonial.astro";
 import CTA from "@components/CTA.astro";
-/* 
-const optimizedImage = await getOptimizedImage(landingImage); */
+import AboutMe from "@components/AboutMe.astro";
+import ModalVideo from "@components/ModalVideo.astro";
+import CTA2 from "@components/CTA2.astro";
+import Subscribe from "@components/Subscribe.astro";
 ---
 
-<BaseLayout
-  title="The coffee bar where the mountains meet the ocean"
-  description="Visit Anne's Coffee Bar in Camp, Ireland - a cozy café offering freshly brewed coffee, home-baked treats, and locally sourced, sustainable ingredients. Warm up by the fire and enjoy the charm of the Wild Atlantic Way."
->
+<BaseLayout title={client.meta.title} description={client.meta.description}>
   <Hero />
   <SideBySide />
   <SBSPair />
-  <Gallery />
+  <Steps />
+  <CTA />
+  <AboutMe />
+  <!-- <Gallery /> -->
   <Testimonial />
   <CTA />
+  <Subscribe />
+  <CTA2 />
+  <!--  <ModalVideo /> -->
 </BaseLayout>

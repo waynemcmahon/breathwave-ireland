@@ -1,359 +1,307 @@
 ---
-import { Picture } from "astro:assets";
-import sidePicture1 from "@assets/images/sbspair/sbs1.jpg";
-import sidePicture2 from "@assets/images/sbspair/sbs2.jpg";
-import seal from "@assets/images/logo.png";
+import { Picture, Image } from "astro:assets";
+import Button from "@components/ui/button.astro";
+import client from "@data/client.json";
+
+import logoIcon from "@assets/images/logo_icon.png";
+import image1 from "@assets/images/sbsl/Image@2x.png";
+import Divider from "@assets/divider.astro";
+import HeartbeatIcon from "@assets/icons/heartbeat.astro";
+import LotusIcon from "@assets/icons/lotus.astro";
+import PsychologyIcon from "@assets/icons/psychology.astro";
 ---
 
-<!-- ============================================ --><!--                Side By Side                  --><!-- ============================================ -->
-<section id="RPsbs-1008">
+<section id="sbs-1443">
     <div class="cs-container">
-        <div class="cs-image-group">
-            <div class="cs-picture">
-                <Picture
-                    src={sidePicture1}
-                    alt="whoweare"
-                    formats={["avif", "webp"]}
-                    width={514}
-                    height={436}
-                    sizes="(max-width: 840px) 90vw, (max-width: 1200px) 50vw, 514px"
-                />
-            </div>
-            <Picture
-                src={seal}
-                alt="seal"
-                formats={["avif", "webp"]}
-                class="cs-seal"
-                width={190}
-                height={190}
-            />
+        <div class="cs-picture">
+            <Picture src={image1} alt="image1" width={650} height={600} />
         </div>
         <div class="cs-content">
-            <span class="cs-topper">Our Story</span>
-            <h2 class="cs-title">Who We Are</h2>
-            <p class="cs-text">
-                Our story began in April 2021. In an old, forgotten room at the
-                back of a historic village pub in Camp, we brought new life to a
-                once-overlooked space. Using recycled pallets and wood, we
-                created Anne's Coffee Bar - a café that celebrates
-                sustainability, creativity, and community.
-                <!--Creates the space between p tags on mobile-->
-                <span class="cs-spacer"></span>
-                We're proud to offer a space where everyone feels at home. Whether
-                you're enjoying a cappuccino with friends, relaxing after a walk
-                on the Dingle Way, or indulging in a picnic on Sandy Beach, you'll
-                find a warm welcome waiting for you here.
-            </p>
-            <a href="/about" class="cs-button-solid">Read More</a>
+            <div class="flex items-center gap-4 mb-4">
+                <Image src={logoIcon} alt="logo" width={32} height={32} />
+                <span class="cs-topper mb-0 text-header-secondary"
+                    >Why Breathave?</span
+                >
+            </div>
+            <h2 class="cs-title">Discover the Benefits of Breathwork</h2>
+            <ul class="cs-card-group">
+                <li class="cs-li">
+                    <picture class="cs-li-picture">
+                        <HeartbeatIcon width={40} height={40} />
+                    </picture>
+                    <div class="cs-flex">
+                        <h3 class="cs-h3">Reduce Stress and Anxiety</h3>
+                        <p class="cs-li-text">
+                            Conscious connected breathing helps you manage
+                            stress and calm the mind. By letting go of old
+                            stories and limiting beliefs, you can embrace
+                            emotional resilience and creativity while finding
+                            inner balance.
+                        </p>
+                    </div>
+                </li>
+                <li class="cs-li">
+                    <picture class="cs-li-picture">
+                        <LotusIcon width={40} height={40} />
+                    </picture>
+                    <div class="cs-flex">
+                        <h3 class="cs-h3">Nervous System Repair and Healing</h3>
+                        <p class="cs-li-text">
+                            Your breath is the gateway to your nervous system.
+                            With regular breathwork practice, you can soothe and
+                            regulate your nervous system, helping you shift out
+                            of fight-or-flight mode and into a more relaxed,
+                            restorative state.
+                        </p>
+                    </div>
+                </li>
+                <li class="cs-li">
+                    <picture class="cs-li-picture">
+                        <PsychologyIcon width={40} height={40} />
+                    </picture>
+                    <div class="cs-flex">
+                        <h3 class="cs-h3">Reduced Inflammation and Recovery</h3>
+                        <p class="cs-li-text">
+                            Breathwave supports increased energy, better oxygen
+                            flow, and quicker recovery after physical exertion.
+                            Whether you're an athlete or simply looking to boost
+                            your daily energy levels, breathwork will help you
+                            reach your full potential.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <div class="mt-8 w-full text-center">
+                <Button href={client.membersUrl} text="Start Your Journey" />
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ============================================ -->
-<!--             Side By Side Reverse             -->
-<!-- ============================================ -->
-
-<section id="RPsbsr-1008">
-    <div class="cs-container">
-        <div class="cs-image-group">
-            <div class="cs-picture">
-                <Picture
-                    src={sidePicture2}
-                    alt="cafe entrance"
-                    formats={["avif", "webp"]}
-                    width={514}
-                    height={436}
-                    sizes="(max-width: 840px) 90vw, (max-width: 1200px) 50vw, 514px"
-                />
-            </div>
-        </div>
-        <div class="cs-content">
-            <span class="cs-topper">Why Choose Us</span>
-            <h2 class="cs-title">Best in the West</h2>
-            <p class="cs-text">
-                At Anne's Coffee Bar, we go beyond great coffee. Every cup is
-                brewed with care using ethically sourced beans, and our menu
-                celebrates the best of the Dingle Peninsula with fresh, local
-                ingredients.
-                <span class="cs-spacer"></span>
-                Whether you're relaxing by the fire, catching up with friends, or
-                enjoying the view, our cozy atmosphere and friendly team make every
-                visit special.
-                <span class="cs-spacer"></span>
-                We're proud to be part of the community, celebrating the people,
-                flavors, and spirit of this incredible place we call home.
-            </p>
-            <a href="/contact" class="cs-button-solid">Find Us</a>
-        </div>
-    </div>
-</section>
-
-<style>
+<style lang="less">
     /*-- -------------------------- -->
 <---       Side By Side         -->
 <--- -------------------------- -*/
 
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
-        #RPsbs-1008,
-        #RPsbsr-1008 {
+        #sbs-1443 {
             padding: var(--sectionPadding);
-        }
-        #RPsbs-1008 .cs-container,
-        #RPsbsr-1008 .cs-container {
-            width: 100%;
-            /* changes to 1280px at desktop */
-            max-width: 50rem;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
-        }
-        #RPsbs-1008 .cs-content,
-        #RPsbsr-1008 .cs-content {
-            /* set text align to left if content needs to be left aligned */
-            text-align: left;
-            width: 100%;
-            /* changes to 522px at desktop */
-            max-width: 36.125rem;
-            margin-top: -1rem;
-            display: flex;
-            flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
-            align-items: flex-start;
-        }
+            overflow: hidden;
 
-        #RPsbs-1008 .cs-text,
-        #RPsbsr-1008 .cs-text {
-            margin-bottom: 1rem;
-        }
-        #RPsbs-1008 .cs-text:last-of-type,
-        #RPsbsr-1008 .cs-text:last-of-type {
-            margin-bottom: 2rem;
-        }
-        #RPsbs-1008 .cs-spacer,
-        #RPsbsr-1008 .cs-spacer {
-            width: 100%;
-            /* 16px - 24px */
-            height: clamp(1rem, 3vw, 1.5rem);
-            display: block;
-        }
-        #RPsbs-1008 .cs-button-solid,
-        #RPsbsr-1008 .cs-button-solid {
-            font-size: 1rem;
-            /* 46px - 56px */
-            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
-            text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            margin: 0;
-            color: #fff;
-            min-width: 9.375rem;
-            padding: 0 2rem;
-            background-color: var(--primary);
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            /* prevents padding from adding to the width */
-            box-sizing: border-box;
-        }
-        #RPsbs-1008 .cs-button-solid:before,
-        #RPsbsr-1008 .cs-button-solid:before {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 0%;
-            background: #000;
-            opacity: 1;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            transition: width 0.3s;
-        }
-        #RPsbs-1008 .cs-button-solid:hover:before,
-        #RPsbsr-1008 .cs-button-solid:hover:before {
-            width: 100%;
-        }
-        #RPsbs-1008 .cs-image-group,
-        #RPsbsr-1008 .cs-image-group {
-            width: 100%;
-        }
-        #RPsbs-1008 .cs-picture,
-        #RPsbsr-1008 .cs-picture {
-            width: 100%;
-            height: 16.3125rem;
-            border: 12px solid #fff;
-            background-color: #fff;
-            display: block;
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-            position: relative;
-            border-radius: 1rem;
-        }
-        #RPsbs-1008 .cs-picture img,
-        #RPsbsr-1008 .cs-picture img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            border-radius: 1rem;
-            /* makes it behave like a background image */
-            object-fit: cover;
-        }
-        #RPsbs-1008 .cs-seal,
-        #RPsbsr-1008 .cs-seal {
-            /* changes to a clamp(104px - 190px) at desktop */
-            width: 6.5rem;
-            height: auto;
-            /* 104px - 190px */
-            /* wrapped clamp in calc function to make the value negative, and multiply by half (.5) the height to it always overlaps the bg image by half its height */
-            margin-top: calc(clamp(6.5rem, 12vw, 11.875rem) * -0.5);
-            margin-left: auto;
-            /* 28px - 120px */
-            margin-right: clamp(1.75rem, 10vw, 7.5rem);
-            background-color: #fff;
-            border: clamp(6px, 0.8vw, 12px) solid #ffffff;
-            border-radius: 50%;
-            display: block;
-            position: relative;
-            /* make it rest on top of the bg picture */
-            z-index: 10;
+            .cs-container {
+                width: 100%;
+                /* changes to 1280px at desktop */
+                max-width: (550/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* 48px - 64px */
+                gap: clamp(3rem, 6vw, 4rem);
+                position: relative;
+            }
+
+            .cs-content {
+                /* set text align to left if content needs to be left aligned */
+                text-align: left;
+                width: 100%;
+                max-width: (542/16rem);
+                display: flex;
+                flex-direction: column;
+                /* centers content horizontally, set to flex-start to left align */
+                align-items: flex-start;
+            }
+
+            .cs-text {
+                margin-bottom: (16/16rem);
+                &:last-of-type {
+                    margin-bottom: (32/16rem);
+                }
+            }
+
+            .cs-card-group {
+                width: 100%;
+                max-width: (630/16rem);
+                margin: 0 0 (32/16rem) 0;
+                padding: 0;
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: (24/16rem);
+            }
+
+            .cs-li {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                /* 16px - 20px */
+                gap: clamp(1rem, 2.5vw, 1.25rem);
+            }
+
+            .cs-li-picture {
+                width: (80/16rem);
+                height: (80/16rem);
+                margin: 0;
+                border-radius: 50%;
+                background-color: #fff;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* prevents flexbox from squishing it */
+                flex: none;
+                position: relative;
+                z-index: 1;
+
+                &:before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background: var(--primary);
+                    opacity: 0.1;
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+            }
+
+            .cs-li-icon {
+                width: (32/16rem);
+                height: auto;
+                display: block;
+            }
+
+            .cs-h3 {
+                font-size: (24/16rem);
+                line-height: 1.2em;
+                font-weight: 300;
+                text-align: left;
+                margin: 0 0 (12/16rem) 0;
+                color: var(--headerColorSecondary);
+            }
+
+            .cs-li-text {
+                font-size: (16/16rem);
+                line-height: 1.5em;
+                text-align: left;
+                margin: 0;
+                color: var(--bodyTextColor);
+            }
+
+            .cs-button-solid {
+                font-size: (16/16rem);
+                /* 46px - 56px */
+                line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+                text-decoration: none;
+                font-weight: 700;
+                text-align: center;
+                margin: 0;
+                color: #fff;
+                min-width: (150/16rem);
+                padding: 0 (32/16rem);
+                background-color: var(--primary);
+                border-radius: (4/16rem);
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                /* prevents padding from adding to the width */
+                box-sizing: border-box;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    width: 0%;
+                    background: #000;
+                    opacity: 1;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    border-radius: (4/16rem);
+                    transition: width 0.3s;
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .cs-picture {
+                width: 100%;
+                max-width: (650/16rem);
+                min-height: (362/16rem);
+                border-radius: (24/16rem);
+                /* clips img tag corners */
+                overflow: hidden;
+                display: block;
+                position: relative;
+                z-index: 1;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    object-fit: cover;
+                }
+            }
         }
     }
-    /* Tablet - 768px */
-    @media only screen and (min-width: 48rem) {
-        #RPsbs-1008 .cs-container,
-        #RPsbsr-1008 .cs-container {
-            align-items: flex-start;
-        }
-        #RPsbs-1008 .cs-flex-group,
-        #RPsbsr-1008 .cs-flex-group {
-            flex-direction: row;
-        }
-        #RPsbs-1008 .cs-text,
-        #RPsbsr-1008 .cs-text {
-            columns: 2;
-            column-gap: 1.5rem;
-        }
-        #RPsbs-1008 .cs-spacer,
-        #RPsbsr-1008 .cs-spacer {
-            display: none;
-        }
-    }
+
     /* Small Desktop - 1024px */
     @media only screen and (min-width: 64rem) {
-        #RPsbs-1008 .cs-container,
-        #RPsbsr-1008 .cs-container {
-            max-width: 80rem;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            /* 100px - 200px */
-            gap: clamp(6.25rem, 13vw, 12.5rem);
-        }
-        #RPsbs-1008 .cs-image-group,
-        #RPsbsr-1008 .cs-image-group {
-            max-width: 33.875rem;
-            display: flex;
-            justify-content: flex-end;
-            position: relative;
-        }
-        #RPsbs-1008 .cs-picture,
-        #RPsbsr-1008 .cs-picture {
-            height: 28.75rem;
-            aspect-ratio: initial;
-        }
-        #RPsbs-1008 .cs-seal,
-        #RPsbsr-1008 .cs-seal {
-            /* 104 - 190px */
-            width: clamp(6.5rem, 13vw, 11.875rem);
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            /* subtract 12px (.75rem) to account for the border */
-            right: calc((clamp(6.5rem, 13vw, 11.875rem) * -0.5) + -0.75rem);
-            transform: translateY(-50%);
-        }
-        #RPsbs-1008 .cs-content,
-        #RPsbsr-1008 .cs-content {
-            flex: none;
-            width: 54%;
-            max-width: 33.875rem;
+        #sbs-1443 {
+            .cs-container {
+                max-width: (1280/16rem);
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: stretch;
+                position: relative;
+            }
+
+            .cs-content {
+                width: 50%;
+                padding: (40/16rem) 0;
+            }
+
+            .cs-picture {
+                height: auto;
+                width: 55%;
+            }
         }
     }
 
     /* Dark Mode */
     @media only screen and (min-width: 0rem) {
-        body.dark-mode #RTsbsr-1009 {
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-    }
+        body.dark-mode {
+            #sbs-1443 {
+                .cs-title,
+                .cs-text,
+                .cs-li,
+                .cs-h3,
+                .cs-li-text {
+                    color: var(--bodyTextColorWhite);
+                }
 
-    /*-- -------------------------- -->
-<---   Side By Side Reverse     -->
-<--- -------------------------- -*/
+                .cs-li-text,
+                .cs-text {
+                    opacity: 0.8;
+                }
 
-    /* Mobile - 360px */
-    @media only screen and (min-width: 0rem) {
-        #RPsbs-1008 {
-            background-color: var(--backgroundColor);
-        }
-    }
-    /* Small Desktop - 1024px */
-    @media only screen and (min-width: 64rem) {
-        #RPsbsr-1008 .cs-container {
-            justify-content: flex-end;
-        }
-        #RPsbsr-1008 .cs-image-group {
-            /* sends it to the right in the 2nd position */
-            order: 2;
-        }
-        #RPsbsr-1008 .cs-seal {
-            /* subtract 12px (.75rem) to account for the border */
-            left: calc((clamp(6.5rem, 13vw, 11.875rem) * -0.5) + -0.75rem);
-            right: auto;
-        }
-    }
-
-    /* Dark Mode */
-    @media only screen and (min-width: 0rem) {
-        body.dark-mode #RTsbs-1009 .cs-title,
-        body.dark-mode #RTsbsr-1009 .cs-title,
-        body.dark-mode #RTsbst-1009 .cs-title,
-        body.dark-mode #RTsbs-1009 .cs-text,
-        body.dark-mode #RTsbsr-1009 .cs-text,
-        body.dark-mode #RTsbst-1009 .cs-text {
-            color: var(--bodyTextColorWhite);
-        }
-        body.dark-mode #RTsbs-1009 .cs-text,
-        body.dark-mode #RTsbsr-1009 .cs-text,
-        body.dark-mode #RTsbst-1009 .cs-text {
-            opacity: 0.8;
-        }
-        body.dark-mode #RTsbs-1009 .cs-picture,
-        body.dark-mode #RTsbsr-1009 .cs-picture,
-        body.dark-mode #RTsbst-1009 .cs-picture {
-            border-color: var(--dark);
-            background-color: var(--dark);
-        }
-        body.dark-mode #RTsbs-1009 .cs-seal,
-        body.dark-mode #RTsbsr-1009 .cs-seal,
-        body.dark-mode #RTsbst-1009 .cs-seal {
-            border-color: var(--dark);
-            background-color: var(--dark);
-        }
-    }
-
-    /* Dark Mode */
-    @media only screen and (min-width: 0rem) {
-        body.dark-mode #RPsbs-1008 {
-            background-color: var(--dark);
-        }
-
-        body.dark-mode #RPsbsr-1008 {
-            background-color: var(--dark);
+                .cs-li-picture {
+                    background-color: var(--dark);
+                }
+            }
         }
     }
 </style>

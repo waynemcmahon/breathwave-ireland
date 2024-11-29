@@ -1,0 +1,236 @@
+<!-- ============================================ --><!--                   Steps                      --><!-- ============================================ -->
+<section id="steps-1674">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Our Steps</span>
+            <h2 class="cs-title">How To Get Started</h2>
+            <p class="cs-text">
+                Join us on a transformative journey with our step-by-step guide
+                to enhance your well-being.
+            </p>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <span class="cs-number">01</span>
+                <h3 class="cs-h3">Weekly Live Breathwork Sessions</h3>
+                <p class="cs-item-text">
+                    Join our live, guided breathwork sessions each week to gain
+                    insights, emotional balance, and deepen your practice with
+                    real-time support.
+                </p>
+            </li>
+            <li class="cs-item">
+                <span class="cs-number">02</span>
+                <h3 class="cs-h3">Downloadable Sessions</h3>
+                <p class="cs-item-text">
+                    Get access to a library of downloadable breathwork sessions,
+                    allowing you to practice anytime, anywhere, whether at home
+                    or on the go. Breath reveals always available.
+                </p>
+            </li>
+            <li class="cs-item">
+                <span class="cs-number">03</span>
+                <h3 class="cs-h3">Supportive Community</h3>
+                <p class="cs-item-text">
+                    Become part of a growing community of like-minded
+                    individuals who are on the same journey. Share experiences,
+                    insights, and encouragement with others dedicated to
+                    personal growth.
+                </p>
+            </li>
+            <li class="cs-item">
+                <span class="cs-number">04</span>
+                <h3 class="cs-h3">Workshops and Special Events</h3>
+                <p class="cs-item-text">
+                    Deepen your breathwork experience through exclusive
+                    workshops and events designed to further support your
+                    journey. These sessions provide focused teachings on
+                    specific areas of growth.
+                </p>
+            </li>
+        </ul>
+    </div>
+</section>
+<style lang="less">
+    /*-- -------------------------- -->
+<---           Steps            -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #steps-1674 {
+            padding: var(--sectionPadding);
+
+            .cs-container {
+                width: 100%;
+                max-width: (584/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: clamp(3rem, 6vw, 4rem);
+            }
+
+            .cs-content {
+                text-align: center;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cs-text {
+                max-width: (522/16rem);
+            }
+
+            .cs-card-group {
+                margin: 0;
+                padding: 0;
+                display: grid;
+                justify-items: center;
+                align-items: stretch;
+                grid-auto-flow: row;
+            }
+
+            .cs-item {
+                list-style: none;
+                box-sizing: border-box;
+                padding: clamp(1.5rem, 2vw, 3.75rem) 0;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(255, 255, 255, 0) 0%,
+                        rgba(186, 186, 186, 1) 50%,
+                        rgba(255, 255, 255, 0) 100%
+                    );
+                    opacity: 0.6;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+
+                &:first-of-type {
+                    padding-top: 0;
+                }
+
+                &:last-of-type {
+                    padding-bottom: 0;
+
+                    &::after {
+                        content: none;
+                    }
+                }
+            }
+
+            .cs-number {
+                font-size: (61/16rem);
+                font-weight: 900;
+                line-height: 1.2em;
+                margin: 0 0 clamp(1rem, 3vw, 2.5rem) 0;
+                color: var(--primary);
+                opacity: 0.2;
+                display: block;
+            }
+
+            .cs-h3 {
+                font-size: clamp(1.25rem, 2vw, 1.5625rem);
+                font-weight: 700;
+                line-height: 1.2em;
+                margin: 0 0 (16/16rem) 0;
+                color: var(--headerColor);
+            }
+
+            .cs-item-text {
+                font-size: clamp(0.875rem, 1.5vw, 1rem);
+                line-height: 1.5em;
+                text-align: left;
+                margin: 0;
+                color: var(--bodyTextColor);
+            }
+        }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #steps-1674 {
+            padding-left: 0;
+            padding-right: 0;
+
+            .cs-container {
+                max-width: (1920/16rem);
+            }
+
+            .cs-card-group {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0;
+            }
+
+            .cs-item {
+                padding: 0 clamp(1.5rem, 3vw, 3.75rem);
+
+                &::after {
+                    width: 1px;
+                    height: 100%;
+                    background: linear-gradient(
+                        0deg,
+                        rgba(255, 255, 255, 0) 0%,
+                        rgba(186, 186, 186, 1) 50%,
+                        rgba(255, 255, 255, 0) 100%
+                    );
+                    opacity: 0.6;
+                    right: 0;
+                    left: initial;
+                }
+            }
+        }
+    }
+
+    /* Small Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #steps-1674 {
+            .cs-card-group {
+                flex-wrap: nowrap;
+            }
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #steps-1674 {
+                .cs-topper {
+                    color: var(--primaryLight);
+                }
+                .cs-title {
+                    color: var(--bodyTextColorWhite);
+                }
+
+                .cs-item {
+                    border-color: var(--bodyTextColorWhite);
+                    &:after {
+                        opacity: 0.2;
+                    }
+                }
+
+                .cs-item-text,
+                .cs-text {
+                    color: var(--bodyTextColorWhite);
+                    opacity: 0.8;
+                }
+
+                .cs-h3,
+                .cs-number {
+                    color: var(--primaryLight);
+                }
+            }
+        }
+    }
+</style>

@@ -1,0 +1,68 @@
+---
+import clsx from "clsx";
+
+const {
+  text,
+  color,
+  outline,
+  plain,
+  class: className,
+  href,
+  type,
+  children,
+  ...props
+} = Astro.props;
+
+console.log(text);
+
+const styles = {
+  base: [
+    "relative isolate inline-flex items-center justify-center gap-x-2 rounded-full border text-base",
+    "px-6 py-3 sm:px-8 sm:py-4",
+    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
+    "transition duration-200",
+    "disabled:opacity-50",
+  ],
+  outline: [
+    "border-zinc-950/10 text-zinc-950 data-[active]:bg-zinc-950/[2.5%] data-[hover]:bg-zinc-950/[2.5%]",
+    "dark:border-white/15 dark:text-white dark:[--btn-bg:transparent] dark:data-[active]:bg-white/5 dark:data-[hover]:bg-white/5",
+    "[--btn-icon:theme(colors.zinc.500)] data-[active]:[--btn-icon:theme(colors.zinc.700)] data-[hover]:[--btn-icon:theme(colors.zinc.700)] dark:data-[active]:[--btn-icon:theme(colors.zinc.400)] dark:data-[hover]:[--btn-icon:theme(colors.zinc.400)]",
+  ],
+  solid: [
+    "border-transparent bg-amber-500",
+    "text-black",
+    "hover:bg-amber-600",
+  ],
+};
+
+let classes;
+
+if (plain) {
+  classes = clsx(...styles.base, className);
+} else if (outline) {
+  classes = clsx(...styles.base, className, ...styles.outline);
+} else {
+  // default to solid styles
+  classes = clsx(...styles.base, className, ...styles.solid);
+}
+---
+
+{
+  href ? (
+    <a href={href} class={classes} {...props}>
+      <span
+        class="absolute left-1/2 top-1/2 size-[max(100%,2.75rem)] -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
+        aria-hidden="true"
+      />
+      {text}
+    </a>
+  ) : (
+    <button class={`${classes} cursor-pointer`} {...props} type={type}>
+      <span
+        class="absolute left-1/2 top-1/2 size-[max(100%,2.75rem)] -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
+        aria-hidden="true"
+      />
+      {text}
+    </button>
+  )
+}

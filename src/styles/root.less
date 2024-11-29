@@ -8,13 +8,15 @@
 @media only screen and (min-width: 0em) {
   :root {
     /* Add these styles to your global stylesheet, which is used across all site pages. You only need to do this once. All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
-    --primary: #58342c;
-    --primaryLight: #8b5a50;
-    --secondary: #d79d40;
-    --secondaryLight: #f3d6a8;
-    --backgroundColor: #f9f1ed;
-    --headerColor: #1f1f1f;
-    --bodyTextColor: #363334;
+    --primary: #214497;
+    --primaryLight: #4368c2;
+    --secondary: #e1a01d;
+    --secondaryLight: #f2d08a;
+    --backgroundColor: #f1f2f6;
+    --backgroundColorSecondary: #f8f8f8;
+    --headerColor: #222222;
+    --headerColorSecondary: #232323;
+    --bodyTextColor: #909090;
     --bodyTextColorWhite: #f5f5f5;
 
     /* 13px - 16px */
@@ -24,6 +26,7 @@
     --bodyFontSize: 1rem;
     /* 60px - 100px top and bottom */
     --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+    --font-heading: 'Code Bold';
   }
 
   body {
@@ -39,21 +42,22 @@
   }
   .cs-topper {
     font-size: var(--topperFontSize);
+    font-family: 'Code Light';
     line-height: 1.2em;
     text-transform: uppercase;
     text-align: inherit;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
     font-weight: 700;
-    color: var(--secondary);
-    margin-bottom: (4/16rem);
+    color: var(--bodyTextColor);
     display: block;
   }
 
   .cs-title {
     font-size: var(--headerFontSize);
-    font-family: 'Trajan Pro';
-    font-weight: 900;
-    line-height: 1.2em;
+    font-family: 'Code Bold';
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: 0.05em;
     text-align: inherit;
     max-width: (700/16rem);
     margin: 0 0 (16/16rem) 0;
@@ -74,7 +78,7 @@
   // Button - can be replaced using CodeStitch's "Button" Stitches
   .cs-button-solid {
     font-size: (16/16rem);
-    font-weight: bold;
+    font-weight: 400;
     line-height: (50/16em);
     text-align: center;
     //text-transform: uppercase;
@@ -82,7 +86,7 @@
     width: auto;
     //height: (50/16rem);
     padding: 0 (30/16rem);
-    border-radius: 0.25rem;
+    border-radius: 2rem;
 
     // Transition Properties
     color: #fff;
@@ -123,34 +127,35 @@
   // Grab your fonts to locally host from https://google-webfonts-helper.herokuapp.com/fonts
 
   @font-face {
-    font-family: 'Trajan Pro';
+    font-family: 'Code Light';
     font-style: normal;
     font-weight: normal;
     font-display: swap;
-    src: local('Trajan Pro Regular'),
-      url('/assets/fonts/TrajanPro-Regular.woff') format('woff');
+    src: local('Code Light'),
+      url('/assets/fonts/CodeLight.otf') format('opentype');
   }
 
   /* roboto-regular - latin */
   @font-face {
     font-style: normal;
-    font-family: 'Maven Pro';
-    font-weight: 400;
-    font-display: swap;
-    src: local(''), url('/assets/fonts/MavenPro-Regular.ttf') format('truetype');
-  }
-  /* roboto-700 - latin */
-  @font-face {
-    font-style: normal;
-    font-family: 'Maven Pro';
+    font-family: 'Code Bold';
     font-weight: 700;
     font-display: swap;
-    src: local(''), url('/assets/fonts/MavenPro-Bold.ttf') format('truetype');
+    src: local('Code Bold'),
+      url('/assets/fonts/CodeBold.otf') format('opentype');
+  }
+
+  @font-face {
+    font-style: normal;
+    font-family: 'Manrope';
+    font-weight: 400;
+    font-display: swap;
+    src: local('Manrope'), url('/assets/fonts/Manrope.ttf') format('truetype');
   }
 
   body,
   html {
-    font-family: 'Maven Pro', Arial, sans-serif;
+    font-family: 'Manrope', Arial, sans-serif;
     font-size: 100%;
     margin: 0;
     padding: 0;
@@ -214,6 +219,40 @@
     left: 0;
     z-index: -1111111;
   }
+}
+
+.font-display-bold {
+  font-family: 'Code Bold';
+  font-weight: 700;
+}
+
+.font-display-light {
+  font-family: 'Code Light';
+  font-weight: 400;
+}
+
+.text-header {
+  color: var(--headerColor);
+}
+
+.text-header-secondary {
+  color: var(--headerColorSecondary);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.text-secondary {
+  color: var(--secondary);
 }
 
 /* Reset Margins */

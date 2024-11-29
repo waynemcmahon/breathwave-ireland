@@ -1,25 +1,20 @@
 [
   {
-    "key": "About Us",
+    "key": "About",
     "url": "/about/",
     "children": []
   },
   {
-    "key": "Menu",
-    "url": "/menu/",
+    "key": "Breathwave",
+    "url": "/breathwave/",
     "children": []
   },
   {
-    "key": "Our Suppliers",
-    "url": "/suppliers/"
+    "key": "Contact",
+    "url": "/contact/"
   },
   {
-    "key": "Blog",
-    "url": "/blog/"
-  },
-  {
-    "key": "Contact Us",
-    "url": "/contact/",
-    "children": []     
+    "key": "Members",
+    "url": "/members/"
   }
 ]
