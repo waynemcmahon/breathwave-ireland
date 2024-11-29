@@ -4,7 +4,6 @@ import client from "@data/client.json";
 import Hero from "@components/Hero.astro";
 import SideBySide from "@components/SideBySide.astro";
 import SBSPair from "@components/SBSPair.astro";
-import Gallery from "@components/Gallery.astro";
 import Steps from "@components/Steps.astro";
 import Testimonial from "@components/Testimonial.astro";
 import CTA from "@components/CTA.astro";
@@ -12,6 +11,7 @@ import AboutMe from "@components/AboutMe.astro";
 import ModalVideo from "@components/ModalVideo.astro";
 import CTA2 from "@components/CTA2.astro";
 import Subscribe from "@components/Subscribe.astro";
+import Podcasts from "@components/Podcasts.astro";
 ---
 
 <BaseLayout title={client.meta.title} description={client.meta.description}>
@@ -21,10 +21,10 @@ import Subscribe from "@components/Subscribe.astro";
   <Steps />
   <CTA />
   <AboutMe />
-  <!-- <Gallery /> -->
   <Testimonial />
   <CTA />
   <Subscribe />
   <CTA2 />
-  <!--  <ModalVideo /> -->
+  <Podcasts />
+  <ModalVideo />
 </BaseLayout>

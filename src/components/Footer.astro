@@ -4,7 +4,6 @@ import navData from "@data/navData.json";
 import { Picture } from "astro:assets";
 import { getCurrentYear } from "@libs/utils";
 import logo from "@assets/images/logo.png";
-import FacebookIcon from "@assets/icons/facebook.astro";
 import InstagramIcon from "@assets/icons/instagram.astro";
 import MailIcon from "@assets/icons/mail.astro";
 import PhoneIcon from "@assets/icons/phone.astro";
@@ -16,42 +15,30 @@ const currentYear = getCurrentYear();
 <footer id="cs-footer-1339">
   <div class="cs-container">
     <!-- Logo Group -->
-    <div class="cs-logo-group">
-      <!-- <h2 class="cs-title">Get Finance Solution That Just Makes Sense</h2> -->
+    <div class="cs-logo-group flex flex-col gap-4">
       <Picture
         src={logo}
         alt="logo"
         aria-hidden="true"
         decoding="async"
         class="cs-logo"
-        width="172"
-        height="123"
+        width="259"
+        height="57"
       />
+      <p class="text-white w-[35ch]">
+        Connect with us for updates, inspiration, and the latest in breathwork
+        practices. Follow us on social media and join the Breathwave community
+      </p>
       <div class="cs-social">
         <a
-          class="cs-social-link"
-          aria-label="visit facebook profile"
-          href={client.facebook}
-          target="_blank"
-        >
-          <FacebookIcon />
-        </a>
-        <a
-          class="cs-social-link"
+          class="cs-social-link bg-secondary"
           aria-label="visit instagram profile"
           href={client.instagram}
           target="_blank"
         >
-          <InstagramIcon />
+          <InstagramIcon fill="white" width="14" height="14" />
         </a>
       </div>
-      <p class="cs-text">
-        <span class="days"
-          ><strong style="display: block;">Opening Hours:</strong>
-          {client.openingHours.days}</span
-        >
-        <span class="hours">{client.openingHours.hours}</span>
-      </p>
     </div>
     <!-- Links -->
     <div class="cs-ul-wrapper">
@@ -97,6 +84,7 @@ const currentYear = getCurrentYear();
   <div class="cs-bottom">
     <span class="cs-credit">
       © Copyright {currentYear}
+      {client.name}
       <!-- <span> - Designed by </span>
       <a href="atlanticedgedesign.ie" class="cs-credit-link" target="_blank"
         >Atlantic Edge Design</a
@@ -120,7 +108,7 @@ const currentYear = getCurrentYear();
       padding: var(--sectionPadding);
       /* 30px - 50px */
       padding-bottom: clamp(1.875rem, 5vw, 3.125rem);
-      background-color: var(--primary);
+      background-color: var(--headerColor);
       position: relative;
 
       .cs-container {
@@ -139,7 +127,6 @@ const currentYear = getCurrentYear();
         /* takes up all the space, lets the other ul's wrap below it */
         width: 100%;
         position: relative;
-        text-align: center;
 
         picture {
           display: flex;
@@ -175,7 +162,7 @@ const currentYear = getCurrentYear();
       .cs-social-link {
         width: (32/16rem);
         height: (32/16rem);
-        background-color: #fff;
+        background-color: var(--secondary);
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -340,6 +327,7 @@ const currentYear = getCurrentYear();
         text-align: left;
         /* pushes the lists away from it and to the right */
         margin-right: auto;
+        align-items: start;
         picture {
           display: block;
         }

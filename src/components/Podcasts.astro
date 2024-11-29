@@ -1,0 +1,126 @@
+---
+import { Picture } from "astro:assets";
+import Button from "@components/ui/button.astro";
+import podcast1 from "@assets/images/podcasts/podcast1.png";
+import podcast2 from "@assets/images/podcasts/podcast2.png";
+const podcasts = [
+    {
+        title: "Vocal Resonance with Savanna Jones",
+        image: podcast1,
+        guest: "Savanna Jones",
+        role: "Founder of Breathwave",
+        href: "/podcasts/savanna-jones",
+    },
+    {
+        title: "Strengthening Our Relationship",
+        image: podcast2,
+        guest: "Emily and James Parker",
+        role: "Teacher and Graphic Designer",
+        href: "/podcasts/emily-and-james-parker",
+    },
+];
+---
+
+<section id="podcasts">
+    <div class="cs-container">
+        <div class="flex items-center justify-between">
+            <h2 class="cs-title">Check out the Breathwave Podcast</h2>
+            <Button href="/podcasts" text="See All" class="hidden lg:block" />
+        </div>
+        <div class="podcast-list">
+            {
+                podcasts.map((podcast) => (
+                    <a href={podcast.href} class="podcast-item group">
+                        <div class="relative">
+                            <Picture
+                                src={podcast.image}
+                                alt={podcast.title}
+                                formats={["avif", "webp"]}
+                                class="rounded-2xl relative group-hover:scale-105 transition-all duration-300"
+                            />
+                            <div class="flex flex-col gap-2 absolute bottom-4 right-4 p-4 text-right">
+                                <p class="md:text-2xl text-xl text-white">
+                                    {podcast.guest}
+                                </p>
+                                <p class="md:text-sm text-xs text-white">
+                                    {podcast.role}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-8 mt-8">
+                            <div class="bg-secondary group-hover:bg-primary transition-all duration-300 rounded-full w-[58px] h-[58px] flex items-center justify-center -mr-4 z-10">
+                                <div class="w-0 h-0 border-t-[6px] border-t-transparent border-l-[12px] border-l-black border-b-[6px] border-b-transparent ml-0.5" />
+                            </div>
+                            <p class="md:text-xl font-medium text-lg max-w-[20ch] group-hover:text-underline transition-all duration-300">
+                                {podcast.title}
+                            </p>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+        <Button
+            href="/podcasts"
+            text="See All Podcasts"
+            class="lg:hidden mt-8"
+        />
+    </div>
+</section>
+
+<style lang="less">
+    @media only screen and (min-width: 0rem) {
+        #podcasts {
+            padding: var(--sectionPadding);
+
+            .cs-title {
+                max-width: 25ch;
+                text-align: left;
+            }
+
+            .podcast-list {
+                display: flex;
+                flex-direction: column;
+                gap: 4rem;
+            }
+
+            .podcast-item {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .see-all {
+                margin-top: 1rem;
+                padding: 0.5rem 1rem;
+                background-color: var(--secondary);
+                color: #fff;
+                border: none;
+                border-radius: 0.5rem;
+                cursor: pointer;
+            }
+        }
+
+        .cs-container {
+            width: 100%;
+            max-width: (550/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.5rem, 6vw, 1rem);
+        }
+    }
+    @media only screen and (min-width: 64rem) {
+        #podcasts {
+            .cs-container {
+                max-width: (1280/16rem);
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: stretch;
+
+                .podcast-list {
+                    flex-direction: row;
+                    gap: 2rem;
+                }
+            }
+        }
+    }
+</style>
