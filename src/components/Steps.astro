@@ -1,9 +1,61 @@
+---
+import client from "@data/client.json";
+import { Picture } from "astro:assets";
+import image1 from "@assets/images/steps/image1.png";
+import image2 from "@assets/images/steps/image2.png";
+---
+
 <!-- ============================================ --><!--                   Steps                      --><!-- ============================================ -->
+<section id="sbsr-2202">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Features</span>
+            <h2 class="cs-title">
+                How Breathwave Ireland Supports Your Transformation
+            </h2>
+            <p class="cs-text">
+                Breathwave offers live, weekly guided breathwork sessions,
+                access to a library of recorded classes, and a growing community
+                of like-minded individuals. Whether you are looking for
+                emotional balance, athletic recovery, or simple stress relief,
+                our offerings help you tap into your full potential. Breathwave
+                is for anyone ready to take charge of their mental and physical
+                well-being through the power of breath.
+            </p>
+        </div>
+        <div class="cs-image-group">
+            <!--Main Image-->
+            <div class="cs-picture cs-picture1">
+                <Picture
+                    src={image1}
+                    alt="Breathwave Ireland"
+                    formats={["avif", "webp"]}
+                    width={546}
+                    height={647}
+                    sizes="(max-width: 600px) 80vw, (max-width: 1200px) 50vw, 546px"
+                />
+            </div>
+            <!--Small Image-->
+            <div class="cs-picture cs-picture2">
+                <Picture
+                    src={image2}
+                    alt="Breathwave Ireland"
+                    formats={["avif", "webp"]}
+                    width={366}
+                    height={392}
+                    sizes="(max-width: 600px) 50vw, (max-width: 1200px) 50vw, 366px"
+                />
+            </div>
+        </div>
+    </div>
+</section>
 <section id="steps-1674">
     <div class="cs-container">
         <div class="cs-content">
             <span class="cs-topper">Our Steps</span>
-            <h2 class="cs-title">How To Get Started</h2>
+            <h2 class="cs-title">
+                How Breathwave Ireland Supports Your Transformation
+            </h2>
             <p class="cs-text">
                 Join us on a transformative journey with our step-by-step guide
                 to enhance your well-being.
@@ -77,6 +129,10 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .cs-title {
+                max-width: 30ch;
             }
 
             .cs-text {
@@ -165,7 +221,7 @@
             padding-right: 0;
 
             .cs-container {
-                max-width: (1920/16rem);
+                max-width: (1440/16rem);
             }
 
             .cs-card-group {
@@ -231,6 +287,193 @@
                     color: var(--primaryLight);
                 }
             }
+        }
+    }
+
+    /*-- -------------------------- -->
+<---   Side By Side Reverse     -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #sbsr-2202 {
+            padding: var(--sectionPadding);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        #sbsr-2202 .cs-container {
+            width: 100%;
+            /* changes to 1280px at tablet */
+            max-width: 44rem;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+        #sbsr-2202 .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            max-width: 36.625rem;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+        }
+        #sbsr-2202 .cs-title {
+            max-width: 30ch;
+        }
+        #sbsr-2202 .cs-text {
+            margin-bottom: 1.5rem;
+        }
+        #sbsr-2202 .cs-weekdays,
+        #sbsr-2202 .cs-weekends {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 1.6px;
+            color: var(--bodyTextColor);
+        }
+        #sbsr-2202 .cs-weekdays {
+            margin-bottom: 0.5rem;
+        }
+        #sbsr-2202 .cs-button-solid {
+            font-size: 1rem;
+            font-weight: 700;
+            /* 46px - 56px */
+            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+            text-align: center;
+            text-decoration: none;
+            min-width: 9.375rem;
+            margin: 2rem 0 0 0;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+            padding: 0 1.5rem;
+            background-color: var(--primary);
+            color: #fff;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+        #sbsr-2202 .cs-button-solid:before {
+            content: "";
+            width: 0%;
+            height: 100%;
+            background: #000;
+            opacity: 1;
+            border-radius: 0.25rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: width 0.3s;
+        }
+        #sbsr-2202 .cs-button-solid:hover:before {
+            width: 100%;
+        }
+        #sbsr-2202 .cs-image-group {
+            /* scales the whole section down and ties the font size to the vw and stops at 75% of the vale of 1em, changes at desktop */
+            font-size: min(2.3vw, 0.75rem);
+            /* everything inside this box is in ems so we can scale it all down proportionally with a font size */
+            width: 39.375em;
+            height: 39.1875em;
+            order: -1;
+            position: relative;
+            /* prevents flexbox from squishing it */
+            flex: none;
+        }
+        #sbsr-2202 .cs-picture {
+            overflow: hidden;
+            border: 8px solid #fff;
+            display: block;
+            position: absolute;
+        }
+        #sbsr-2202 .cs-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #sbsr-2202 .cs-picture1 {
+            width: 24em;
+            height: 29.375em;
+            top: 0;
+            left: 0;
+        }
+        #sbsr-2202 .cs-picture2 {
+            width: 21.5625em;
+            height: 31.875em;
+            right: 0;
+            bottom: 0;
+        }
+        #sbsr-2202 .cs-flower {
+            /* 137px - 309px */
+            width: clamp(8.5625rem, 20vw, 19.3125rem);
+            height: auto;
+            display: block;
+            position: absolute;
+            right: -2rem;
+            bottom: -0.5rem;
+        }
+    }
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #sbsr-2202 .cs-container {
+            max-width: 80rem;
+        }
+        #sbsr-2202 .cs-flower {
+            right: 0;
+            bottom: 0;
+        }
+    }
+    /* Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #sbsr-2202 .cs-container {
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+        }
+        #sbsr-2202 .cs-content {
+            text-align: left;
+            padding: 3rem 0;
+            align-self: center;
+            align-items: flex-start;
+        }
+        #sbsr-2202 .cs-image-group {
+            font-size: min(1.3vw, 1rem);
+            height: auto;
+            min-height: 39.1875em;
+            order: 2;
+        }
+        #sbsr-2202 .cs-picture1 {
+            height: 74.960128%;
+        }
+        #sbsr-2202 .cs-picture2 {
+            height: 81.339719%;
+        }
+    }
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode #sbsr-2202 {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        body.dark-mode #sbsr-2202 .cs-title,
+        body.dark-mode #sbsr-2202 .cs-text,
+        body.dark-mode #sbsr-2202 .cs-weekdays,
+        body.dark-mode #sbsr-2202 .cs-weekends {
+            color: var(--bodyTextColorWhite);
+        }
+        body.dark-mode #sbsr-2202 .cs-text {
+            opacity: 0.8;
+        }
+        body.dark-mode #sbsr-2202 .cs-picture {
+            border-color: var(--accent);
         }
     }
 </style>

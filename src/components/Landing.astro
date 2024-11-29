@@ -1,143 +1,106 @@
 ---
-import { Picture } from "astro:assets";
+import Picture from "astro/components/Picture.astro";
 const { title, image } = Astro.props;
 ---
 
-<!-- ============================================ --><!--                   Banner                     --><!-- ============================================ -->
-<div id="banner-1004">
-    <!-- <div class="cs-container">
-        <span class="cs-int-title">{title}</span>
-    </div> -->
-    <!--Background Image-->
-    <div class="cs-background">
-        <Picture
-            src={image}
-            formats={["avif", "webp"]}
-            alt="landing image background"
-            aria-hidden="true"
-            decoding="async"
-            loading="eager"
-            width={1600}
-            height={350}
-            sizes="100vw"
-        />
-    </div>
-</div>
+<section id="int-hero">
+    <h1 id="home-h">{title}</h1>
+
+    <!-- standard <picture> attributes are supported. Set loading to lazy for assets below the fold -->
+    <!-- Note: because we use the getImage function to generate an optimized image, we need to use special properties. More info on [the getImage() page](https://docs.astro.build/en/guides/images/#generating-images-with-getimage) -->
+    <Picture
+        src={image}
+        formats={["avif", "webp"]}
+        alt="landing image background"
+        aria-hidden="true"
+        decoding="async"
+        loading="eager"
+        width={1600}
+        height={350}
+        sizes="100vw"
+    />
+</section>
 
 <style lang="less">
-    /* Mobile - 360px */
+    /*-- -------------------------- -->
+<---   Interior Page Header     -->
+<--- -------------------------- -*/
+
+    /* Mobile */
     @media only screen and (min-width: 0em) {
-        #banner-1004 {
-            padding: 0 (16/16rem);
-            /* 160px - 245px */
-            padding-top: clamp(0rem, 6vw, 12.3125rem);
-            padding-bottom: 15.5rem;
-            background-color: #000;
+        #int-hero {
+            min-height: 30vh;
+            padding-top: (50/16rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             position: relative;
             z-index: 1;
 
-            .cs-container {
-                text-align: center;
-                width: 100%;
-                max-width: (1280/16rem);
-                margin: auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-            }
-
-            .cs-picture {
-                width: 100%;
-                margin: 0 0 (12/16rem);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: (16/16rem);
-                position: relative;
-
-                /* &:before {
-                    content: "";
-                    width: 50%;
-                    max-width: (150/16rem);
-                    height: 1px;
-                    background: #b4b2c7;
-                    opacity: 1;
-                    position: relative;
-                    display: block;
-                }
-
-                &:after {
-                    content: "";
-                    width: 50%;
-                    max-width: (150/16rem);
-                    height: 1px;
-                    background: #b4b2c7;
-                    opacity: 1;
-                    position: relative;
-                    display: block;
-                } */
-            }
-
-            .cs-icon {
-                width: 80%;
-                /* 100px - 180px */
-                max-width: clamp(6.25rem, 18vw, 20.25rem);
-                height: auto;
-                /* prevents flexbox from squishing it */
-                flex: none;
-            }
-
-            .cs-int-title {
-                /* 39px - 61px */
-                font-family: "Code Bold";
-                font-size: clamp(2.4375rem, 6.5vw, 1.8125rem);
-                font-weight: 900;
-                line-height: 1.2em;
-                text-align: center;
-                max-width: (700/16rem);
-                margin: 0 0 (16/16rem) 0;
-                color: var(--bodyTextColorWhite);
-                position: relative;
-            }
-
-            .cs-text {
-                color: var(--bodyTextColorWhite);
-            }
-
-            .cs-background {
+            &:before {
+                content: "";
                 width: 100%;
                 height: 100%;
+                background: #000;
                 opacity: 0.7;
+                display: block;
                 position: absolute;
                 top: 0;
                 left: 0;
-                display: block;
                 z-index: -1;
+            }
 
-                &:before {
-                    /* black overlay box */
-                    content: "";
-                    width: 100%;
-                    height: 100%;
-                    //background: #000;
-                    opacity: 0.4;
-                    position: absolute;
-                    display: block;
-                    top: 0;
-                    left: 0;
-                    z-index: 1;
-                }
+            picture {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -2;
 
                 img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                     position: absolute;
                     top: 0;
                     left: 0;
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
                 }
             }
+
+            h1 {
+                font-size: var(--headerFontSize);
+                font-family: var(--headerFontFamily);
+                text-align: center;
+                width: 96%;
+                max-width: (500/16rem);
+                margin: 0 auto;
+                margin-top: (70/16rem);
+                margin-bottom: (30/16rem);
+                color: #fff;
+                position: relative;
+            }
+
+            p {
+                text-align: center;
+                width: 96%;
+                max-width: (400/16rem);
+                margin: auto;
+                margin-bottom: (30/16rem);
+                color: #fff;
+                display: block;
+            }
+        }
+    }
+
+    /* Small Desktop */
+    @media only screen and (min-width: 64em) {
+        #int-hero {
+            height: auto;
+            min-height: (150/16rem);
+            background-attachment: fixed;
+            padding-block-end: (100/16rem);
         }
     }
 </style>
