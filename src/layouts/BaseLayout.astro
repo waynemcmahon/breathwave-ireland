@@ -6,7 +6,7 @@ import Footer from "@components/Footer.astro";
 import "@styles/root.less";
 import "@styles/dark.less";
 
-const { description, title, preloadedImage } = Astro.props;
+const { description, title, preloadedImage, socialShareImageUrl } = Astro.props;
 ---
 
 <html lang="en">
@@ -36,10 +36,13 @@ const { description, title, preloadedImage } = Astro.props;
       property="og:url"
       content={`https://${client.domain}${Astro.url.pathname}`}
     />
-    <meta property="og:image" content="/assets/images/socialShareImg.jpg" />
+    <meta
+      property="og:image"
+      content={socialShareImageUrl?.src || "/assets/images/socialShareImg.jpg"}
+    />
     <meta
       property="og:image:secure_url"
-      content="/assets/images/socialShareImg.jpg"
+      content={socialShareImageUrl?.src || "/assets/images/socialShareImg.jpg"}
     />
 
     <!--Favicons-->
