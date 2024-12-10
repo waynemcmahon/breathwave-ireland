@@ -1,15 +1,19 @@
 ---
-import client from "@data/client.json";
-import { Picture } from "astro:assets";
+import { Picture, Image } from "astro:assets";
+import logoIcon from "@assets/images/logo_icon.png";
 import image1 from "@assets/images/steps/image1.png";
 import image2 from "@assets/images/steps/image2.png";
 ---
 
-<!-- ============================================ --><!--                   Steps                      --><!-- ============================================ -->
-<section id="sbsr-2202">
+<!-- ============================================ --><!--                   Steps                      --><!-- ============================================ --><!-- <section id="sbsr-2202">
     <div class="cs-container">
         <div class="cs-content">
-            <span class="cs-topper">Features</span>
+            <div class="flex items-center gap-4 mb-4">
+                <Image src={logoIcon} alt="logo" width={32} height={32} />
+                <span class="cs-topper mb-0 text-header-secondary"
+                    >Features</span
+                >
+            </div>
             <h2 class="cs-title">
                 How Breathwave Ireland Supports Your Transformation
             </h2>
@@ -24,7 +28,6 @@ import image2 from "@assets/images/steps/image2.png";
             </p>
         </div>
         <div class="cs-image-group">
-            <!--Main Image-->
             <div class="cs-picture cs-picture1">
                 <Picture
                     src={image1}
@@ -35,7 +38,6 @@ import image2 from "@assets/images/steps/image2.png";
                     sizes="(max-width: 600px) 80vw, (max-width: 1200px) 50vw, 546px"
                 />
             </div>
-            <!--Small Image-->
             <div class="cs-picture cs-picture2">
                 <Picture
                     src={image2}
@@ -48,17 +50,22 @@ import image2 from "@assets/images/steps/image2.png";
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <section id="steps-1674">
     <div class="cs-container">
         <div class="cs-content">
-            <span class="cs-topper">Our Steps</span>
+            <div class="flex items-center gap-4 mb-4">
+                <Image src={logoIcon} alt="logo" width={32} height={32} />
+                <span class="cs-topper mb-0 text-header-secondary"
+                    >Features</span
+                >
+            </div>
             <h2 class="cs-title">
                 How Breathwave Ireland Supports Your Transformation
             </h2>
             <p class="cs-text">
-                Join us on a transformative journey with our step-by-step guide
-                to enhance your well-being.
+                Breathwave Ireland offers a range of breathwork sessions and
+                workshops to support your journey to a healthier, happier you.
             </p>
         </div>
         <ul class="cs-card-group">
@@ -112,6 +119,7 @@ import image2 from "@assets/images/steps/image2.png";
     @media only screen and (min-width: 0rem) {
         #steps-1674 {
             padding: var(--sectionPadding);
+            //padding-top: 0;
 
             .cs-container {
                 width: 100%;
@@ -221,7 +229,7 @@ import image2 from "@assets/images/steps/image2.png";
             padding-right: 0;
 
             .cs-container {
-                max-width: (1440/16rem);
+                max-width: (1280/16rem);
             }
 
             .cs-card-group {
@@ -388,9 +396,12 @@ import image2 from "@assets/images/steps/image2.png";
         }
         #sbsr-2202 .cs-picture {
             overflow: hidden;
-            border: 8px solid #fff;
             display: block;
             position: absolute;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
+            border: clamp(0.375em, 1.5vw, 0.5em) solid #ffffff;
+            border-radius: 1.5em;
         }
         #sbsr-2202 .cs-picture img {
             width: 100%;

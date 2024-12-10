@@ -4,17 +4,19 @@ import Button from "@components/ui/button.astro";
 import client from "@data/client.json";
 
 import logoIcon from "@assets/images/logo_icon.png";
+import DividerTop from "@assets/divider-top.astro";
+import DividerBottom from "@assets/divider-bottom.astro";
 import image1 from "@assets/images/sbsl/Image@2x.png";
-import Divider from "@assets/divider.astro";
 import HeartbeatIcon from "@assets/icons/heartbeat.astro";
 import LotusIcon from "@assets/icons/lotus.astro";
 import PsychologyIcon from "@assets/icons/psychology.astro";
 ---
 
-<section id="sbs-1443">
+<section id="sbs-1443" class="relative">
+    <DividerTop />
     <div class="cs-container">
         <div class="cs-picture">
-            <Picture src={image1} alt="image1" width={650} height={600} />
+            <Picture src={image1} alt="image1" width={567} height={965} />
         </div>
         <div class="cs-content">
             <div class="flex items-center gap-4 mb-4">
@@ -76,6 +78,7 @@ import PsychologyIcon from "@assets/icons/psychology.astro";
             </div>
         </div>
     </div>
+    <DividerBottom />
 </section>
 
 <style lang="less">
@@ -86,7 +89,7 @@ import PsychologyIcon from "@assets/icons/psychology.astro";
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
         #sbs-1443 {
-            padding: var(--sectionPadding);
+            padding: clamp(7.75rem, 10.82vw, 12.25rem) 1rem;
             overflow: hidden;
             background-color: var(--backgroundColor);
 

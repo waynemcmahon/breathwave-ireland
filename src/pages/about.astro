@@ -18,76 +18,201 @@ const optimizedImage = await getOptimizedImage(landingImage);
   preloadedImage={optimizedImage}
 >
   <Landing title="About Us" image={landingImage} />
-  <section id="sbs-1014">
+  <section id="content-page-1401">
     <div class="cs-container">
-      <!-- Left Image Section -->
       <div class="cs-image-group">
-        <div class="cs-picture cs-picture1">
-          <Picture
-            src={leftImage}
-            alt="Cafe Staff"
-            formats={["avif", "webp"]}
-            loading="eager"
-            width={498}
-            height={557}
-            sizes="(max-width: 600px) 90vw, (max-width: 840px) 80vw, (max-width: 1200px) 50vw, 498px"
-          />
+        <div class="cs-flex">
+          <div class="cs-background">
+            <!--Mobile Image-->
+            <Picture src={rightImage} alt="left" width={542} height={728} />
+          </div>
+          <div class="cs-box">
+            <img
+              class="cs-box-icon"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/gear-white.svg"
+              alt="people"
+              width="60"
+              height="60"
+            />
+            <span class="cs-desc"> We’ve Over 26 Years of Experience </span>
+          </div>
         </div>
-        <div class="cs-picture cs-picture2">
-          <Picture
-            src={rightImage}
-            alt="Cafe Friends"
-            formats={["avif", "webp"]}
-            width={514}
-            height={436}
-            sizes="(max-width: 600px) 60vw, (max-width: 840px) 50vw, (max-width: 1200px) 30vw, 390px"
-          />
-        </div>
+        <ul class="cs-card-group">
+          <li class="cs-item">
+            <h3 class="cs-h3">
+              <img
+                class="cs-h3-icon"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/trophy.svg"
+                alt="icon"
+                width="32"
+                height="32"
+              />
+              Quality Services
+            </h3>
+            <p class="cs-item-text">
+              There are many variations of but the majority is simply free
+              suffered.
+            </p>
+          </li>
+          <li class="cs-item">
+            <h3 class="cs-h3">
+              <img
+                class="cs-h3-icon"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/circle-check.svg"
+                alt="icon"
+                width="32"
+                height="32"
+              />
+              Quality Services
+            </h3>
+            <p class="cs-item-text">
+              There are many variations of but the majority is simply free
+              suffered.
+            </p>
+          </li>
+        </ul>
       </div>
-      <!-- Right Content Section-->
       <div class="cs-content">
-        <span class="cs-topper">About Us</span>
-        <h2 class="cs-title">Anne's Coffee Bar</h2>
-        <p class="cs-text">
-          At Anne's Coffee Bar, we believe in creating a cozy and welcoming
-          space where everyone feels at home. Nestled in the heart of Camp
-          Village, at the foot of the stunning Slieve Mish mountains, our café
-          is a retreat for locals and travelers alike. Whether you're stopping
-          by for your morning coffee, enjoying a stack of fluffy pancakes, or
-          simply seeking a warm corner to unwind, we're here to make your day a
-          little brighter.
+        <h1 class="cs-title">About</h1>
+        <p>
+          Welcome to Breathwave Ireland- your gateway to transformative
+          breathwork practices that harmonize mind, body, and spirit. At
+          Breathwave, we are passionate about empowering individuals to unlock
+          the profound potential of their breath, guiding them toward a
+          healthier, more connected life.
         </p>
-        <p class="cs-text">
-          From the moment we open our doors, the fire is on, providing a warm
-          and inviting ambiance no matter the weather. It's not just about
-          coffee or home-baked treats - it's about creating memories and
-          fostering connections.
+
+        <h2>What Is <span class="cs-color">Breathwork?</span></h2>
+        <p>
+          Breathwork is a holistic approach that leverages conscious breathing
+          to support physical, mental, and emotional well-being. With its roots
+          in ancient traditions and backed by modern science, breathwork has
+          emerged as a powerful tool for stress management, nervous system
+          repair, and personal transformation.
         </p>
-        <p class="cs-text">
-          Our story began in 2021, during the height of the pandemic, when we
-          transformed a forgotten space into a thriving café filled with
-          laughter, warmth, and the scent of freshly brewed coffee. With a
-          commitment to sustainability and locally sourced ingredients, we take
-          pride in offering a menu that reflects both quality and care.
+        <p>At Breathwave, we specialize in three proven modalities:</p>
+        <ul>
+          <li>
+            <strong>Breathwave Practice:</strong> A meditative process that promotes
+            relaxation, emotional release, and deeper self-awareness. Ideal for those
+            seeking clarity, emotional healing, and balance.
+          </li>
+          <li>
+            <strong>Buteyko Method:</strong> A clinically proven approach for improving
+            lung function, managing conditions like asthma, sleep disorders, and
+            anxiety, and fostering overall respiratory health.
+          </li>
+          <li>
+            <strong>Oxygen Advantage:</strong> A performance-focused technique for
+            athletes, enhancing oxygen delivery, sleep recovery, and physical endurance.
+          </li>
+        </ul>
+        <p>
+          Through these practices, we help you reconnect with the breath as a
+          vehicle for healing, empowerment, and vitality.
         </p>
-        <!-- <div class="cs-quote">
-          <span class="cs-quote-text">
-            We've created more than a café - it's a space where great coffee,
-            good food, and genuine connections come together.
-          </span>
-          <span class="cs-name">Anne O'Sullivan</span>
-          <span class="cs-job">Owner</span>
-          <img
-            src="/assets/svgs/quote-white.svg"
-            class="cs-quote-icon"
-            loading="lazy"
-            alt="gavel"
-            width="136"
-            height="77"
-          />
-        </div> -->
+
+        <h2>Why <span class="cs-color">Breathwork?</span></h2>
+        <p>
+          Your breath is the key to unlocking a calmer mind, a resilient body,
+          and a joyful spirit. In today's fast-paced world, chronic stress and
+          poor breathing habits often leave us stuck in “fight or flight” mode,
+          leading to anxiety, fatigue, and long-term health issues. Breathwork
+          offers a natural, accessible way to reset your nervous system and
+          restore balance.
+        </p>
+        <p>The benefits of conscious breathing include:</p>
+        <ul>
+          <li>
+            Stress and Anxiety Reduction: Shift out of chronic stress and into
+            relaxation.
+          </li>
+          <li>
+            Enhanced Sleep and Energy: Achieve better rest and wake up
+            energized.
+          </li>
+          <li>Improved Athletic Performance: Boost endurance and recovery.</li>
+          <li>
+            Digestive Health and Detoxification: Support digestion and eliminate
+            toxins.
+          </li>
+          <li>
+            Clarity and Emotional Empowerment: Let go of old stories and
+            reconnect with creativity.
+          </li>
+        </ul>
+        <p>
+          With personalized guidance, breathwork empowers you to transform your
+          relationship with stress, unlock deeper awareness, and lead a more
+          vibrant life.
+        </p>
+
+        <h2>A Legacy <span class="cs-color">Rooted in History</span></h2>
+        <p>
+          Breathwork isn't a new trend - it's an ancient practice deeply woven
+          into cultures worldwide. From Pranayama in yogic traditions to modern
+          techniques like Holotropic Breathing and Wim Hof, breathwork has
+          evolved as a timeless tool for well-being.
+        </p>
+        <p>
+          At Breathwave, we honor this rich history while integrating
+          cutting-edge practices like Buteyko Breathing, Breathwave, and The
+          Oxygen Advantage. This blend of ancient wisdom and modern science
+          ensures a transformative experience for every individual.
+        </p>
+
+        <h2>Meet Ronan O'Brien - Your Breathwork Guide</h2>
+        <p>
+          Ronan O'Brien brings years of experience, certifications, and a
+          heartfelt commitment to helping others discover the life-changing
+          benefits of breathwork.
+        </p>
+        <p>
+          Ronan's journey began in 2014, inspired by a transformative encounter
+          with a shamanic retreat in West Cork. Since then, he has trained with
+          world-renowned teachers like Robin Clements of Breathwave and Patrick
+          McKeown of the Buteyko Method. His unique approach combines clinical
+          expertise with a soulful connection to the breath, creating a safe and
+          empowering space for personal growth.
+        </p>
+        <p>Qualifications:</p>
+        <ul>
+          <li>Certified Breathwave Practitioner</li>
+          <li>Diploma in Buteyko Clinical Method</li>
+          <li>Certified Oxygen Advantage Coach</li>
+          <li>Certificate in Counseling and Psychotherapy</li>
+          <li>Strength & Conditioning Coach</li>
+          <li>Sports Injury and Massage Therapist</li>
+        </ul>
+        <p>
+          Whether you're seeking relief from anxiety, improved athletic
+          performance, or deeper self-awareness, Ronan's compassionate guidance
+          can help you achieve your goals.
+        </p>
+
+        <h2>Join Us on This Journey</h2>
+        <p>
+          At Breathwave, our mission is to help you breathe better, feel better,
+          and live better. Whether you're a beginner exploring breathwork for
+          the first time or an experienced practitioner looking to deepen your
+          practice, we're here to guide you every step of the way.
+        </p>
+        <p>
+          Take the first step toward a healthier, more connected you. Explore
+          our workshops, one-on-one coaching, and community events to begin your
+          journey today.
+        </p>
       </div>
     </div>
+    <div class="cs-bubbles" aria-hidden="true"></div>
   </section>
   <CTA />
 </BaseLayout>
@@ -213,16 +338,221 @@ const optimizedImage = await getOptimizedImage(landingImage);
       }
     }
   }
-
   /*-- -------------------------- -->
-<---       Side By Side         -->
+<---          Banner            -->
 <--- -------------------------- -*/
 
   /* Mobile - 360px */
   @media only screen and (min-width: 0rem) {
-    #sbs-1014 {
+    #banner-1401 {
       padding: var(--sectionPadding);
-      background-color: #f7f7f7;
+      /* 190px - 268px */
+      padding-top: clamp(11.875rem, 25vw, 16.75rem);
+      padding-bottom: (100/16rem);
+      /* clips the line from causing overflow issues for going off screen */
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+
+      .cs-container {
+        text-align: center;
+        width: 100%;
+        max-width: (1280/16rem);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        /* 8px - 12px */
+        gap: clamp(0.5rem, 1vw, 0.75rem);
+      }
+
+      .cs-int-title {
+        /* 39px - 61px */
+        font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+        font-weight: 900;
+        line-height: 1.2em;
+        text-align: inherit;
+        margin: 0;
+        color: var(--bodyTextColorWhite);
+        position: relative;
+      }
+
+      .cs-breadcrumbs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cs-link {
+        font-size: (16/16rem);
+        line-height: 1.2em;
+        text-decoration: none;
+        color: var(--bodyTextColorWhite);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:last-of-type {
+          /* remove the chevron on the last list item */
+          &::after {
+            display: none;
+          }
+        }
+
+        &:after {
+          /* chevron */
+          content: "";
+          width: (7/16rem);
+          height: (12/16rem);
+          margin: 0 (16/16rem);
+          background: url("https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/white-chev.svg");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          position: relative;
+          display: block;
+        }
+
+        &.cs-active {
+          color: var(--primary);
+        }
+      }
+
+      .cs-background {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        &:before {
+          /* gradient overlay */
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: #000;
+          opacity: 0.4;
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+
+        &:after {
+          /* gradient overlay */
+          content: "";
+          width: 100%;
+          height: 40%;
+          background: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from(rgba(0, 0, 0, 1)),
+            to(rgba(0, 0, 0, 0))
+          );
+          background: -o-linear-gradient(
+            top,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          z-index: 2;
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          /* Makes img tag act as a background image */
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    #banner-1401 {
+      .cs-background {
+        &:before {
+          width: 50%;
+          height: 100%;
+          background: -webkit-gradient(
+            linear,
+            left top,
+            right top,
+            from(rgba(0, 0, 0, 1)),
+            to(rgba(0, 0, 0, 0))
+          );
+          background: -o-linear-gradient(
+            left,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  /*-- -------------------------- -->
+<---        Content Page        -->
+<--- -------------------------- -*/
+
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    @keyframes floatAnimation {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-2rem);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatAnimation2 {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3rem);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    #content-page-1401 {
+      padding: var(--sectionPadding);
+      background-color: #fff;
+      /* clips the wave background from causing overflow issues when it goes off screen */
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
 
       .cs-container {
         width: 100%;
@@ -231,155 +561,436 @@ const optimizedImage = await getOptimizedImage(landingImage);
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* 48px - 64px */
-        gap: clamp(3rem, 6vw, 4rem);
+        /* 40px - 64px */
+        gap: clamp(2.5rem, 4vw, 4rem);
+        position: relative;
       }
 
       .cs-content {
         /* set text align to left if content needs to be left aligned */
         text-align: left;
         width: 100%;
-        max-width: (542/16rem);
+        max-width: (738/16rem);
         display: flex;
         flex-direction: column;
         /* centers content horizontally, set to flex-start to left align */
         align-items: flex-start;
       }
 
-      .cs-text {
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+        text-align: inherit;
+        margin: 0 0 (16/16rem) 0;
+        color: var(--headerColor);
+      }
+
+      h2 {
+        font-size: (32/16rem);
+        margin-top: (32/16rem);
+      }
+
+      h3 {
+        font-size: (24/16rem);
+        color: var(--primary);
+      }
+
+      h4,
+      h5,
+      h6 {
+        font-size: (20/16rem);
+      }
+
+      .cs-button-solid {
+        margin-bottom: (32/16rem);
+      }
+
+      .cs-no-margin {
+        margin: 0;
+      }
+
+      .cs-color {
+        color: var(--primary);
+      }
+
+      p {
         font-size: var(--bodyFontSize);
         line-height: 1.5em;
         text-align: inherit;
         width: 100%;
-        max-width: (650/16rem);
-        margin: 0;
+        margin: 0 0 (16/16rem) 0;
         color: var(--bodyTextColor);
-      }
-
-      .cs-text {
-        margin-bottom: (16/16rem);
         &:last-of-type {
           margin-bottom: (32/16rem);
         }
+
+        a {
+          font-size: inherit;
+          line-height: inherit;
+          text-decoration: underline;
+          color: var(--primary);
+          filter: brightness(120%);
+        }
       }
 
-      .cs-quote {
+      ol,
+      ul {
+        padding-left: (24/16rem);
         margin: 0 0 (32/16rem) 0;
-        /* 16px - 32px */
-        padding: clamp(1rem, 3vw, 2rem);
-        background-color: var(--primary);
-        position: relative;
-        border-radius: 1rem;
+        color: var(--bodyTextColor);
+        display: flex;
+        flex-direction: column;
+        gap: (16/16rem);
       }
 
-      .cs-quote-text {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 1.5vw, 1rem);
-        line-height: 1.5em;
-        margin: 0 0 (16/16rem);
-        color: var(--bodyTextColorWhite);
-        display: block;
+      ul {
+        li {
+          list-style: none;
+          color: inherit;
+          position: relative;
+
+          &:before {
+            /* custom list bullet */
+            content: "";
+            width: 3px;
+            height: 3px;
+            background: currentColor;
+            opacity: 1;
+            border-radius: 50%;
+            position: absolute;
+            display: block;
+            top: (10/16rem);
+            left: (-12/16rem);
+          }
+        }
       }
 
-      .cs-name {
-        font-size: (16/16rem);
-        line-height: 1.2em;
-        text-transform: uppercase;
-        font-weight: bold;
-        margin: 0 0 (4/16rem);
-        color: var(--secondary);
-        display: block;
-      }
-
-      .cs-job {
-        font-size: (14/16rem);
-        line-height: 1.5em;
-        color: var(--bodyTextColorWhite);
-        display: block;
-      }
-
-      .cs-quote-icon {
-        /* 60px - 136px */
-        width: clamp(3.75rem, 10vw, 8.5rem);
+      img {
+        width: 100%;
         height: auto;
-        position: absolute;
-        bottom: (0/16rem);
-        /* 16px - 32px */
-        right: clamp(1rem, 4vw, 2rem);
+        display: block;
       }
 
       .cs-image-group {
-        /* scaling the font size with the view width */
-        font-size: ~"min(2.31vw, .7em)";
-        /* using ems so we can use font size to scale the whole section */
-        width: (631/16em);
-        height: (636/16em);
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        /* 16px - 20px */
+        gap: clamp(1rem, 2.6vw, 1.25rem);
         position: relative;
       }
 
-      .cs-picture {
-        position: absolute;
+      .cs-flex {
+        position: relative;
+      }
+
+      .cs-background {
+        width: 100%;
+        height: 100%;
+        /* 32px - 48px */
+        border-radius: clamp(2rem, 4vw, 3rem);
+        /* clips the corners of the children around the border radius */
+        overflow: hidden;
+        /* makes it cover the parent dimensions */
+        object-fit: cover;
         display: block;
-        border-radius: 1rem;
+
         img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
           width: 100%;
-          border-radius: 1rem;
-          /* makes image act like a background image */
+          height: 100%;
+          /* makes it cover the parent like a backgorund image */
           object-fit: cover;
+          display: block;
         }
       }
 
-      .cs-picture1 {
-        width: (522/16em);
-        height: (581/16em);
-        left: 0;
-        top: 0;
-        background-color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-        /* 6px - 12px */
-        border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
-        img {
-          object-position: bottom;
+      .cs-box {
+        text-align: left;
+        width: 100%;
+        max-width: (200/16rem);
+        padding: (32/16rem);
+        /* prevents padding from affecting height and width */
+        box-sizing: border-box;
+        background-color: var(--primary);
+        /* 48px - 80px */
+        border-radius: (32/16rem);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: (24/16rem);
+        position: absolute;
+        /* 12px - 20px */
+        right: clamp(0.75rem, 1.9vw, 1.5rem);
+        /* 12px - 20px */
+        bottom: clamp(0.75rem, 1.9vw, 1.5rem);
+      }
+
+      .cs-box-icon {
+        width: (60/16rem);
+        height: auto;
+        display: block;
+      }
+
+      .cs-desc {
+        font-size: (20/16rem);
+        line-height: 1.2em;
+        text-align: inherit;
+        font-weight: 700;
+        width: 100%;
+        margin: 0;
+        color: var(--bodyTextColorWhite);
+      }
+
+      .cs-card-group {
+        width: 100%;
+        max-width: (630/16rem);
+        margin: 0 0 (24/16rem) 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15.265rem, 1fr));
+        align-items: center;
+        gap: clamp(1rem, 2vw, 1.25rem);
+      }
+
+      .cs-item {
+        list-style: none;
+        /* 16px - 24px */
+        padding: clamp(1rem, 3vw, 1.5rem);
+        /* prevents padding from affecting height and width */
+        box-sizing: border-box;
+        background-color: #f7f7f7;
+        border-radius: (16/16rem);
+        border: 1px solid #e8e8e8;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: (12/16rem);
+
+        &:before {
+          display: none;
         }
       }
 
-      .cs-picture2 {
-        width: (414/16em);
-        height: (400/16em);
-        background-color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-        /* 6px - 12px */
-        border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
-        right: 0;
-        bottom: 0;
+      .cs-h3 {
+        font-size: (20/16rem);
+        line-height: 1.2em;
+        font-weight: 700;
+        margin: 0;
+        color: var(--headerColor);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: (8/16rem);
+      }
 
-        img {
-          object-position: bottom;
+      .cs-h3-icon {
+        width: (32/16rem);
+        height: auto;
+        display: block;
+      }
+
+      .cs-item-text {
+        font-size: (14/16rem);
+        line-height: 1.5em;
+        margin: 0;
+        color: var(--bodyTextColor);
+
+        &:last-of-type {
+          margin: 0;
+        }
+      }
+
+      .cs-ul {
+        width: 100%;
+        margin: 0 0 (24/16rem) 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: (12/16rem);
+      }
+
+      .cs-li {
+        font-size: var(--bodyFontSize);
+        list-style: none;
+        line-height: 1.5em;
+        width: 100%;
+        color: var(--bodyTextColor);
+        display: flex;
+        justify-content: flex-start;
+        /* push icon top the top so if the list item goes to two lines the icon stays at the top */
+        align-items: flex-start;
+        gap: (8/16rem);
+      }
+
+      .cs-icon {
+        width: (24/16rem);
+        height: auto;
+        /* adds extra space between the icon and top of parent so it's more centered */
+        margin-top: 1px;
+        display: block;
+      }
+
+      .cs-bubbles {
+        font-size: ~"min(2.5vw, .7em)";
+        width: (582/16em);
+        height: (557/16em);
+        display: none;
+        position: absolute;
+        /* changes to auto at larger desktop */
+        right: (-260/16em);
+        /* changes to -220px at large desktop */
+        bottom: (-50/16em);
+        z-index: -1;
+
+        &:before {
+          /* white border bubble */
+          content: "";
+          width: (464/16em);
+          height: (464/16em);
+          background: transparent;
+          border: 1px solid #1a1a1a;
+          border-radius: 50%;
+          opacity: 1;
+          position: absolute;
+          display: block;
+          top: 0;
+          right: 0;
+          animation-name: floatAnimation;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards;
+          animation-iteration-count: infinite;
+        }
+
+        &:after {
+          /* orange bubble */
+          content: "";
+          width: (366/16em);
+          height: (366/16em);
+          background: var(--primary);
+          opacity: 0.15;
+          border-radius: 50%;
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          animation-name: floatAnimation2;
+          animation-duration: 14s;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards;
+          animation-iteration-count: infinite;
         }
       }
     }
   }
 
-  /* Desktop - 1024px */
-  @media only screen and (min-width: 64rem) {
-    #sbs-1014 {
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #content-page-1401 {
       .cs-container {
-        flex-flow: row;
+        flex-direction: row;
+        align-items: flex-start;
         justify-content: space-between;
-        gap: (52/16rem);
-      }
-
-      .cs-image-group {
-        font-size: ~"min(1.2vw, 1em)";
-        flex: none;
       }
 
       .cs-content {
-        margin: 0;
+        width: 50%;
+        max-width: (674/16rem);
+        /* prevents flexbox from squishing it */
+        flex: none;
+      }
+
+      .cs-image-group {
+        width: 44%;
+        max-width: (542/16rem);
+        display: flex;
+        /* sends it to the right in the 2nd position */
+        order: 2;
+      }
+    }
+  }
+
+  /* Desktop - 1200px */
+  @media only screen and (min-width: 75rem) {
+    #content-page-1401 {
+      .cs-content {
+        width: 53%;
+      }
+
+      .cs-image-group {
+        width: 43%;
+      }
+
+      .cs-box {
+        display: flex;
+      }
+
+      .cs-bubbles {
+        font-size: 1em;
+        margin-left: (600/16rem);
+        display: block;
+        right: auto;
+        left: 50%;
+        bottom: (-220/16rem);
+      }
+    }
+  }
+
+  /* Dark Mode */
+  @media only screen and (min-width: 0rem) {
+    body.dark-mode {
+      #content-page-1401 {
+        background-color: var(--dark);
+
+        .cs-title,
+        .cs-text,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        li,
+        p {
+          color: var(--bodyTextColorWhite);
+        }
+        .cs-color,
+        a {
+          color: var(--primaryLight);
+        }
+
+        p,
+        li {
+          color: #ebebeb;
+        }
+
+        .cs-item {
+          background-color: rgba(0, 0, 0, 0.2);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .cs-h3 {
+          color: var(--bodyTextColorWhite);
+        }
+
+        .cs-icon {
+          filter: grayscale(1) brightness(1000%);
+        }
+
+        .cs-picture {
+          border-color: var(--dark);
+          background-color: var(--dark);
+        }
+
+        .cs-bubbles {
+          &:before {
+            border-color: rgba(255, 255, 255, 0.2);
+          }
+        }
       }
     }
   }

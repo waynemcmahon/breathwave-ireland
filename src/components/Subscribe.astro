@@ -1,8 +1,11 @@
 ---
+import DividerTop from "@assets/divider-top.astro";
+import DividerBottom from "@assets/divider-bottom.astro";
 import Button from "@components/ui/button.astro";
 ---
 
 <section id="cta-1692">
+    <DividerTop color="#f8f8f8" />
     <div class="cs-container">
         <div class="cs-content">
             <span class="cs-topper mb-2"
@@ -30,6 +33,7 @@ import Button from "@components/ui/button.astro";
             </form>
         </div>
     </div>
+    <DividerBottom />
 </section>
 <style lang="less">
     /*-- -------------------------- -->
@@ -39,7 +43,7 @@ import Button from "@components/ui/button.astro";
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
         #cta-1692 {
-            padding: var(--sectionPadding);
+            padding: clamp(7.75rem, 10.82vw, 12.25rem) 1rem;
             background-color: var(--backgroundColor);
             position: relative;
             z-index: 1;

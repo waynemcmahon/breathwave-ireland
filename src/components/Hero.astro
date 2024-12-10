@@ -9,7 +9,7 @@ import mobileUrl from "../assets/images/hero/hero-mobile-x1.jpg";
 import mobileUrlx2 from "../assets/images/hero/hero-mobile-x2.jpg";
 import desktopUrl from "../assets/images/hero/hero-desktop-x1.jpg";
 import desktopUrlx2 from "../assets/images/hero/hero-desktop-x2.jpg";
-import thumbnail from "../assets/images/hero/thumbnail.png";
+import thumbnail from "../assets/images/hero/thumbnail.jpg";
 
 const mobileImage = await getImage({
   src: mobileUrl,
@@ -125,10 +125,10 @@ const desktopImagex2 = await getImage({
       #hero-997 {
         /* 200px - 300px - leaving extra space for the navigation */
         padding: clamp(12.5rem, 25.95vw, 15.75rem) (16/16rem) 0;
-        background-position: left;
+        background-position: top;
         background-size: cover;
         /* 100px - 250px */
-        padding-bottom: clamp(6.25rem, 25.95vw, 15.625rem);
+        padding-bottom: clamp(6.25rem, 45.95vw, 15.625rem);
         position: relative;
         z-index: 1;
         /* prevents overflow from the lines extending past the screen width */
@@ -402,7 +402,7 @@ const desktopImagex2 = await getImage({
         // Start of Selection
         background: url("/assets/images/hero-desktop-x2.jpg");
         //background-size: cover;
-        background-position: top;
+        background-position: bottom;
         background-repeat: no-repeat;
         background-size: cover;
         /* creates parallax effect on background image */

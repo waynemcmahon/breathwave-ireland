@@ -16,21 +16,23 @@ import logoIcon from "@assets/images/logo_icon.png";
             <!--Top left image-->
             <div class="cs-picture cs-picture1 rounded-lg">
                 <Picture
-                    src={image1_2x}
+                    src={image2_2x}
                     alt="image1"
-                    width={413}
-                    height={500}
-                    class="rounded-2xl"
+                    width={490}
+                    height={490}
+                    class="rounded-2xl aspect-square"
+                    sizes="(max-width: 600px) 80vw, (max-width: 1200px) 50vw, 490px"
                 />
             </div>
             <!--Top Right image-->
             <div class="cs-picture cs-picture2 rounded-3xl">
                 <Picture
-                    src={image2_2x}
+                    src={image1_2x}
                     alt="image2"
-                    width={413}
-                    height={280}
-                    class="rounded-2xl"
+                    width={370}
+                    height={370}
+                    class="rounded-2xl aspect-square"
+                    sizes="(max-width: 600px) 50vw, (max-width: 1200px) 50vw, 370px"
                 />
             </div>
         </div>
@@ -173,7 +175,7 @@ import logoIcon from "@assets/images/logo_icon.png";
 
             .cs-picture1 {
                 /* the percentage heights allow them to be responsive to the height of the parent cs-image-group. On desktop, when the felxbox is set to aling-items: stretch, the cs-image group will stretch to fill the height of the parent container. So when you add more content to the cs-content group and make it taller, the cs-image group will get taller with it and every image will stretch with the parent, making this entire group responsive to the changing amounts of content next to it */
-                width: (413/16em);
+                width: (490/16em);
                 height: 79.617834%;
                 top: 0;
                 left: 0;
@@ -181,8 +183,8 @@ import logoIcon from "@assets/images/logo_icon.png";
             }
 
             .cs-picture2 {
-                width: (413/16em);
-                height: 44.585987%;
+                width: (370/16em);
+                height: 60.585987%;
                 bottom: 0;
                 right: 0;
                 z-index: 10;

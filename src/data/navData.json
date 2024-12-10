@@ -2,16 +2,20 @@
   {
     "key": "About",
     "url": "/about/",
-    "children": []
+    "children": [
+      {
+        "key": "About",
+        "url": "/about/"
+      }
+    ]
   },
   {
-    "key": "Breathwave",
-    "url": "/breathwave/",
-    "children": []
+    "key": "Body Of Breath",
+    "url": "/body-of-breath-festival/"
   },
   {
-    "key": "Contact",
-    "url": "/contact/"
+    "key": "Workshops",
+    "url": "/workshops/"
   },
   {
     "key": "Members",

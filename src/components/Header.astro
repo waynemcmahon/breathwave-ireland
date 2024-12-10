@@ -36,8 +36,11 @@ import MailIcon from "@assets/icons/mail.astro";
     </a>
 
     <!--Main Nav-->
-    <nav id="navbar-menu" class="hidden md:flex space-x-4 items-end">
-      <ul id="cs-expanded" class="flex items-end space-x-4 pr-4 mr-4 cs-ul">
+    <nav id="navbar-menu" class="lg:flex space-x-4 items-end">
+      <ul
+        id="cs-expanded"
+        class="lg:flex items-end lg:space-x-4 lg:pr-4 lg:mr-4 cs-ul"
+      >
         {
           navData.map((entry) => (
             <li class="menu-item">
@@ -53,10 +56,8 @@ import MailIcon from "@assets/icons/mail.astro";
             </li>
           ))
         }
-        <div class="h-[20px] !ml-8 w-[1px] bg-white"></div>
-        <li
-          class="flex items-center text-foreground hover:text-primary pl-4 ml-4"
-        >
+        <div class="h-[20px] !ml-8 w-[1px] bg-white hidden lg:block"></div>
+        <li class="text-foreground hover:text-primary lg:pl-4 lg:ml-4">
           <a
             href="/contact"
             class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
@@ -66,7 +67,7 @@ import MailIcon from "@assets/icons/mail.astro";
         </li>
         {
           clientData.instagram && (
-            <li class="flex items-center text-foreground hover:text-primary ml-4">
+            <li class="text-foreground hover:text-primary lg:ml-4">
               <a
                 href={clientData.instagram}
                 class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
@@ -350,7 +351,7 @@ import MailIcon from "@assets/icons/mail.astro";
       color: #000;
       font-size: 1rem;
       text-align: center;
-      display: inline-block;
+      justify-self: center;
       position: relative;
     }
     #navigation #navbar-menu ul li a.active:before {
@@ -478,7 +479,7 @@ import MailIcon from "@assets/icons/mail.astro";
     }
     #navigation {
       width: 100%;
-      height: 6.25rem;
+      height: 5.25rem;
       position: fixed;
       top: 0;
       left: 0;
@@ -753,17 +754,14 @@ import MailIcon from "@assets/icons/mail.astro";
 </style>
 
 <script defer="">
-  // Check if we're on the suppliers page
-  const isSuppliers = window.location.pathname === "/suppliers/";
-  console.log(window.location.pathname);
-  // If on suppliers page, add scroll class immediately
-  if (isSuppliers) {
-    document.querySelector("body").classList.add("scroll");
-  }
+  //const isSuppliers = window.location.pathname === "/suppliers/";
+  //if (isSuppliers) {
+  //  document.querySelector("body").classList.add("scroll");
+  //}
   // Add scroll listener for all other pages
   document.addEventListener("scroll", (e) => {
     // Skip scroll handling on suppliers page
-    if (isSuppliers) return;
+    //if (isSuppliers) return;
     const scroll = document.documentElement.scrollTop;
     if (scroll >= 100) {
       document.querySelector("body").classList.add("scroll");

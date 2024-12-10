@@ -1,20 +1,13 @@
 ---
-// Import the component and all the images you want to use with it
-import CSPicture from "@components/TemplateComponents/CSPicture.astro";
-import mobileImage from "@assets/images/hero/team.jpg";
-import desktopImage from "@assets/images/hero/team.jpg";
 import sbsleft from "@assets/images/sbs/sbsl-x1.png";
 import sbsright from "@assets/images/sbs/sbsr-x1.png";
 import logoBackground from "@assets/images/logo-bg.png";
-import backgroundImage from "@assets/images/sbs/background.jpg";
-import fallbackImage from "@assets/images/hero/team.jpg";
 import logoIcon from "@assets/images/logo_icon.png";
-import Divider from "@assets/divider.astro";
 import { Picture, Image } from "astro:assets";
 ---
 
 <!-- ============================================ --><!--              Side By Side Reverse            --><!-- ============================================ -->
-<section id="sbsr-1457">
+<section id="sbsr-1457" class="relative">
     <div class="cs-container">
         <!-- Left Image Section -->
         <div class="cs-image-group">
@@ -53,9 +46,7 @@ import { Picture, Image } from "astro:assets";
                 >
             </div>
 
-            <h2 class="cs-title">
-                Empower your ability for change with breathwave
-            </h2>
+            <h2 class="cs-title">Empower your ability for change</h2>
             <p class="cs-text">
                 I created this platform to help people like you explore the
                 deeper levels of yourself through breathwork. Breathwork is a
@@ -77,7 +68,6 @@ import { Picture, Image } from "astro:assets";
         </div>
     </div>
 </section>
-<Divider />
 <style lang="less">
     /*-- -------------------------- -->
 <---   Side By Side Reverse     -->
