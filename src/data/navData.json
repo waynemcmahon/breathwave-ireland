@@ -4,21 +4,35 @@
     "url": "/about/",
     "children": [
       {
-        "key": "About",
-        "url": "/about/"
+        "key": "About Ronan",
+        "url": "/ronan-o-brien/"
       }
     ]
   },
   {
-    "key": "Body Of Breath",
-    "url": "/body-of-breath-festival/"
+    "key": "Join",
+    "url": "/online-breathwave/"
   },
   {
-    "key": "Workshops",
-    "url": "/workshops/"
+    "key": "Events",
+    "url": "/events/",
+    "children": [
+      {
+        "key": "Body Of Breath",
+        "url": "/body-of-breath-festival/"
+      },
+      {
+        "key": "Workshops & Retreats",
+        "url": "/workshops-retreats/"
+      }
+    ]
+  },
+  {
+    "key": "Bookings",
+    "url": "/bookings/"
   },
   {
     "key": "Members",
-    "url": "/members/"
+    "url": "https://members.breathwaveireland.com/"
   }
 ]

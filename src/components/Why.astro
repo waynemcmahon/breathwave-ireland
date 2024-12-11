@@ -89,7 +89,7 @@ import PsychologyIcon from "@assets/icons/psychology.astro";
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
         #sbs-1443 {
-            padding: clamp(7.75rem, 10.82vw, 7.25rem) 1rem;
+            padding: clamp(5.75rem, 10.82vw, 7.25rem) 1rem;
             overflow: hidden;
             background-color: var(--backgroundColor);
 
@@ -110,7 +110,7 @@ import PsychologyIcon from "@assets/icons/psychology.astro";
                 /* set text align to left if content needs to be left aligned */
                 text-align: left;
                 width: 100%;
-                max-width: (542/16rem);
+                max-width: (670/16rem);
                 display: flex;
                 flex-direction: column;
                 /* centers content horizontally, set to flex-start to left align */
@@ -182,9 +182,9 @@ import PsychologyIcon from "@assets/icons/psychology.astro";
             }
 
             .cs-h3 {
-                font-size: (24/16rem);
+                font-size: (20/16rem);
                 line-height: 1.2em;
-                font-weight: 300;
+                font-weight: 500;
                 text-align: left;
                 margin: 0 0 (12/16rem) 0;
                 color: var(--headerColorSecondary);
@@ -265,6 +265,7 @@ import PsychologyIcon from "@assets/icons/psychology.astro";
     /* Small Desktop - 1024px */
     @media only screen and (min-width: 64rem) {
         #sbs-1443 {
+            padding: clamp(7.75rem, 10.82vw, 7.25rem) 1rem;
             .cs-container {
                 max-width: (1280/16rem);
                 flex-direction: row;
@@ -274,7 +275,7 @@ import PsychologyIcon from "@assets/icons/psychology.astro";
             }
 
             .cs-content {
-                width: 50%;
+                width: 55%;
                 padding: (40/16rem) 0;
             }
 
@@ -283,7 +284,11 @@ import PsychologyIcon from "@assets/icons/psychology.astro";
                 min-height: 40.25rem;
                 height: auto;
                 max-height: 50rem;
-                width: 55%;
+                width: 45%;
+            }
+
+            .cs-h3 {
+                font-size: (24/16rem);
             }
         }
     }

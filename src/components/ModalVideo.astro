@@ -1,14 +1,19 @@
+---
+import { YouTube } from "astro-embed";
+const videoUrl = "/vkpIaCWO4ec";
+---
+
 <!-- Modal Structure -->
 <div id="videoModal" class="modal z-50 rounded-md">
     <div class="modal-content">
         <span class="close-button">&times;</span>
-        <div class="video-container">
-            <iframe
-                src="https://www.youtube.com/embed/vkpIaCWO4ec"
+        <div class="video-container relative">
+            <YouTube
+                id="vkpIaCWO4ec"
                 title="Introduction Video"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                playlabel="Play"
+                class="absolute left-0 right-0 top-0 bottom-0 !max-w-full !max-h-full"
+            />
         </div>
     </div>
 </div>
@@ -27,6 +32,7 @@
         background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
         align-items: center;
         justify-content: center;
+        border-radius: 16px;
     }
 
     .modal-content {
@@ -34,12 +40,16 @@
         background-color: #111;
         margin: auto;
         padding: 0;
-        border: 1px solid #888;
-        width: 80%;
+        width: 90%;
         max-width: 800px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         animation-name: animatetop;
         animation-duration: 0.4s;
+        border-radius: 16px;
+
+        lite-youtube {
+            border-radius: 16px;
+        }
     }
 
     @keyframes animatetop {

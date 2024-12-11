@@ -1,11 +1,18 @@
 ---
+import client from "@data/client.json";
 import { Picture, Image } from "astro:assets";
 import logoIcon from "@assets/images/logo_icon.png";
-import image1 from "@assets/images/steps/image1.png";
-import image2 from "@assets/images/steps/image2.png";
+import image1 from "@assets/images/features/image1.png";
+import image2 from "@assets/images/features/image2.png";
+import image3 from "@assets/images/features/image3.jpg";
+import CalendarIcon from "@assets/icons/calendar.astro";
+import CommunityIcon from "@assets/icons/community.astro";
+import CloudIcon from "@assets/icons/cloud.astro";
+import RetreatIcon from "@assets/icons/retreat.astro";
 ---
 
-<!-- ============================================ --><!--                   Steps                      --><!-- ============================================ --><!-- <section id="sbsr-2202">
+<!-- ============================================ --><!--                   Steps                      --><!-- ============================================ -->
+<section id="sbsr-2202">
     <div class="cs-container">
         <div class="cs-content">
             <div class="flex items-center gap-4 mb-4">
@@ -15,22 +22,30 @@ import image2 from "@assets/images/steps/image2.png";
                 >
             </div>
             <h2 class="cs-title">
-                How Breathwave Ireland Supports Your Transformation
+                How Breathwave Supports Your Transformation
             </h2>
             <p class="cs-text">
                 Breathwave offers live, weekly guided breathwork sessions,
-                access to a library of recorded classes, and a growing community
-                of like-minded individuals. Whether you are looking for
-                emotional balance, athletic recovery, or simple stress relief,
-                our offerings help you tap into your full potential. Breathwave
-                is for anyone ready to take charge of their mental and physical
-                well-being through the power of breath.
+                access to a growing library of recorded classes, and a
+                supportive community of like-minded individuals. Whether you're
+                seeking emotional balance, athletic recovery, or relief from
+                daily stress, our offerings are designed to help you unlock your
+                true potential. Through conscious breathwork, you can develop
+                greater mental clarity, emotional resilience, and a deeper
+                connection to your inner self.
+            </p>
+            <p class="cs-text">
+                We believe in the transformative power of breath to improve
+                well-being and empower individuals to live with greater purpose,
+                ease, and vitality. Join us on this journey of self-discovery
+                and healing through the rhythm of your own breath.
             </p>
         </div>
         <div class="cs-image-group">
+            <!--Main Image-->
             <div class="cs-picture cs-picture1">
                 <Picture
-                    src={image1}
+                    src={image3}
                     alt="Breathwave Ireland"
                     formats={["avif", "webp"]}
                     width={546}
@@ -38,39 +53,41 @@ import image2 from "@assets/images/steps/image2.png";
                     sizes="(max-width: 600px) 80vw, (max-width: 1200px) 50vw, 546px"
                 />
             </div>
+            <!--Small Image-->
             <div class="cs-picture cs-picture2">
                 <Picture
-                    src={image2}
+                    src={image1}
                     alt="Breathwave Ireland"
                     formats={["avif", "webp"]}
-                    width={366}
-                    height={392}
-                    sizes="(max-width: 600px) 50vw, (max-width: 1200px) 50vw, 366px"
+                    width={345}
+                    height={532}
+                    sizes="(max-width: 600px) 50vw, (max-width: 1200px) 50vw, 345px"
                 />
             </div>
         </div>
     </div>
-</section> -->
+</section>
 <section id="steps-1674">
     <div class="cs-container">
-        <div class="cs-content">
-            <div class="flex items-center gap-4 mb-4">
-                <Image src={logoIcon} alt="logo" width={32} height={32} />
-                <span class="cs-topper mb-0 text-header-secondary"
-                    >Features</span
-                >
-            </div>
+        <!-- <div class="cs-content">
+            <span class="cs-topper">Our Steps</span>
             <h2 class="cs-title">
                 How Breathwave Ireland Supports Your Transformation
             </h2>
             <p class="cs-text">
-                Breathwave Ireland offers a range of breathwork sessions and
-                workshops to support your journey to a healthier, happier you.
+                Join us on a transformative journey with our step-by-step guide
+                to enhance your well-being.
             </p>
-        </div>
+        </div> -->
         <ul class="cs-card-group">
             <li class="cs-item">
-                <span class="cs-number">01</span>
+                <span class="cs-number"
+                    ><CalendarIcon
+                        width={45}
+                        height={45}
+                        fill="#214497"
+                    /></span
+                >
                 <h3 class="cs-h3">Weekly Live Breathwork Sessions</h3>
                 <p class="cs-item-text">
                     Join our live, guided breathwork sessions each week to gain
@@ -79,7 +96,9 @@ import image2 from "@assets/images/steps/image2.png";
                 </p>
             </li>
             <li class="cs-item">
-                <span class="cs-number">02</span>
+                <span class="cs-number"
+                    ><CloudIcon width={45} height={45} fill="#214497" /></span
+                >
                 <h3 class="cs-h3">Downloadable Sessions</h3>
                 <p class="cs-item-text">
                     Get access to a library of downloadable breathwork sessions,
@@ -88,7 +107,13 @@ import image2 from "@assets/images/steps/image2.png";
                 </p>
             </li>
             <li class="cs-item">
-                <span class="cs-number">03</span>
+                <span class="cs-number"
+                    ><CommunityIcon
+                        width={60}
+                        height={60}
+                        fill="#214497"
+                    /></span
+                >
                 <h3 class="cs-h3">Supportive Community</h3>
                 <p class="cs-item-text">
                     Become part of a growing community of like-minded
@@ -98,7 +123,9 @@ import image2 from "@assets/images/steps/image2.png";
                 </p>
             </li>
             <li class="cs-item">
-                <span class="cs-number">04</span>
+                <span class="cs-number"
+                    ><RetreatIcon width={45} height={45} fill="#214497" /></span
+                >
                 <h3 class="cs-h3">Workshops and Special Events</h3>
                 <p class="cs-item-text">
                     Deepen your breathwork experience through exclusive
@@ -119,7 +146,7 @@ import image2 from "@assets/images/steps/image2.png";
     @media only screen and (min-width: 0rem) {
         #steps-1674 {
             padding: var(--sectionPadding);
-            //padding-top: 0;
+            padding-top: 0;
 
             .cs-container {
                 width: 100%;
@@ -145,6 +172,7 @@ import image2 from "@assets/images/steps/image2.png";
 
             .cs-text {
                 max-width: (522/16rem);
+                text-wrap: balance;
             }
 
             .cs-card-group {
@@ -195,13 +223,32 @@ import image2 from "@assets/images/steps/image2.png";
             }
 
             .cs-number {
+                width: (80/16rem);
+                height: (80/16rem);
+                margin: 0;
+                border-radius: 50%;
                 font-size: (61/16rem);
                 font-weight: 900;
                 line-height: 1.2em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
                 margin: 0 0 clamp(1rem, 3vw, 2.5rem) 0;
-                color: var(--primary);
-                opacity: 0.2;
-                display: block;
+
+                &:before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background: var(--primary);
+                    opacity: 0.1;
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
             }
 
             .cs-h3 {
@@ -229,7 +276,7 @@ import image2 from "@assets/images/steps/image2.png";
             padding-right: 0;
 
             .cs-container {
-                max-width: (1280/16rem);
+                max-width: (1380/16rem);
             }
 
             .cs-card-group {
@@ -306,6 +353,7 @@ import image2 from "@assets/images/steps/image2.png";
     @media only screen and (min-width: 0rem) {
         #sbsr-2202 {
             padding: var(--sectionPadding);
+            padding-bottom: 2rem;
             overflow: hidden;
             position: relative;
             z-index: 1;
@@ -396,32 +444,32 @@ import image2 from "@assets/images/steps/image2.png";
         }
         #sbsr-2202 .cs-picture {
             overflow: hidden;
+            border: 10px solid #fff;
             display: block;
+            border-radius: 1rem;
             position: absolute;
-            background-color: #fff;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-            border: clamp(0.375em, 1.5vw, 0.5em) solid #ffffff;
-            border-radius: 1.5em;
         }
         #sbsr-2202 .cs-picture img {
             width: 100%;
             height: 100%;
+            border-radius: 1rem;
             object-fit: cover;
             position: absolute;
             top: 0;
-            left: 0;
+            right: 0;
         }
         #sbsr-2202 .cs-picture1 {
             width: 24em;
             height: 29.375em;
-            top: 0;
             left: 0;
+            bottom: 0;
         }
         #sbsr-2202 .cs-picture2 {
             width: 21.5625em;
             height: 31.875em;
+
+            top: 0;
             right: 0;
-            bottom: 0;
         }
         #sbsr-2202 .cs-flower {
             /* 137px - 309px */

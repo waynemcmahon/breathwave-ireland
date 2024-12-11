@@ -2,7 +2,7 @@
 const { color = "#ffffff" } = Astro.props;
 ---
 
-<div class="custom-shape-divider-top-1732216167">
+<div class="custom-shape-divider-top-1732216167 desktop-only shape-divider">
     <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@ const { color = "#ffffff" } = Astro.props;
     </svg>
 </div>
 <style lang="less">
-    .custom-shape-divider-top-1732216167 {
+    .shape-divider {
         position: absolute;
         top: 0;
         left: 0;
@@ -35,10 +35,19 @@ const { color = "#ffffff" } = Astro.props;
         line-height: 0;
     }
 
-    .custom-shape-divider-top-1732216167 svg {
+    .shape-divider svg {
         position: relative;
         display: block;
         width: calc(100% + 1.3px);
-        height: 44px;
+    }
+
+    .custom-shape-divider-top-1732216167 svg {
+        height: 3rem;
+    }
+
+    @media (max-width: 768px) {
+        .custom-shape-divider-top-1732216167 svg {
+            height: 2rem;
+        }
     }
 </style>

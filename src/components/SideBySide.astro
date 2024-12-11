@@ -11,7 +11,7 @@ import { Picture, Image } from "astro:assets";
     <div class="cs-container">
         <!-- Left Image Section -->
         <div class="cs-image-group">
-            <div class="cs-picture cs-picture2 self-center">
+            <div class="cs-picture self-center">
                 <Picture
                     src={sbsleft}
                     alt="ronan and his dog"
@@ -177,8 +177,6 @@ import { Picture, Image } from "astro:assets";
                 /* scaling the font size with the view width, removed at desktop */
                 font-size: ~"min(2.23vw, .83em)";
                 /* using ems so we can use font size to scale the whole section */
-                width: (650/16em);
-                height: (729/16em);
                 position: relative;
             }
 
@@ -189,8 +187,6 @@ import { Picture, Image } from "astro:assets";
                 max-width: (616/16em);
                 display: block;
                 background-color: #fff;
-                box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-                border: clamp(0.375em, 1.5vw, 0.5em) solid #ffffff;
                 border-radius: 1.5em;
             }
 

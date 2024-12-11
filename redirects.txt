@@ -1,0 +1,15 @@
+redirects = [
+    {"Old URL": "https://breathwaveireland.com/", "New URL": "https://newbreathwave.com/home"},
+    {"Old URL": "https://breathwaveireland.com/ronan-obrien/", "New URL": "https://newbreathwave.com/about"},
+    {"Old URL": "https://breathwaveireland.com/online-breathwave/", "New URL": "https://newbreathwave.com/online-breathwave"},
+    {"Old URL": "https://breathwaveireland.com/retreats-breathwork/", "New URL": "https://newbreathwave.com/events"},
+    {"Old URL": "https://breathwaveireland.com/testimonials/", "New URL": "https://newbreathwave.com/testimonials"},
+    {"Old URL": "https://breathwaveireland.com/body-of-breath-festival/", "New URL": "https://newbreathwave.com/events"},
+    {"Old URL": "https://breathwaveireland.com/join-breathwave-ireland/", "New URL": "https://newbreathwave.com/about"},
+    {"Old URL": "https://breathwaveireland.com/contact/", "New URL": "https://newbreathwave.com/contact"},
+    {"Old URL": "https://breathwaveireland.com/shop/", "New URL": "https://newbreathwave.com/shop"},
+    {"Old URL": "https://breathwaveireland.com/about", "New URL": "https://newbreathwave.com/about"},
+    {"Old URL": "https://breathwaveireland.com/the-benefits-of-breathwork/", "New URL": "https://newbreathwave.com/about#benefits"},
+    {"Old URL": "https://breathwaveireland.com/history-of-breathwork-as-a-tool-for-self-purpose/", "New URL": "https://newbreathwave.com/about#history"},
+    {"Old URL": "https://breathwaveireland.com/spirit-of-folk-festival/", "New URL": "https://newbreathwave.com/events"},
+]

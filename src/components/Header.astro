@@ -56,7 +56,8 @@ import MailIcon from "@assets/icons/mail.astro";
             </li>
           ))
         }
-        <div class="h-[20px] !ml-8 w-[1px] bg-white hidden lg:block"></div>
+        <div class="divider h-[20px] !ml-8 w-[1px] bg-white hidden lg:block">
+        </div>
         <li class="text-foreground hover:text-primary lg:pl-4 lg:ml-4">
           <a
             href="/contact"
@@ -406,6 +407,11 @@ import MailIcon from "@assets/icons/mail.astro";
 
       #navbar-menu ul li a {
         color: #000;
+        border-color: #000;
+      }
+
+      .divider {
+        background-color: #000;
       }
 
       .reservation {
@@ -424,22 +430,6 @@ import MailIcon from "@assets/icons/mail.astro";
         display: none;
       }
 
-      .cs-social {
-        .cs-social-link {
-          background-color: var(--primary);
-          img {
-            opacity: 1;
-            filter: grayscale(1) brightness(10000%);
-          }
-
-          &:hover {
-            background-color: var(--primaryLight);
-            img {
-              filter: grayscale(0) brightness(10000%);
-            }
-          }
-        }
-      }
       .hamburger-menu {
         &.clicked span {
           background-color: transparent;
@@ -450,16 +440,6 @@ import MailIcon from "@assets/icons/mail.astro";
           &:after {
             background-color: var(--secondary);
           }
-        }
-      }
-    }
-
-    body #navigation .cs-social {
-      display: flex;
-      .cs-social-link {
-        picture {
-          line-height: 1px;
-          height: 16px;
         }
       }
     }
@@ -608,123 +588,6 @@ import MailIcon from "@assets/icons/mail.astro";
     }
   }
 
-  /*-- -------------------------- -->
-<---     Mobile Navigation      -->
-<--- -------------------------- -*/
-  /* Mobile - 1023px */
-  @media only screen and (max-width: 63.9375rem) {
-    #navigation .cs-contact-group {
-      display: none;
-      position: relative;
-      z-index: 10;
-    }
-    #navigation .cs-phone {
-      font-size: 1rem;
-      line-height: 1.5em;
-      text-decoration: none;
-      margin: 0;
-      color: #fff;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 0.5rem;
-      transition:
-        opacity 0.3s,
-        color 0.3s;
-    }
-    #navigation .cs-phone-icon {
-      width: 1.5rem;
-      height: auto;
-      display: block;
-    }
-    #navigation .cs-social {
-      display: none;
-    }
-  }
-  /* Tablet - 768px */
-  @media only screen and (min-width: 48rem) {
-    #navigation .cs-contact-group {
-      display: block;
-    }
-  }
-  /*-- -------------------------- -->
-<---     Desktop Navigation     -->
-<--- -------------------------- -*/
-  /* Small Desktop - 1024px */
-  @media only screen and (min-width: 64rem) {
-    #navigation .cs-contact-group {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    #navigation .cs-phone {
-      font-size: 1rem;
-      line-height: 1.5em;
-      text-decoration: none;
-      margin: 0;
-      color: #fff;
-      filter: grayscale(1) brightness(10000%);
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 0.5rem;
-      transition:
-        opacity 0.3s,
-        color 0.3s;
-    }
-    #navigation .cs-phone-icon {
-      width: 1.5rem;
-      height: auto;
-      display: block;
-    }
-    #navigation .cs-social {
-      height: 2rem;
-      opacity: 1;
-      display: none;
-      visibility: visible;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      transition:
-        opacity 0.3s,
-        visibility 0.3s,
-        height 0.3s;
-    }
-    #navigation .cs-social-link {
-      text-decoration: none;
-      width: 2rem;
-      height: 2rem;
-      background-color: #f7f7f7;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: background-color 0.3s;
-    }
-    #navigation .cs-social-link:hover {
-      background-color: var(--primaryLight);
-    }
-    #navigation .cs-social-link:hover .cs-social-icon {
-      opacity: 1;
-      filter: grayscale(1) brightness(10000%);
-    }
-    #navigation .cs-social-icon {
-      width: 0.75rem;
-      height: auto;
-      opacity: 0.6;
-      display: block;
-      transition: opacity 0.3s;
-    }
-
-    /* Large Desktop - 1300px */
-    @media only screen and (min-width: 81.25rem) {
-      #navigation .cs-social {
-        display: flex;
-      }
-    }
-  }
-
   /* Dark Mode */
   @media only screen and (min-width: 0rem) {
     body.dark-mode {
@@ -740,14 +603,6 @@ import MailIcon from "@assets/icons/mail.astro";
       }
       .logo-light {
         display: block !important;
-      }
-
-      .cs-social .cs-social-link {
-        background-color: var(--secondary) !important;
-
-        &:hover {
-          background-color: var(--secondaryLight) !important;
-        }
       }
     }
   }
