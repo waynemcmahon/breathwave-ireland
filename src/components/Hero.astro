@@ -9,6 +9,7 @@ import mobileUrl from "../assets/images/hero/hero-mobile-x1.jpg";
 import mobileUrlx2 from "../assets/images/hero/hero-mobile-x2.jpg";
 import desktopUrl from "../assets/images/hero/hero-desktop-x1.jpg";
 import desktopUrlx2 from "../assets/images/hero/hero-desktop-x2.jpg";
+import desktopUrlx3 from "../assets/images/hero/hero-desktop-x3.jpg";
 import thumbnail from "../assets/images/hero/thumbnail.jpg";
 
 const mobileImage = await getImage({
@@ -30,12 +31,20 @@ const mobileImagex2 = await getImage({
 const desktopImage = await getImage({
   src: desktopUrl,
   format: "avif",
-  width: 1920,
+  width: 1300,
   height: 1080,
   loading: "eager",
 });
 
 const desktopImagex2 = await getImage({
+  src: desktopUrlx2,
+  format: "avif",
+  width: 1920,
+  height: 1080,
+  loading: "eager",
+});
+
+const desktopImagex3 = await getImage({
   src: desktopUrlx2,
   format: "avif",
   width: 1920,
@@ -109,6 +118,11 @@ const desktopImagex2 = await getImage({
         media="(min-width: 1300px) and (min-resolution: 192dpi)"
         type="image/avif"
       />
+      <!--  <source
+        srcset={desktopImagex3.src}
+        media="(min-width: 1300px) and (min-resolution: 192dpi)"
+        type="image/avif"
+      /> -->
       <Image
         src={mobileImage.src}
         alt="Descriptive alt text"
@@ -124,7 +138,7 @@ const desktopImagex2 = await getImage({
     @media only screen and (min-width: 0rem) {
       #hero-997 {
         /* 200px - 300px - leaving extra space for the navigation */
-        padding: clamp(12.5rem, 25.95vw, 15.75rem) (16/16rem) 0;
+        padding: clamp(12.5rem, 25.95vw, 16.75rem) (16/16rem) 0;
         background-position: top;
         background-size: cover;
         /* 100px - 250px */
@@ -201,7 +215,7 @@ const desktopImagex2 = await getImage({
 
         .cs-title {
           /* 39px - 80px */
-          font-size: clamp(2.4375rem, 6.4vw, 5rem);
+          font-size: clamp(2.4375rem, 6.4vw, 4rem);
           font-weight: 900;
           line-height: 1.2em;
           text-align: left;
@@ -218,7 +232,7 @@ const desktopImagex2 = await getImage({
 
         .cs-text {
           /* 16px - 20px */
-          font-size: clamp(1rem, 1.95vw, 1.25rem);
+          font-size: clamp(1rem, 1.95vw, 1rem);
           text-wrap: balance;
           line-height: 1.5em;
           text-align: left;
