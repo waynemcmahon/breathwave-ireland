@@ -6,9 +6,9 @@ import { Picture } from "astro:assets";
 import phone from "@assets/icons/phone-gold.svg";
 import pin from "@assets/icons/pin-gold.svg";
 import clock from "@assets/icons/clock-gold.svg";
-
+import Button from "@components/ui/button.astro";
 import { getOptimizedImage } from "@libs/utils";
-import landingImage from "@assets/images/contact/outsidePub.jpg";
+import landingImage from "@assets/images/landing.jpg";
 const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
@@ -22,7 +22,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
     <div class="cs-container">
       <div class="cs-content">
         <span class="cs-topper">Contact Us</span>
-        <h2 class="cs-title">Ask Us Anything!</h2>
+        <h2 class="cs-title">For any questions or bookings</h2>
         <form
           class="cs-form"
           id="cs-form-322"
@@ -75,9 +75,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
               id="message-322"
               placeholder="Write message..."></textarea>
           </label>
-          <button class="cs-button-solid cs-submit" type="submit"
-            >Send Message</button
-          >
+          <Button type="submit" text="Send Message" />
           <div id="result"></div>
         </form>
       </div>

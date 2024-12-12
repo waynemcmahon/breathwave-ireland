@@ -4,7 +4,7 @@ import { z, defineCollection } from "astro:content";
 // In order to be able to optimize images with Astro built-in compoments, like <Image />, we first must use this image helper 
 // Doc: https://docs.astro.build/en/guides/images/#images-in-content-collections
 
-const blogsCollection = defineCollection({
+const eventsCollection = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
 		z.object({
@@ -12,12 +12,14 @@ const blogsCollection = defineCollection({
 			description: z.string(),
 			author: z.string(),
 			date: z.date(),
-            tags: z.array(z.string()),
+			price: z.number(),
+			paymentLink: z.string(),
 			image: image(),
 			imageAlt: z.string(),
+			tags: z.array(z.string()),
 		}),
 });
 
 export const collections = {
-	blog: blogsCollection,
+	events: eventsCollection,
 };
