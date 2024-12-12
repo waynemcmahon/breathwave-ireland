@@ -9,7 +9,6 @@ import mobileUrl from "../assets/images/hero/hero-mobile-x1.jpg";
 import mobileUrlx2 from "../assets/images/hero/hero-mobile-x2.jpg";
 import desktopUrl from "../assets/images/hero/hero-desktop-x1.jpg";
 import desktopUrlx2 from "../assets/images/hero/hero-desktop-x2.jpg";
-import desktopUrlx3 from "../assets/images/hero/hero-desktop-x3.jpg";
 import thumbnail from "../assets/images/hero/thumbnail.jpg";
 
 const mobileImage = await getImage({
@@ -37,14 +36,6 @@ const desktopImage = await getImage({
 });
 
 const desktopImagex2 = await getImage({
-  src: desktopUrlx2,
-  format: "avif",
-  width: 1920,
-  height: 1080,
-  loading: "eager",
-});
-
-const desktopImagex3 = await getImage({
   src: desktopUrlx2,
   format: "avif",
   width: 1920,

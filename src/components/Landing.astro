@@ -63,7 +63,6 @@ const { title, image } = Astro.props;
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    object-position: 0 -350px;
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -102,6 +101,18 @@ const { title, image } = Astro.props;
             min-height: (440/16rem);
             background-attachment: fixed;
             padding-block-end: (100/16rem);
+
+            img {
+                object-position: 0 -150px;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 70em) {
+        #int-hero {
+            img {
+                object-position: 0 -320px;
+            }
         }
     }
 </style>
