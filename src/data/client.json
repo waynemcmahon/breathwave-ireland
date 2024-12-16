@@ -20,5 +20,6 @@
 		"title": "Breathwave Ireland",
 		"description": "Discover the Power of Your Breath"
 	},
-	"membersUrl": "https://members.breathwaveireland.com"
+	"membersUrl": "https://members.breathwaveireland.com",
+	"giftCardUrl": "https://buy.stripe.com/bIYcOsejIfNn50cbIP"
 }

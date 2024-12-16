@@ -28,8 +28,9 @@
     ]
   },
   {
-    "key": "Bookings",
-    "url": "/bookings/"
+    "key": "Gift Card",
+    "url": "https://buy.stripe.com/bIYcOsejIfNn50cbIP",
+    "target": "_blank"
   },
   {
     "key": "Members",
