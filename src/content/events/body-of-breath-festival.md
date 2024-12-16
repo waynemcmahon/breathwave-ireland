@@ -10,7 +10,7 @@ date: 2024-08-17T10:00:00.000Z
 price: 125
 paymentLink: "#"
 imageAlt: Body of Breath Festival at the Tipis
-venue: The Tipis – Abbey Court Hotel, Nenagh, Co Tipperary
+location: The Tipis – Abbey Court Hotel, Nenagh, Co Tipperary
 image: src/assets/images/events/croppedimage1140650-tipi-interior.jpg
 tags:
   - event

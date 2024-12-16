@@ -5,7 +5,7 @@ backend:
 local_backend: true
 media_folder: src/assets/images/events # Location where files will be stored in the repo - we store them in src so that Astro can optimize them.
 public_folder: src/assets/images/events  # Ensure that this path is the same as the media_folder path above.
-site_url: https://intermediate-astro-kit-decap-cms.netlify.app/ # Displays a link to home page in the top-right corner of the CMS dashboard
+site_url: https://breathwaveireland.com/ # Displays a link to home page in the top-right corner of the CMS dashboard
 
 collections:
   - name: "events"
@@ -23,3 +23,4 @@ collections:
       - { label: "Image Caption", name: "imageAlt", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", default: ["events"] }
+      - { label: "Location", name: "location", widget: "string" }

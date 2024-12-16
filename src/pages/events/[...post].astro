@@ -6,6 +6,7 @@ import { formatDate } from "@libs/utils.js";
 import Landing from "@components/Landing.astro";
 import FeaturedPost from "@components/FeaturedPost.astro";
 import "@styles/blog.less";
+import Button from "@components/ui/button.astro";
 
 // Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
 import { getOptimizedImage } from "@libs/utils";
@@ -21,7 +22,17 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { title, date, description, image, imageAlt, author } = post.data;
+const {
+  title,
+  date,
+  description,
+  image,
+  imageAlt,
+  author,
+  location,
+  price,
+  paymentLink,
+} = post.data;
 const socialShareImageUrl = await getOptimizedImage(image);
 const { Content } = await post.render();
 ---
@@ -49,23 +60,24 @@ const { Content } = await post.render();
         <div class="article-group">
           <h1 class="blog-h1">{title}</h1>
           <div class="blog-authorGroup">
-            <!--Author Image-->
-            <picture class="blog-author-img">
-              <img
-                src="/assets/svgs/profile.svg"
-                alt="house"
-                width="32"
-                height="32"
-                decoding="async"
-              />
-            </picture>
-            <span class="blog-author">{author}</span>
+            <!-- Location -->
+            {location && <p class="blog-date">{location}</p>}
+            <span aria-hidden="true" class="blog-dot"></span>
+            <!-- Price -->
+            {price && <p class="blog-date">€{price}</p>}
             <span aria-hidden="true" class="blog-dot"></span>
             <!--Blog Date-->
-            <span class="blog-date">{formatDate(date)}</span>
+            {date && <span class="blog-date">{formatDate(date)}</span>}
           </div>
         </div>
         <section id="blog-content">
+          {
+            paymentLink && (
+              <div class="flex justify-center items-center pb-8">
+                <Button href={paymentLink} text="Book Now" />
+              </div>
+            )
+          }
           <Content />
         </section>
       </article>

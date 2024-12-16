@@ -12,11 +12,12 @@ const eventsCollection = defineCollection({
 			description: z.string(),
 			author: z.string(),
 			date: z.date(),
-			price: z.number(),
-			paymentLink: z.string(),
+			price: z.number().optional(),
+			paymentLink: z.string().optional(),
 			image: image(),
 			imageAlt: z.string(),
 			tags: z.array(z.string()),
+			location: z.string().optional(),
 		}),
 });
 
