@@ -1,0 +1,102 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import Landing from "@components/Landing.astro";
+import { getOptimizedImage } from "@libs/utils";
+import landingImage from "@assets/images/landing.jpg";
+import Testimonial from "@components/Testimonial.astro";
+import { YouTube } from "astro-embed";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+    title="Testimonials | Breathwave Ireland"
+    description="Read what others have to say about their experiences with Breathwave Ireland"
+    preloadedImage={optimizedImage}
+>
+    <Landing title="Testimonials" image={landingImage} />
+
+    <div class="main-content-wrapper">
+        <div class="testimonials-container">
+            <div class="testimonials-grid">
+                <!-- Video Testimonials -->
+                <div class="video-testimonials">
+                    <h2>Video Testimonials</h2>
+                    <div class="video-grid">
+                        <div class="video-wrapper">
+                            <YouTube
+                                id="https://www.youtube.com/watch?v=mu7R0PTOvVw"
+                            />
+                        </div>
+                        <div class="video-wrapper">
+                            <YouTube
+                                id="https://www.youtube.com/watch?v=7_7Qzfv52ZY"
+                            />
+                        </div>
+                        <div class="video-wrapper">
+                            <YouTube
+                                id="https://www.youtube.com/watch?v=XHwQrCVOX8I"
+                            />
+                        </div>
+                        <div class="video-wrapper">
+                            <YouTube
+                                id="https://www.youtube.com/watch?v=W6U2QtYPdt4"
+                            />
+                        </div>
+                        <!-- Add more video testimonials as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <Testimonial showWatchTestimonials={false} />
+    </div>
+</BaseLayout>
+
+<style lang="less">
+    .testimonials-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .testimonials-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: var(--color-text);
+    }
+
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .video-wrapper {
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        :global(lite-youtube) {
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .testimonials-container {
+            padding: 1rem;
+        }
+
+        .video-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

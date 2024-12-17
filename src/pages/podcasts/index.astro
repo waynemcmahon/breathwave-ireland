@@ -1,0 +1,264 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import CTA from "@components/CTA.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { formatDate } from "@libs/utils.js";
+import Landing from "@components/Landing.astro";
+import "@styles/blog.less";
+
+const podcasts = await getCollection("podcasts");
+podcasts.sort(
+    (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
+);
+
+import { getOptimizedImage } from "@libs/utils";
+import landingImage from "@assets/images/landing.jpg";
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+    title="Breathwave Podcast"
+    description="Listen to the latest episodes of the Breathwave Podcast"
+    preloadedImage={optimizedImage}
+>
+    <Landing title="Podcasts" image={landingImage} />
+    <div class="podcast-container main-content-wrapper">
+        <div class="main-content">
+            {podcasts.length === 0 && <h1>No Podcasts Available</h1>}
+            {
+                podcasts.length >= 1 &&
+                    podcasts.map((podcast) => (
+                        <a
+                            href={`/podcasts/${podcast.slug}`}
+                            class="podcast-item"
+                        >
+                            <div class="podcast-image-container">
+                                {podcast.data.image && (
+                                    <Image
+                                        src={podcast.data.image}
+                                        alt={podcast.data.imageAlt}
+                                        width="795"
+                                        height="400"
+                                        class="podcast-image max-w-full"
+                                    />
+                                )}
+                                <div class="podcast-overlay">
+                                    <div class="podcast-info">
+                                        <h3 class="guest-name text-white">
+                                            {podcast.data.guest}
+                                        </h3>
+                                        <p class="guest-role text-white">
+                                            {podcast.data.role}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="podcast-content">
+                                <div class="play-button">
+                                    <div class="play-icon" />
+                                </div>
+                                <div class="text-content">
+                                    <h2 class="podcast-title">
+                                        {podcast.data.title}
+                                    </h2>
+                                    <p class="podcast-description">
+                                        {podcast.data.description}
+                                    </p>
+                                    <div class="podcast-meta">
+                                        <span class="podcast-date">
+                                            {formatDate(podcast.data.date)}
+                                        </span>
+                                        <span class="listen-text">
+                                            Listen to Episode
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    ))
+            }
+        </div>
+    </div>
+    <CTA />
+</BaseLayout>
+
+<style lang="less">
+    .podcast-container {
+        padding: var(--sectionPadding);
+        max-width: (795/16rem);
+        margin: 0 auto;
+    }
+
+    .podcast-item {
+        display: block;
+        margin-bottom: 4rem;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.3s ease;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            .podcast-image {
+                transform: scale(1.05);
+            }
+
+            .play-button {
+                filter: brightness(0.8);
+            }
+
+            .podcast-title {
+                color: var(--primary);
+            }
+
+            .listen-text {
+                text-decoration: underline;
+                color: var(--primary);
+            }
+        }
+    }
+
+    .podcast-image-container {
+        position: relative;
+        border-radius: 1rem;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+
+        &:hover .podcast-image {
+            transform: scale(1.05);
+        }
+    }
+
+    .podcast-image {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+        display: block;
+    }
+
+    .podcast-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        padding: 2rem;
+    }
+
+    .podcast-info {
+        text-align: left;
+        color: white;
+    }
+
+    .guest-name {
+        font-size: 1.75rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    .guest-role {
+        font-size: 1.125rem;
+        opacity: 0.9;
+    }
+
+    .podcast-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .play-button {
+        background-color: var(--secondary);
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+
+    .play-icon {
+        width: 0;
+        height: 0;
+        border-top: 6px solid transparent;
+        border-left: 12px solid black;
+        border-bottom: 6px solid transparent;
+        margin-left: 2px;
+    }
+
+    .text-content {
+        flex-grow: 1;
+    }
+
+    .podcast-title {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 0.75rem;
+        line-height: 1.3;
+        transition: color 0.3s ease;
+    }
+
+    .podcast-description {
+        font-size: 1.125rem;
+        color: var(--bodyTextColor);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .podcast-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .podcast-date {
+        color: var(--bodyTextColor);
+    }
+
+    .listen-text {
+        color: var(--primary);
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .podcast-item {
+            margin-bottom: 2rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .guest-name {
+            font-size: 1.5rem;
+        }
+
+        .guest-role {
+            font-size: 1rem;
+        }
+
+        .podcast-title {
+            font-size: 1.25rem;
+        }
+
+        .podcast-description {
+            font-size: 1rem;
+        }
+
+        .podcast-meta {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+    }
+</style>

@@ -18,12 +18,17 @@ const { topDivderEnabled = true, bottomDivderEnabled = false } = Astro.props;
       <div class="h-2 w-28 bg-white mb-8"></div>
       <p class="cs-text">
         We're confident that Breathwave can make a difference in your life,
-        which is why we offer a 10-day free trial to experience the benefits
-        firsthand. If, after completing 10 days of sessions, you're not
-        completely satisfied, we provide a money-back guarantee—no questions
-        asked.
+        which is why we offer a 7-day free trial to experience the benefits
+        firsthand.
       </p>
-      <Button href="/menu" text="Start 10-Day Free Trial" />
+      <p class="cs-text">
+        If, after completing 7 days of sessions, you're not completely
+        satisfied, we provide a money-back guarantee—no questions asked.
+      </p>
+      <Button
+        href="https://members.breathwaveireland.com/"
+        text="Start Free Trial"
+      />
     </div>
     {bottomDivderEnabled && <DividerBottom color="#f1f2f6" />}
   </div>

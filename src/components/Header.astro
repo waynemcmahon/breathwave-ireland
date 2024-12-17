@@ -7,6 +7,7 @@ import logoLight from "@assets/images/logo_light.png";
 import FacebookIcon from "@assets/icons/facebook.astro";
 import InstagramIcon from "@assets/icons/instagram.astro";
 import MailIcon from "@assets/icons/mail.astro";
+import YoutubeIcon from "@assets/icons/youtube.astro";
 ---
 
 <div id="navigation">
@@ -59,14 +60,14 @@ import MailIcon from "@assets/icons/mail.astro";
         }
         <div class="divider h-[20px] !ml-8 w-[1px] bg-white hidden lg:block">
         </div>
-        <li class="text-foreground hover:text-primary lg:pl-4 lg:ml-4">
+        <!-- <li class="text-foreground hover:text-primary lg:pl-4 lg:ml-4">
           <a
             href="/contact"
             class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
           >
             <MailIcon />
           </a>
-        </li>
+        </li> -->
         {
           clientData.instagram && (
             <li class="text-foreground hover:text-primary lg:ml-4">
@@ -89,6 +90,19 @@ import MailIcon from "@assets/icons/mail.astro";
                 class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
               >
                 <FacebookIcon />
+              </a>
+            </li>
+          )
+        }
+        {
+          clientData.youtube && (
+            <li class="flex items-center text-foreground hover:text-primary ml-4">
+              <a
+                href={clientData.youtube}
+                target="_blank"
+                class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
+              >
+                <YoutubeIcon />
               </a>
             </li>
           )
