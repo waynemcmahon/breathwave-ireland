@@ -74,6 +74,7 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
               <a
                 href={clientData.instagram}
                 target="_blank"
+                aria-label="instagram"
                 class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
               >
                 <InstagramIcon />
@@ -87,6 +88,7 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
               <a
                 href={clientData.facebook}
                 target="_blank"
+                aria-label="facebook"
                 class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
               >
                 <FacebookIcon />
@@ -100,6 +102,7 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
               <a
                 href={clientData.youtube}
                 target="_blank"
+                aria-label="youtube"
                 class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
               >
                 <YoutubeIcon />
@@ -377,7 +380,7 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
       position: absolute;
       display: block;
       height: 0.25rem;
-      background: var(--secondary);
+      background: var(--primary);
       opacity: 1;
       bottom: -0.25rem;
       border-radius: 0.25rem;
@@ -495,7 +498,7 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
       transition: height 0.3s;
     }
     #navigation .container {
-      max-width: 75rem;
+      max-width: 80rem;
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -509,12 +512,6 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
       width: auto;
       height: 100%;
     }
-    /* #navigation #navbar-menu {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    } */
     #navigation #navbar-menu ul {
       padding: 0;
       display: flex;
@@ -540,7 +537,7 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
       display: block;
       height: 0.25rem;
       border-radius: 0.1875rem;
-      background: var(--secondary);
+      background: var(--primary);
       opacity: 1;
       bottom: -0.4375rem;
       z-index: -1;
@@ -557,7 +554,7 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
       display: block;
       width: 100%;
       height: 0.25rem;
-      background: var(--secondary);
+      background: var(--primary);
       opacity: 1;
       bottom: -0.4375rem;
       border-radius: 0.1875rem;
@@ -626,14 +623,7 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
 </style>
 
 <script defer="">
-  //const isSuppliers = window.location.pathname === "/suppliers/";
-  //if (isSuppliers) {
-  //  document.querySelector("body").classList.add("scroll");
-  //}
-  // Add scroll listener for all other pages
   document.addEventListener("scroll", (e) => {
-    // Skip scroll handling on suppliers page
-    //if (isSuppliers) return;
     const scroll = document.documentElement.scrollTop;
     if (scroll >= 100) {
       document.querySelector("body").classList.add("scroll");

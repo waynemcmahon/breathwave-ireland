@@ -1,0 +1,31 @@
+---
+const thumbnail = "/assets/images/hero/hero.jpg";
+import { Image } from "astro:assets";
+---
+
+<div class="absolute top-0 right-4 sm:-top-4 hidden sm:block">
+    <div
+        class="flex flex-row gap-4 items-center cursor-pointer hover:scale-105 transition-all duration-300 watch-intro-button"
+    >
+        <span class="text-white hidden sm:block">Watch Introduction</span>
+        <div class="relative flex items-center justify-center w-auto">
+            <div
+                class="bg-secondary rounded-full w-6 h-6 flex items-center justify-center -mr-4 z-10 sm:w-7 sm:h-7"
+            >
+                <div
+                    class="w-0 h-0 border-t-[3px] border-t-transparent border-l-[6px] border-l-black border-b-[3px] border-b-transparent ml-0.5"
+                >
+                </div>
+            </div>
+            <div class="relative">
+                <Image
+                    src={thumbnail}
+                    alt="thumbnail"
+                    width={70}
+                    height={70}
+                    class="rounded-full border-2 w-12 h-12 sm:w-16 sm:h-16"
+                />
+            </div>
+        </div>
+    </div>
+</div>
