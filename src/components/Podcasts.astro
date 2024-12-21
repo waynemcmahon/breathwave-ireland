@@ -9,7 +9,8 @@ const podcasts = [
         image: podcast1,
         guest: "Savanna Jones",
         role: "Founder of Breathwave",
-        description: "Join us as we explore the power of vocal resonance and its impact on breathing techniques.",
+        description:
+            "Join us as we explore the power of vocal resonance and its impact on breathing techniques.",
         href: "/podcasts/savanna-jones",
     },
     {
@@ -17,7 +18,8 @@ const podcasts = [
         image: podcast2,
         guest: "Emily and James Parker",
         role: "Teacher and Graphic Designer",
-        description: "Learn how breathing exercises can strengthen relationships and create deeper connections.",
+        description:
+            "Learn how breathing exercises can strengthen relationships and create deeper connections.",
         href: "/podcasts/emily-and-james-parker",
     },
 ];
@@ -32,7 +34,7 @@ const podcasts = [
         <div class="podcast-list">
             {
                 podcasts.map((podcast) => (
-                    <a href={podcast.href} class="podcast-item group">
+                    <a href={podcast.href} class="podcast-item">
                         <div class="podcast-image-container">
                             <Picture
                                 src={podcast.image}
@@ -53,7 +55,9 @@ const podcasts = [
                             </div>
                             <div class="text-content">
                                 <p class="podcast-title">{podcast.title}</p>
-                                <p class="podcast-description">{podcast.description}</p>
+                                <p class="podcast-description">
+                                    {podcast.description}
+                                </p>
                             </div>
                         </div>
                     </a>
@@ -91,7 +95,9 @@ const podcasts = [
                 overflow: hidden;
 
                 &:hover .podcast-image {
-                    transform: scale(1.05);
+                    transform: scale(1.03);
+                    filter: brightness(0.95);
+                    transition: all 0.6s ease;
                 }
             }
 
@@ -106,7 +112,11 @@ const podcasts = [
                 bottom: 0;
                 left: 0;
                 right: 0;
-                background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+                background: linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.7),
+                    transparent
+                );
                 padding: 2rem;
             }
 
@@ -119,11 +129,13 @@ const podcasts = [
                 font-size: 1.5rem;
                 font-weight: 500;
                 margin-bottom: 0.5rem;
+                color: white;
             }
 
             .guest-role {
                 font-size: 1rem;
                 opacity: 0.9;
+                color: white;
             }
 
             .podcast-content {
@@ -142,10 +154,10 @@ const podcasts = [
                 align-items: center;
                 justify-content: center;
                 flex-shrink: 0;
-                transition: background-color 0.3s ease;
+                transition: all 0.3s ease;
 
                 &:hover {
-                    background-color: var(--primary);
+                    filter: brightness(0.8);
                 }
             }
 

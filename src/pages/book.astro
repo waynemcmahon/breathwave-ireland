@@ -1,0 +1,576 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import client from "@data/client.json";
+import Landing from "@components/Landing.astro";
+import { Picture } from "astro:assets";
+import Button from "@components/ui/button.astro";
+import phone from "@assets/icons/phone-gold.svg";
+import pin from "@assets/icons/pin-gold.svg";
+import clock from "@assets/icons/clock-gold.svg";
+import { getOptimizedImage } from "@libs/utils";
+import landingImage from "@assets/images/landing.jpg";
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+    title="Book a Session"
+    description="Book a session with Ronan at Breathwave Ireland. Choose from one-to-one breathwork sessions, body somatic therapy, or Kambo ceremonies."
+    preloadedImage={optimizedImage}
+>
+    <Landing title="Book a Session" image={landingImage} />
+    <section id="booking-322">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Book Your Session</span>
+                <h2 class="cs-title">How to Work with Me</h2>
+
+                <div class="cs-service-cards">
+                    <div class="cs-card">
+                        <h3>One-to-One Breathwave Sessions</h3>
+                        <p>
+                            Whether you are starting out or looking to deepen
+                            your practice, these sessions start with a
+                            consultation followed by a full breath session. A
+                            powerful way to uncover the 'issues in the tissues'
+                            by attending to emotional insight and alignment.
+                        </p>
+                        <div class="cs-card-details">
+                            <span>Duration: 100 minutes</span>
+                            <span>Cost: €100</span>
+                        </div>
+                    </div>
+
+                    <div class="cs-card">
+                        <h3>Body Somatic Therapy</h3>
+                        <p>
+                            These somatic sessions are uniquely tailored to meet
+                            your body where it is currently at, determining the
+                            level of somatic input required to support the
+                            body/mind connection.
+                        </p>
+                        <div class="cs-card-details">
+                            <span>Duration: 90 minutes</span>
+                            <span>Cost: €100</span>
+                        </div>
+                    </div>
+
+                    <div class="cs-card">
+                        <h3>Kambo Ceremony</h3>
+                        <p>
+                            A powerful frog medicine from the Amazon basin used
+                            to cleanse physical, emotional, and energetic
+                            imbalances. Sessions require signed informed consent
+                            and include consultation, ceremony, and integration
+                            time.
+                        </p>
+                        <div class="cs-card-details">
+                            <span>Duration: 2 hours</span>
+                            <span>Cost: €140</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form
+                    class="cs-form"
+                    id="cs-form-322"
+                    method="POST"
+                    data-netlify="true"
+                    name="booking"
+                >
+                    <input type="hidden" name="form-name" value="booking" />
+                    <input
+                        type="checkbox"
+                        name="botcheck"
+                        style="display: none;"
+                    />
+
+                    <label class="cs-label">
+                        Name
+                        <input
+                            class="cs-input"
+                            required
+                            type="text"
+                            id="name-322"
+                            name="name"
+                            placeholder="Your full name"
+                        />
+                    </label>
+                    <label class="cs-label cs-email">
+                        Email
+                        <input
+                            class="cs-input"
+                            required
+                            type="email"
+                            id="email-322"
+                            name="email"
+                            placeholder="Your email address"
+                        />
+                    </label>
+                    <label class="cs-label cs-phone">
+                        Phone
+                        <input
+                            class="cs-input"
+                            required
+                            type="text"
+                            id="phone-322"
+                            name="phone"
+                            placeholder="Your phone number"
+                        />
+                    </label>
+                    <label class="cs-label">
+                        Session Type
+                        <select
+                            class="cs-input"
+                            required
+                            id="session-type-322"
+                            name="session-type"
+                        >
+                            <option value="">Select a session type</option>
+                            <option value="breathwave"
+                                >One-to-One Breathwave Session (€100)</option
+                            >
+                            <option value="somatic"
+                                >Body Somatic Therapy (€100)</option
+                            >
+                            <option value="kambo">Kambo Ceremony (€140)</option>
+                        </select>
+                    </label>
+                    <label class="cs-label">
+                        Preferred Date
+                        <input
+                            class="cs-input"
+                            required
+                            type="date"
+                            id="date-322"
+                            name="preferred-date"
+                        />
+                    </label>
+                    <label class="cs-label">
+                        Preferred Time
+                        <select
+                            class="cs-input"
+                            required
+                            id="time-322"
+                            name="preferred-time"
+                        >
+                            <option value="">Select preferred time</option>
+                            <option value="morning"
+                                >Morning (9:00 - 12:00)</option
+                            >
+                            <option value="afternoon"
+                                >Afternoon (12:00 - 17:00)</option
+                            >
+                            <option value="evening"
+                                >Evening (17:00 - 20:00)</option
+                            >
+                        </select>
+                    </label>
+                    <label class="cs-label">
+                        Additional Information
+                        <textarea
+                            class="cs-input cs-textarea"
+                            name="message"
+                            id="message-322"
+                            placeholder="Please share any relevant information about your experience or specific concerns..."
+                        ></textarea>
+                    </label>
+                    <Button type="submit" text="Request Booking" />
+                    <div id="result"></div>
+                </form>
+            </div>
+            <div class="cs-right">
+                <picture class="cs-map">
+                    <div style="width: 100%">
+                        <!-- <Picture
+              src={map}
+              alt="map"
+              formats={["avif", "webp"]}
+              width="100%"
+              height="100%"
+            /> -->
+                        <iframe
+                            width="100%"
+                            title="Map of Anne's Coffee Bar"
+                            height="425"
+                            style="border:0;"
+                            allowfullscreen=""
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Ashe%E2%80%99s%20Coffee%20Bar+(Anne's%20Coffee%20Bar)&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                        ></iframe>
+                    </div>
+                </picture>
+                <ul class="cs-contact-group">
+                    <li class="cs-item">
+                        <span class="cs-header">
+                            <Picture
+                                src={phone}
+                                alt="phone"
+                                formats={["avif", "webp"]}
+                                class="cs-icon"
+                                aria-hidden="true"
+                                width="20"
+                                height="20"
+                            />
+                            Phone
+                        </span>
+                        <a href={client.phoneForTel} class="cs-link">
+                            {client.phoneForTel}
+                        </a>
+                    </li>
+                    <li class="cs-item">
+                        <span class="cs-header">
+                            <Picture
+                                src={pin}
+                                alt="pin"
+                                formats={["avif", "webp"]}
+                                class="cs-icon"
+                                aria-hidden="true"
+                                width="20"
+                                height="20"
+                            />
+                            Address
+                        </span>
+                        <a
+                            href={client.address.mapLink}
+                            target="_blank"
+                            class="cs-link"
+                        >
+                            {client.address.lineOne}, {client.address.city}<br
+                            />
+                            {client.address.zip}, Ireland
+                        </a>
+                    </li>
+                    <li class="cs-item">
+                        <span class="cs-header">
+                            <Picture
+                                src={clock}
+                                alt="clock"
+                                formats={["avif", "webp"]}
+                                class="cs-icon"
+                                aria-hidden="true"
+                                width="20"
+                                height="20"
+                            />
+                            Our Hours
+                        </span>
+                        <span class="cs-hours">{client.openingHours.days}</span>
+                        <span class="cs-hours">{client.openingHours.hours}</span
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<script>
+    const form = document.getElementById("cs-form-322") as HTMLFormElement;
+    const message = document.getElementById("result");
+
+    form?.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(form as HTMLFormElement);
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData as any).toString(),
+        })
+            .then(() => {
+                if (message) {
+                    message.classList.add("submitted");
+                    message.textContent =
+                        "Your booking request has been sent! We will contact you shortly to confirm your appointment.";
+                }
+                form.reset();
+            })
+            .catch((error) => {
+                if (message) {
+                    message.classList.add("error");
+                    message.textContent = `Submission failed: ${error}`;
+                }
+            });
+    });
+</script>
+
+<style lang="less">
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #booking-322 {
+            padding: var(--sectionPadding);
+            position: relative;
+            z-index: 1;
+
+            .cs-container {
+                width: 100%;
+                max-width: (550/16em);
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: (52/16rem);
+            }
+
+            .cs-content {
+                text-align: left;
+                width: 100%;
+            }
+
+            .cs-service-cards {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .cs-card {
+                background: #f7f7f7;
+                padding: 1.5rem;
+                border-radius: 0.5rem;
+                border-left: 4px solid var(--primary);
+
+                h3 {
+                    color: var(--primary);
+                    margin-bottom: 0.5rem;
+                }
+
+                p {
+                    margin-bottom: 1rem;
+                }
+
+                .cs-card-details {
+                    display: flex;
+                    justify-content: space-between;
+                    color: var(--headerColor);
+                    font-weight: bold;
+                }
+            }
+
+            .cs-map {
+                width: 100%;
+                /* 300px - 425px */
+                height: clamp(18.75rem, 63.4vw, 26.5625rem);
+                border-radius: (24/16rem);
+                /* clips the corners of the img tag */
+                overflow: hidden;
+                position: relative;
+                display: block;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .cs-contact-group {
+                padding: 0;
+                margin: 0;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+
+                .cs-item {
+                    text-align: center;
+
+                    .cs-header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0.5rem;
+                        margin-bottom: 0.5rem;
+                        color: var(--secondaryLight);
+                    }
+
+                    .cs-link,
+                    .cs-hours {
+                        color: #fff;
+                        text-decoration: none;
+                        display: block;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+            .cs-form {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: (12/16rem);
+            }
+
+            .cs-label {
+                font-size: clamp(0.875rem, 1.5vw, 1rem);
+                width: 100%;
+                color: var(--headerColor);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: (4/16rem);
+            }
+
+            .cs-input {
+                font-size: (16/16rem);
+                width: 100%;
+                height: (56/16rem);
+                padding: 0;
+                padding-left: (24/16rem);
+                border-radius: (8/16rem);
+                color: var(--headerColor);
+                background-color: #f7f7f7;
+                border: none;
+                box-sizing: border-box;
+                &::placeholder {
+                    color: #7d799c;
+                    opacity: 0.6;
+                }
+            }
+
+            .cs-textarea {
+                min-height: (120/16rem);
+                padding-top: (24/16rem);
+                margin-bottom: (12/16rem);
+                font-family: inherit;
+            }
+
+            #result.submitted {
+                border: 1px solid #919090;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                background-color: #ceffd6;
+                color: #30a530;
+            }
+
+            #result.error {
+                border: 1px solid #919090;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                background-color: #ffd6d6;
+                color: #a53030;
+            }
+
+            .cs-right {
+                width: 100%;
+                /* 16px - 24px */
+                padding: clamp(1rem, 3.5vw, 1.5rem);
+                border-radius: (24/16rem);
+                background-color: var(--primary);
+                display: flex;
+                /* prevents padding from adding to height and width */
+                box-sizing: border-box;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                /* 24px - 32px */
+                gap: clamp(1.5rem, 4vw, 2rem);
+            }
+
+            .cs-info-group {
+                width: 100%;
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+
+                .cs-info-item {
+                    h3 {
+                        color: var(--secondaryLight);
+                        margin-bottom: 0.5rem;
+                    }
+
+                    ul {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+
+                        li {
+                            margin-bottom: 0.5rem;
+                            position: relative;
+                            padding-left: 1.5rem;
+
+                            &:before {
+                                content: "•";
+                                color: var(--secondaryLight);
+                                position: absolute;
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Tablet - 650px */
+    @media only screen and (min-width: 40.625rem) {
+        #booking-322 {
+            .cs-service-cards {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                .cs-card {
+                    width: calc(50% - 0.75rem);
+                }
+            }
+
+            .cs-email,
+            .cs-phone {
+                width: 48%;
+            }
+        }
+    }
+
+    /* Small Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #booking-322 {
+            .cs-container {
+                max-width: (1280/16rem);
+                flex-direction: row;
+                justify-content: space-between;
+                gap: (52/16rem);
+            }
+
+            .cs-content {
+                max-width: (522/16rem);
+            }
+
+            .cs-service-cards {
+                .cs-card {
+                    width: 100%;
+                }
+            }
+
+            .cs-title,
+            .cs-topper {
+                text-align: left;
+                margin-left: 0;
+            }
+
+            .cs-right {
+                width: 51.6%;
+                max-width: (658/16rem);
+                flex: none;
+            }
+        }
+    }
+
+    /* For mobile screens, stack the items vertically */
+    @media only screen and (max-width: 40.625rem) {
+        .cs-contact-group {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

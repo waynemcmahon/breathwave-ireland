@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import landingImage from "@assets/images/landing.jpg";
+import Landing from "@components/Landing.astro";
+import { getOptimizedImage } from "@libs/utils";
+
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+    title="Terms & Conditions | Breathwave Ireland"
+    description="Meta description for the page"
+    preloadedImage={optimizedImage}
+>
+    <Landing title="Terms & Conditions" image={landingImage} />
+
+    <div class="mx-auto max-w-3xl py-16">
+        <h2 class="text-2xl font-bold mb-4">Money-Back Guarantee Terms</h2>
+
+        <div class="prose prose-slate max-w-none">
+            <p class="mb-4">
+                At Breathwave Ireland, we stand behind the quality of our
+                service and offer a money-back guarantee subject to the
+                following conditions:
+            </p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">
+                Eligibility Requirements
+            </h3>
+            <ul class="list-disc pl-6 mb-6">
+                <li>
+                    Participants must complete a minimum of 10 hours on the
+                    Breathwave platform within a four-week period from the start
+                    of their membership.
+                </li>
+                <li>
+                    The 10-hour requirement must be fulfilled within the first
+                    four weeks of starting the membership.
+                </li>
+                <li>
+                    All completed sessions must be properly tracked through the
+                    platform.
+                </li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">
+                Session Tracking Requirements
+            </h3>
+            <ul class="list-disc pl-6 mb-6">
+                <li>
+                    For recorded sessions:
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>
+                            Participants must like and comment on each recording
+                            after listening
+                        </li>
+                        <li>
+                            This engagement helps us verify the completion of
+                            each session
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    For live sessions:
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>
+                            Attendance is tracked through the recorded
+                            attendance system
+                        </li>
+                        <li>
+                            Participants must use their real name on their
+                            profile for accurate tracking
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">Refund Process</h3>
+            <p class="mb-4">
+                If after completing the minimum 10 hours within the specified
+                timeframe, you are not satisfied with our service:
+            </p>
+            <ul class="list-disc pl-6 mb-6">
+                <li>
+                    You will be eligible for a refund of your monthly membership
+                    fee
+                </li>
+                <li>The refund will be processed with no questions asked</li>
+                <li>Contact our support team to initiate the refund process</li>
+            </ul>
+
+            <div class="bg-gray-100 p-4 rounded-lg mt-8">
+                <p class="text-sm text-gray-700">
+                    <strong>Note:</strong> The money-back guarantee is only valid
+                    when all conditions are met, including the completion of 10+
+                    hours within four weeks of membership start date and proper session
+                    tracking through the platform.
+                </p>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .prose ul > li > ul {
+        margin-top: 0.25rem;
+        margin-bottom: 0.5rem;
+    }
+</style>

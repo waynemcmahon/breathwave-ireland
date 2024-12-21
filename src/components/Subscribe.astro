@@ -22,21 +22,35 @@ import Button from "@components/ui/button.astro";
                 practitioners. Sign up now to get started!
             </p>
             <form
-                class="cs-form mt-4"
+                class="cs-form mt-4 max-w-xs"
                 name="Contact Form"
                 method="post"
-                id="cs-email-1692"
+                id="subscribe-form"
+                data-netlify="true"
             >
-                <input
-                    class="cs-input"
-                    type="email"
-                    name="email_address"
-                    placeholder="Enter your email"
-                    required
-                />
-                <Button text="Subscribe" type="submit" />
+                <div class="cs-input-group">
+                    <input
+                        class="cs-input"
+                        type="text"
+                        name="firstName"
+                        placeholder="First name"
+                        required
+                    />
+                    <input
+                        class="cs-input"
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    />
+                </div>
+                <Button text="Subscribe" type="submit" class="w-full" />
             </form>
-            <p id="success-message" class="cs-text mt-4" style="display: none;">
+            <p
+                id="success-message"
+                class="cs-text pt-4 max-w-xs"
+                style="display: none;"
+            >
                 Thank you for subscribing! Please check your email for the free
                 session.
             </p>
@@ -101,19 +115,25 @@ import Button from "@components/ui/button.astro";
 
             .cs-form {
                 width: 100%;
-                max-width: (632/16rem);
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 /* 8px - 20px */
                 gap: clamp(0.5rem, 2vw, 1.25rem);
             }
 
+            .cs-input-group {
+                display: flex;
+                flex-direction: column;
+                gap: clamp(0.5rem, 2vw, 1.25rem);
+                width: 100%;
+            }
+
             .cs-input {
                 font-size: (16/16rem);
                 width: 100%;
-                height: clamp(2.875rem, 5.5vw, 4rem);
+                height: clamp(3rem, 6.2vw, 4rem);
                 margin: 0;
                 /* prevents padding from adding to width and height */
                 box-sizing: border-box;
@@ -201,7 +221,7 @@ import Button from "@components/ui/button.astro";
     @media only screen and (min-width: 37.5rem) {
         #cta-1692 {
             .cs-form {
-                flex-direction: row;
+                flex-direction: column;
             }
         }
     }
@@ -209,10 +229,6 @@ import Button from "@components/ui/button.astro";
     /* Tablet - 768px */
     @media only screen and (min-width: 48rem) {
         #cta-1692 {
-            .cs-input {
-                width: (360/16rem);
-            }
-
             .cs-submit {
                 width: fit-content;
             }
@@ -258,38 +274,54 @@ import Button from "@components/ui/button.astro";
     }
 </style>
 
-<script>
-    const form = document.getElementById("cs-email-1692") as HTMLFormElement;
-    const successMessage = document.getElementById("success-message");
-    const errorMessage = document.getElementById("error-message");
+<!-- <script>
+    const form = document.querySelector("#subscribe-form") as HTMLFormElement;
+    const successMessage = document.querySelector("#success-message");
+    const errorMessage = document.querySelector("#error-message");
 
-    console.log(form);
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    form?.addEventListener("submit", function (event) {
-        event.preventDefault();
+        const formData = new FormData(form);
+        const email = formData.get("email");
+        const firstName = formData.get("firstName");
 
-        const formData = new FormData(form as HTMLFormElement);
+        console.log("email", email);
+        console.log("firstName", firstName);
 
-        fetch("https://api.kit.com/v4/forms/7462021/subscribe", {
-            method: "POST",
-            body: formData,
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/x-www-form-urlencoded",
-                Authorization:
-                    "Bearer FTWIytILe-beK-FmeQrrs6bH2pZiXfwhAs4zULH1JPY",
-            },
-        })
-            .then(() => {
+        try {
+            const response = await fetch("/api/subscribe", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                    firstName,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Subscription failed");
+            }
+
+            const data = await response.json();
+
+            if (data.success) {
                 if (successMessage) {
                     successMessage.style.display = "block";
+                    errorMessage!.style.display = "none";
                 }
                 form.reset();
-            })
-            .catch((error) => {
-                if (errorMessage) {
-                    errorMessage.style.display = "block";
-                }
-            });
+            } else {
+                throw new Error(data.error || "Subscription failed");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            if (errorMessage) {
+                errorMessage.style.display = "block";
+                successMessage!.style.display = "none";
+            }
+        }
     });
-</script>
+</script> -->
