@@ -26,7 +26,6 @@ import Button from "@components/ui/button.astro";
                 name="Contact Form"
                 method="post"
                 id="subscribe-form"
-                data-netlify="true"
             >
                 <div class="cs-input-group">
                     <input
@@ -274,10 +273,14 @@ import Button from "@components/ui/button.astro";
     }
 </style>
 
-<!-- <script>
+<script>
     const form = document.querySelector("#subscribe-form") as HTMLFormElement;
-    const successMessage = document.querySelector("#success-message");
-    const errorMessage = document.querySelector("#error-message");
+    const successMessage = document.querySelector(
+        "#success-message",
+    ) as HTMLElement;
+    const errorMessage = document.querySelector(
+        "#error-message",
+    ) as HTMLElement;
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -286,11 +289,8 @@ import Button from "@components/ui/button.astro";
         const email = formData.get("email");
         const firstName = formData.get("firstName");
 
-        console.log("email", email);
-        console.log("firstName", firstName);
-
         try {
-            const response = await fetch("/api/subscribe", {
+            const response = await fetch("/.netlify/functions/submit-to-kit", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -301,13 +301,9 @@ import Button from "@components/ui/button.astro";
                 }),
             });
 
-            if (!response.ok) {
-                throw new Error("Subscription failed");
-            }
-
             const data = await response.json();
 
-            if (data.success) {
+            if (response.ok) {
                 if (successMessage) {
                     successMessage.style.display = "block";
                     errorMessage!.style.display = "none";
@@ -324,4 +320,4 @@ import Button from "@components/ui/button.astro";
             }
         }
     });
-</script> -->
+</script>

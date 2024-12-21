@@ -1,28 +1,16 @@
 ---
 import { Picture } from "astro:assets";
 import Button from "@components/ui/button.astro";
-import podcast1 from "@assets/images/podcasts/podcast1.png";
-import podcast2 from "@assets/images/podcasts/podcast2.png";
-const podcasts = [
-    {
-        title: "Vocal Resonance with Savanna Jones",
-        image: podcast1,
-        guest: "Savanna Jones",
-        role: "Founder of Breathwave",
-        description:
-            "Join us as we explore the power of vocal resonance and its impact on breathing techniques.",
-        href: "/podcasts/savanna-jones",
-    },
-    {
-        title: "Strengthening Our Relationship",
-        image: podcast2,
-        guest: "Emily and James Parker",
-        role: "Teacher and Graphic Designer",
-        description:
-            "Learn how breathing exercises can strengthen relationships and create deeper connections.",
-        href: "/podcasts/emily-and-james-parker",
-    },
-];
+import { getCollection } from "astro:content";
+
+// Get all podcast entries and sort by date (assuming newest first)
+const allPodcasts = await getCollection("podcasts");
+const latestPodcasts = allPodcasts
+    .sort(
+        (a, b) =>
+            new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+    )
+    .slice(0, 2);
 ---
 
 <section id="podcasts">
@@ -33,19 +21,23 @@ const podcasts = [
         </div>
         <div class="podcast-list">
             {
-                podcasts.map((podcast) => (
-                    <a href={podcast.href} class="podcast-item">
-                        <div class="podcast-image-container">
+                latestPodcasts.map((podcast) => (
+                    <a href={`/podcasts/${podcast.slug}`} class="podcast-item">
+                        <div class="podcast-image-container h-[340px]">
                             <Picture
-                                src={podcast.image}
-                                alt={podcast.title}
+                                src={podcast.data.image}
+                                alt={podcast.data.title}
                                 formats={["avif", "webp"]}
                                 class="podcast-image"
                             />
                             <div class="podcast-overlay">
                                 <div class="podcast-info">
-                                    <h3 class="guest-name">{podcast.guest}</h3>
-                                    <p class="guest-role">{podcast.role}</p>
+                                    <h3 class="guest-name">
+                                        {podcast.data.guest}
+                                    </h3>
+                                    <p class="guest-role">
+                                        {podcast.data.role}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -54,9 +46,11 @@ const podcasts = [
                                 <div class="play-icon" />
                             </div>
                             <div class="text-content">
-                                <p class="podcast-title">{podcast.title}</p>
+                                <p class="podcast-title">
+                                    {podcast.data.title}
+                                </p>
                                 <p class="podcast-description">
-                                    {podcast.description}
+                                    {podcast.data.description}
                                 </p>
                             </div>
                         </div>
@@ -93,6 +87,8 @@ const podcasts = [
                 position: relative;
                 border-radius: 1rem;
                 overflow: hidden;
+                aspect-ratio: 16/9;
+                width: 100%;
 
                 &:hover .podcast-image {
                     transform: scale(1.03);
@@ -103,7 +99,8 @@ const podcasts = [
 
             .podcast-image {
                 width: 100%;
-                height: auto;
+                height: 100%;
+                object-fit: cover;
                 transition: transform 0.3s ease;
             }
 
@@ -117,7 +114,7 @@ const podcasts = [
                     rgba(0, 0, 0, 0.7),
                     transparent
                 );
-                padding: 2rem;
+                padding: 5rem 2rem 2rem 2rem;
             }
 
             .podcast-info {

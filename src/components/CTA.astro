@@ -26,100 +26,104 @@ const { topDivderEnabled = true, bottomDivderEnabled = false } = Astro.props;
         provide a money-back guarantee—no questions asked.
       </p>
       <p class="cs-text !text-xs mt-4">
-        *one session is equivalent to 60 minutes of breathwork.
+        *one session is equivalent to 60 minutes of breathwork.<a
+          href="/terms"
+          class="!text-xs underline">Terms & Conditions</a
+        >
       </p>
       <Button
         href="https://members.breathwaveireland.com/"
         text="Start Free Trial"
       />
-    </div>
-    {bottomDivderEnabled && <DividerBottom color="#f1f2f6" />}
-  </div>
-  <!-- Background Image-->
-  <div class="cs-picture">
-    <Picture src={ctaImg} alt="CTA" width={1920} height={1280} />
-  </div>
-</section>
 
-<style lang="less">
-  /*-- -------------------------- -->
+      {bottomDivderEnabled && <DividerBottom color="#f1f2f6" />}
+    </div>
+    <!-- Background Image-->
+    <div class="cs-picture">
+      <Picture src={ctaImg} alt="CTA" width={1920} height={1280} />
+    </div>
+  </div>
+
+  <style lang="less">
+    /*-- -------------------------- -->
 <---            CTA             -->
 <--- -------------------------- -*/
 
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0rem) {
-    #cta-51 {
-      padding: clamp(7.75rem, 10.82vw, 12.25rem) 1rem;
-      position: relative;
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+      #cta-51 {
+        padding: clamp(7.75rem, 10.82vw, 12.25rem) 1rem;
+        position: relative;
 
-      .cs-container {
-        width: 100%;
-        max-width: (1280/16rem);
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* 48px - 64px */
-        gap: clamp(3rem, 6vw, 4rem);
-      }
-
-      .cs-content {
-        /* set text align to left if content needs to be left aligned */
-        text-align: center;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        text-wrap: balance;
-        /* centers content horizontally, set to flex-start to left align */
-        align-items: center;
-      }
-
-      .cs-topper {
-        color: var(--bodyTextColorWhite);
-        margin-bottom: 1rem;
-      }
-
-      .cs-title {
-        color: var(--bodyTextColorWhite);
-        max-width: (400/16rem);
-      }
-
-      .cs-text {
-        margin-bottom: (16/16rem);
-        color: var(--bodyTextColorWhite);
-        opacity: 0.8;
-        &:last-of-type {
-          margin-bottom: (32/16rem);
+        .cs-container {
+          width: 100%;
+          max-width: (1280/16rem);
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          /* 48px - 64px */
+          gap: clamp(3rem, 6vw, 4rem);
         }
-      }
 
-      .cs-picture {
-        height: 100%;
-        width: 100%;
-        display: block;
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        z-index: -1;
+        .cs-content {
+          /* set text align to left if content needs to be left aligned */
+          text-align: center;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          text-wrap: balance;
+          /* centers content horizontally, set to flex-start to left align */
+          align-items: center;
+        }
 
-        img {
-          position: absolute;
-          top: 0;
-          left: 0;
+        .cs-topper {
+          color: var(--bodyTextColorWhite);
+          margin-bottom: 1rem;
+        }
+
+        .cs-title {
+          color: var(--bodyTextColorWhite);
+          max-width: (400/16rem);
+        }
+
+        .cs-text {
+          margin-bottom: (16/16rem);
+          color: var(--bodyTextColorWhite);
+          opacity: 0.8;
+          &:last-of-type {
+            margin-bottom: (32/16rem);
+          }
+        }
+
+        .cs-picture {
           height: 100%;
           width: 100%;
-          object-fit: cover;
+          display: block;
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          z-index: -1;
+
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
         }
       }
     }
-  }
-  @media only screen and (min-width: 1024px) {
-    #cta-51 {
-      .cs-title {
-        max-width: (600/16rem);
-        text-wrap: balance;
+    @media only screen and (min-width: 1024px) {
+      #cta-51 {
+        .cs-title {
+          max-width: (600/16rem);
+          text-wrap: balance;
+        }
       }
     }
-  }
-</style>
+  </style>
+</section>

@@ -10,7 +10,7 @@ image: src/assets/images/uploads/podcast1.png
 imageAlt: Savannah and Ronan
 tags:
   - podcasts
-url: https://www.instagram.com/breathwaveireland/reel/C-QNWGWs7Kf/
+url: https://www.youtube.com/watch?v=u3DBYMNRfyQ
 ---
 In this episode, we dive deep into the fascinating world of vocal resonance with Savanna Jones, the founder of Breathwave. Savanna shares her journey and expertise in combining breathwork with vocal techniques.
 
