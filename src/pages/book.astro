@@ -4,17 +4,15 @@ import client from "@data/client.json";
 import Landing from "@components/Landing.astro";
 import { Picture } from "astro:assets";
 import Button from "@components/ui/button.astro";
-import phone from "@assets/icons/phone-gold.svg";
-import pin from "@assets/icons/pin-gold.svg";
-import clock from "@assets/icons/clock-gold.svg";
 import { getOptimizedImage } from "@libs/utils";
 import landingImage from "@assets/images/landing.jpg";
+import Map from "@components/Map.astro";
 const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
 <BaseLayout
-    title="Book a Session"
-    description="Book a session with Ronan at Breathwave Ireland. Choose from one-to-one breathwork sessions, body somatic therapy, or Kambo ceremonies."
+    title="Book a Session | Breathwave Ireland"
+    description="Schedule your transformative breathwork session with Breathwave Ireland. Choose from one-to-one Breathwave sessions (€100), Body Somatic Therapy (€100), or Kambo ceremonies (€140). Book your journey to better health and well-being today."
     preloadedImage={optimizedImage}
 >
     <Landing title="Book a Session" image={landingImage} />
@@ -178,87 +176,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
                     <div id="result"></div>
                 </form>
             </div>
-            <div class="cs-right">
-                <picture class="cs-map">
-                    <div style="width: 100%">
-                        <!-- <Picture
-              src={map}
-              alt="map"
-              formats={["avif", "webp"]}
-              width="100%"
-              height="100%"
-            /> -->
-                        <iframe
-                            width="100%"
-                            title="Map of Anne's Coffee Bar"
-                            height="425"
-                            style="border:0;"
-                            allowfullscreen=""
-                            referrerpolicy="no-referrer-when-downgrade"
-                            src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Ashe%E2%80%99s%20Coffee%20Bar+(Anne's%20Coffee%20Bar)&t=&z=14&ie=UTF8&iwloc=B&output=embed"
-                        ></iframe>
-                    </div>
-                </picture>
-                <ul class="cs-contact-group">
-                    <li class="cs-item">
-                        <span class="cs-header">
-                            <Picture
-                                src={phone}
-                                alt="phone"
-                                formats={["avif", "webp"]}
-                                class="cs-icon"
-                                aria-hidden="true"
-                                width="20"
-                                height="20"
-                            />
-                            Phone
-                        </span>
-                        <a href={client.phoneForTel} class="cs-link">
-                            {client.phoneForTel}
-                        </a>
-                    </li>
-                    <li class="cs-item">
-                        <span class="cs-header">
-                            <Picture
-                                src={pin}
-                                alt="pin"
-                                formats={["avif", "webp"]}
-                                class="cs-icon"
-                                aria-hidden="true"
-                                width="20"
-                                height="20"
-                            />
-                            Address
-                        </span>
-                        <a
-                            href={client.address.mapLink}
-                            target="_blank"
-                            class="cs-link"
-                        >
-                            {client.address.lineOne}, {client.address.city}<br
-                            />
-                            {client.address.zip}, Ireland
-                        </a>
-                    </li>
-                    <li class="cs-item">
-                        <span class="cs-header">
-                            <Picture
-                                src={clock}
-                                alt="clock"
-                                formats={["avif", "webp"]}
-                                class="cs-icon"
-                                aria-hidden="true"
-                                width="20"
-                                height="20"
-                            />
-                            Our Hours
-                        </span>
-                        <span class="cs-hours">{client.openingHours.days}</span>
-                        <span class="cs-hours">{client.openingHours.hours}</span
-                        >
-                    </li>
-                </ul>
-            </div>
+            <Map />
         </div>
     </section>
 </BaseLayout>
@@ -348,60 +266,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
                 }
             }
 
-            .cs-map {
-                width: 100%;
-                /* 300px - 425px */
-                height: clamp(18.75rem, 63.4vw, 26.5625rem);
-                border-radius: (24/16rem);
-                /* clips the corners of the img tag */
-                overflow: hidden;
-                position: relative;
-                display: block;
-
-                img {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                }
-            }
-
-            .cs-contact-group {
-                padding: 0;
-                margin: 0;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-                width: 100%;
-                margin-top: 1rem;
-
-                .cs-item {
-                    text-align: center;
-
-                    .cs-header {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 0.5rem;
-                        margin-bottom: 0.5rem;
-                        color: var(--secondaryLight);
-                    }
-
-                    .cs-link,
-                    .cs-hours {
-                        color: #fff;
-                        text-decoration: none;
-                        display: block;
-
-                        &:hover {
-                            text-decoration: underline;
-                        }
-                    }
-                }
-            }
-
             .cs-form {
                 display: flex;
                 justify-content: space-between;
@@ -460,56 +324,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
                 background-color: #ffd6d6;
                 color: #a53030;
             }
-
-            .cs-right {
-                width: 100%;
-                /* 16px - 24px */
-                padding: clamp(1rem, 3.5vw, 1.5rem);
-                border-radius: (24/16rem);
-                background-color: var(--primary);
-                display: flex;
-                /* prevents padding from adding to height and width */
-                box-sizing: border-box;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-                /* 24px - 32px */
-                gap: clamp(1.5rem, 4vw, 2rem);
-            }
-
-            .cs-info-group {
-                width: 100%;
-                color: #fff;
-                display: flex;
-                flex-direction: column;
-                gap: 2rem;
-
-                .cs-info-item {
-                    h3 {
-                        color: var(--secondaryLight);
-                        margin-bottom: 0.5rem;
-                    }
-
-                    ul {
-                        list-style: none;
-                        padding: 0;
-                        margin: 0;
-
-                        li {
-                            margin-bottom: 0.5rem;
-                            position: relative;
-                            padding-left: 1.5rem;
-
-                            &:before {
-                                content: "•";
-                                color: var(--secondaryLight);
-                                position: absolute;
-                                left: 0;
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 
@@ -557,12 +371,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
             .cs-topper {
                 text-align: left;
                 margin-left: 0;
-            }
-
-            .cs-right {
-                width: 51.6%;
-                max-width: (658/16rem);
-                flex: none;
             }
         }
     }

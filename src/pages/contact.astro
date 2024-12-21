@@ -1,20 +1,16 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
-import client from "@data/client.json";
 import Landing from "@components/Landing.astro";
-import { Picture } from "astro:assets";
-import phone from "@assets/icons/phone-gold.svg";
-import pin from "@assets/icons/pin-gold.svg";
-import clock from "@assets/icons/clock-gold.svg";
 import Button from "@components/ui/button.astro";
 import { getOptimizedImage } from "@libs/utils";
 import landingImage from "@assets/images/landing.jpg";
+import Map from "@components/Map.astro";
 const optimizedImage = await getOptimizedImage(landingImage);
 ---
 
 <BaseLayout
-  title="Contact"
-  description="Get in touch with Anne's Coffee Bar in Camp, Ireland. Whether you have questions about our menu, want to book a private event, or need information about our suppliers, we're here to help."
+  title="Contact Breathwave Ireland"
+  description="Get in touch with Breathwave Ireland. Whether you have questions about our breathwork sessions, want to book a consultation, or need information about our services, we're here to help."
   preloadedImage={optimizedImage}
 >
   <Landing title="Contact" image={landingImage} />
@@ -92,82 +88,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
           <div id="result"></div>
         </form>
       </div>
-      <div class="cs-right">
-        <!--Map Image, pin is made in the CSS-->
-        <picture class="cs-map">
-          <div style="width: 100%">
-            <!-- <Picture
-              src={map}
-              alt="map"
-              formats={["avif", "webp"]}
-              width="100%"
-              height="100%"
-            /> -->
-            <iframe
-              width="100%"
-              title="Map of Anne's Coffee Bar"
-              height="425"
-              style="border:0;"
-              allowfullscreen=""
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Ashe%E2%80%99s%20Coffee%20Bar+(Anne's%20Coffee%20Bar)&t=&z=14&ie=UTF8&iwloc=B&output=embed"
-            ></iframe>
-          </div>
-        </picture>
-        <ul class="cs-contact-group">
-          <li class="cs-item">
-            <span class="cs-header">
-              <Picture
-                src={phone}
-                alt="phone"
-                formats={["avif", "webp"]}
-                class="cs-icon"
-                aria-hidden="true"
-                width="20"
-                height="20"
-              />
-              Phone
-            </span>
-            <a href={client.phoneForTel} class="cs-link">
-              {client.phoneForTel}
-            </a>
-          </li>
-          <li class="cs-item">
-            <span class="cs-header">
-              <Picture
-                src={pin}
-                alt="pin"
-                formats={["avif", "webp"]}
-                class="cs-icon"
-                aria-hidden="true"
-                width="20"
-                height="20"
-              />
-              Address
-            </span>
-            <a href={client.address.mapLink} target="_blank" class="cs-link">
-              {client.address.lineOne}, {client.address.city}<br />
-              {client.address.zip}, Ireland
-            </a>
-          </li>
-          <li class="cs-item">
-            <span class="cs-header">
-              <Picture
-                src={clock}
-                alt="clock"
-                formats={["avif", "webp"]}
-                class="cs-icon"
-                aria-hidden="true"
-                width="20"
-                height="20"
-              />
-              Our Hours
-            </span>
-            <span class="cs-hours">{client.openingHours.days}</span>
-            <span class="cs-hours">{client.openingHours.hours}</span>
-          </li>
-        </ul>
-      </div>
+      <Map />
     </div>
   </section>
 </BaseLayout>

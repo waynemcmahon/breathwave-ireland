@@ -1,0 +1,183 @@
+---
+import { Picture } from "astro:assets";
+import phone from "@assets/icons/phone-gold.svg";
+import pin from "@assets/icons/pin-gold.svg";
+import clock from "@assets/icons/clock-gold.svg";
+import client from "@data/client.json";
+---
+
+<div class="cs-right">
+    <picture class="cs-map">
+        <div style="width: 100%">
+            <iframe
+                width="100%"
+                title="Map of Breathwave Ireland"
+                height="425"
+                style="border:0;"
+                allowfullscreen=""
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d604.3280896903078!2d-8.77121484531344!3d52.70082096332746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485b431cffc0b195%3A0x3758e6f42cc36371!2sRespiratory%20therapist%20with%20Somatic%20therapies!5e0!3m2!1sen!2sie!4v1734796331342!5m2!1sen!2sie"
+            ></iframe>
+        </div>
+    </picture>
+    <ul class="cs-contact-group">
+        <li class="cs-item">
+            <span class="cs-header">
+                <Picture
+                    src={phone}
+                    alt="phone"
+                    formats={["avif", "webp"]}
+                    class="cs-icon"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                />
+                Phone
+            </span>
+            <a href={"tel:" + client.phoneForTel} class="cs-link">
+                {client.phoneForTel}
+            </a>
+        </li>
+        <li class="cs-item">
+            <span class="cs-header">
+                <Picture
+                    src={pin}
+                    alt="pin"
+                    formats={["avif", "webp"]}
+                    class="cs-icon"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                />
+                Address
+            </span>
+            <a href={client.address.mapLink} target="_blank" class="cs-link">
+                {client.address.lineOne}, {client.address.city}<br />
+                {client.address.zip}, Ireland
+            </a>
+        </li>
+        <li class="cs-item">
+            <span class="cs-header">
+                <Picture
+                    src={clock}
+                    alt="clock"
+                    formats={["avif", "webp"]}
+                    class="cs-icon"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                />
+                Our Hours
+            </span>
+            <span class="cs-hours">{client.openingHours.days}</span>
+            <span class="cs-hours">{client.openingHours.hours}</span>
+        </li>
+    </ul>
+</div>
+
+<style lang="less">
+    .cs-right {
+        width: 100%;
+        /* 16px - 24px */
+        padding: clamp(1rem, 3.5vw, 1.5rem);
+        border-radius: (24/16rem);
+        background-color: var(--primary);
+        display: flex;
+        /* prevents padding from adding to height and width */
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        /* 24px - 32px */
+        gap: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .cs-map {
+        width: 100%;
+        /* 300px - 425px */
+        height: clamp(18.75rem, 63.4vw, 26.5625rem);
+        border-radius: (24/16rem);
+        /* clips the corners of the img tag */
+        overflow: hidden;
+        position: relative;
+        display: block;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .cs-contact-group {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: (16/16rem);
+    }
+
+    .cs-item {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .cs-header {
+        font-size: (20/16rem);
+        line-height: 1.2em;
+        font-weight: 700;
+        margin-bottom: (12/16rem);
+        color: var(--secondaryLight);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: (4/16rem);
+
+        picture {
+            display: flex;
+        }
+    }
+
+    .cs-link,
+    .cs-hours {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        color: var(--bodyTextColorWhite);
+        transition: color 0.3s;
+    }
+
+    .cs-link {
+        &:hover {
+            color: var(--secondaryLight);
+        }
+    }
+
+    /* Tablet - 650px */
+    @media only screen and (min-width: 40.625rem) {
+        .cs-contact-group {
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    /* Small Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        .cs-right {
+            width: 51.6%;
+            max-width: (658/16rem);
+            /* prevent flexbox from squishing it */
+            flex: none;
+        }
+    }
+</style>
