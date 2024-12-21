@@ -36,13 +36,10 @@ const { description, title, preloadedImage, socialShareImageUrl } = Astro.props;
       property="og:url"
       content={`https://${client.domain}${Astro.url.pathname}`}
     />
-    <meta
-      property="og:image"
-      content={socialShareImageUrl?.src || "/assets/images/socialShareImg.jpg"}
-    />
+    <meta property="og:image" content={"/assets/images/socialShareImg.jpg"} />
     <meta
       property="og:image:secure_url"
-      content={socialShareImageUrl?.src || "/assets/images/socialShareImg.jpg"}
+      content={"/assets/images/socialShareImg.jpg"}
     />
 
     <!--Favicons-->
