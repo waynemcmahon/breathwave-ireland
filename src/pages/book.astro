@@ -330,16 +330,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
     /* Tablet - 650px */
     @media only screen and (min-width: 40.625rem) {
         #booking-322 {
-            .cs-service-cards {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-between;
-
-                .cs-card {
-                    width: calc(50% - 0.75rem);
-                }
-            }
-
             .cs-email,
             .cs-phone {
                 width: 48%;
@@ -362,6 +352,9 @@ const optimizedImage = await getOptimizedImage(landingImage);
             }
 
             .cs-service-cards {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
                 .cs-card {
                     width: 100%;
                 }
