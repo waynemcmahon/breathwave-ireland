@@ -3,8 +3,8 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 local_backend: true
-media_folder: src/assets/images/events # Location where files will be stored in the repo - we store them in src so that Astro can optimize them.
-public_folder: src/assets/images/events  # Ensure that this path is the same as the media_folder path above.
+media_folder: src/assets/images/uploads # Location where files will be stored in the repo - we store them in src so that Astro can optimize them.
+public_folder: src/assets/images/uploads  # Ensure that this path is the same as the media_folder path above.
 site_url: https://breathwaveireland.com/ # Displays a link to home page in the top-right corner of the CMS dashboard
 
 collections:
@@ -24,3 +24,18 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", default: ["events"] }
       - { label: "Location", name: "location", widget: "string" }
+  - name: "podcasts"
+    label: "Podcasts"
+    folder: "src/content/podcasts"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Guest", name: "guest", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Image Caption", name: "imageAlt", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["podcasts"] }
+      - { label: "URL", name: "url", widget: "string" }

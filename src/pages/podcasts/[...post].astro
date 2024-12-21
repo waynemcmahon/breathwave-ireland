@@ -1,0 +1,77 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import { formatDate } from "@libs/utils.js";
+import Landing from "@components/Landing.astro";
+import "@styles/blog.less";
+
+import { getOptimizedImage } from "@libs/utils";
+import landingImage from "@assets/images/landing.jpg";
+const optimizedImage = await getOptimizedImage(landingImage);
+
+export async function getStaticPaths() {
+    const podcasts = await getCollection("podcasts");
+    return podcasts.map((entry) => ({
+        params: { post: entry.slug },
+        props: { post: entry },
+    }));
+}
+
+const { post } = Astro.props;
+const { title, date, description, image, imageAlt, guest, role } = post.data;
+const socialShareImageUrl = await getOptimizedImage(image);
+const { Content } = await post.render();
+---
+
+<BaseLayout
+    title={title}
+    description={description}
+    socialShareImageUrl={socialShareImageUrl}
+    preloadedImage={optimizedImage}
+>
+    <Landing title="Podcasts" image={landingImage} />
+    <div class="blog-container main-content-wrapper">
+        <div class="main-content">
+            <article class="blog-article">
+                <picture class="blog-mainImage">
+                    <Image
+                        src={image}
+                        alt={imageAlt}
+                        width="795"
+                        height="400"
+                        decoding="async"
+                    />
+                </picture>
+
+                <div class="article-group">
+                    <h1 class="blog-h1">{title}</h1>
+                    <div class="blog-authorGroup">
+                        <p class="blog-date">{guest}</p>
+                        <span aria-hidden="true" class="blog-dot"></span>
+                        <p class="blog-date">{role}</p>
+                        <span aria-hidden="true" class="blog-dot"></span>
+                        <span class="blog-date">{formatDate(date)}</span>
+                    </div>
+                </div>
+                <section id="blog-content">
+                    <a
+                        href={post.data.url}
+                        class="flex items-center gap-4 my-8"
+                    >
+                        <div
+                            class="bg-secondary hover:bg-primary transition-all duration-300 rounded-full w-[58px] h-[58px] flex items-center justify-center"
+                        >
+                            <div
+                                class="w-0 h-0 border-t-[6px] border-t-transparent border-l-[12px] border-l-black border-b-[6px] border-b-transparent ml-0.5"
+                            >
+                            </div>
+                        </div>
+                        <span class="text-lg">Play Episode</span>
+                    </a>
+                    <Content />
+                </section>
+            </article>
+        </div>
+    </div>
+</BaseLayout>

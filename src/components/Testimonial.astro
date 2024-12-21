@@ -22,6 +22,7 @@ const testimonials = [
         review: "I have recently joined Ronan's breathwork class, and it's been an amazing gateway to view life in a positive, purposeful way. By the end of each session, I feel completely relaxed and at ease.",
     },
 ];
+const { showWatchTestimonials = true } = Astro.props;
 ---
 
 <section id="reviews-1672">
@@ -33,35 +34,31 @@ const testimonials = [
             </div>
             <h2 class="cs-title">What our members say</h2>
         </div>
-        <div class="absolute top-0 right-4 sm:-top-4 hidden sm:block">
-            <a
-                href="https://www.youtube.com/watch?v=7_7Qzfv52ZY"
-                target="_blank"
-                class="flex flex-row gap-4 items-center cursor-pointer hover:scale-105 transition-all duration-300"
-            >
-                <span class="hidden sm:block">Watch Testimonials</span>
-                <div class="relative flex items-center justify-center w-auto">
-                    <div
-                        class="bg-primary rounded-full w-6 h-6 flex items-center justify-center -mr-4 z-10 sm:w-7 sm:h-7"
+        {
+            showWatchTestimonials && (
+                <div class="absolute top-0 right-4 sm:-top-4 hidden sm:block">
+                    <a
+                        href="/testimonials"
+                        target="_blank"
+                        class="flex flex-row gap-4 items-center cursor-pointer hover:scale-105 transition-all duration-300"
                     >
-                        <div
-                            class="w-0 h-0 border-t-[3px] border-t-transparent border-l-[6px] border-l-white border-b-[3px] border-b-transparent ml-0.5"
-                        >
+                        <span class="hidden sm:block">Watch Testimonials</span>
+                        <div class="relative flex items-center justify-center w-auto">
+                            <div class="bg-primary rounded-full w-6 h-6 flex items-center justify-center -mr-4 z-10 sm:w-7 sm:h-7">
+                                <div class="w-0 h-0 border-t-[3px] border-t-transparent border-l-[6px] border-l-white border-b-[3px] border-b-transparent ml-0.5" />
+                            </div>
+                            <div class="relative w-12 h-12 sm:w-16 sm:h-16">
+                                <Image
+                                    src={thumbnail}
+                                    alt="thumbnail"
+                                    class="rounded-full border-2 object-cover aspect-square"
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative w-12 h-12 sm:w-16 sm:h-16">
-                        <Image
-                            src={thumbnail}
-                            alt="thumbnail"
-                            class="rounded-full border-2 object-cover aspect-square"
-                        />
-                    </div>
-                    <!-- <div
-          class="w-[70px] h-[70px] rounded-full border-2 animate-ping absolute left-3"
-        > -->
+                    </a>
                 </div>
-            </a>
-        </div>
+            )
+        }
         <ul class="cs-card-group">
             {
                 testimonials.map((testimonial) => (

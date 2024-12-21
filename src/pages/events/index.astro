@@ -45,24 +45,31 @@ const optimizedImage = await getOptimizedImage(landingImage);
               </picture>
 
               <div class="article-group">
-                <div class="blog-authorGroup">
+                <div class="flex flex-col gap-2">
                   {post.data.location && (
                     <>
                       <span class="blog-date">{post.data.location}</span>
-                      <span aria-hidden="true" class="blog-dot" />
+                      {/* <span
+                        aria-hidden="true"
+                        class="blog-dot hidden md:block"
+                      /> */}
                     </>
                   )}
-                  {post.data.price && (
-                    <span class="blog-date">€{post.data.price}</span>
-                  )}
-                  {post.data.date && (
-                    <>
-                      <span class="blog-date">
-                        {formatDate(post.data.date)}
+                  <div class="flex flex-row gap-2 justify-between">
+                    {post.data.price && (
+                      <span class="blog-date col-span-1">
+                        €{post.data.price}
                       </span>
-                      <span aria-hidden="true" class="blog-dot" />
-                    </>
-                  )}
+                    )}
+                    {post.data.date && (
+                      <>
+                        <span class="blog-date col-span-1">
+                          {formatDate(post.data.date)}
+                        </span>
+                        {/* <span aria-hidden="true" class="blog-dot hidden md:block" /> */}
+                      </>
+                    )}
+                  </div>
                 </div>
                 <h2 class="blog-h1">{post.data.title}</h2>
                 <p class="blog-desc">{post.data.description}</p>

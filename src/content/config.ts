@@ -21,6 +21,21 @@ const eventsCollection = defineCollection({
 		}),
 });
 
+const podcastCollection = defineCollection({
+	type: 'content',
+	schema: ({ image }) => z.object({
+		title: z.string(),
+		description: z.string(),
+		guest: z.string(),
+		role: z.string(),
+			date: z.date(),
+			image: image(),
+			imageAlt: z.string(),
+			url: z.string(),
+		}),
+});
+
 export const collections = {
 	events: eventsCollection,
+	podcasts: podcastCollection,
 };

@@ -67,6 +67,19 @@ const optimizedImage = await getOptimizedImage(landingImage);
             />
           </label>
           <label class="cs-label">
+            Enquiry Type
+            <select
+              class="cs-input"
+              required
+              id="enquiry-type-322"
+              name="enquiry-type"
+            >
+              <option value="general">General Enquiry</option>
+              <option value="booking">Booking a Session</option>
+              <option value="support">Support Request</option>
+            </select>
+          </label>
+          <label class="cs-label">
             Message
             <textarea
               class="cs-input cs-textarea"

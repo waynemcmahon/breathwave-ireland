@@ -10,10 +10,6 @@
     ]
   },
   {
-    "key": "Join",
-    "url": "/online-breathwave/"
-  },
-  {
     "key": "Events",
     "url": "/events/",
     "children": [
@@ -28,6 +24,10 @@
     ]
   },
   {
+    "key": "Podcasts",
+    "url": "/podcasts/"
+  },
+    {
     "key": "Gift Card",
     "url": "https://buy.stripe.com/bIYcOsejIfNn50cbIP",
     "target": "_blank"
@@ -35,5 +35,10 @@
   {
     "key": "Members",
     "url": "https://members.breathwaveireland.com/"
+  },
+  {
+    "key": "Contact",
+    "url": "/contact/"
   }
+
 ]

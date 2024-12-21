@@ -1,9 +1,8 @@
 ---
-import sbsleft from "@assets/images/sbs/sbsl-x2.png";
-import sbsright from "@assets/images/sbs/sbsr-x1.png";
-import logoBackground from "@assets/images/logo-bg.png";
+import introVideo from "@assets/videos/intro.mp4";
+import introCaptions from "@assets/videos/captions/intro-captions.vtt";
 import logoIcon from "@assets/images/logo_icon.png";
-import { Picture, Image } from "astro:assets";
+import { Image } from "astro:assets";
 ---
 
 <!-- ============================================ --><!--              Side By Side Reverse            --><!-- ============================================ -->
@@ -11,15 +10,48 @@ import { Picture, Image } from "astro:assets";
     <div class="cs-container">
         <!-- Left Image Section -->
         <div class="cs-image-group">
-            <div class="cs-picture self-center">
-                <Picture
-                    src={sbsleft}
-                    alt="ronan and his dog"
-                    formats={["avif", "webp"]}
-                    width={600}
-                    height={600}
-                    sizes="(max-width: 600px) 50vw, (max-width: 1200px) 50vw, 600px"
-                />
+            <div
+                class="cs-picture self-center relative"
+                id="sbs-video-container"
+            >
+                <!-- Add play button overlay -->
+                <button class="play-button" aria-label="Play video">
+                    <svg
+                        width="48"
+                        height="48"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="11"
+                            stroke="white"
+                            stroke-width="2"></circle>
+                        <path d="M9.5 7.5v9l7.5-4.5-7.5-4.5z" fill="white"
+                        ></path>
+                    </svg>
+                </button>
+                <video
+                    id="sbs-video"
+                    src={introVideo}
+                    controls
+                    controlslist="nodownload noremoteplayback picture-in-picture nofullscreen"
+                    playsinline
+                    preload="auto"
+                    class="responsive-video"
+                >
+                    <track
+                        kind="captions"
+                        src={introCaptions}
+                        srclang="en"
+                        label="English"
+                        default
+                        class="mb-4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
         <!-- Right Content Section-->
@@ -133,6 +165,31 @@ import { Picture, Image } from "astro:assets";
                 }
             }
 
+            .responsive-video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 1.5em;
+                aspect-ratio: 1 / 1; /* Enforce square aspect ratio */
+            }
+
+            /* Styling Captions */
+            video::cue {
+                /* Ensure captions don't exceed 80% of the video width */
+                max-width: 80%;
+                left: 10%;
+                right: 10%;
+                bottom: 10%;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.7);
+                color: #fff;
+                font-size: 1em;
+                padding: 2em 0.5em;
+                border-radius: 4px;
+                margin-bottom: 1rem;
+                text-wrap: balance;
+            }
+
             .cs-button-solid {
                 font-size: (16/16rem);
                 /* 46px - 56px */
@@ -178,16 +235,17 @@ import { Picture, Image } from "astro:assets";
                 font-size: ~"min(2.23vw, .83em)";
                 /* using ems so we can use font size to scale the whole section */
                 position: relative;
+                max-width: 600px;
             }
 
             .cs-picture {
                 border-radius: (24/16em);
                 /* clips img tag corners */
                 overflow: hidden;
-                max-width: (616/16em);
                 display: block;
                 background-color: #fff;
                 border-radius: 1.5em;
+                position: relative;
             }
 
             .cs-picture2 {
@@ -200,6 +258,34 @@ import { Picture, Image } from "astro:assets";
                     height: 100%;
                     width: 100%;
                 }
+            }
+
+            .play-button {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                z-index: 2;
+                transition:
+                    opacity 0.3s ease,
+                    transform 0.3s ease;
+                padding: 0;
+
+                &:hover {
+                    transform: translate(-50%, -50%) scale(1.1);
+                }
+
+                svg {
+                    width: clamp(48px, 8vw, 72px);
+                    height: clamp(48px, 8vw, 72px);
+                }
+            }
+
+            .cs-picture:hover .play-button {
+                transform: translate(-50%, -50%) scale(1.1);
             }
         }
     }
@@ -216,6 +302,7 @@ import { Picture, Image } from "astro:assets";
 
             .cs-content {
                 padding: (48/16rem) 0;
+                max-width: (420/16rem);
                 /* prevents flexbox from squishing it */
                 flex: none;
                 align-self: center;
@@ -233,6 +320,27 @@ import { Picture, Image } from "astro:assets";
                 justify-content: flex-end;
                 /* sends it to the right in the 2nd position */
                 order: 2;
+
+                /* Styling Captions for Desktop */
+                video::cue {
+                    max-width: 60%;
+                    left: 20%;
+                    right: 20%;
+                    text-align: center;
+                    background: rgba(0, 0, 0, 0.7);
+                    color: #fff;
+                    font-size: 1.2em;
+                    padding: 0.3em 0.6em;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1280px) {
+        #sbsr-1457 {
+            .cs-content {
+                max-width: (600/16rem);
             }
         }
     }
@@ -250,6 +358,49 @@ import { Picture, Image } from "astro:assets";
                     }
                 }
             }
+
+            video::cue {
+                background: rgba(0, 0, 0, 0.8);
+                color: #fff;
+            }
         }
     }
 </style>
+
+<script>
+    const video = document.getElementById("sbs-video") as HTMLVideoElement;
+    const videoContainer = document.getElementById(
+        "sbs-video-container",
+    ) as HTMLVideoElement;
+    videoContainer.onclick = () => {
+        const playButton = document.querySelector(
+            ".play-button",
+        ) as HTMLButtonElement;
+
+        if (video.paused) {
+            video.play();
+            playButton.style.opacity = "0";
+            video.controls = true;
+        } else {
+            video.pause();
+            playButton.style.opacity = "1";
+            video.controls = false;
+        }
+    };
+
+    // Reset play button when video ends
+    document.getElementById("sbs-video")?.addEventListener("ended", () => {
+        const playButton = document.querySelector(
+            ".play-button",
+        ) as HTMLButtonElement;
+        playButton.style.opacity = "1";
+        (document.getElementById("sbs-video") as HTMLVideoElement).controls =
+            false;
+    });
+
+    // Hide controls initially
+    document.addEventListener("DOMContentLoaded", () => {
+        (document.getElementById("sbs-video") as HTMLVideoElement).controls =
+            false;
+    });
+</script>

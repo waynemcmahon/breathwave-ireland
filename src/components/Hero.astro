@@ -1,15 +1,14 @@
 ---
 import clientData from "@data/client.json";
-import { Picture, Image } from "astro:assets";
+import { Image } from "astro:assets";
 import Button from "@components/ui/button.astro";
 
 import { getImage } from "astro:assets";
 
-import mobileUrl from "../assets/images/hero/hero-mobile-x1.jpg";
-import mobileUrlx2 from "../assets/images/hero/hero-mobile-x2.jpg";
-import desktopUrl from "../assets/images/hero/hero-desktop-x1.jpg";
-import desktopUrlx2 from "../assets/images/hero/hero-desktop-x2.jpg";
-import thumbnail from "../assets/images/hero/thumbnail.jpg";
+import mobileUrl from "../assets/images/hero/hero-mobile.jpg";
+import mobileUrlx2 from "../assets/images/hero/hero-mobile.jpg";
+import desktopUrl from "../assets/images/hero/hero.jpg";
+import desktopUrlx2 from "../assets/images/hero/hero.jpg";
 
 const mobileImage = await getImage({
   src: mobileUrl,
@@ -47,7 +46,10 @@ const desktopImagex2 = await getImage({
 <section id="hero-997">
   <div class="cs-container flex flex-col">
     <div class="cs-content">
-      <div class="cs-topper">Breathwork - Breathwave</div>
+      <div class="cs-topper">
+        Breathwork <span class="mb-1 bg-white rounded-full w-1 h-1"></span>
+        Breathwave
+      </div>
       <h1 class="cs-title">Discover the Power of Your Breath</h1>
       <div class="h-2 w-28 bg-white mb-8"></div>
       <p class="cs-text subtext">
@@ -56,35 +58,6 @@ const desktopImagex2 = await getImage({
         system is key to enjoying a balanced life.
       </p>
       <Button href={clientData.membersUrl} text="Start Your Journey" />
-    </div>
-    <div class="absolute top-0 right-4 sm:-top-4 hidden sm:block">
-      <div
-        class="flex flex-row gap-4 items-center cursor-pointer hover:scale-105 transition-all duration-300 watch-intro-button"
-      >
-        <span class="text-white hidden sm:block">Watch Introduction</span>
-        <div class="relative flex items-center justify-center w-auto">
-          <div
-            class="bg-secondary rounded-full w-6 h-6 flex items-center justify-center -mr-4 z-10 sm:w-7 sm:h-7"
-          >
-            <div
-              class="w-0 h-0 border-t-[3px] border-t-transparent border-l-[6px] border-l-black border-b-[3px] border-b-transparent ml-0.5"
-            >
-            </div>
-          </div>
-          <div class="relative">
-            <Image
-              src={thumbnail}
-              alt="thumbnail"
-              width={70}
-              height={70}
-              class="rounded-full border-2 w-12 h-12 sm:w-16 sm:h-16"
-            />
-          </div>
-          <!-- <div
-          class="w-[70px] h-[70px] rounded-full border-2 animate-ping absolute left-3"
-        > -->
-        </div>
-      </div>
     </div>
   </div>
   <div class="cs-background">
@@ -109,11 +82,6 @@ const desktopImagex2 = await getImage({
         media="(min-width: 1300px) and (min-resolution: 192dpi)"
         type="image/avif"
       />
-      <!--  <source
-        srcset={desktopImagex3.src}
-        media="(min-width: 1300px) and (min-resolution: 192dpi)"
-        type="image/avif"
-      /> -->
       <Image
         src={mobileImage.src}
         alt="Descriptive alt text"
@@ -211,7 +179,7 @@ const desktopImagex2 = await getImage({
           line-height: 1.2em;
           text-align: left;
           width: 100%;
-          max-width: 14ch;
+          max-width: 12ch;
           margin: 0 0 (32/16rem) 0;
           color: var(--bodyTextColorWhite);
           position: relative;
@@ -379,7 +347,7 @@ const desktopImagex2 = await getImage({
             width: 100%;
             /* Makes image act like a background-image */
             object-fit: cover;
-            object-position: 0 0;
+            //object-position: 0 0;
           }
         }
       }
@@ -388,6 +356,10 @@ const desktopImagex2 = await getImage({
     @media only screen and (min-width: 601px) {
       #hero-997 {
         padding-bottom: clamp(6.25rem, 45.95vw, 18.625rem);
+
+        .cs-title {
+          max-width: 14ch;
+        }
       }
       body #hero-997 .cs-tag-right {
         filter: none;
@@ -396,21 +368,21 @@ const desktopImagex2 = await getImage({
       body #hero-997 .cs-text.subtext {
         display: block;
       }
-
+      /* 
       body #hero-997 .cs-background {
         img {
           object-position: -10rem;
         }
-      }
+      } */
     }
 
     /* Large Desktop Parallax Effect - 1300px */
     @media only screen and (min-width: 81.25rem) {
       #hero-997 {
         // Start of Selection
-        background-image: url("/assets/images/hero-desktop-x2.jpg");
+        background-image: url("/assets/images/hero.jpg");
         //background-size: cover;
-        background-position: 0 -300px;
+        //background-position: 0 -300px;
         background-repeat: no-repeat;
         background-size: cover;
         /* creates parallax effect on background image */
@@ -426,12 +398,18 @@ const desktopImagex2 = await getImage({
       }
     }
 
-    /* Large Desktop Parallax Effect - 1300px */
-    @media only screen and (min-width: 118.75rem) {
+    /* Large Desktop Parallax Effect - 1900px */
+    /* @media only screen and (min-width: 118.75rem) {
       #hero-997 {
         //background-size: cover;
         background-position: 0 -350px;
       }
     }
+
+    @media only screen and (min-width: 1600px) and (min-resolution: 192dpi) {
+      #hero-997 {
+        background-position: 0 -350px;
+      }
+    } */
   </style>
 </section>
