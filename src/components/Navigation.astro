@@ -1,0 +1,84 @@
+<div class="cs-ul-wrapper">
+    <ul id="cs-expanded-ul" class="cs-ul" role="menubar">
+        {
+            navData.map((entry) => (
+                <li
+                    class:list={[
+                        "cs-li",
+                        { "cs-dropdown": entry.children?.length > 0 },
+                    ]}
+                    role="none"
+                >
+                    {entry.children?.length > 0 ? (
+                        <>
+                            <button
+                                aria-expanded="false"
+                                aria-controls={`submenu-${entry.key}`}
+                                aria-label={`${entry.key} dropdown menu`}
+                                role="menuitem"
+                                class:list={[
+                                    "cs-li-link cs-dropdown-button",
+                                    {
+                                        "cs-active":
+                                            Astro.url.pathname.includes(
+                                                entry.url,
+                                            ),
+                                    },
+                                ]}
+                            >
+                                {entry.key}
+                                <Icon
+                                    name="mdi--caret"
+                                    class="cs-drop-icon"
+                                    aria-hidden="true"
+                                />
+                            </button>
+                            <ul
+                                id={`submenu-${entry.key}`}
+                                class="cs-drop-ul"
+                                role="menu"
+                            >
+                                {entry.children.map((child) => (
+                                    <li class="cs-drop-li" role="none">
+                                        <a
+                                            href={child.url}
+                                            class="cs-li-link cs-drop-link"
+                                            role="menuitem"
+                                            aria-current={
+                                                Astro.url.pathname === child.url
+                                                    ? "page"
+                                                    : undefined
+                                            }
+                                        >
+                                            {child.key}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </>
+                    ) : (
+                        <a
+                            href={entry.url}
+                            class:list={[
+                                "cs-li-link",
+                                {
+                                    "cs-active":
+                                        Astro.url.pathname === entry.url,
+                                },
+                            ]}
+                            role="menuitem"
+                            aria-current={
+                                Astro.url.pathname === entry.url
+                                    ? "page"
+                                    : undefined
+                            }
+                        >
+                            {entry.key}
+                        </a>
+                    )}
+                </li>
+            ))
+        }
+    </ul>
+</div>
+
