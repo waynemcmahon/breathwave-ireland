@@ -3,6 +3,7 @@ import introVideo from "@assets/videos/intro.mp4";
 import introCaptions from "@assets/videos/captions/intro-captions.vtt";
 import logoIcon from "@assets/images/logo_icon.png";
 import { Image } from "astro:assets";
+import thumbnail from "@assets/images/hero/thumbnail.png";
 ---
 
 <!-- ============================================ --><!--              Side By Side Reverse            --><!-- ============================================ -->
@@ -14,6 +15,15 @@ import { Image } from "astro:assets";
                 class="cs-picture self-center relative"
                 id="sbs-video-container"
             >
+                <!-- Thumbnail image that shows initially -->
+                <Image
+                    src={thumbnail}
+                    alt="Video thumbnail"
+                    class="thumbnail-img responsive-video"
+                    width={650}
+                    height={650}
+                />
+
                 <!-- Add play button overlay -->
                 <button class="play-button" aria-label="Play video">
                     <svg
@@ -35,12 +45,10 @@ import { Image } from "astro:assets";
                 </button>
                 <video
                     id="sbs-video"
-                    src={introVideo}
-                    controls
+                    preload="none"
+                    class="responsive-video hidden"
                     controlslist="nodownload noremoteplayback picture-in-picture nofullscreen"
                     playsinline
-                    preload="auto"
-                    class="responsive-video"
                 >
                     <track
                         kind="captions"
@@ -287,6 +295,17 @@ import { Image } from "astro:assets";
             .cs-picture:hover .play-button {
                 transform: translate(-50%, -50%) scale(1.1);
             }
+
+            .hidden {
+                display: none;
+            }
+
+            .thumbnail-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 1.5em;
+            }
         }
     }
 
@@ -371,11 +390,32 @@ import { Image } from "astro:assets";
     const video = document.getElementById("sbs-video") as HTMLVideoElement;
     const videoContainer = document.getElementById(
         "sbs-video-container",
-    ) as HTMLVideoElement;
+    ) as HTMLElement;
+    const thumbnail = videoContainer.querySelector(
+        ".thumbnail-img",
+    ) as HTMLImageElement;
+    let videoLoaded = false;
+
     videoContainer.onclick = () => {
         const playButton = document.querySelector(
             ".play-button",
         ) as HTMLButtonElement;
+
+        if (!videoLoaded) {
+            // Load the video for the first time
+            video.src = video.dataset.src || "";
+            videoLoaded = true;
+
+            // Add event listener for when video starts playing
+            video.addEventListener(
+                "playing",
+                () => {
+                    video.classList.remove("hidden");
+                    thumbnail.classList.add("hidden");
+                },
+                { once: true },
+            );
+        }
 
         if (video.paused) {
             video.play();
@@ -389,18 +429,20 @@ import { Image } from "astro:assets";
     };
 
     // Reset play button when video ends
-    document.getElementById("sbs-video")?.addEventListener("ended", () => {
+    video.addEventListener("ended", () => {
         const playButton = document.querySelector(
             ".play-button",
         ) as HTMLButtonElement;
         playButton.style.opacity = "1";
-        (document.getElementById("sbs-video") as HTMLVideoElement).controls =
-            false;
+        video.controls = false;
+        // Show thumbnail again when video ends
+        thumbnail.classList.remove("hidden");
     });
 
-    // Hide controls initially
+    // Set up video source after page load
     document.addEventListener("DOMContentLoaded", () => {
-        (document.getElementById("sbs-video") as HTMLVideoElement).controls =
-            false;
+        // Store the video source in a data attribute
+        video.dataset.src = "/src/assets/videos/intro.mp4";
+        video.controls = false;
     });
 </script>
