@@ -45,6 +45,7 @@ import thumbnail from "@assets/images/hero/thumbnail.png";
                 </button>
                 <video
                     id="sbs-video"
+                    src={introVideo}
                     preload="none"
                     class="responsive-video hidden"
                     controlslist="nodownload noremoteplayback picture-in-picture nofullscreen"
@@ -403,7 +404,7 @@ import thumbnail from "@assets/images/hero/thumbnail.png";
 
         if (!videoLoaded) {
             // Load the video for the first time
-            video.src = video.dataset.src || "";
+            //video.src = video.dataset.src || "";
             videoLoaded = true;
 
             // Add event listener for when video starts playing
@@ -442,7 +443,7 @@ import thumbnail from "@assets/images/hero/thumbnail.png";
     // Set up video source after page load
     document.addEventListener("DOMContentLoaded", () => {
         // Store the video source in a data attribute
-        video.dataset.src = "/src/assets/videos/intro.mp4";
+        //video.dataset.src = "/src/assets/videos/intro.mp4";
         video.controls = false;
     });
 </script>
