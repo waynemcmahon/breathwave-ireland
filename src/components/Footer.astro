@@ -5,6 +5,7 @@ import { Picture } from "astro:assets";
 import { getCurrentYear } from "@libs/utils";
 import logo from "@assets/images/logo.png";
 import InstagramIcon from "@assets/icons/instagram.astro";
+import YoutubeIcon from "@assets/icons/youtube.astro";
 import MailIcon from "@assets/icons/mail.astro";
 import PhoneIcon from "@assets/icons/phone.astro";
 import PinIcon from "@assets/icons/pin.astro";
@@ -38,6 +39,14 @@ const currentYear = getCurrentYear();
         >
           <InstagramIcon fill="white" width="14" height="14" />
         </a>
+        <a
+          class="cs-social-link bg-secondary"
+          aria-label="visit youtube profile"
+          href={client.youtube}
+          target="_blank"
+        >
+          <YoutubeIcon fill="white" stroke="#e1a01d" width="14" height="14" />
+        </a>
       </div>
     </div>
     <!-- Links -->
@@ -66,7 +75,7 @@ const currentYear = getCurrentYear();
           </a>
         </li>
         <li class="cs-li">
-          <a class="cs-link" href="mailto:office@email.com">
+          <a class="cs-link" href={`mailto:${client.email}`}>
             <MailIcon />
             {client.email}
           </a>
@@ -164,6 +173,7 @@ const currentYear = getCurrentYear();
         height: (32/16rem);
         background-color: var(--secondary);
         border-radius: 50%;
+        color: #fff;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -223,13 +233,29 @@ const currentYear = getCurrentYear();
         align-items: flex-start;
         gap: (8/16rem);
         transition: color 0.3s;
+        position: relative;
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 0.25em;
+          margin-top: 0.5em;
+          border-radius: 0.1875rem;
+          background-color: var(--secondary);
+          transition: width 0.3s ease;
+        }
 
         picture {
           align-self: center;
         }
 
         &:hover {
-          color: var(--backgroundColor);
+          &:after {
+            width: 100%;
+          }
         }
       }
 

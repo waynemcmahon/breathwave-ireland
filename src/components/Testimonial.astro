@@ -5,21 +5,26 @@ import thumbnail from "../assets/images/testimonials/thumbnail.jpg";
 const testimonials = [
     {
         image: "https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/ecomm-headshot1.jpeg",
-        name: "Jacintha Collins",
-        role: "Co. Mayo",
-        review: "Breathwork with Ronan O'Brien has opened up a whole dimension of healing I never imagined possible. It's brought balance and grounding in my life, both at home and at work. I cannot recommend it enough—it's been transformative.",
+        name: "Ray McGinley",
+        id: "1",
+        role: "Physio at Munster Rugby",
+        review: "Breathwork for me every week is a chance to reset. To change the narrative. A chance to disengage with the thoughts that entangle my reality. I can honestly say that the practice of breathwork has changed my relationship with myself...",
+        hasFullTestimonial: true,
     },
     {
         image: "https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/review2.png",
-        name: "Kevin Corcoran",
+        name: "Adgi",
+        id: "2",
         role: "Co. Cork",
-        review: "I've been practicing Breathwave with Ronan for a while now, and the benefits are incredible. I feel more focused, my tension has melted away, and even a long-standing pain in my forearm has disappeared. This practice truly makes me feel amazing.",
+        review: "The beauty of this work is not that we won't have bad/difficult days, but it is my ability to bounce back faster and faster each time. To always come back to myself,  I am today, after recent issues surprisingly back to my peace,  to myself...",
+        hasFullTestimonial: true,
     },
     {
         image: "https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/ecomm-headshot2.jpeg",
-        name: "Fiona Harney,",
+        name: "Fiona Harney",
         role: "Co. Clare",
         review: "I have recently joined Ronan's breathwork class, and it's been an amazing gateway to view life in a positive, purposeful way. By the end of each session, I feel completely relaxed and at ease.",
+        hasFullTestimonial: false,
     },
 ];
 const { showWatchTestimonials = true } = Astro.props;
@@ -39,10 +44,11 @@ const { showWatchTestimonials = true } = Astro.props;
                 <div class="absolute top-0 right-4 sm:-top-4 hidden sm:block">
                     <a
                         href="/testimonials"
-                        target="_blank"
                         class="flex flex-row gap-4 items-center cursor-pointer hover:scale-105 transition-all duration-300"
                     >
-                        <span class="hidden sm:block">Watch Testimonials</span>
+                        <span class="hidden sm:block">
+                            See more testimonials
+                        </span>
                         <div class="relative flex items-center justify-center w-auto">
                             <div class="bg-primary rounded-full w-6 h-6 flex items-center justify-center -mr-4 z-10 sm:w-7 sm:h-7">
                                 <div class="w-0 h-0 border-t-[3px] border-t-transparent border-l-[6px] border-l-white border-b-[3px] border-b-transparent ml-0.5" />
@@ -76,6 +82,14 @@ const { showWatchTestimonials = true } = Astro.props;
                             </div>
                             <div class="wrapper">
                                 <p class="cs-review">{testimonial.review}</p>
+                                {testimonial.hasFullTestimonial && (
+                                    <a
+                                        href={`/testimonials#${testimonial.id}`}
+                                        class="read-more hover:underline"
+                                    >
+                                        Read Full Testimonial →
+                                    </a>
+                                )}
                             </div>
                         </div>
 
@@ -275,6 +289,17 @@ const { showWatchTestimonials = true } = Astro.props;
                     opacity: 0.2;
                 }
             }
+        }
+    }
+
+    .read-more {
+        color: var(--color-primary);
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--color-primary-dark);
         }
     }
 </style>

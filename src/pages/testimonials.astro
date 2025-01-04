@@ -3,10 +3,52 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
 import Landing from "@components/Landing.astro";
 import { getOptimizedImage } from "@libs/utils";
 import landingImage from "@assets/images/landing.jpg";
-import Testimonial from "@components/Testimonial.astro";
 import { YouTube } from "astro-embed";
+import { Image } from "astro:assets";
 
 const optimizedImage = await getOptimizedImage(landingImage);
+
+const shortTestimonials = [
+    {
+        name: "Jacintha Collins",
+        role: "Co. Mayo",
+        content:
+            "Breathwork with Ronan O'Brien has opened up a whole dimension of healing I never imagined possible. It's brought balance and grounding in my life, both at home and at work. I cannot recommend it enough—it's been transformative.",
+    },
+    {
+        name: "Kevin Corcoran",
+        role: "Co. Cork",
+        content:
+            "I've been practicing Breathwave with Ronan for a while now, and the benefits are incredible. I feel more focused, my tension has melted away, and even a long-standing pain in my forearm has disappeared. This practice truly makes me feel amazing.",
+    },
+    {
+        name: "Fiona Harney",
+        role: "Co. Clare",
+        content:
+            "I have recently joined Ronan's breathwork class, and it's been an amazing gateway to view life in a positive, purposeful way. By the end of each session, I feel completely relaxed and at ease.",
+    },
+];
+
+const fullTestimonials = [
+    {
+        name: "Ray McGinley",
+        role: "Physio at Munster Rugby",
+        id: "1",
+        content: `I first discovered Ronan's breathwork practice upon trying to "fix" the possible physical side to breathing. Believing that the mechanistic side to breathing was a source of a physical discomfort, ache, pain or movement dysfunction felt within the body. What I discovered through the consistent practice of "letting go" to the breath was profound. Our breath connects the physical, emotional and spiritual. Through a deeper engagement with my breath I started to realise and understand how our physical, emotional and spiritual sides are not separate. In essence trying to separate ourselves into "parts" leads to unresolved or only partly solves. Not only has Breathwave helped in my own life but it deepened my understanding of the "work" I do with my athletes.
+
+Breathwork for me every week is a chance to reset. To change the narrative. A chance to disengage with the thoughts that entangle my reality. I can honestly say that the practice of breathwork has changed my relationship with myself, my interactions with others as well as my ability to process thoughts and emotions, making sense of the long-held stories and dogma.
+
+I think everyone needs a practice to connect with themselves, especially with all the busyness and madness that we experience. Ronan's ability to create this unique space through his use of music, story and dialogue is what makes this more than just "breathing."`,
+    },
+    {
+        name: "Adgi",
+        role: "Co. Cork",
+        id: "2",
+        content: `I can still get still disregulated from time to time, specially when my energy field is down.       
+
+The beauty of this work is not that we won't have bad/ difficult days, but it is my ability to bounce back faster and faster each time. To always come back to myself. I am today, after recent issues surprisingly back to my peace, to myself. I'm calm, i'm able to think and see the road ahead. Thank you so much for the quality and honesty that your sessions allow for me, it was what I needed to remind myself of my worth. I appreciate and thank you 🙏🏼`,
+    },
+];
 ---
 
 <BaseLayout
@@ -21,7 +63,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
             <div class="testimonials-grid">
                 <!-- Video Testimonials -->
                 <div class="video-testimonials">
-                    <h2>Video Testimonials</h2>
+                    <h2 class="display-font">Video Testimonials</h2>
                     <div class="video-grid">
                         <div class="video-wrapper">
                             <YouTube
@@ -43,16 +85,92 @@ const optimizedImage = await getOptimizedImage(landingImage);
                                 id="https://www.youtube.com/watch?v=W6U2QtYPdt4"
                             />
                         </div>
-                        <!-- Add more video testimonials as needed -->
+                    </div>
+                </div>
+
+                <!-- Short Written Testimonials -->
+                <div class="written-testimonials">
+                    <h2 class="display-font">What Our Members Say</h2>
+                    <div class="short-testimonials-grid">
+                        {
+                            shortTestimonials.map((testimonial) => (
+                                <div class="full-testimonial">
+                                    <div class="testimonial-content">
+                                        <div class="quote-icon">
+                                            <Image
+                                                aria-hidden="true"
+                                                src="/assets/svgs/quote.svg"
+                                                decoding="async"
+                                                alt="quote icon"
+                                                width="50"
+                                                height="50"
+                                            />
+                                        </div>
+                                        <p class="testimonial-text">
+                                            {testimonial.content}
+                                        </p>
+                                    </div>
+                                    <div class="testimonial-author bg-primary">
+                                        <span class="text-white name">
+                                            {testimonial.name}
+                                        </span>
+                                        <span class="text-white">
+                                            {testimonial.role}
+                                        </span>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <!-- Full Written Testimonials -->
+                <div class="written-testimonials">
+                    <h2 class="display-font">Featured Stories</h2>
+                    <div class="testimonials-list">
+                        {
+                            fullTestimonials.map((testimonial) => (
+                                <div
+                                    class="full-testimonial"
+                                    id={testimonial.id}
+                                >
+                                    <div class="testimonial-content">
+                                        <div class="quote-icon">
+                                            <Image
+                                                aria-hidden="true"
+                                                src="/assets/svgs/quote.svg"
+                                                decoding="async"
+                                                alt="quote icon"
+                                                width="50"
+                                                height="50"
+                                            />
+                                        </div>
+                                        <p class="testimonial-text">
+                                            {testimonial.content}
+                                        </p>
+                                    </div>
+                                    <div class="testimonial-author bg-primary">
+                                        <span class="text-white name">
+                                            {testimonial.name}
+                                        </span>
+                                        <span class="text-white">
+                                            {testimonial.role}
+                                        </span>
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
         </div>
-        <Testimonial showWatchTestimonials={false} />
     </div>
 </BaseLayout>
 
 <style lang="less">
+    .main-content-wrapper {
+        background-color: var(--backgroundColor);
+    }
     .testimonials-container {
         max-width: 1280px;
         margin: 0 auto;
@@ -66,7 +184,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom: 2rem;
         text-align: center;
         color: var(--color-text);
@@ -83,10 +201,80 @@ const optimizedImage = await getOptimizedImage(landingImage);
         border-radius: 1rem;
         overflow: hidden;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-        :global(lite-youtube) {
-            border-radius: 1rem;
-            overflow: hidden;
+    .short-testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin: 0 auto;
+        max-width: 1280px;
+    }
+
+    .testimonials-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 0 auto;
+        max-width: 1280px;
+    }
+
+    .full-testimonial {
+        background: #fff;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .testimonial-content {
+        padding: 2rem;
+        flex-grow: 1;
+        position: relative;
+
+        .quote-icon {
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            white-space: pre-wrap;
+            line-height: 1.6;
+            color: var(--color-text);
+            font-size: clamp(0.875rem, 1.6vw, 1.25rem);
+        }
+    }
+
+    .testimonial-author {
+        padding: 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        .name {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        span {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+    }
+
+    .display-font {
+        font-family: var(--displayFont);
+    }
+
+    @media (max-width: 1024px) {
+        .short-testimonials-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .testimonials-list {
+            grid-template-columns: 1fr;
         }
     }
 
@@ -95,8 +283,14 @@ const optimizedImage = await getOptimizedImage(landingImage);
             padding: 1rem;
         }
 
-        .video-grid {
+        .video-grid,
+        .short-testimonials-grid {
             grid-template-columns: 1fr;
+        }
+
+        h2 {
+            font-size: 2rem;
+            padding: 0 1rem;
         }
     }
 </style>

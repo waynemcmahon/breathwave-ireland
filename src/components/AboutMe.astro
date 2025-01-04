@@ -3,7 +3,7 @@ import { Picture, Image } from "astro:assets";
 import Button from "@components/ui/button.astro";
 
 import image1 from "@assets/images/aboutme/aboutme1-1x.png";
-import image1_2x from "@assets/images/aboutme/ronan-trees.jpg";
+import image1_2x from "@assets/images/aboutme/aboutme-ronan.jpeg";
 import image2 from "@assets/images/aboutme/aboutme2-1x.png";
 import image2_2x from "@assets/images/aboutme/talk.jpg";
 import logoIcon from "@assets/images/logo_icon.png";
@@ -29,8 +29,8 @@ import logoIcon from "@assets/images/logo_icon.png";
                 <Picture
                     src={image1_2x}
                     alt="image2"
-                    width={370}
-                    height={370}
+                    width={400}
+                    height={400}
                     class="rounded-2xl aspect-square"
                     sizes="(max-width: 600px) 50vw, (max-width: 1200px) 50vw, 370px"
                 />
@@ -181,15 +181,15 @@ import logoIcon from "@assets/images/logo_icon.png";
             .cs-picture1 {
                 /* the percentage heights allow them to be responsive to the height of the parent cs-image-group. On desktop, when the felxbox is set to aling-items: stretch, the cs-image group will stretch to fill the height of the parent container. So when you add more content to the cs-content group and make it taller, the cs-image group will get taller with it and every image will stretch with the parent, making this entire group responsive to the changing amounts of content next to it */
                 width: (490/16em);
-                height: 79.617834%;
+                height: (490/16em);
                 top: 0;
                 left: 0;
                 z-index: -1;
             }
 
             .cs-picture2 {
-                width: (370/16em);
-                height: 60.585987%;
+                width: (420/16em);
+                height: (420/16em);
                 bottom: 0;
                 right: 0;
                 z-index: 10;

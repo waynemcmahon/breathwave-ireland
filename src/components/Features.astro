@@ -1,9 +1,7 @@
 ---
-import client from "@data/client.json";
 import { Picture, Image } from "astro:assets";
 import logoIcon from "@assets/images/logo_icon.png";
 import image1 from "@assets/images/features/image1.png";
-import image2 from "@assets/images/features/image2.png";
 import image3 from "@assets/images/features/image3.jpg";
 import CalendarIcon from "@assets/icons/calendar.astro";
 import CommunityIcon from "@assets/icons/community.astro";
@@ -49,9 +47,9 @@ import RetreatIcon from "@assets/icons/retreat.astro";
             <div class="cs-picture cs-picture1">
                 <Picture
                     src={image3}
-                    alt="Breathwave Ireland"
+                    alt="Breathwave Retreat"
                     formats={["avif", "webp"]}
-                    width={546}
+                    width={364}
                     height={647}
                     sizes="(max-width: 600px) 80vw, (max-width: 1200px) 50vw, 546px"
                 />
@@ -60,10 +58,10 @@ import RetreatIcon from "@assets/icons/retreat.astro";
             <div class="cs-picture cs-picture2">
                 <Picture
                     src={image1}
-                    alt="Breathwave Ireland"
+                    alt="Ronan Breathwave"
                     formats={["avif", "webp"]}
-                    width={345}
-                    height={532}
+                    width={350}
+                    height={466}
                     sizes="(max-width: 600px) 50vw, (max-width: 1200px) 50vw, 345px"
                 />
             </div>
@@ -72,16 +70,6 @@ import RetreatIcon from "@assets/icons/retreat.astro";
 </section>
 <section id="steps-1674">
     <div class="cs-container">
-        <!-- <div class="cs-content">
-            <span class="cs-topper">Our Steps</span>
-            <h2 class="cs-title">
-                How Breathwave Ireland Supports Your Transformation
-            </h2>
-            <p class="cs-text">
-                Join us on a transformative journey with our step-by-step guide
-                to enhance your well-being.
-            </p>
-        </div> -->
         <ul class="cs-card-group">
             <li class="cs-item">
                 <span class="cs-number"
@@ -141,10 +129,6 @@ import RetreatIcon from "@assets/icons/retreat.astro";
     </div>
 </section>
 <style lang="less">
-    /*-- -------------------------- -->
-<---           Steps            -->
-<--- -------------------------- -*/
-
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
         #steps-1674 {
@@ -468,9 +452,10 @@ import RetreatIcon from "@assets/icons/retreat.astro";
             bottom: 0;
         }
         #sbsr-2202 .cs-picture2 {
-            width: 21.5625em;
-            height: 31.875em;
-
+            width: 21.875em;
+            height: 29.125em;
+            /*    width: 21.5625em;
+            height: 31.875em; */
             top: 0;
             right: 0;
         }
@@ -516,9 +501,9 @@ import RetreatIcon from "@assets/icons/retreat.astro";
         #sbsr-2202 .cs-picture1 {
             height: 74.960128%;
         }
-        #sbsr-2202 .cs-picture2 {
+        /*         #sbsr-2202 .cs-picture2 {
             height: 81.339719%;
-        }
+        } */
     }
     /* Dark Mode */
     @media only screen and (min-width: 0rem) {
