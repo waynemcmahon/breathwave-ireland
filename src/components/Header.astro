@@ -40,10 +40,11 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
       <ul
         id="cs-expanded"
         class="lg:flex items-end lg:space-x-4 lg:pr-4 lg:mr-4 cs-ul"
+        role="menubar"
       >
         {
           navData.map((entry) => (
-            <li class="menu-item">
+            <li class="menu-item" role="none">
               <a
                 href={entry.url}
                 class:list={[{ active: Astro.url.pathname === entry.url }]}
@@ -51,77 +52,65 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
                   Astro.url.pathname === entry.url ? "page" : undefined
                 }
                 target={entry.target}
+                role="menuitem"
               >
                 {entry.key}
               </a>
             </li>
           ))
         }
-        <div class="divider h-[20px] !ml-8 w-[1px] bg-white hidden lg:block">
+        <div
+          class="divider h-[20px] !ml-8 w-[1px] bg-white hidden lg:block"
+          aria-hidden="true"
+        >
         </div>
-        <!-- <li class="text-foreground hover:text-primary lg:pl-4 lg:ml-4">
-          <a
-            href="/contact"
-            class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
-          >
-            <MailIcon />
-          </a>
-        </li> -->
+
+        {/* Social Media Links */}
         {
           clientData.instagram && (
-            <li class="text-foreground hover:text-primary lg:ml-4">
+            <li class="text-foreground hover:text-primary lg:ml-4" role="none">
               <a
                 href={clientData.instagram}
                 target="_blank"
-                aria-label="instagram"
+                aria-label="Visit our Instagram page"
                 class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
+                role="menuitem"
               >
-                <InstagramIcon />
+                <InstagramIcon aria-hidden="true" />
               </a>
             </li>
           )
         }
         {
           clientData.facebook && (
-            <li class="text-foreground hover:text-primary ml-4">
+            <li class="text-foreground hover:text-primary ml-4" role="none">
               <a
                 href={clientData.facebook}
                 target="_blank"
-                aria-label="facebook"
+                aria-label="Visit our Facebook page"
                 class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
+                role="menuitem"
               >
-                <FacebookIcon />
+                <FacebookIcon aria-hidden="true" />
               </a>
             </li>
           )
         }
         {
           clientData.youtube && (
-            <li class="text-foreground hover:text-primary lg:ml-4">
+            <li class="text-foreground hover:text-primary lg:ml-4" role="none">
               <a
                 href={clientData.youtube}
                 target="_blank"
-                aria-label="youtube"
+                aria-label="Visit our YouTube channel"
                 class="flex items-center justify-center h-10 w-10 border border-foreground/10 hover:border-2 transition duration-200 rounded-full"
+                role="menuitem"
               >
-                <YoutubeIcon width="14" height="14" />
+                <YoutubeIcon width="14" height="14" aria-hidden="true" />
               </a>
             </li>
           )
         }
-
-        <!-- <button
-          onClick={toggleTheme}
-          className="ml-4 p-2 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors duration-200"
-        >
-          {
-            theme === "dark" ? (
-              <Sun className="h-5 w-5 text-foreground animate-spin-once" />
-            ) : (
-              <Moon className="h-5 w-5 text-foreground animate-spin-once" />
-            )
-          }
-        </button> -->
       </ul>
     </nav>
 
@@ -129,7 +118,7 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
     <button
       class="hamburger-menu"
       id="mobile-menu-toggle"
-      aria-label="mobile menu toggle"
+      aria-label="Toggle mobile menu"
       aria-expanded="false"
       aria-controls="cs-expanded"
     >
@@ -137,7 +126,6 @@ import YoutubeIcon from "@assets/icons/youtube.astro";
     </button>
   </div>
 </div>
-<!-- # -->
 
 <style lang="less">
   /*-- -------------------------- -->
