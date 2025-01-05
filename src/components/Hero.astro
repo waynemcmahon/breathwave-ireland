@@ -382,7 +382,6 @@ const desktopImagex2 = await getImage({
         // Start of Selection
         background-image: url("/assets/images/hero.jpg");
         //background-size: cover;
-        //background-position: 0 -300px;
         background-repeat: no-repeat;
         background-size: cover;
         /* creates parallax effect on background image */
@@ -395,6 +394,12 @@ const desktopImagex2 = await getImage({
             display: none;
           }
         }
+      }
+    }
+
+    @media only screen and (min-width: 2400px) {
+      #hero-997 {
+        background-position: 0 -300px;
       }
     }
   </style>
