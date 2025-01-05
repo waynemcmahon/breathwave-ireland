@@ -101,7 +101,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
     form?.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const formData = form;
+      const formData = new FormData(form);
 
       fetch("/", {
         method: "POST",
