@@ -70,7 +70,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
 
                 <form
                     class="cs-form"
-                    id="cs-form-322"
+                    id="booking-form"
                     method="POST"
                     data-netlify="true"
                     name="booking"
@@ -183,7 +183,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
 
 <script is:inline>
     document.addEventListener("astro:page-load", () => {
-        const form = document.getElementById("cs-form-322");
+        const form = document.getElementById("booking-form");
         const message = document.getElementById("result");
 
         form?.addEventListener("submit", function (event) {
