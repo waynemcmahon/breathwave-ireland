@@ -1,9 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import { formatDate } from "@libs/utils.js";
 import Landing from "@components/Landing.astro";
+import arrowLeft from "@assets/icons/arrow-left.svg";
 import "@styles/blog.less";
 
 import { getOptimizedImage } from "@libs/utils";
@@ -32,6 +33,16 @@ const { Content } = await post.render();
 >
     <Landing title="Podcasts" image={landingImage} />
     <div class="blog-container main-content-wrapper">
+        <a href="/podcasts" class="self-start">
+            <Picture
+                src={arrowLeft}
+                alt="Back to Podcasts"
+                class="inline-block mr-2 text-primary"
+                width="20"
+                height="20"
+            />
+            Back to Podcasts
+        </a>
         <div class="main-content">
             <article class="blog-article">
                 <picture class="blog-mainImage">
@@ -58,6 +69,7 @@ const { Content } = await post.render();
                     <a
                         href={post.data.url}
                         class="flex items-center gap-4 my-8"
+                        target="_blank"
                     >
                         <div
                             class="bg-secondary hover:bg-primary transition-all duration-300 rounded-full w-[58px] h-[58px] flex items-center justify-center"

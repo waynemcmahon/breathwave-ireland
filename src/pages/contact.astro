@@ -93,33 +93,35 @@ const optimizedImage = await getOptimizedImage(landingImage);
   </section>
 </BaseLayout>
 
-<script>
-  const form = document.getElementById("cs-form-322") as HTMLFormElement;
-  const message = document.getElementById("result");
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const form = document.getElementById("cs-form-322");
+    const message = document.getElementById("result");
 
-  form?.addEventListener("submit", function (event) {
-    event.preventDefault();
+    form?.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    const formData = new FormData(form as HTMLFormElement);
+      const formData = form;
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString(),
-    })
-      .then(() => {
-        if (message) {
-          message.classList.add("submitted");
-          message.textContent = "Your message has been sent!";
-        }
-        form.reset();
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
       })
-      .catch((error) => {
-        if (message) {
-          message.classList.add("error");
-          message.textContent = `Submission failed: ${error}`;
-        }
-      });
+        .then(() => {
+          if (message) {
+            message.classList.add("submitted");
+            message.textContent = "Your message has been sent!";
+          }
+          form.reset();
+        })
+        .catch((error) => {
+          if (message) {
+            message.classList.add("error");
+            message.textContent = `Submission failed: ${error}`;
+          }
+        });
+    });
   });
 </script>
 

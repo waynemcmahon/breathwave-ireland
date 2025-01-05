@@ -32,7 +32,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
                         <a
                             href={`/podcasts/${podcast.slug}`}
                             class="podcast-item"
-                            target="_blank"
                         >
                             <div class="podcast-image-container">
                                 {podcast.data.image && (
@@ -127,7 +126,6 @@ const optimizedImage = await getOptimizedImage(landingImage);
         border-radius: 1rem;
         overflow: hidden;
         margin-bottom: 1.5rem;
-        aspect-ratio: 16/9;
         width: 100%;
         height: 340px;
 

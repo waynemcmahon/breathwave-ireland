@@ -387,63 +387,49 @@ import thumbnail from "@assets/images/hero/thumbnail.png";
     }
 </style>
 
-<script>
-    const video = document.getElementById("sbs-video") as HTMLVideoElement;
-    const videoContainer = document.getElementById(
-        "sbs-video-container",
-    ) as HTMLElement;
-    const thumbnail = videoContainer.querySelector(
-        ".thumbnail-img",
-    ) as HTMLImageElement;
-    let videoLoaded = false;
+<script is:inline>
+    document.addEventListener("astro:page-load", () => {
+        const video = document.getElementById("sbs-video");
+        const videoContainer = document.getElementById("sbs-video-container");
+        const thumbnail = videoContainer.querySelector(".thumbnail-img");
+        let videoLoaded = false;
 
-    videoContainer.onclick = () => {
-        const playButton = document.querySelector(
-            ".play-button",
-        ) as HTMLButtonElement;
+        videoContainer.onclick = () => {
+            const playButton = document.querySelector(".play-button");
 
-        if (!videoLoaded) {
-            // Load the video for the first time
-            //video.src = video.dataset.src || "";
-            videoLoaded = true;
+            if (!videoLoaded) {
+                videoLoaded = true;
 
-            // Add event listener for when video starts playing
-            video.addEventListener(
-                "playing",
-                () => {
-                    video.classList.remove("hidden");
-                    thumbnail.classList.add("hidden");
-                },
-                { once: true },
-            );
-        }
+                video.addEventListener(
+                    "playing",
+                    () => {
+                        video.classList.remove("hidden");
+                        thumbnail.classList.add("hidden");
+                    },
+                    { once: true },
+                );
+            }
 
-        if (video.paused) {
-            video.play();
-            playButton.style.opacity = "0";
-            video.controls = true;
-        } else {
-            video.pause();
+            if (video.paused) {
+                video.play();
+                playButton.style.opacity = "0";
+                video.controls = true;
+            } else {
+                video.pause();
+                playButton.style.opacity = "1";
+                video.controls = false;
+            }
+        };
+
+        // Reset play button when video ends
+        video.addEventListener("ended", () => {
+            const playButton = document.querySelector(".play-button");
             playButton.style.opacity = "1";
             video.controls = false;
-        }
-    };
+            thumbnail.classList.remove("hidden");
+        });
 
-    // Reset play button when video ends
-    video.addEventListener("ended", () => {
-        const playButton = document.querySelector(
-            ".play-button",
-        ) as HTMLButtonElement;
-        playButton.style.opacity = "1";
-        video.controls = false;
-        // Show thumbnail again when video ends
-        thumbnail.classList.remove("hidden");
-    });
-
-    // Set up video source after page load
-    document.addEventListener("DOMContentLoaded", () => {
-        // Store the video source in a data attribute
-        //video.dataset.src = "/src/assets/videos/intro.mp4";
+        // Set up video source after page load
         video.controls = false;
     });
 </script>
