@@ -10,7 +10,6 @@ const {
   description,
   title,
   preloadedImage,
-  socialShareImageUrl,
   disableTransitions = false,
 } = Astro.props;
 ---
@@ -69,6 +68,22 @@ const {
     <link rel="manifest" href="/assets/favicons/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#58342c" />
     <meta name="theme-color" content="#ffffff" />
+
+    <link rel="preload" as="image" href="/assets/svgs/logo-white.svg" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/otf"
+      href="/assets/fonts/CodeBold.otf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/otf"
+      href="/assets/fonts/Manrope.otf"
+      crossorigin
+    />
 
     <title>
       {
