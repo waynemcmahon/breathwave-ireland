@@ -6,12 +6,18 @@ import Footer from "@components/Footer.astro";
 import "@styles/root.less";
 import "@styles/dark.less";
 
-const { description, title, preloadedImage, socialShareImageUrl } = Astro.props;
+const {
+  description,
+  title,
+  preloadedImage,
+  socialShareImageUrl,
+  disableTransitions = false,
+} = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <ViewTransitions />
+    {!disableTransitions && <ViewTransitions />}
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
