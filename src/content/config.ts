@@ -18,6 +18,7 @@ const eventsCollection = defineCollection({
 			imageAlt: z.string(),
 			tags: z.array(z.string()),
 			location: z.string().optional(),
+			soldOut: z.boolean().default(false),
 		}),
 });
 

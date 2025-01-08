@@ -32,9 +32,12 @@ const {
   location,
   price,
   paymentLink,
+  soldOut,
 } = post.data;
 const socialShareImageUrl = await getOptimizedImage(image);
 const { Content } = await post.render();
+
+console.log(soldOut);
 ---
 
 <BaseLayout
@@ -74,7 +77,17 @@ const { Content } = await post.render();
           {
             paymentLink && (
               <div class="flex justify-center items-center pb-8">
-                <Button href={paymentLink} text="Book Now" />
+                {new Date(date) < new Date() ? (
+                  <div class="font-bold text-primary text-lg self-center">
+                    This event has already passed.
+                  </div>
+                ) : soldOut ? (
+                  <div class="font-bold text-primary text-lg self-center">
+                    Sold Out
+                  </div>
+                ) : (
+                  <Button href={paymentLink} text="Book Now" />
+                )}
               </div>
             )
           }

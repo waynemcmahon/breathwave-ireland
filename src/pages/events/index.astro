@@ -73,7 +73,14 @@ const optimizedImage = await getOptimizedImage(landingImage);
                 </div>
                 <h2 class="blog-h1">{post.data.title}</h2>
                 <p class="blog-desc">{post.data.description}</p>
-                <Button href={post.slug} text="See Details" />
+                <div class="flex flex-row gap-2 justify-between align-middle">
+                  <Button href={post.slug} text="See Details" />
+                  {post.data.soldOut && (
+                    <div class="font-bold text-primary text-lg self-center">
+                      Sold Out
+                    </div>
+                  )}
+                </div>
               </div>
             </article>
           ))
