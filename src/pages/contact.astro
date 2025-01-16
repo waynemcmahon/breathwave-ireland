@@ -98,7 +98,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
     const form = document.getElementById("contact-form");
     const message = document.getElementById("result");
 
-    form?.addEventListener("submit", function (event) {
+    form.addEventListener("submit", function (event) {
       event.preventDefault();
 
       const formData = new FormData(form);
