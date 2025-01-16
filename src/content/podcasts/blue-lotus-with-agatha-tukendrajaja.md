@@ -21,5 +21,3 @@ In this enlightening episode, we delve into the mystical world of the blue lotus
 - The science behind blue lotus's effects on consciousness
 - Responsible approaches to working with sacred plants
 - Personal experiences and insights from Agatha's research
-
-[Show notes and resources mentioned in this episode]

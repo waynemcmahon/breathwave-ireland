@@ -20,5 +20,3 @@ In this episode, we dive deep into the fascinating world of vocal resonance with
 - Practical exercises for vocal resonance
 - How voice work can enhance your meditation practice
 - Stories from Savanna's personal journey
-
-[Show notes and resources mentioned in this episode] 

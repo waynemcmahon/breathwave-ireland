@@ -15,7 +15,7 @@ const optimizedImage = await getOptimizedImage(landingImage);
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts.map((entry) => ({
-    params: { post: entry.slug },
+    params: { post: entry.id },
     props: { post: entry },
   }));
 }
