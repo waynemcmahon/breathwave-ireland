@@ -1,16 +1,16 @@
 # Redirects from old Breathwave Ireland site to new site
-/ https://www.breathwaveireland.com/home 301
-/ronan-obrien/ https://www.breathwaveireland.com/about 301
-/online-breathwave/ https://www.breathwaveireland.com/about 301
-/retreats-breathwork/ https://www.breathwaveireland.com/events 301
-/testimonials/ https://www.breathwaveireland.com/testimonials 301
-/body-of-breath-festival/ https://www.breathwaveireland.com/body-of-breath-festival 301
-/join-breathwave-ireland/ https://www.breathwaveireland.com/about 301
-/contact/ https://www.breathwaveireland.com/contact 301
-/shop/ https://www.breathwaveireland.com/book 301
-/the-benefits-of-breathwork/ https://www.breathwaveireland.com/about 301
-/history-of-breathwork-as-a-tool-for-self-purpose/ https://www.breathwaveireland.com/about 301
-/spirit-of-folk-festival/ https://www.breathwaveireland.com/events 301
+/ https://breathwaveireland.com/home 301
+/ronan-obrien/ https://breathwaveireland.com/about 301
+/online-breathwave/ https://breathwaveireland.com/about 301
+/retreats-breathwork/ https://breathwaveireland.com/events 301
+/testimonials/ https://breathwaveireland.com/testimonials 301
+/body-of-breath-festival/ https://breathwaveireland.com/body-of-breath-festival 301
+/join-breathwave-ireland/ https://breathwaveireland.com/about 301
+/contact/ https://breathwaveireland.com/contact 301
+/shop/ https://breathwaveireland.com/book 301
+/the-benefits-of-breathwork/ https://breathwaveireland.com/about 301
+/history-of-breathwork-as-a-tool-for-self-purpose/ https://breathwaveireland.com/about 301
+/spirit-of-folk-festival/ https://breathwaveireland.com/events 301
 
 # Fallback: If no redirects match, send to homepage
-/* https://www.breathwaveireland.com/ 301
+/* https://breathwaveireland.com/ 301
