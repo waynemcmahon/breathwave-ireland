@@ -1,5 +1,5 @@
 ---
-title: The Community Architect - Worthwhile Conversations with Ronan O'Brien
+title: Dealing with Crohns & Auto Immune disorders with Jullie Callary
 description: Join us for a heartfelt conversation with Julie Callary as she shares her journey with Crohn's disease and her experiences with natural healing practices.
 guest: Julie Callary
 role: Yoga Instructor and Mother
