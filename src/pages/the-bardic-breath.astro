@@ -2,7 +2,6 @@
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import CTA from "@components/CTA.astro";
 import Landing from "@components/Landing.astro";
-import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
 import coverImage from "@assets/images/books/the-bardic-breath-cover.jpg";
 
@@ -47,21 +46,6 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
                     level of awareness to the type of topics we all experience
                     as humans.
                 </p>
-
-                <ul class="cs-card-group">
-                    <li class="cs-item">
-                        <Icon name="book-spiral" class="cs-item-icon" />
-                        Self Awareness
-                    </li>
-                    <li class="cs-item">
-                        <Icon name="book-tree" class="cs-item-icon" />
-                        Embodiment &amp; Connection
-                    </li>
-                    <li class="cs-item">
-                        <Icon name="book-quill" class="cs-item-icon" />
-                        Creativity &amp; Expression
-                    </li>
-                </ul>
 
                 <p class="cs-hook">
                     What if the wisdom you're searching for isn't ahead of you,
@@ -239,44 +223,7 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
                 color: var(--headerColor);
             }
 
-            .cs-card-group {
-                width: 100%;
-                margin: (8/16rem) 0 (24/16rem) 0;
-                padding: 0;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-                gap: clamp(0.75rem, 2vw, 1.25rem);
-            }
-
-            .cs-item {
-                font-size: (16/16rem);
-                font-weight: 700;
-                list-style: none;
-                text-align: center;
-                /* 16px - 24px */
-                padding: clamp(1rem, 3vw, 1.5rem);
-                box-sizing: border-box;
-                background-color: #f7f7f7;
-                border: 1px solid #e8e8e8;
-                border-radius: (16/16rem);
-                color: var(--headerColor);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: (12/16rem);
-
-                &:before {
-                    display: none;
-                }
-            }
-
-            .cs-item-icon {
-                width: (40/16rem);
-                height: (40/16rem);
-                color: var(--primary);
-            }
-
-            ul:not(.cs-card-group) {
+            ul {
                 padding-left: (24/16rem);
                 margin: 0 0 (24/16rem) 0;
                 color: var(--bodyTextColor);
@@ -419,16 +366,6 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
                 }
 
                 .cs-byline {
-                    color: var(--primaryLight);
-                }
-
-                .cs-item {
-                    background-color: rgba(0, 0, 0, 0.2);
-                    border-color: rgba(255, 255, 255, 0.2);
-                    color: var(--bodyTextColorWhite);
-                }
-
-                .cs-item-icon {
                     color: var(--primaryLight);
                 }
 
