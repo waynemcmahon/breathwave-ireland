@@ -1,0 +1,383 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import CTA from "@components/CTA.astro";
+import Landing from "@components/Landing.astro";
+import { Picture } from "astro:assets";
+import coverImage from "@assets/images/books/the-bardic-breath-cover.jpg";
+
+import { getOptimizedImage } from "@libs/utils";
+import landingImage from "@assets/images/landing.jpg";
+const optimizedImage = await getOptimizedImage(landingImage);
+
+const amazonLink = "https://amzn.eu/d/0g6xyQON";
+---
+
+<BaseLayout
+    title="The Bardic Breath — Book by Ronan O'Brien"
+    description="The Bardic Breath: Poems and Practices for Reconnecting with Your Ancient Self, by Ronan O'Brien. A collection of poetry and spoken word rooted in the ancient traditions of Ireland's Bards and Druids. Available to order now on Amazon."
+    preloadedImage={optimizedImage}
+>
+    <Landing title="The Bardic Breath" image={landingImage} />
+    <section id="book-page">
+        <div class="cs-container">
+            <div class="cs-image-group">
+                <div class="cs-cover">
+                    <Picture
+                        src={coverImage}
+                        alt="The Bardic Breath book cover"
+                        width={542}
+                        height={813}
+                    />
+                </div>
+            </div>
+            <div class="cs-content">
+                <span class="cs-topper">Book Release</span>
+                <h1 class="cs-title">The Bardic Breath</h1>
+                <p class="cs-subtitle">
+                    Poems and Practices for Reconnecting with Your Ancient Self
+                </p>
+                <p class="cs-byline">by Ronan O'Brien</p>
+
+                <p class="cs-lead">
+                    The Bardic Breath is the kind of book you never really
+                    finish but often keep coming back to. Its poetic insights
+                    are not asking you to always agree with them, they are
+                    asking more from you to ponder with. The book opens another
+                    level of awareness to the type of topics we all experience
+                    as humans.
+                </p>
+
+                <p class="cs-hook">
+                    What if the wisdom you're searching for isn't ahead of you,
+                    but underneath you, waiting in the breath you take a
+                    thousand times a day?
+                </p>
+
+                <p>
+                    The Bardic Breath is a collection of poetry and spoken word
+                    born from years of guided breathing meditations, written by
+                    Ronan O'Brien during a time when the world needed grounding
+                    more than ever. Rooted in the ancient traditions of
+                    Ireland's Bards and Druids, these pages weave together
+                    ceremony, nature, and raw human honesty into something you
+                    can feel as much as read.
+                </p>
+
+                <h2>Inside, you'll find:</h2>
+                <ul>
+                    <li>
+                        Poems that call in the seven directions and reconnect
+                        you with the elements
+                    </li>
+                    <li>
+                        Reflections on self love, resilience, and letting go of
+                        who you used to be
+                    </li>
+                    <li>
+                        Ceremony scripts you can use alone or in circle with
+                        others
+                    </li>
+                    <li>
+                        Meditations on grounding, presence, and the quiet power
+                        of your own voice
+                    </li>
+                    <li>
+                        Threads of Celtic symbolism, including Ogham and the
+                        wisdom of the Yew, woven through modern insight
+                    </li>
+                </ul>
+
+                <p>
+                    This is not a book you rush through. It's one you return
+                    to, breath by breath, page by page, whenever life asks you
+                    to slow down and remember who you are.
+                </p>
+                <p>
+                    Whether you're deepening a breathwork practice, exploring
+                    your Irish and Celtic roots, or simply looking for words
+                    that meet you where you are, The Bardic Breath offers a
+                    companion for the journey back to yourself.
+                </p>
+                <p class="cs-closing">
+                    We are the ancestors of the future. This book is an
+                    invitation to breathe like you know it.
+                </p>
+
+                <blockquote class="cs-quote">
+                    <p>
+                        "I would genuinely compare this book to an Irish Tao Te
+                        Ching. I've studied the Tao Te Ching for years so I
+                        genuinely have basis for comparison also. Great to see
+                        an Irish Bardic style book like this in circulation."
+                    </p>
+                    <footer>— Ger Banks</footer>
+                </blockquote>
+
+                <a
+                    class="cs-button-solid"
+                    href={amazonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Order Your Copy on Amazon
+                </a>
+            </div>
+        </div>
+    </section>
+    <CTA />
+</BaseLayout>
+
+<style lang="less">
+    /*-- -------------------------- -->
+<---          Book Page         -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #book-page {
+            padding: var(--sectionPadding);
+            background-color: #fff;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+
+            .cs-container {
+                width: 100%;
+                max-width: (1280/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* 40px - 64px */
+                gap: clamp(2.5rem, 4vw, 4rem);
+                position: relative;
+            }
+
+            .cs-image-group {
+                width: 80%;
+                max-width: (400/16rem);
+            }
+
+            .cs-cover {
+                display: block;
+                border-radius: (8/16rem);
+                overflow: hidden;
+                box-shadow: 0 (20/16rem) (40/16rem) rgba(0, 0, 0, 0.25);
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+            }
+
+            .cs-content {
+                text-align: left;
+                width: 100%;
+                max-width: (738/16rem);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cs-title {
+                margin-bottom: (8/16rem);
+            }
+
+            .cs-subtitle {
+                font-size: (20/16rem);
+                line-height: 1.4em;
+                font-style: italic;
+                margin: 0 0 (12/16rem) 0;
+                color: var(--headerColor);
+            }
+
+            .cs-byline {
+                font-size: (20/16rem);
+                font-weight: 700;
+                margin: 0 0 (24/16rem) 0;
+                color: var(--primary);
+            }
+
+            .cs-lead,
+            .cs-hook {
+                font-size: (20/16rem);
+                line-height: 1.5em;
+                font-style: italic;
+                margin: 0 0 (16/16rem) 0;
+                color: var(--headerColor);
+            }
+
+            p {
+                font-size: var(--bodyFontSize);
+                line-height: 1.5em;
+                width: 100%;
+                margin: 0 0 (16/16rem) 0;
+                color: var(--bodyTextColor);
+            }
+
+            h2 {
+                font-size: (32/16rem);
+                font-weight: 700;
+                margin: (16/16rem) 0 (16/16rem) 0;
+                color: var(--headerColor);
+            }
+
+            ul {
+                padding-left: (24/16rem);
+                margin: 0 0 (24/16rem) 0;
+                color: var(--bodyTextColor);
+                display: flex;
+                flex-direction: column;
+                gap: (12/16rem);
+
+                li {
+                    font-size: var(--bodyFontSize);
+                    line-height: 1.5em;
+                    list-style: none;
+                    color: inherit;
+                    position: relative;
+
+                    &:before {
+                        /* custom list bullet */
+                        content: "";
+                        width: 3px;
+                        height: 3px;
+                        background: currentColor;
+                        opacity: 1;
+                        border-radius: 50%;
+                        position: absolute;
+                        display: block;
+                        top: (10/16rem);
+                        left: (-12/16rem);
+                    }
+                }
+            }
+
+            .cs-closing {
+                font-weight: 700;
+                color: var(--headerColor);
+            }
+
+            .cs-quote {
+                width: 100%;
+                margin: (8/16rem) 0 (32/16rem) 0;
+                padding: (24/16rem);
+                box-sizing: border-box;
+                background-color: #f7f7f7;
+                border-left: 4px solid var(--primary);
+                border-radius: 0 (16/16rem) (16/16rem) 0;
+
+                p {
+                    font-style: italic;
+                    margin: 0 0 (12/16rem) 0;
+                }
+
+                footer {
+                    font-size: (14/16rem);
+                    font-weight: 700;
+                    color: var(--headerColor);
+                }
+            }
+
+            .cs-button-solid {
+                font-size: (16/16rem);
+                /* 46px - 56px */
+                line-height: clamp(2.875em, 5.5vw, 3.5em);
+                text-decoration: none;
+                font-weight: 700;
+                text-align: center;
+                margin: 0;
+                color: #fff;
+                min-width: (150/16rem);
+                padding: 0 (32/16rem);
+                background-color: var(--primary);
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                box-sizing: border-box;
+                border-radius: (4/16rem);
+                overflow: hidden;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    width: 0%;
+                    background: #000;
+                    opacity: 1;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    transition: width 0.3s;
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #book-page {
+            .cs-container {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+
+            .cs-image-group {
+                width: 40%;
+                max-width: (450/16rem);
+                /* keeps the cover in view while scrolling the text */
+                position: sticky;
+                top: (120/16rem);
+                /* prevents flexbox from squishing it */
+                flex: none;
+            }
+
+            .cs-content {
+                width: 55%;
+                max-width: (674/16rem);
+                flex: none;
+            }
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #book-page {
+                background-color: var(--dark);
+
+                .cs-title,
+                .cs-subtitle,
+                .cs-lead,
+                .cs-hook,
+                .cs-closing,
+                h2,
+                p,
+                li {
+                    color: var(--bodyTextColorWhite);
+                }
+
+                .cs-byline {
+                    color: var(--primaryLight);
+                }
+
+                .cs-quote {
+                    background-color: rgba(0, 0, 0, 0.2);
+                    border-left-color: var(--primaryLight);
+
+                    footer {
+                        color: var(--bodyTextColorWhite);
+                    }
+                }
+            }
+        }
+    }
+</style>

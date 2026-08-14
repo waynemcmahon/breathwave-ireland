@@ -27,6 +27,10 @@
     "key": "Podcasts",
     "url": "/podcasts/"
   },
+  {
+    "key": "The Book",
+    "url": "/the-bardic-breath/"
+  },
     {
     "key": "Gift Card",
     "url": "https://buy.stripe.com/fZe7u83F47gR50ceV2",
