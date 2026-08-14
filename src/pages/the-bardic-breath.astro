@@ -47,34 +47,6 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
                     as humans.
                 </p>
 
-                <ul class="cs-pillars">
-                    <li class="cs-pillar">
-                        <span class="cs-pillar-icon" aria-hidden="true">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                                <path d="M24 24c0-2 2-4 4.5-4s5 2.5 5 5.5S30.5 32 26.5 32 18 28.5 18 23.5 22.5 13 28.5 13 40 18 40 25.5 34.5 40 26 40 10 33 10 23 17.5 6 27 6"></path>
-                            </svg>
-                        </span>
-                        <span class="cs-pillar-text">Self<br />Awareness</span>
-                    </li>
-                    <li class="cs-pillar">
-                        <span class="cs-pillar-icon" aria-hidden="true">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                                <path d="M24 34V16m0 4c-3-2-7-2-9-6m9 8c3-2 7-2 9-6m-9 2c-2-1.5-4-1.5-6-4m6 6c2-1.5 4-1.5 6-4M24 16c-2-2-3-4-2-8m2 8c2-2 3-4 2-8M14 40c3-3 6-4.5 10-4.5S31 37 34 40m-20-2.5c2.5-1 4-1.5 4-1.5m16 1.5c-2.5-1-4-1.5-4-1.5"></path>
-                            </svg>
-                        </span>
-                        <span class="cs-pillar-text">Embodiment &amp;<br />Connection</span>
-                    </li>
-                    <li class="cs-pillar">
-                        <span class="cs-pillar-icon" aria-hidden="true">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 38c0-10 6-22 24-28-4 12-6 24-18 26m-4 6c1-4 2-7 4-10"></path>
-                                <path d="M18 30c4 0 8-1 11-3"></path>
-                            </svg>
-                        </span>
-                        <span class="cs-pillar-text">Creativity &amp;<br />Expression</span>
-                    </li>
-                </ul>
-
                 <p class="cs-hook">
                     What if the wisdom you're searching for isn't ahead of you,
                     but underneath you, waiting in the breath you take a
@@ -92,7 +64,7 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
                 </p>
 
                 <h2>Inside, you'll find:</h2>
-                <ul class="cs-list">
+                <ul>
                     <li>
                         Poems that call in the seven directions and reconnect
                         you with the elements
@@ -140,23 +112,17 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
                     </p>
                     <footer>— Ger Banks</footer>
                 </blockquote>
+
+                <a
+                    class="cs-button-solid"
+                    href={amazonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Order Your Copy on Amazon
+                </a>
             </div>
         </div>
-
-        <div class="cs-order">
-            <span class="cs-order-banner">Available to Order <em>Now</em></span>
-            <a
-                class="cs-order-bar"
-                href={amazonLink}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <span class="cs-order-label">Order Your Copy on Amazon</span>
-                <span class="cs-order-arrow" aria-hidden="true">→</span>
-            </a>
-        </div>
-
-        <p class="cs-tagline">Breath is poetry. Life is the verse.</p>
     </section>
     <CTA />
 </BaseLayout>
@@ -166,18 +132,11 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
 <---          Book Page         -->
 <--- -------------------------- -*/
 
-    /* Palette taken from the book's cover & launch graphic */
-    @bookGreen: #16241c;
-    @bookGreenLight: #1e3128;
-    @bookGold: #c4a05a;
-    @bookOrange: #de8a2c;
-    @bookCream: #f0ead6;
-
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
         #book-page {
             padding: var(--sectionPadding);
-            background-color: @bookGreen;
+            background-color: #fff;
             overflow: hidden;
             position: relative;
             z-index: 1;
@@ -203,8 +162,7 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
                 display: block;
                 border-radius: (8/16rem);
                 overflow: hidden;
-                border: 1px solid fade(@bookGold, 40%);
-                box-shadow: 0 (20/16rem) (40/16rem) rgba(0, 0, 0, 0.45);
+                box-shadow: 0 (20/16rem) (40/16rem) rgba(0, 0, 0, 0.25);
 
                 img {
                     width: 100%;
@@ -222,15 +180,8 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
                 align-items: flex-start;
             }
 
-            .cs-topper {
-                letter-spacing: 0.35em;
-                text-transform: uppercase;
-                color: @bookGold;
-            }
-
             .cs-title {
                 margin-bottom: (8/16rem);
-                color: @bookCream;
             }
 
             .cs-subtitle {
@@ -238,98 +189,44 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
                 line-height: 1.4em;
                 font-style: italic;
                 margin: 0 0 (12/16rem) 0;
-                color: @bookGold;
+                color: var(--headerColor);
             }
 
             .cs-byline {
-                font-size: (18/16rem);
+                font-size: (20/16rem);
                 font-weight: 700;
-                letter-spacing: 0.1em;
                 margin: 0 0 (24/16rem) 0;
-                color: @bookCream;
+                color: var(--primary);
             }
 
-            .cs-lead {
-                font-size: (19/16rem);
-                line-height: 1.6em;
+            .cs-lead,
+            .cs-hook {
+                font-size: (20/16rem);
+                line-height: 1.5em;
                 font-style: italic;
-                width: 100%;
-                margin: 0 0 (32/16rem) 0;
-                padding-bottom: (24/16rem);
-                border-bottom: 1px solid fade(@bookGold, 35%);
-                color: @bookCream;
+                margin: 0 0 (16/16rem) 0;
+                color: var(--headerColor);
             }
 
             p {
                 font-size: var(--bodyFontSize);
-                line-height: 1.6em;
+                line-height: 1.5em;
                 width: 100%;
                 margin: 0 0 (16/16rem) 0;
-                color: #d9d5c5;
+                color: var(--bodyTextColor);
             }
 
             h2 {
-                font-size: (24/16rem);
+                font-size: (32/16rem);
                 font-weight: 700;
                 margin: (16/16rem) 0 (16/16rem) 0;
-                color: @bookGold;
+                color: var(--headerColor);
             }
 
-            .cs-pillars {
-                width: 100%;
-                margin: 0 0 (32/16rem) 0;
-                padding: 0;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: clamp(0.5rem, 2vw, 1.25rem);
-            }
-
-            .cs-pillar {
-                list-style: none;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: (12/16rem);
-                text-align: center;
-            }
-
-            .cs-pillar-icon {
-                /* 56px - 80px */
-                width: clamp(3.5rem, 8vw, 5rem);
-                height: clamp(3.5rem, 8vw, 5rem);
-                border: 2px solid @bookGold;
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: @bookGold;
-
-                svg {
-                    width: 60%;
-                    height: 60%;
-                }
-            }
-
-            .cs-pillar-text {
-                font-size: clamp(0.75rem, 1.8vw, 0.9375rem);
-                font-weight: 700;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                line-height: 1.4em;
-                color: @bookCream;
-            }
-
-            .cs-hook {
-                font-size: (19/16rem);
-                line-height: 1.6em;
-                font-style: italic;
-                color: @bookGold;
-            }
-
-            .cs-list {
-                width: 100%;
+            ul {
+                padding-left: (24/16rem);
                 margin: 0 0 (24/16rem) 0;
-                padding-left: (4/16rem);
+                color: var(--bodyTextColor);
                 display: flex;
                 flex-direction: column;
                 gap: (12/16rem);
@@ -338,122 +235,88 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
                     font-size: var(--bodyFontSize);
                     line-height: 1.5em;
                     list-style: none;
-                    color: #d9d5c5;
-                    padding-left: (24/16rem);
+                    color: inherit;
                     position: relative;
 
                     &:before {
-                        /* gold leaf-dot bullet */
+                        /* custom list bullet */
                         content: "";
-                        width: (8/16rem);
-                        height: (8/16rem);
-                        background: @bookGold;
-                        border-radius: 50% 0 50% 50%;
+                        width: 3px;
+                        height: 3px;
+                        background: currentColor;
+                        opacity: 1;
+                        border-radius: 50%;
                         position: absolute;
                         display: block;
-                        top: (8/16rem);
-                        left: 0;
+                        top: (10/16rem);
+                        left: (-12/16rem);
                     }
                 }
             }
 
             .cs-closing {
                 font-weight: 700;
-                color: @bookCream;
+                color: var(--headerColor);
             }
 
             .cs-quote {
                 width: 100%;
-                margin: (16/16rem) 0 0 0;
+                margin: (8/16rem) 0 (32/16rem) 0;
                 padding: (24/16rem);
                 box-sizing: border-box;
-                background-color: @bookGreenLight;
-                border-left: 4px solid @bookGold;
+                background-color: #f7f7f7;
+                border-left: 4px solid var(--primary);
                 border-radius: 0 (16/16rem) (16/16rem) 0;
 
                 p {
                     font-style: italic;
                     margin: 0 0 (12/16rem) 0;
-                    color: @bookCream;
                 }
 
                 footer {
                     font-size: (14/16rem);
                     font-weight: 700;
-                    color: @bookGold;
+                    color: var(--headerColor);
                 }
             }
 
-            .cs-order {
-                width: 100%;
-                max-width: (700/16rem);
-                margin: clamp(2.5rem, 5vw, 4rem) auto 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: (24/16rem);
-            }
-
-            .cs-order-banner {
-                font-size: clamp(1.25rem, 3.5vw, 1.9375rem);
-                font-weight: 700;
-                letter-spacing: 0.15em;
-                text-transform: uppercase;
-                text-align: center;
-                width: 100%;
-                padding: (16/16rem) (24/16rem);
-                box-sizing: border-box;
-                background-color: @bookCream;
-                /* brush-stroke feel */
-                border-radius: (60/16rem) (12/16rem) (60/16rem) (12/16rem);
-                color: #1a1a1a;
-
-                em {
-                    font-style: normal;
-                    color: @bookOrange;
-                }
-            }
-
-            .cs-order-bar {
-                font-size: (17/16rem);
+            .cs-button-solid {
+                font-size: (16/16rem);
+                /* 46px - 56px */
+                line-height: clamp(2.875em, 5.5vw, 3.5em);
                 text-decoration: none;
                 font-weight: 700;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-                width: 100%;
-                padding: (18/16rem) (32/16rem);
+                text-align: center;
+                margin: 0;
+                color: #fff;
+                min-width: (150/16rem);
+                padding: 0 (32/16rem);
+                background-color: var(--primary);
+                display: inline-block;
+                position: relative;
+                z-index: 1;
                 box-sizing: border-box;
-                background-color: @bookGreenLight;
-                border: 1px solid @bookGold;
-                border-radius: (60/16rem);
-                color: @bookCream;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: (16/16rem);
-                transition:
-                    background-color 0.3s,
-                    color 0.3s;
+                border-radius: (4/16rem);
+                overflow: hidden;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    width: 0%;
+                    background: #000;
+                    opacity: 1;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    transition: width 0.3s;
+                }
 
                 &:hover {
-                    background-color: @bookGold;
-                    color: #1a1a1a;
+                    &:before {
+                        width: 100%;
+                    }
                 }
-            }
-
-            .cs-order-arrow {
-                font-size: (22/16rem);
-                line-height: 1;
-            }
-
-            .cs-tagline {
-                font-size: clamp(1rem, 2.5vw, 1.25rem);
-                font-style: italic;
-                letter-spacing: 0.25em;
-                text-transform: uppercase;
-                text-align: center;
-                margin: clamp(2rem, 4vw, 3rem) auto 0;
-                color: @bookGold;
             }
         }
     }
@@ -485,11 +348,35 @@ const amazonLink = "https://amzn.eu/d/0g6xyQON";
         }
     }
 
-    /* Dark Mode — section is already dark by design, keep it identical */
+    /* Dark Mode */
     @media only screen and (min-width: 0rem) {
         body.dark-mode {
             #book-page {
-                background-color: @bookGreen;
+                background-color: var(--dark);
+
+                .cs-title,
+                .cs-subtitle,
+                .cs-lead,
+                .cs-hook,
+                .cs-closing,
+                h2,
+                p,
+                li {
+                    color: var(--bodyTextColorWhite);
+                }
+
+                .cs-byline {
+                    color: var(--primaryLight);
+                }
+
+                .cs-quote {
+                    background-color: rgba(0, 0, 0, 0.2);
+                    border-left-color: var(--primaryLight);
+
+                    footer {
+                        color: var(--bodyTextColorWhite);
+                    }
+                }
             }
         }
     }
