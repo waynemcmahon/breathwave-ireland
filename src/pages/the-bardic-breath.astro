@@ -1,0 +1,318 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import CTA from "@components/CTA.astro";
+import Landing from "@components/Landing.astro";
+import { Picture } from "astro:assets";
+import coverImage from "@assets/images/books/the-bardic-breath-cover.jpg";
+
+import { getOptimizedImage } from "@libs/utils";
+import landingImage from "@assets/images/landing.jpg";
+const optimizedImage = await getOptimizedImage(landingImage);
+
+const amazonLink = "https://amzn.eu/d/0g6xyQON";
+---
+
+<BaseLayout
+    title="The Bardic Breath — Book by Ronan O'Brien"
+    description="The Bardic Breath by Ronan O'Brien — a poetic journey into breath, awareness, embodiment and the landscapes within. Available to order now on Amazon."
+    preloadedImage={optimizedImage}
+>
+    <Landing title="The Bardic Breath" image={landingImage} />
+    <section id="book-page">
+        <div class="cs-container">
+            <div class="cs-image-group">
+                <div class="cs-cover">
+                    <Picture
+                        src={coverImage}
+                        alt="The Bardic Breath book cover"
+                        width={542}
+                        height={813}
+                    />
+                </div>
+            </div>
+            <div class="cs-content">
+                <span class="cs-topper">Book Release</span>
+                <h1 class="cs-title">The Bardic Breath</h1>
+                <p class="cs-byline">by Ronan O'Brien</p>
+                <p class="cs-lead">
+                    A poetic journey into breath, awareness, embodiment and the
+                    landscapes within.
+                </p>
+                <p>
+                    The Bardic Breath invites you into a unique poetic
+                    landscape. Unfolding this landscape aims to bridge self
+                    awareness with your unique path. Discover how your breath
+                    can hold space for your creative being.
+                </p>
+                <p>
+                    It's the kind of book you never really finish, but keep
+                    coming back to. Its poetic insights are not asking you to
+                    always agree with them — they are asking you to ponder with
+                    them. The book opens another level of awareness to the kind
+                    of topics we all experience as humans; some will resonate
+                    more than others.
+                </p>
+                <ul class="cs-card-group">
+                    <li class="cs-item">Self Awareness</li>
+                    <li class="cs-item">Embodiment &amp; Connection</li>
+                    <li class="cs-item">Creativity &amp; Expression</li>
+                </ul>
+                <blockquote class="cs-quote">
+                    <p>
+                        "I would genuinely compare this book to an Irish Tao Te
+                        Ching. I've studied the Tao Te Ching for years, so I
+                        genuinely have a basis for comparison. Great to see an
+                        Irish Bardic-style book like this in circulation."
+                    </p>
+                    <footer>— Ger Banks</footer>
+                </blockquote>
+                <a
+                    class="cs-button-solid"
+                    href={amazonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Order Your Copy on Amazon
+                </a>
+                <p class="cs-tagline">Breath is poetry. Life is the verse.</p>
+            </div>
+        </div>
+    </section>
+    <CTA />
+</BaseLayout>
+
+<style lang="less">
+    /*-- -------------------------- -->
+<---          Book Page         -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #book-page {
+            padding: var(--sectionPadding);
+            background-color: #fff;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+
+            .cs-container {
+                width: 100%;
+                max-width: (1280/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* 40px - 64px */
+                gap: clamp(2.5rem, 4vw, 4rem);
+                position: relative;
+            }
+
+            .cs-image-group {
+                width: 80%;
+                max-width: (400/16rem);
+            }
+
+            .cs-cover {
+                display: block;
+                border-radius: (8/16rem);
+                overflow: hidden;
+                box-shadow: 0 (20/16rem) (40/16rem) rgba(0, 0, 0, 0.25);
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+            }
+
+            .cs-content {
+                text-align: left;
+                width: 100%;
+                max-width: (738/16rem);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cs-title {
+                margin-bottom: (8/16rem);
+            }
+
+            .cs-byline {
+                font-size: (20/16rem);
+                font-weight: 700;
+                margin: 0 0 (24/16rem) 0;
+                color: var(--primary);
+            }
+
+            .cs-lead {
+                font-size: (20/16rem);
+                line-height: 1.5em;
+                font-style: italic;
+                margin: 0 0 (16/16rem) 0;
+                color: var(--headerColor);
+            }
+
+            p {
+                font-size: var(--bodyFontSize);
+                line-height: 1.5em;
+                width: 100%;
+                margin: 0 0 (16/16rem) 0;
+                color: var(--bodyTextColor);
+            }
+
+            .cs-card-group {
+                width: 100%;
+                margin: (8/16rem) 0 (24/16rem) 0;
+                padding: 0;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+                gap: clamp(0.75rem, 2vw, 1.25rem);
+            }
+
+            .cs-item {
+                font-size: (16/16rem);
+                font-weight: 700;
+                list-style: none;
+                text-align: center;
+                /* 16px - 24px */
+                padding: clamp(1rem, 3vw, 1.5rem);
+                box-sizing: border-box;
+                background-color: #f7f7f7;
+                border: 1px solid #e8e8e8;
+                border-radius: (16/16rem);
+                color: var(--headerColor);
+            }
+
+            .cs-quote {
+                width: 100%;
+                margin: 0 0 (32/16rem) 0;
+                padding: (24/16rem);
+                box-sizing: border-box;
+                background-color: #f7f7f7;
+                border-left: 4px solid var(--primary);
+                border-radius: 0 (16/16rem) (16/16rem) 0;
+
+                p {
+                    font-style: italic;
+                    margin: 0 0 (12/16rem) 0;
+                }
+
+                footer {
+                    font-size: (14/16rem);
+                    font-weight: 700;
+                    color: var(--headerColor);
+                }
+            }
+
+            .cs-button-solid {
+                font-size: (16/16rem);
+                /* 46px - 56px */
+                line-height: clamp(2.875em, 5.5vw, 3.5em);
+                text-decoration: none;
+                font-weight: 700;
+                text-align: center;
+                margin: 0;
+                color: #fff;
+                min-width: (150/16rem);
+                padding: 0 (32/16rem);
+                background-color: var(--primary);
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                box-sizing: border-box;
+                border-radius: (4/16rem);
+                overflow: hidden;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    width: 0%;
+                    background: #000;
+                    opacity: 1;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    transition: width 0.3s;
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .cs-tagline {
+                font-size: (18/16rem);
+                font-style: italic;
+                letter-spacing: 0.05em;
+                margin: (32/16rem) 0 0 0;
+                color: var(--primary);
+            }
+        }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #book-page {
+            .cs-container {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+
+            .cs-image-group {
+                width: 40%;
+                max-width: (450/16rem);
+                /* keeps the cover in view while scrolling the text */
+                position: sticky;
+                top: (120/16rem);
+                /* prevents flexbox from squishing it */
+                flex: none;
+            }
+
+            .cs-content {
+                width: 55%;
+                max-width: (674/16rem);
+                flex: none;
+            }
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #book-page {
+                background-color: var(--dark);
+
+                .cs-title,
+                .cs-lead,
+                p {
+                    color: var(--bodyTextColorWhite);
+                }
+
+                .cs-byline,
+                .cs-tagline {
+                    color: var(--primaryLight);
+                }
+
+                .cs-item,
+                .cs-quote {
+                    background-color: rgba(0, 0, 0, 0.2);
+                    border-color: rgba(255, 255, 255, 0.2);
+                    color: var(--bodyTextColorWhite);
+
+                    footer {
+                        color: var(--bodyTextColorWhite);
+                    }
+                }
+
+                .cs-quote {
+                    border-left-color: var(--primaryLight);
+                }
+            }
+        }
+    }
+</style>
