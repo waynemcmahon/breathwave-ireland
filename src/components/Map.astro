@@ -4,6 +4,14 @@ import phone from "@assets/icons/phone-gold.svg";
 import pin from "@assets/icons/pin-gold.svg";
 import clock from "@assets/icons/clock-gold.svg";
 import client from "@data/client.json";
+
+const addressLine = [
+    client.address.lineOne,
+    client.address.city,
+    client.address.zip,
+]
+    .filter(Boolean)
+    .join(", ");
 ---
 
 <div class="cs-right">
@@ -52,8 +60,7 @@ import client from "@data/client.json";
                 Address
             </span>
             <a href={client.address.mapLink} target="_blank" class="cs-link">
-                {client.address.lineOne}, {client.address.city}<br />
-                {client.address.zip}, Ireland
+                {addressLine}, Ireland
             </a>
         </li>
         <li class="cs-item">
